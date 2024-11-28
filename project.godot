@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+game_manager="*res://scripts/game_manager.gd"
+
 [layer_names]
 
 2d_physics/layer_1="Walls"
