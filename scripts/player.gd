@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 
-@export var speed: float = 200.0
+@export var speed: float = 400.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 enum PlayerState {IDLE, MOVING, MELEE}

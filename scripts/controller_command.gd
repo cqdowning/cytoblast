@@ -11,7 +11,7 @@ func _ready():
 	
 	# Ensure player starts in idle state
 	if player.has_method("change_state"):
-		player.change_state(0)  # 0 = PlayerState.IDLE
+		player.change_state(0) # 0 = PlayerState.IDLE
 
 func _process(_delta):
 	var direction = Vector2()
@@ -24,10 +24,9 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
 	
-	# Execute movement command
-	if direction != Vector2.ZERO:
-		var move_command = MoveCommand.new(direction)
-		move_command.execute(player)
+	# Execute movement or idle command
+	var move_command = MoveCommand.new(direction)
+	move_command.execute(player)
 	
 	# Execute melee command
 	if Input.is_action_just_pressed("attack"):

@@ -6,5 +6,5 @@ enum Status {
 	ERROR,
 }
 
-func execute(_player: CharacterBody2D) -> Status:  # Change Player to CharacterBody2D
+func execute(_player: CharacterBody2D) -> Status:
 	return Status.DONE
