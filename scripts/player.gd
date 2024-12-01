@@ -9,7 +9,7 @@ enum PlayerState {IDLE, MOVING, MELEE}
 var current_state: PlayerState = PlayerState.IDLE
 
 func _ready():
-	# ...existing code...
+	pass
 
 func _physics_process(delta):
 	if current_state != PlayerState.MELEE: # Don't interrupt melee animation
