@@ -7,35 +7,25 @@ extends CharacterBody2D
 
 enum PlayerState {IDLE, MOVING, MELEE}
 var current_state: PlayerState = PlayerState.IDLE
-var velocity: Vector2
 
 func _ready():
 	# ...existing code...
 
 func _physics_process(delta):
-	if current_state != PlayerState.MELEE:  # Don't interrupt melee animation
-		if velocity.length() < 0.1:  # Check if practically stopped
+	if current_state != PlayerState.MELEE: # Don't interrupt melee animation
+		# Apply movement
+		move_and_slide()
+		# Check if practically stopped
+		if velocity.length() < 0.1:
 			change_state(PlayerState.IDLE)
-
-func move_right():
-	move_and_slide(Vector2(speed, 0))
-
-func move_left():
-	move_and_slide(Vector2(-speed, 0))
-
-func move_up():
-	move_and_slide(Vector2(0, -speed))
-
-func move_down():
-	move_and_slide(Vector2(0, speed))
 
 func move(direction: Vector2):
 	velocity = direction.normalized() * speed
 	if direction.length() > 0:
-		move_and_slide()
 		change_state(PlayerState.MOVING)
 	else:
 		change_state(PlayerState.IDLE)
+		velocity = Vector2.ZERO # Stop movement when no direction
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:

@@ -1,8 +1,7 @@
 class_name ControllerCommand
 extends Node
 
-# Exported variable for the Player
-@export var player: Player
+@export var player: CharacterBody2D
 
 func _ready():
 	# Verify player reference exists
@@ -11,10 +10,10 @@ func _ready():
 		return
 	
 	# Ensure player starts in idle state
-	player.change_state(Player.PlayerState.IDLE)
-	# ...existing code...
+	if player.has_method("change_state"):
+		player.change_state(0)  # 0 = PlayerState.IDLE
 
-func _process(delta):
+func _process(_delta):
 	var direction = Vector2()
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
@@ -25,8 +24,12 @@ func _process(delta):
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
 	
-	player.move(direction)
+	# Execute movement command
+	if direction != Vector2.ZERO:
+		var move_command = MoveCommand.new(direction)
+		move_command.execute(player)
 	
+	# Execute melee command
 	if Input.is_action_just_pressed("attack"):
-		player.perform_melee()
-	# ...existing code...
+		var melee_command = MeleeCommand.new()
+		melee_command.execute(player)

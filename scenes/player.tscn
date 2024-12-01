@@ -6,6 +6,7 @@
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_k120h")
+speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
