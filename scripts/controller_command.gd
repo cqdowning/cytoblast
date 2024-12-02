@@ -30,5 +30,12 @@ func _process(_delta):
 	
 	# Execute melee command
 	if Input.is_action_just_pressed("attack"):
+		print("Attack pressed")
 		var melee_command = MeleeCommand.new()
 		melee_command.execute(player)
+	
+	# Execute dash command
+	if Input.is_action_just_pressed("dash"):
+		print("Dash pressed")
+		var dash_command = DashCommand.new(direction)
+		dash_command.execute(player)
