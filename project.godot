@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 game_manager="*res://scripts/game_manager.gd"
-player="*res://scripts/player.gd"
 
 [input]
 
