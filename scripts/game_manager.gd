@@ -5,6 +5,7 @@ extends Node
 var level_1:PackedScene = preload("res://scenes/test_level_1.tscn")
 var level_2:PackedScene = preload("res://scenes/test_level_2.tscn")
 var cur_scene = 1
+var enemies_remaining = 0;
 
 
 func _process(_delta: float) -> void:		

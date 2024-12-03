@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5t30ihg8qtj"]
+
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_h35xw"]
+[ext_resource type="Texture2D" uid="uid://c5nur23k3funu" path="res://assets/decal/dna_strand.png" id="1_la0rj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03t4k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjymg"]
+size = Vector2(0.9784, 20)
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_h35xw")
+
+[node name="Entrance" type="Area2D" parent="."]
+
+[node name="EntranceCollider" type="CollisionShape2D" parent="Entrance"]
+shape = SubResource("RectangleShape2D_03t4k")
+
+[node name="ExitDoor" type="RigidBody2D" parent="."]
+position = Vector2(39, 0)
+
+[node name="DoorSprite" type="Sprite2D" parent="ExitDoor"]
+texture = ExtResource("1_la0rj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+position = Vector2(-0.5, 0)
+rotation = -3.14159
+scale = Vector2(15.3311, -2.99801)
+shape = SubResource("RectangleShape2D_gjymg")
+
+[connection signal="body_entered" from="Entrance" to="." method="_on_entrance_body_entered"]
