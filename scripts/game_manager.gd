@@ -7,7 +7,7 @@ var level_2:PackedScene = preload("res://scenes/test_level_2.tscn")
 var cur_scene = 1
 
 
-func _process(delta: float) -> void:		
+func _process(_delta: float) -> void:		
 	# demo to switch between levels
 	if Input.is_action_just_pressed("ui_accept"):
 		if cur_scene == 1:
@@ -16,3 +16,7 @@ func _process(delta: float) -> void:
 		else:
 			get_tree().change_scene_to_packed(level_1)
 			cur_scene = 1
+			
+			
+func change_level(next_level:PackedScene):
+	get_tree().change_scene_to_packed(next_level)
