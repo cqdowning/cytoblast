@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwbkuy7imft8q"]
+[gd_scene load_steps=5 format=3 uid="uid://bwbkuy7imft8q"]
 
 [ext_resource type="PackedScene" uid="uid://4mm0njaxh7rp" path="res://scenes/test_level_1.tscn" id="1_h7hfd"]
 [ext_resource type="PackedScene" uid="uid://66l7cq75kuch" path="res://scenes/player.tscn" id="2_vxyx2"]
 [ext_resource type="Script" path="res://scripts/controller_command.gd" id="3_xiexl"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="4_jlxgj"]
 
 [node name="Main" type="Node2D"]
 
@@ -14,3 +15,7 @@ position = Vector2(211, 126)
 [node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_xiexl")
 player = NodePath("../Player")
+
+[node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
+script = ExtResource("4_jlxgj")
+subject = NodePath("../Player")
