@@ -14,7 +14,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAE
 tile_set = ExtResource("3_71whg")
 
 [node name="Walls" parent="." index="1"]
-tile_map_data = PackedByteArray("AAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAACAAAAAAADAAEAAAABAAAAAAAEAAEAAAADAAAAAAAGAAAAAAADAAIAAAAGAAEAAAADAAIAAAAGAAIAAAABAAIAAAAHAAIAAAACAAAAAAAIAAIAAAABAAAAAAAJAAIAAAADAAAAAAAAAAQAAAABAAAAAAABAAQAAAACAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAACAAAAAAAFAAQAAAABAAAAAAAGAAQAAAACAAEAAAAGAAUAAAABAAIAAAAHAAUAAAABAAAAAAAIAAUAAAABAAAAAAAJAAUAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAADAAAAAAA=")
 tile_set = ExtResource("3_71whg")
 
 [node name="SpawnPoint" parent="." index="2"]
@@ -22,12 +22,6 @@ position = Vector2(84, 86)
 
 [node name="LevelEndGate" parent="." index="3"]
 position = Vector2(1031, 562)
-collision_mask = 2
-
-[node name="EndGateCollider" parent="LevelEndGate" index="0"]
-position = Vector2(49, -53)
-rotation = -3.14159
-scale = Vector2(9.59485, 16.3779)
 
 [node name="Player" parent="." index="4"]
 position = Vector2(-114, 69)
@@ -35,7 +29,6 @@ position = Vector2(-114, 69)
 [node name="RoomEntrance1" parent="." index="6" node_paths=PackedStringArray("door") instance=ExtResource("4_oib28")]
 position = Vector2(203, 88)
 scale = Vector2(-3.11583, 8.3999)
-starting_enemy_count = 3
 door = NodePath("../RoomDoor1")
 
 [node name="RoomDoor1" parent="." index="7" instance=ExtResource("5_yx100")]
