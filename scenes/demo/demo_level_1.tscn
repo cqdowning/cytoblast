@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=4 uid="uid://buq1u2j47k3jg"]
+
+[ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_u820x"]
+[ext_resource type="Script" path="res://scripts/demo_level_1.gd" id="2_vrult"]
+[ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="3_71whg"]
+[ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="4_oib28"]
+[ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="5_yx100"]
+
+[node name="LevelBase" instance=ExtResource("1_u820x")]
+script = ExtResource("2_vrult")
+
+[node name="Background" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAAAAAEAAAABAAIAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAAAAAEAAAABAAUAAAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAAAAAEAAAACAAIAAAAAAAEAAAACAAMAAAAAAAEAAAACAAQAAAAAAAEAAAACAAUAAAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAAAAAEAAAADAAIAAAAAAAEAAAADAAMAAAAAAAEAAAADAAQAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAMAAAAAAAEAAAAFAAQAAAAAAAEAAAAFAAUAAAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAMAAAAAAAEAAAAGAAQAAAAAAAEAAAAGAAUAAAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAMAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAAAAAEAAAAJAAAAAAAAAAEAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAEAAAAJAAQAAAAAAAEAAAAJAAUAAAAAAAEAAAA=")
+tile_set = ExtResource("3_71whg")
+
+[node name="Walls" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAADAAAAAAA=")
+tile_set = ExtResource("3_71whg")
+
+[node name="SpawnPoint" parent="." index="2"]
+position = Vector2(84, 86)
+
+[node name="LevelEndGate" parent="." index="3"]
+position = Vector2(1031, 562)
+
+[node name="Player" parent="." index="4"]
+position = Vector2(-114, 69)
+
+[node name="RoomEntrance1" parent="." index="6" node_paths=PackedStringArray("door") instance=ExtResource("4_oib28")]
+position = Vector2(203, 88)
+scale = Vector2(-3.11583, 8.3999)
+door = NodePath("../RoomDoor1")
+
+[node name="RoomDoor1" parent="." index="7" instance=ExtResource("5_yx100")]
+position = Vector2(553, 95)

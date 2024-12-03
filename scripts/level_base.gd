@@ -9,7 +9,7 @@ var next_level: PackedScene
 
 
 func _ready() -> void:
-	player.global_position = spawn_point.global_position
+	player.position = spawn_point.position
 
 
 func _on_level_end_gate_body_entered(body: Node2D) -> void:

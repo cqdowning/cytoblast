@@ -22,7 +22,8 @@ shape = SubResource("RectangleShape2D_7y381")
 
 [node name="Player" parent="." instance=ExtResource("2_pu35u")]
 
-[node name="PlayerController" type="Node" parent="."]
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_blfvy")
+player = NodePath("../Player")
 
 [connection signal="body_entered" from="LevelEndGate" to="." method="_on_level_end_gate_body_entered"]
