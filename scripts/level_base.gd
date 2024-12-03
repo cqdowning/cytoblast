@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func _on_level_end_gate_body_entered(body: Node2D) -> void:
 	if body is Player:
+		print("changing levels")
 		game_manager.change_level(next_level)
 
 
