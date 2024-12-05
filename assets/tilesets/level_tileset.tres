@@ -1,16 +1,15 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d2j1asehj6qc"]
 
-[ext_resource type="Texture2D" uid="uid://bmuu8867oj78a" path="res://assets/tilesets/tileset_spritesheet.png" id="1_6fcxe"]
+[ext_resource type="Texture2D" uid="uid://bmuu8867oj78a" path="res://assets/tilesets/tileset_spritesheet.png" id="1_0g2dp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ba6hp"]
-texture = ExtResource("1_6fcxe")
+texture = ExtResource("1_0g2dp")
 texture_region_size = Vector2i(128, 128)
 2:3/0 = 0
 3:3/0 = 0
 3:4/0 = 0
 0:0/0 = 0
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -16, 64, -16, 64, 24, -64, 24)
 2:0/0 = 0
 3:0/0 = 0
 0:1/0 = 0
