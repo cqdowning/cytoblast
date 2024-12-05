@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://buq1u2j47k3jg"]
+[gd_scene load_steps=8 format=4 uid="uid://buq1u2j47k3jg"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_u820x"]
 [ext_resource type="Script" path="res://scripts/demo_level_1.gd" id="2_vrult"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="3_71whg"]
 [ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="4_oib28"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="5_yx100"]
+[ext_resource type="PackedScene" uid="uid://dx5624r7vsqcl" path="res://scenes/enemies/test_enemy.tscn" id="6_1opt8"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="7_l4vlj"]
 
 [node name="LevelBase" instance=ExtResource("1_u820x")]
 script = ExtResource("2_vrult")
@@ -40,3 +42,12 @@ door = NodePath("../RoomDoor1")
 
 [node name="RoomDoor1" parent="." index="7" instance=ExtResource("5_yx100")]
 position = Vector2(553, 95)
+
+[node name="TestEnemy" parent="." index="8" node_paths=PackedStringArray("target") instance=ExtResource("6_1opt8")]
+position = Vector2(307, 311)
+target = NodePath("../Player")
+
+[node name="CameraController" type="Camera2D" parent="." index="9" node_paths=PackedStringArray("subject")]
+position = Vector2(307, 311)
+script = ExtResource("7_l4vlj")
+subject = NodePath("../Player")
