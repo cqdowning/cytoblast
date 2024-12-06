@@ -3,13 +3,20 @@ extends Area2D
 
 @export var speed: float = 800.0
 @export var damage: int = 1
+@export var lifetime: float = 5.0
 
 var direction: Vector2 = Vector2.ZERO
+var _despawn_timer: Timer
 
 func _ready():
 	# Connect the signals
 	body_entered.connect(_on_body_entered)
-	$VisibleOnScreenNotifier2D.screen_exited.connect(_on_visible_on_screen_notifier_2d_screen_exited)
+	
+	_despawn_timer = Timer.new()
+	add_child(_despawn_timer)
+	_despawn_timer.one_shot = true
+	_despawn_timer.timeout.connect(_on_despawn_timeout)
+	_despawn_timer.start(lifetime)
 
 func _physics_process(delta):
 	# Move the projectile
@@ -33,6 +40,5 @@ func _on_body_entered(body: Node2D):
 	# Destroy the projectile on any collision
 	queue_free()
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("Projectile off screen")
+func _on_despawn_timeout():
 	queue_free()
