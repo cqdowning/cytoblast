@@ -7,7 +7,11 @@ extends CharacterBody2D
 @export var dash_speed_multiplier: float = 2.0
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 1.5
+@export var rotation_speed: float = 10.0
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var weapon = $Weapon
+
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
@@ -29,6 +33,16 @@ func _ready():
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
 
+func _process(delta):
+	# Get target angle to mouse
+	var target_angle = (get_global_mouse_position() - global_position).angle()
+	
+	# Smoothly rotate towards target angle
+	var angle_diff = target_angle + PI/2 - rotation
+	# Normalize the angle difference
+	angle_diff = fmod(angle_diff + PI, PI * 2) - PI
+	# Apply rotation with sensitivity
+	rotation += angle_diff * rotation_speed * delta
 
 func _physics_process(delta):
 	if current_state != PlayerState.MELEE or can_move_while_attacking:
@@ -124,6 +138,11 @@ func perform_dash(direction: Vector2):
 func _on_dash_cooldown_timeout():
 	can_dash = true
 
+func shoot():
+	if current_state == PlayerState.DASHING:
+		return
+
+	weapon.shoot()
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:

@@ -39,3 +39,9 @@ func _process(_delta):
 		print("Dash pressed")
 		var dash_command = DashCommand.new(direction)
 		dash_command.execute(player)
+	
+	# Execute shoot command
+	if Input.is_action_pressed("shoot"):
+			print("Shoot pressed")
+			var shoot_command = ShootCommand.new()
+			shoot_command.execute(player)
