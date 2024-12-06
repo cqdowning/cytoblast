@@ -38,7 +38,7 @@ func _process(delta):
 	var target_angle = (get_global_mouse_position() - global_position).angle()
 	
 	# Smoothly rotate towards target angle
-	var angle_diff = target_angle - rotation
+	var angle_diff = target_angle + PI/2 - rotation
 	# Normalize the angle difference
 	angle_diff = fmod(angle_diff + PI, PI * 2) - PI
 	# Apply rotation with sensitivity
