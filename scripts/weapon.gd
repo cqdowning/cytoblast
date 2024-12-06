@@ -15,7 +15,6 @@ var projectile_scene = preload("res://scenes/projectile.tscn")
 var _shoot_delay_timer: Timer
 var can_shoot: bool = true
 
-@export var rotation_speed: float = 10.0 # Adjust this value for rotation sensitivity
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,18 +24,6 @@ func _ready():
 	_shoot_delay_timer.timeout.connect(_on_shoot_delay_timeout) # Fix indentation
 	activate_weapon()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# Get target angle to mouse
-	var target_angle = (get_global_mouse_position() - global_position).angle()
-	
-	# Smoothly rotate towards target angle
-	var angle_diff = target_angle - rotation
-	# Normalize the angle difference
-	angle_diff = fmod(angle_diff + PI, PI * 2) - PI
-	# Apply rotation with sensitivity
-	rotation += angle_diff * rotation_speed * delta
 
 func shoot():
 	if !can_shoot:
