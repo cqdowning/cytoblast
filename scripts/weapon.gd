@@ -32,7 +32,7 @@ func shoot():
 	can_shoot = false
 	
 	# Create and setup projectile
-	var projectile = projectile_scene.instantiate()
+	var projectile:Projectile = projectile_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)
 	
 	# Get direction (from weapon to mouse position)
@@ -40,7 +40,7 @@ func shoot():
 	var direction = (mouse_pos - global_position).normalized()
 	
 	# Set projectile properties
-	projectile.damage = damage
+	projectile.set_properties(damage, type, 800)
 	projectile.launch(global_position, direction)
 
 	# Start cooldown

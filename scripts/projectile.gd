@@ -1,11 +1,13 @@
 class_name Projectile
 extends Area2D
 
-@export var speed: float = 800.0
-@export var damage: int = 1
 @export var lifetime: float = 5.0
 
 var direction: Vector2 = Vector2.ZERO
+var speed: float
+var damage: int
+var type: Weapon.Type
+
 var _despawn_timer: Timer
 
 func _ready():
@@ -23,6 +25,11 @@ func _physics_process(delta):
 	position += direction * speed * delta
 	# Optional: rotate projectile in movement direction
 	rotation = direction.angle()
+	
+func set_properties(proj_damage:int, proj_type:Weapon.Type, proj_speed:float):
+	damage = proj_damage
+	type = proj_type
+	speed = proj_speed
 
 func launch(spawn_position: Vector2, launch_direction: Vector2):
 	# Initialize the projectile
