@@ -7,7 +7,10 @@ extends CharacterBody2D
 @export var dash_speed_multiplier: float = 2.0
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 1.5
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var weapon = $Weapon
+
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
@@ -124,6 +127,11 @@ func perform_dash(direction: Vector2):
 func _on_dash_cooldown_timeout():
 	can_dash = true
 
+func shoot():
+	if current_state == PlayerState.DASHING:
+		return
+
+	weapon.shoot()
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:
