@@ -21,6 +21,8 @@ var can_dash: bool = true
 var dash_timer: Timer
 
 func _ready():
+	add_to_group("player")
+	
 	melee_timer = Timer.new()
 	melee_timer.one_shot = true
 	melee_timer.wait_time = melee_duration

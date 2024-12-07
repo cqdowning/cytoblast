@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/controller_command.gd" id="4_e4omd"]
 [ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="5_8n3ms"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
-[ext_resource type="PackedScene" uid="uid://dx5624r7vsqcl" path="res://scenes/enemies/test_enemy.tscn" id="7_4slp2"]
+[ext_resource type="PackedScene" uid="uid://v4ioc7f6g67r" path="res://scenes/enemies/shooter.tscn" id="8_awv5l"]
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="8_gf7ej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le3ve"]
@@ -53,11 +53,11 @@ door = NodePath("../RoomDoor1")
 position = Vector2(2372, -2984)
 scale = Vector2(1.64, 6.91)
 
-[node name="TestEnemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_4slp2")]
-position = Vector2(307, 311)
-target = NodePath("../Player")
-
 [node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
 position = Vector2(307, 311)
 script = ExtResource("8_gf7ej")
 subject = NodePath("../Player")
+
+[node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
+position = Vector2(324, -470)
+target = NodePath("../Player")
