@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=4 uid="uid://bhx1af230urm"]
+
+[ext_resource type="Script" path="res://scripts/level_base.gd" id="1_eb68j"]
+[ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
+[ext_resource type="PackedScene" uid="uid://66l7cq75kuch" path="res://scenes/player.tscn" id="3_2b3kp"]
+[ext_resource type="Script" path="res://scripts/controller_command.gd" id="4_e4omd"]
+[ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="5_8n3ms"]
+[ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
+[ext_resource type="PackedScene" uid="uid://dx5624r7vsqcl" path="res://scenes/enemies/test_enemy.tscn" id="7_4slp2"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="8_gf7ej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le3ve"]
+size = Vector2(39.7537, 18.7668)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_eb68j")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAAAAAEAAAABAAIAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAAAAAEAAAABAAUAAAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAAAAAEAAAACAAIAAAAAAAEAAAACAAMAAAAAAAEAAAACAAQAAAAAAAEAAAACAAUAAAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAAAAAEAAAADAAIAAAAAAAEAAAADAAMAAAAAAAEAAAADAAQAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAAAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAMAAAAAAAEAAAAFAAQAAAAAAAEAAAAFAAUAAAAAAAEAAAAGAAAAAAAAAAEAAAAGAAEAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAMAAAAAAAEAAAAGAAQAAAAAAAEAAAAGAAUAAAAAAAEAAAAHAAAAAAAAAAEAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAAAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAMAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAAAAAEAAAAJAAAAAAAAAAEAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAEAAAAJAAQAAAAAAAEAAAAJAAUAAAAAAAEAAAA=")
+tile_set = ExtResource("2_1ogo2")
+
+[node name="Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAACAAAAAAADAAEAAAABAAAAAAAEAAEAAAADAAAAAAAGAAAAAAADAAIAAAAGAAEAAAADAAIAAAAGAAIAAAABAAIAAAAHAAIAAAACAAAAAAAIAAIAAAABAAAAAAAJAAIAAAADAAAAAAAAAAQAAAABAAAAAAABAAQAAAACAAAAAAACAAQAAAABAAAAAAADAAQAAAABAAAAAAAEAAQAAAACAAAAAAAFAAQAAAABAAAAAAAGAAQAAAACAAEAAAAGAAUAAAABAAIAAAAHAAUAAAABAAAAAAAIAAUAAAABAAAAAAAJAAUAAAADAAAAAAA=")
+tile_set = ExtResource("2_1ogo2")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(84, 86)
+
+[node name="LevelEndGate" type="Area2D" parent="."]
+position = Vector2(1031, 562)
+collision_mask = 2
+
+[node name="EndGateCollider" type="CollisionShape2D" parent="LevelEndGate"]
+position = Vector2(49, -53)
+rotation = -3.14159
+scale = Vector2(9.59485, 16.3779)
+shape = SubResource("RectangleShape2D_le3ve")
+
+[node name="Player" parent="." instance=ExtResource("3_2b3kp")]
+position = Vector2(-114, 69)
+
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("4_e4omd")
+player = NodePath("")
+
+[node name="RoomEntrance1" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_8n3ms")]
+position = Vector2(203, 88)
+scale = Vector2(-3.11583, 8.3999)
+starting_enemy_count = 3
+door = NodePath("")
+
+[node name="RoomDoor1" parent="." instance=ExtResource("6_q2qt6")]
+position = Vector2(553, 95)
+
+[node name="TestEnemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_4slp2")]
+position = Vector2(307, 311)
+target = NodePath("")
+
+[node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
+position = Vector2(307, 311)
+script = ExtResource("8_gf7ej")
+subject = NodePath("")
