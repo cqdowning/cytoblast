@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://k5a38l3vghgf"]
+
+[ext_resource type="Texture2D" uid="uid://cnnb4jtj2rrov" path="res://assets/weapons/temp_weapon.png" id="1_2jasw"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_rifle_antibiotic.gd" id="2_a7bnx"]
+[ext_resource type="PackedScene" uid="uid://bfsg2gtwmwosi" path="res://scenes/projectiles/projectile_antibiotic.tscn" id="2_y2mwj"]
+
+[node name="WeaponAntibacterialRifle" type="Sprite2D"]
+position = Vector2(0, -60)
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("1_2jasw")
+script = ExtResource("2_a7bnx")
+shoot_delay = 0.15
+projectile_scene = ExtResource("2_y2mwj")

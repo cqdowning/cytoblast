@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfsg2gtwmwosi"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/projectile_player.gd" id="1_b47da"]
+[ext_resource type="Script" path="res://scripts/projectiles/projectile_player.gd" id="1_tc2gc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3j8bj"]
 
 [node name="ProjectileAntibacterial" type="Area2D"]
 collision_layer = 8
 collision_mask = 7
-script = ExtResource("1_b47da")
+script = ExtResource("1_tc2gc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
