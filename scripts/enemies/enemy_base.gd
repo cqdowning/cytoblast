@@ -14,21 +14,21 @@ enum Type {
 @export var type:Type = Type.BACTERIA
 @export var move_speed:float = 150.0
 @export var rotation_speed:float = 10.0
-@export var shoot_delay:float = -1.0
-@export var shoot_speed:float = -1.0
+@export var attack_delay:float = -1.0
+@export var attack_speed:float = -1.0
 @export var projectile_scene = preload("res://scenes/projectile.tscn")
 
-var _shoot_delay_timer:Timer
+var _attack_delay_timer:Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("enemies")
 	
-	if shoot_delay > 0.0:
-		_shoot_delay_timer = Timer.new()
-		add_child(_shoot_delay_timer)
-		_shoot_delay_timer.one_shot = true
-		_shoot_delay_timer.timeout.connect(_shoot)
+	if attack_delay > 0.0:
+		_attack_delay_timer = Timer.new()
+		add_child(_attack_delay_timer)
+		_attack_delay_timer.one_shot = true
+		_attack_delay_timer.timeout.connect(_attack)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,5 +49,5 @@ func _face_target(delta):
 func _ai(delta):
 	pass
 	
-func _shoot():
+func _attack():
 	pass
