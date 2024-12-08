@@ -15,7 +15,8 @@ func _on_body_entered(body: Node2D):
 	super(body)
 	# Check if we hit an enemy
 	if body.is_in_group("enemies") and body.has_method("take_damage"):
-		body.take_damage(damage)
+		var multiplier = DamageEngine.damage_multiplier(self, body)
+		body.take_damage(damage * multiplier)
 	
 	# Destroy the projectile on any collision except the player
 	if !body.is_in_group("player"):

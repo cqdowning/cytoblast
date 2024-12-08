@@ -36,7 +36,9 @@ func _process(delta):
 	_ai(delta)
 	
 func take_damage(projectile_damage:float):
-	pass
+	print(projectile_damage)
+	health -= projectile_damage
+	print(health)
 	
 func _face_target(delta):
 	# Get target angle to mouse
