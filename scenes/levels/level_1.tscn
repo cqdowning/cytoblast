@@ -45,7 +45,8 @@ player = NodePath("../Player")
 
 [node name="RoomEntrance1" parent="." node_paths=PackedStringArray("door") instance=ExtResource("5_8n3ms")]
 position = Vector2(828, -1961)
-scale = Vector2(-26.558, 9.162)
+rotation = -3.14159
+scale = Vector2(26.558, -9.162)
 starting_enemy_count = 3
 door = NodePath("../RoomDoor1")
 
