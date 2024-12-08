@@ -5,7 +5,7 @@ extends Area2D
 
 var direction: Vector2 = Vector2.ZERO
 var speed: float
-var damage: int
+var damage: float
 var type: Weapon.Type
 
 var _despawn_timer: Timer
@@ -26,7 +26,7 @@ func _physics_process(delta):
 	# Optional: rotate projectile in movement direction
 	rotation = direction.angle()
 	
-func set_properties(proj_damage:int, proj_type:Weapon.Type, proj_speed:float):
+func set_properties(proj_damage:float, proj_type:Weapon.Type, proj_speed:float):
 	damage = proj_damage
 	type = proj_type
 	speed = proj_speed
@@ -38,7 +38,9 @@ func launch(spawn_position: Vector2, launch_direction: Vector2):
 	rotation = direction.angle()
 
 func _on_body_entered(body: Node2D):
-	print("Projectile hit", body, name)
+	if body.is_in_group("enemies"):
+		print("enemy hit")
+	#print("Projectile hit ", body, name)
 
 func _on_despawn_timeout():
 	queue_free()

@@ -9,8 +9,8 @@ enum Type {
 }
 
 @export var target:Player
-@export var damage:int = 10
-@export var health:int = 100
+@export var damage:float = 10.0
+@export var health:float = 100.0
 @export var type:Type = Type.BACTERIA
 @export var move_speed:float = 150.0
 @export var rotation_speed:float = 10.0
@@ -34,6 +34,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_ai(delta)
+	
+func take_damage(projectile_damage:float):
+	pass
 	
 func _face_target(delta):
 	# Get target angle to mouse
