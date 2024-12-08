@@ -9,8 +9,8 @@
 [node name="Shooter" type="RigidBody2D"]
 script = ExtResource("1_rbl1y")
 move_speed = 200.0
-shoot_delay = 2.0
-shoot_speed = 800.0
+attack_delay = 2.0
+attack_speed = 800.0
 projectile_scene = ExtResource("2_yc8ce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
