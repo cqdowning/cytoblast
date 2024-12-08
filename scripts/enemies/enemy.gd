@@ -24,5 +24,8 @@ func _ready():
 func _process(delta):
 	_ai(delta)
 
+func take_damage(damage:int):
+	health -= damage
+	
 func _ai(delta):
 	global_position = global_position.move_toward(target.global_position, move_speed * delta)

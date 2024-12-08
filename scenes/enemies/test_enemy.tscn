@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xope"]
 
-[node name="TestEnemy" type="RigidBody2D"]
+[node name="TestEnemy" type="RigidBody2D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_e70wx")
