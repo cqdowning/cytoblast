@@ -3,10 +3,10 @@ extends CharacterBody2D
 
 @export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = false
-@export var speed: float = 300.0
-@export var dash_speed_multiplier: float = 2.0
+@export var speed: float = 400.0
+@export var dash_speed_multiplier: float = 3.0
 @export var dash_distance: float = 150.0
-@export var dash_cooldown: float = 1.5
+@export var dash_cooldown: float = 0.75
 @export var rotation_speed: float = 10.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -21,6 +21,8 @@ var can_dash: bool = true
 var dash_timer: Timer
 
 func _ready():
+	add_to_group("player")
+	
 	melee_timer = Timer.new()
 	melee_timer.one_shot = true
 	melee_timer.wait_time = melee_duration

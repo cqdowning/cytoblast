@@ -1,21 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwbkuy7imft8q"]
+[gd_scene load_steps=2 format=3 uid="uid://bwbkuy7imft8q"]
 
-[ext_resource type="PackedScene" uid="uid://4mm0njaxh7rp" path="res://scenes/test_level_1.tscn" id="1_h7hfd"]
-[ext_resource type="PackedScene" uid="uid://66l7cq75kuch" path="res://scenes/player.tscn" id="2_vxyx2"]
-[ext_resource type="Script" path="res://scripts/controller_command.gd" id="3_xiexl"]
-[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="4_jlxgj"]
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="1_gsk1m"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Level1" parent="." instance=ExtResource("1_h7hfd")]
+[node name="Button" type="Button" parent="."]
+offset_left = 76.0
+offset_top = 150.0
+offset_right = 1064.0
+offset_bottom = 488.0
+text = "START"
+script = ExtResource("1_gsk1m")
 
-[node name="Player" parent="." instance=ExtResource("2_vxyx2")]
-position = Vector2(211, 126)
-
-[node name="Controller" type="Node" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("3_xiexl")
-player = NodePath("../Player")
-
-[node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
-script = ExtResource("4_jlxgj")
-subject = NodePath("../Player")
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

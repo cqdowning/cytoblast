@@ -38,15 +38,7 @@ func launch(spawn_position: Vector2, launch_direction: Vector2):
 	rotation = direction.angle()
 
 func _on_body_entered(body: Node2D):
-	# Check if we hit an enemy
-	if body.is_in_group("enemies") and body.has_method("take_damage"):
-		var adjusted_damage = DamageEngine.damage_multiplier(self, body)
-		body.take_damage(adjusted_damage)
- 
 	print("Projectile hit", body, name)
-	
-	# Destroy the projectile on any collision
-	queue_free()
 
 func _on_despawn_timeout():
 	queue_free()
