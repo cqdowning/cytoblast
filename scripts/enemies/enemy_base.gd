@@ -34,6 +34,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_ai(delta)
+	if health <= 0:
+		queue_free()
 	
 func take_damage(projectile_damage:float):
 	print(projectile_damage)
