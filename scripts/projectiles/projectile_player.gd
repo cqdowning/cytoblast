@@ -1,4 +1,4 @@
-class_name Projectile_Player
+class_name ProjectilePlayer
 extends Projectile
 
 

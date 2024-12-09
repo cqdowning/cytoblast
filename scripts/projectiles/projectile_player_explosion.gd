@@ -1,5 +1,5 @@
 class_name ProjectileExplosion
-extends Projectile_Player
+extends ProjectilePlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,5 +1,5 @@
 class_name ProjectileThrownWeapon
-extends Projectile_Player
+extends ProjectilePlayer
 
 @export var rotation_rate: float = 20.0
 @export var explosion_projectile: PackedScene
@@ -18,7 +18,7 @@ func _physics_process(delta):
 	rotation_degrees += rotation_rate
 
 func _on_body_entered(body: Node2D):
-	var explosion: Projectile_Player = explosion_projectile.instantiate()
+	var explosion: ProjectilePlayer = explosion_projectile.instantiate()
 	add_sibling(explosion)
 	explosion.global_position = global_position
 	explosion.set_properties(damage, type, 0)
