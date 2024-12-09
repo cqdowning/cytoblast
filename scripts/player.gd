@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 0.75
 @export var rotation_speed: float = 10.0
+@export var thrown_weapon_scene: PackedScene
+@export var thrown_weapon_damage: float = 50.0
+@export var thrown_weapon_speed: float = 1000.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -152,6 +155,25 @@ func shoot():
 		if child is Weapon:
 			child.shoot()
 			return
+			
+func throw():
+	if current_state == PlayerState.DASHING:
+		return
+	
+	# Create and setup projectile
+	var projectile:ProjectileThrownWeapon = thrown_weapon_scene.instantiate()
+	get_tree().current_scene.add_child(projectile)
+	projectile.get_sprite().set_deferred("texture", current_inventory.current_weapon().texture)
+	
+	# Get direction (from weapon to mouse position)
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - global_position).normalized()
+	
+	# Set projectile properties
+	projectile.set_properties(thrown_weapon_damage, current_inventory.current_weapon().type, thrown_weapon_speed)
+	projectile.launch(global_position, direction)
+	
+	# TODO: Remove current weapon from inventory
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:

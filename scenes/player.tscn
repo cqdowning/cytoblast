@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://66l7cq75kuch"]
+[gd_scene load_steps=5 format=3 uid="uid://66l7cq75kuch"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k120h"]
+[ext_resource type="PackedScene" uid="uid://blj10piebn5pp" path="res://scenes/projectiles/projectile_thrown_weapon.tscn" id="2_4uq7s"]
 [ext_resource type="Texture2D" uid="uid://dt73ntvev3fxg" path="res://assets/player/player_spritesheet.png" id="2_ux3k7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m552"]
@@ -9,6 +10,7 @@
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_k120h")
+thrown_weapon_scene = ExtResource("2_4uq7s")
 
 [node name="WeaponHolder" type="Node2D" parent="."]
 

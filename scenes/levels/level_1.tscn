@@ -62,3 +62,7 @@ subject = NodePath("../Player")
 [node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
 position = Vector2(324, -470)
 target = NodePath("../Player")
+
+[node name="Shooter2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
+position = Vector2(328, -580)
+target = NodePath("../Player")

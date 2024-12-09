@@ -3,6 +3,7 @@ extends Node
 
 
 signal room_over(room_id:int)
+signal shake_camera(magnitude:float)
 
 var level_1:PackedScene = preload("res://scenes/demo/demo_level_1.tscn")
 var enemies_remaining = 0
