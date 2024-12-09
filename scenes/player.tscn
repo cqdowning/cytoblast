@@ -11,6 +11,8 @@ collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_k120h")
 
+[node name="WeaponHolder" type="Node2D" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ux3k7")
 offset = Vector2(0, -15)
