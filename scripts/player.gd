@@ -1,8 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Combat")
 @export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = false
+
+@export_category("Movement")
 @export var speed: float = 400.0
 @export var dash_speed_multiplier: float = 3.0
 @export var dash_distance: float = 150.0
@@ -12,8 +15,11 @@ extends CharacterBody2D
 @export var thrown_weapon_damage: float = 50.0
 @export var thrown_weapon_speed: float = 1000.0
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export_category("Stats")
+@export var max_health: float = 100.0
+var current_health: float = max_health
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
@@ -41,6 +47,9 @@ func _ready():
 	
 	current_inventory.weapon_changed.connect(_on_weapon_changed)
 	
+
+	current_health = max_health
+	game_manager.health_changed.emit(current_health, max_health)
 
 func _process(delta):
 	# Get target angle to mouse
@@ -189,6 +198,15 @@ func change_state(new_state: PlayerState):
 			animation_player.play("melee")
 		PlayerState.DASHING:
 			animation_player.play("moving")
+
+
+func take_damage(amount: float):
+	current_health = max(0, current_health - amount)
+	game_manager.health_changed.emit(current_health, max_health)
+
+func heal(amount: float):
+	current_health = min(max_health, current_health + amount)
+	game_manager.health_changed.emit(current_health, max_health)
 			
 
 func _on_weapon_changed():

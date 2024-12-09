@@ -11,6 +11,9 @@ var _rng: RandomNumberGenerator
 func _ready() -> void:
 	zoom = camera_zoom
 	global_position = subject.global_position
+	# Make HUD use viewport coordinates
+	if $HUD:
+		$HUD.position = -get_viewport_rect().size / 2
 	game_manager.shake_camera.connect(shake)
 	_shake_timer = Timer.new()
 	add_child(_shake_timer)
@@ -25,6 +28,9 @@ func _process(_delta: float) -> void:
 	else:
 		offset = Vector2(0, 0)
 	global_position = subject.global_position
+	# Update HUD position to stay in viewport
+	if $HUD:
+		$HUD.position = -get_viewport_rect().size / 2
 
 func shake(magnitude: float):
 	_shake_timer.start(magnitude)

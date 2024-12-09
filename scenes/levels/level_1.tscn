@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=11 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_eb68j"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
 [ext_resource type="PackedScene" uid="uid://v4ioc7f6g67r" path="res://scenes/enemies/shooter.tscn" id="8_awv5l"]
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="8_gf7ej"]
+[ext_resource type="PackedScene" uid="uid://cbfu4ny2eqkqs" path="res://scenes/hud.tscn" id="9_r4k2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le3ve"]
 size = Vector2(39.7537, 18.7668)
@@ -58,6 +59,8 @@ scale = Vector2(1.64, 6.91)
 position = Vector2(307, 311)
 script = ExtResource("8_gf7ej")
 subject = NodePath("../Player")
+
+[node name="HUD" parent="CameraController" instance=ExtResource("9_r4k2l")]
 
 [node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
 position = Vector2(324, -470)
