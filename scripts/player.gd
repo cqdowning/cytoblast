@@ -35,6 +35,8 @@ func _ready():
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
 	
+	add_child(current_inventory.current_weapon())
+	
 
 func _process(delta):
 	# Get target angle to mouse
