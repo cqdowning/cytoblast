@@ -11,7 +11,6 @@ extends CharacterBody2D
 @export var health: float = 100.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var weapon = $Weapon
 
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
@@ -35,6 +34,7 @@ func _ready():
 	dash_timer.wait_time = dash_cooldown
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
+	
 
 func _process(delta):
 	# Get target angle to mouse
@@ -145,7 +145,10 @@ func shoot():
 	if current_state == PlayerState.DASHING:
 		return
 
-	weapon.shoot()
+	for child in get_children():
+		if child is Weapon:
+			child.shoot()
+			return
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:

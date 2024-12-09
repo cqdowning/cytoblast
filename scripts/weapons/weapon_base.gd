@@ -9,12 +9,14 @@ enum Type {
 }
 
 @export var damage: float = 1
-@export var type: Type = Type.ANTIBIOTIC
+@export var type: Type = Type.NONE
 @export var shoot_delay: float = 0.01
 @export var projectile_scene:PackedScene
 
 var _shoot_delay_timer: Timer
 var can_shoot: bool = true
+
+@onready var projectile_spawn:Node2D = $ProjectileSpawn
 
 
 # Called when the node enters the scene tree for the first time.
