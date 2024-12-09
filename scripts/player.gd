@@ -37,6 +37,8 @@ func _ready():
 	
 	add_child(current_inventory.current_weapon())
 	
+	current_inventory.weapon_changed.connect(_on_weapon_changed)
+	
 
 func _process(delta):
 	# Get target angle to mouse
@@ -166,3 +168,12 @@ func change_state(new_state: PlayerState):
 			animation_player.play("melee")
 		PlayerState.DASHING:
 			animation_player.play("moving")
+			
+
+func _on_weapon_changed():
+	for child in get_children():
+		if child is Weapon:
+			# using remove_child instead of queue_free because we just want to 
+			# remove it from the player, not delete it entirely
+			remove_child(child)
+	add_child(current_inventory.current_weapon())
