@@ -8,7 +8,6 @@ extends CharacterBody2D
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 0.75
 @export var rotation_speed: float = 10.0
-@export var health: float = 100.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
