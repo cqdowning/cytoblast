@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbfu4ny2eqkqs"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_4yx2e"]
+
+[sub_resource type="Theme" id="Theme_3epe8"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 123.0
+offset_top = 44.0
+offset_right = 123.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4yx2e")
+
+[node name="HealthContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = -358.0
+offset_top = -95.0
+offset_right = -25.0
+offset_bottom = -42.0
+scale = Vector2(1.34845, 1.3363)
+
+[node name="HealthLabel" type="Label" parent="HealthContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_shadow_color = Color(0.772549, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.92549, 0, 0.886275, 1)
+theme_override_font_sizes/font_size = 25
+text = "PLAYER HEALTH:"
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="HealthContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0.768627, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+
+[node name="WeaponContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1204.0
+offset_top = -85.0
+offset_right = 1309.0
+offset_bottom = -35.0
+grow_horizontal = 0
+theme = SubResource("Theme_3epe8")
+
+[node name="CurrentWeaponLabel" type="Label" parent="WeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_shadow_color = Color(0.717647, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "WEAPON"
+horizontal_alignment = 2
+
+[node name="AmmoLabel" type="Label" parent="WeaponContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_shadow_color = Color(0.654902, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "AMMO"
+horizontal_alignment = 2

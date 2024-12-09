@@ -1,16 +1,24 @@
 class_name Player
 extends CharacterBody2D
 
+@export_category("Combat")
 @export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = false
+
+@export_category("Movement")
 @export var speed: float = 400.0
 @export var dash_speed_multiplier: float = 3.0
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 0.75
 @export var rotation_speed: float = 10.0
 
+@export_category("Stats")
+@export var max_health: float = 100.0
+var current_health: float = max_health
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var weapon = $Weapon
+@onready var game_manager = get_node("/root/game_manager")
 
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
@@ -34,6 +42,9 @@ func _ready():
 	dash_timer.wait_time = dash_cooldown
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
+
+	current_health = max_health
+	game_manager.health_changed.emit(current_health, max_health)
 
 func _process(delta):
 	# Get target angle to mouse
@@ -160,3 +171,11 @@ func change_state(new_state: PlayerState):
 			animation_player.play("melee")
 		PlayerState.DASHING:
 			animation_player.play("moving")
+
+func take_damage(amount: float):
+	current_health = max(0, current_health - amount)
+	game_manager.health_changed.emit(current_health, max_health)
+
+func heal(amount: float):
+	current_health = min(max_health, current_health + amount)
+	game_manager.health_changed.emit(current_health, max_health)

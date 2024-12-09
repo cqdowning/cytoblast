@@ -7,7 +7,14 @@ extends Camera2D
 func _ready() -> void:
 	zoom = camera_zoom
 	global_position = subject.global_position
-
+	
+	# Make HUD use viewport coordinates
+	if $HUD:
+		$HUD.position = -get_viewport_rect().size / 2
 
 func _process(_delta: float) -> void:
 	global_position = subject.global_position
+	
+	# Update HUD position to stay in viewport
+	if $HUD:
+		$HUD.position = -get_viewport_rect().size / 2
