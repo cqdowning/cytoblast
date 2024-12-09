@@ -10,6 +10,10 @@ var room_active = false
 var room_id = 0
 
 
+func _ready() -> void:
+	pass
+
+
 func _process(_delta: float) -> void:		
 	# switch to the room demo (keybind is "9")
 	if Input.is_action_just_pressed("start_demo"):
