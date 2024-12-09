@@ -172,7 +172,8 @@ func throw():
 	# Set projectile properties
 	projectile.set_properties(thrown_weapon_damage, current_inventory.current_weapon().type, thrown_weapon_speed)
 	projectile.launch(global_position, direction)
-	# TODO: Remove Current Weapon
+	
+	# TODO: Remove current weapon from inventory
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:
