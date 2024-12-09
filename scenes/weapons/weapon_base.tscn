@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddwc8tdixrb5a"]
+
+[ext_resource type="Script" path="res://scripts/weapons/weapon_base.gd" id="1_fw6jg"]
+
+[node name="WeaponBase" type="Sprite2D"]
+script = ExtResource("1_fw6jg")
+
+[node name="ProjectileSpawn" type="Node2D" parent="."]

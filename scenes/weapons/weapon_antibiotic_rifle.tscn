@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://k5a38l3vghgf"]
+[gd_scene load_steps=5 format=3 uid="uid://do281r4ajjeka"]
 
-[ext_resource type="Texture2D" uid="uid://cnnb4jtj2rrov" path="res://assets/weapons/temp_weapon.png" id="1_2jasw"]
-[ext_resource type="Script" path="res://scripts/weapons/weapon_rifle_antibiotic.gd" id="2_a7bnx"]
-[ext_resource type="PackedScene" uid="uid://bfsg2gtwmwosi" path="res://scenes/projectiles/projectile_antibiotic.tscn" id="2_y2mwj"]
+[ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_e4a0j"]
+[ext_resource type="Texture2D" uid="uid://bm407fix2bldq" path="res://assets/weapons/rifle/rifle_antibiotic.png" id="2_2eg3d"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_rifle_antibiotic.gd" id="2_ldv8v"]
+[ext_resource type="PackedScene" uid="uid://bfsg2gtwmwosi" path="res://scenes/projectiles/projectile_antibiotic.tscn" id="4_jcvse"]
 
-[node name="WeaponAntibacterialRifle" type="Sprite2D"]
-position = Vector2(0, -60)
-scale = Vector2(0.79, 0.79)
-texture = ExtResource("1_2jasw")
-script = ExtResource("2_a7bnx")
+[node name="WeaponBase" instance=ExtResource("1_e4a0j")]
+position = Vector2(0, -40)
+texture = ExtResource("2_2eg3d")
+script = ExtResource("2_ldv8v")
+type = 0
 shoot_delay = 0.15
-projectile_scene = ExtResource("2_y2mwj")
+projectile_scene = ExtResource("4_jcvse")
+
+[node name="ProjectileSpawn" parent="." index="0"]
+position = Vector2(0, -35)

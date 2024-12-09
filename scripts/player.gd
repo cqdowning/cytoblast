@@ -11,15 +11,15 @@ extends CharacterBody2D
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 0.75
 @export var rotation_speed: float = 10.0
+@export var thrown_weapon_scene: PackedScene
+@export var thrown_weapon_damage: float = 50.0
+@export var thrown_weapon_speed: float = 1000.0
 
 @export_category("Stats")
 @export var max_health: float = 100.0
 var current_health: float = max_health
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var weapon = $Weapon
-@onready var game_manager = get_node("/root/game_manager")
-
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
@@ -42,6 +42,11 @@ func _ready():
 	dash_timer.wait_time = dash_cooldown
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
+	
+	add_child(current_inventory.current_weapon())
+	
+	current_inventory.weapon_changed.connect(_on_weapon_changed)
+	
 
 	current_health = max_health
 	game_manager.health_changed.emit(current_health, max_health)
@@ -155,7 +160,29 @@ func shoot():
 	if current_state == PlayerState.DASHING:
 		return
 
-	weapon.shoot()
+	for child in get_children():
+		if child is Weapon:
+			child.shoot()
+			return
+			
+func throw():
+	if current_state == PlayerState.DASHING:
+		return
+	
+	# Create and setup projectile
+	var projectile:ProjectileThrownWeapon = thrown_weapon_scene.instantiate()
+	get_tree().current_scene.add_child(projectile)
+	projectile.get_sprite().set_deferred("texture", current_inventory.current_weapon().texture)
+	
+	# Get direction (from weapon to mouse position)
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - global_position).normalized()
+	
+	# Set projectile properties
+	projectile.set_properties(thrown_weapon_damage, current_inventory.current_weapon().type, thrown_weapon_speed)
+	projectile.launch(global_position, direction)
+	
+	# TODO: Remove current weapon from inventory
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:
@@ -172,6 +199,7 @@ func change_state(new_state: PlayerState):
 		PlayerState.DASHING:
 			animation_player.play("moving")
 
+
 func take_damage(amount: float):
 	current_health = max(0, current_health - amount)
 	game_manager.health_changed.emit(current_health, max_health)
@@ -179,3 +207,12 @@ func take_damage(amount: float):
 func heal(amount: float):
 	current_health = min(max_health, current_health + amount)
 	game_manager.health_changed.emit(current_health, max_health)
+			
+
+func _on_weapon_changed():
+	for child in get_children():
+		if child is Weapon:
+			# using remove_child instead of queue_free because we just want to 
+			# remove it from the player, not delete it entirely
+			remove_child(child)
+	add_child(current_inventory.current_weapon())

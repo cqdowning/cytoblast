@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4op0c3jp0umn"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/projectile_player.gd" id="1_yqxcv"]
+[ext_resource type="Texture2D" uid="uid://bp4pef1mr81fb" path="res://assets/weapons/bullets/bullet_antiparasitic.png" id="2_8uuuw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3j8bj"]
+radius = 6.0
+height = 20.0
+
+[node name="ProjectileAntiparasitic" type="Area2D"]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_yqxcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8uuuw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3j8bj")
+one_way_collision_margin = 4.0

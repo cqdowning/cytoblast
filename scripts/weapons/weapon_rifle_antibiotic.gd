@@ -22,7 +22,7 @@ func shoot():
 	
 	# Set projectile properties
 	projectile.set_properties(damage, type, 800)
-	projectile.launch(global_position, direction)
+	projectile.launch(projectile_spawn.global_position, direction)
 
 	# Start cooldown
 	_shoot_delay_timer.start(shoot_delay)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c11shkgihf2en"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/projectile_player.gd" id="1_ltswc"]
+[ext_resource type="Texture2D" uid="uid://d00ob0lbn5vvb" path="res://assets/weapons/bullets/bullet_antiviral.png" id="2_hespo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3j8bj"]
+radius = 6.0
+height = 20.0
+
+[node name="ProjectileAntiviral" type="Area2D"]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_ltswc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hespo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3j8bj")
+one_way_collision_margin = 4.0
