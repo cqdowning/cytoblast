@@ -8,7 +8,7 @@ enum Type {
 	NONE
 }
 
-@export var damage: int = 1
+@export var damage: float = 1
 @export var type: Type = Type.ANTIBIOTIC
 @export var shoot_delay: float = 0.01
 @export var projectile_scene:PackedScene
