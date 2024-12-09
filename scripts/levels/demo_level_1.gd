@@ -3,4 +3,4 @@ extends Level
 
 func _ready():
 	super()
-	next_level = load("res://scenes/main.tscn")
+	#next_level = load("res://scenes/main.tscn")

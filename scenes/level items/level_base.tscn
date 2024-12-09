@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://8f7wguw806d0"]
+[gd_scene load_steps=6 format=3 uid="uid://8f7wguw806d0"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_utkjf"]
 [ext_resource type="PackedScene" uid="uid://66l7cq75kuch" path="res://scenes/player.tscn" id="2_pu35u"]
 [ext_resource type="Script" path="res://scripts/controller_command.gd" id="3_blfvy"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="4_tvwq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7y381"]
 size = Vector2(39.7537, 18.7668)
@@ -17,6 +18,7 @@ script = ExtResource("1_utkjf")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 
 [node name="LevelEndGate" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="EndGateCollider" type="CollisionShape2D" parent="LevelEndGate"]
 shape = SubResource("RectangleShape2D_7y381")
@@ -26,5 +28,9 @@ shape = SubResource("RectangleShape2D_7y381")
 [node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_blfvy")
 player = NodePath("../Player")
+
+[node name="CameraController" type="Camera2D" parent="."]
+position = Vector2(307, 311)
+script = ExtResource("4_tvwq0")
 
 [connection signal="body_entered" from="LevelEndGate" to="." method="_on_level_end_gate_body_entered"]
