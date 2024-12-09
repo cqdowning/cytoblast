@@ -26,6 +26,7 @@ func _on_body_entered(body: Node2D):
 	add_sibling(effect)
 	effect.global_position = global_position
 	super(body)
+	game_manager.shake_camera.emit(0.5)
 
 func get_sprite() -> Sprite2D:
 	return sprite
