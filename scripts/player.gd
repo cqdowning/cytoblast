@@ -8,10 +8,8 @@ extends CharacterBody2D
 @export var dash_distance: float = 150.0
 @export var dash_cooldown: float = 0.75
 @export var rotation_speed: float = 10.0
-@export var health: float = 100.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var weapon = $Weapon
 
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
@@ -35,6 +33,11 @@ func _ready():
 	dash_timer.wait_time = dash_cooldown
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
+	
+	add_child(current_inventory.current_weapon())
+	
+	current_inventory.weapon_changed.connect(_on_weapon_changed)
+	
 
 func _process(delta):
 	# Get target angle to mouse
@@ -145,7 +148,10 @@ func shoot():
 	if current_state == PlayerState.DASHING:
 		return
 
-	weapon.shoot()
+	for child in get_children():
+		if child is Weapon:
+			child.shoot()
+			return
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:
@@ -161,3 +167,12 @@ func change_state(new_state: PlayerState):
 			animation_player.play("melee")
 		PlayerState.DASHING:
 			animation_player.play("moving")
+			
+
+func _on_weapon_changed():
+	for child in get_children():
+		if child is Weapon:
+			# using remove_child instead of queue_free because we just want to 
+			# remove it from the player, not delete it entirely
+			remove_child(child)
+	add_child(current_inventory.current_weapon())

@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0s53oelrjs5q"]
+
+[ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_3svbm"]
+[ext_resource type="Texture2D" uid="uid://ccae06wjbh7ks" path="res://assets/weapons/rifle/rifle_antiparasitic.png" id="2_dsq1l"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_rifle_antibiotic.gd" id="3_tg13e"]
+[ext_resource type="PackedScene" uid="uid://b4op0c3jp0umn" path="res://scenes/projectiles/projectile_antiparasitic.tscn" id="4_n102b"]
+
+[node name="WeaponBase" instance=ExtResource("1_3svbm")]
+position = Vector2(0, -40)
+texture = ExtResource("2_dsq1l")
+script = ExtResource("3_tg13e")
+type = 2
+shoot_delay = 0.15
+projectile_scene = ExtResource("4_n102b")
+
+[node name="ProjectileSpawn" parent="." index="0"]
+position = Vector2(0, -35)
