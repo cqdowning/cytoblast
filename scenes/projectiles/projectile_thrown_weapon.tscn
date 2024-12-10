@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlytikq0d0fen" path="res://scenes/effects/explosion.tscn" id="3_lcsyc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2yqk"]
-radius = 48.0
+radius = 52.0
 
 [node name="ProjectileThrownWeapon" type="Area2D"]
 script = ExtResource("1_snh1e")
@@ -14,7 +14,8 @@ explosion_projectile = ExtResource("2_kccho")
 explosion_effect = ExtResource("3_lcsyc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -9)
+position = Vector2(27.35, -3.12)
+rotation = 0.479966
 texture = ExtResource("2_2e8wo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

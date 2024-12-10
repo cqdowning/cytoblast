@@ -1,4 +1,4 @@
-class_name Rifle_Antibiotic
+class_name Rifle
 extends Weapon
 
 
@@ -9,7 +9,7 @@ func _ready():
 func shoot():
 	if !can_shoot:
 		return
-		
+	super()
 	can_shoot = false
 	
 	# Create and setup projectile

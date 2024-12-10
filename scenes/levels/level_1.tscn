@@ -43,11 +43,3 @@ position = Vector2(1041, -2958)
 enemies = Array[PackedScene]([ExtResource("8_awv5l"), ExtResource("8_awv5l")])
 wave_delay = 10.0
 initial_delay = 2.0
-
-[node name="Shooter" parent="." index="10" node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
-position = Vector2(324, -470)
-target = NodePath("../Player")
-
-[node name="Shooter2" parent="." index="11" node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
-position = Vector2(328, -580)
-target = NodePath("../Player")
