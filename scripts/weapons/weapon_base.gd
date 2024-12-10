@@ -11,6 +11,7 @@ enum Type {
 @export var damage: float = 10
 @export var type: Type = Type.NONE
 @export var shoot_delay: float = 0.01
+@export var shake_magnitude: float = 0.0
 @export var projectile_scene:PackedScene
 
 var _shoot_delay_timer: Timer
@@ -29,7 +30,7 @@ func _ready():
 
 
 func shoot():
-	pass
+	game_manager.shake_camera.emit(shake_magnitude)
 
 func _on_shoot_delay_timeout():
 	can_shoot = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_e4a0j"]
 [ext_resource type="Texture2D" uid="uid://bm407fix2bldq" path="res://assets/weapons/rifle/rifle_antibiotic.png" id="2_2eg3d"]
-[ext_resource type="Script" path="res://scripts/weapons/weapon_rifle_antibiotic.gd" id="2_ldv8v"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_rifle.gd" id="2_ldv8v"]
 [ext_resource type="PackedScene" uid="uid://bfsg2gtwmwosi" path="res://scenes/projectiles/projectile_antibiotic.tscn" id="4_jcvse"]
 
 [node name="WeaponBase" instance=ExtResource("1_e4a0j")]
@@ -10,7 +10,8 @@ position = Vector2(0, -40)
 texture = ExtResource("2_2eg3d")
 script = ExtResource("2_ldv8v")
 type = 0
-shoot_delay = 0.15
+shoot_delay = 0.5
+shake_magnitude = 0.25
 projectile_scene = ExtResource("4_jcvse")
 
 [node name="ProjectileSpawn" parent="." index="0"]

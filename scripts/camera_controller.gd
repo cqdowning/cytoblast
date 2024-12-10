@@ -33,4 +33,5 @@ func _process(_delta: float) -> void:
 		$HUD.position = -get_viewport_rect().size / 2
 
 func shake(magnitude: float):
-	_shake_timer.start(magnitude)
+	if magnitude > 0.0:
+		_shake_timer.start(magnitude)
