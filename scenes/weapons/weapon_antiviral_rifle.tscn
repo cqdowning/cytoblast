@@ -10,8 +10,10 @@ position = Vector2(0, -40)
 texture = ExtResource("2_esvul")
 script = ExtResource("3_kgr87")
 type = 1
+speed = 1000.0
 shoot_delay = 0.5
-shake_magnitude = 2.0
+spread = 5.0
+shake_magnitude = 0.25
 projectile_scene = ExtResource("4_wf8s6")
 
 [node name="ProjectileSpawn" parent="." index="0"]

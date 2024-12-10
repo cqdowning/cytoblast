@@ -1,5 +1,6 @@
-class_name Rifle
+class_name Machinegun
 extends Weapon
+
 
 
 # Called when the node enters the scene tree for the first time.

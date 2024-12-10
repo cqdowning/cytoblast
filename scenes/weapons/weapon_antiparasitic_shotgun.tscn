@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bovtbuvyfjrlm"]
+
+[ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_hadq2"]
+[ext_resource type="Texture2D" uid="uid://cxvae5j0pqyal" path="res://assets/weapons/shotgun/shotgun_antiparasitic.png" id="2_vetoh"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_shotgun.gd" id="3_6h3a0"]
+[ext_resource type="PackedScene" uid="uid://b4op0c3jp0umn" path="res://scenes/projectiles/projectile_antiparasitic.tscn" id="4_fruly"]
+
+[node name="WeaponBase" instance=ExtResource("1_hadq2")]
+position = Vector2(0, -43.165)
+texture = ExtResource("2_vetoh")
+script = ExtResource("3_6h3a0")
+projectile_amount = 6
+type = 2
+speed = 900.0
+shoot_delay = 0.75
+spread = 30.0
+shake_magnitude = 0.5
+projectile_scene = ExtResource("4_fruly")
+
+[node name="ProjectileSpawn" parent="." index="0"]
+position = Vector2(0, -28)
