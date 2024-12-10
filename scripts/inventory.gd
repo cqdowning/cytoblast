@@ -6,7 +6,7 @@ signal weapon_changed(cur_slot:int)
 signal weapon_added(weapon:Weapon, max_ammo:int, slot:int)
 signal shot_fired(cur_slot:int, shots_remaining:int)
 
-@export var max_size = 9
+@export var max_size = 3
 
 var weapons:Array[Weapon]
 var rifle_ab = preload("res://scenes/weapons/weapon_antibiotic_rifle.tscn").instantiate() as Weapon
@@ -26,18 +26,23 @@ var _cur_slot = 0
 
 func _ready() -> void:
 	# demo inverntory with all three rifles
-	rifle_ab.is_equipped = true
-	weapons.push_back(rifle_ab)
-	weapons.push_back(rifle_av)
-	weapons.push_back(rifle_ap)
+	#rifle_ab.is_equipped = true
+	#weapons.push_back(rifle_ab)
+	#weapons.push_back(rifle_av)
+	#weapons.push_back(rifle_ap)
+	#
+	#weapons.push_back(machinegun_ab)
+	#weapons.push_back(machinegun_av)
+	#weapons.push_back(machinegun_ap)
+	#
+	#weapons.push_back(shotgun_ab)
+	#weapons.push_back(shotgun_av)
+	#weapons.push_back(shotgun_ap)
 	
-	weapons.push_back(machinegun_ab)
-	weapons.push_back(machinegun_av)
-	weapons.push_back(machinegun_ap)
-	
-	weapons.push_back(shotgun_ab)
-	weapons.push_back(shotgun_av)
-	weapons.push_back(shotgun_ap)
+	for i in range(0, max_size):
+		weapons.push_back(null)
+		weapons.push_back(null)
+		weapons.push_back(null)
 	
 	# set the current slot to the first slot with a weapon
 	for i in range(weapons.size()):

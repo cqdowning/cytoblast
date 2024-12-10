@@ -49,7 +49,8 @@ func _ready():
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
 	
-	add_child(current_inventory.current_weapon())
+	if not current_inventory.is_empty():
+		add_child(current_inventory.current_weapon())
 	
 	current_inventory.weapon_changed.connect(_on_weapon_changed)
 	
