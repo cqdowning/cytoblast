@@ -10,7 +10,6 @@ point_count = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_yyhlk"]
 
 [node name="WeaponBase" type="Sprite2D"]
-z_index = 1
 script = ExtResource("1_fw6jg")
 curve = SubResource("Curve_iq7do")
 
