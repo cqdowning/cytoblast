@@ -40,6 +40,8 @@ func _process(delta):
 	
 func take_damage(projectile_damage:float):
 	health -= projectile_damage
+	print(health)
+	var direction_away_from_player:Vector2 = -global_position.direction_to(target.global_position)
 	
 func _face_target(delta):
 	# Get target angle to mouse

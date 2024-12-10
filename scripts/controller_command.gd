@@ -45,3 +45,9 @@ func _process(_delta):
 			#print("Shoot pressed")
 			var shoot_command = ShootCommand.new()
 			shoot_command.execute(player)
+			
+	# Execute shoot command
+	if Input.is_action_just_pressed("throw"):
+			print("Throw pressed")
+			var throw_command = ThrowCommand.new()
+			throw_command.execute(player)

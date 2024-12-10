@@ -1,4 +1,4 @@
-class_name Projectile_Enemy
+class_name ProjectileEnemy
 extends Projectile
 
 
