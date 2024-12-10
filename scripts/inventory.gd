@@ -3,7 +3,8 @@ extends Node
 
 
 signal weapon_changed(cur_slot:int)
-signal weapon_added(weapon:Weapon, slot:int)
+signal weapon_added(weapon:Weapon, max_ammo:int, slot:int)
+signal shot_fired(cur_slot:int, shots_remaining:int)
 
 @export var max_size = 9
 
@@ -67,6 +68,10 @@ func current_weapon():
 	return weapons[_cur_slot]
 	
 		
+func get_current_slot():
+	return _cur_slot
+		
+		
 func is_empty():
 	for weapon in weapons:
 		if weapon:
@@ -89,7 +94,7 @@ func add_weapon(weapon:Weapon):
 		return
 	weapons[slot_to_fill] = weapon
 	weapon.is_equipped = true
-	weapon_added.emit(weapon, slot_to_fill)
+	weapon_added.emit(weapon, weapon.max_ammo, slot_to_fill)
 	get_tree().current_scene.remove_child(weapon)
 	# equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:

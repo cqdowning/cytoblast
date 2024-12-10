@@ -9,6 +9,7 @@ enum Type {
 }
 
 @export var damage: float = 10
+@export var max_ammo = 10
 @export var type: Type = Type.NONE
 @export var speed: float = 800
 @export var speed_variation: float = 100.0
@@ -48,9 +49,12 @@ func _process(delta: float) -> void:
 
 func shoot():
 	game_manager.shake_camera.emit(shake_magnitude)
+	max_ammo -= 1
+	current_inventory.shot_fired.emit(current_inventory.get_current_slot(), max_ammo)
 
 func _on_shoot_delay_timeout():
-	can_shoot = true
+	if max_ammo > 0:
+		can_shoot = true
 
 func activate_weapon():
 	can_shoot = true
