@@ -10,12 +10,17 @@ enum Type {
 
 @export var damage: float = 10
 @export var type: Type = Type.NONE
+@export var speed: float = 800
+@export var speed_variation: float = 100.0
 @export var shoot_delay: float = 0.01
+@export var spread: float = 0.0
 @export var shake_magnitude: float = 0.0
 @export var projectile_scene:PackedScene
 
-var _shoot_delay_timer: Timer
 var can_shoot: bool = true
+
+var _shoot_delay_timer: Timer
+var _rng: RandomNumberGenerator
 
 @onready var projectile_spawn:Node2D = $ProjectileSpawn
 
@@ -27,6 +32,7 @@ func _ready():
 	_shoot_delay_timer.one_shot = true
 	_shoot_delay_timer.timeout.connect(_on_shoot_delay_timeout) # Fix indentation
 	activate_weapon()
+	_rng = RandomNumberGenerator.new()
 
 
 func shoot():

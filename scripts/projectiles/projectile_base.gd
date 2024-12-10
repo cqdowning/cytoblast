@@ -38,7 +38,8 @@ func launch(spawn_position: Vector2, launch_direction: Vector2):
 	rotation = direction.angle()
 
 func _on_body_entered(body: Node2D):
-	print("Projectile hit ", body, name)
+	#print("Projectile hit ", body, name)
+	pass
 	
 
 func _on_despawn_timeout():

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cobsxuxdjkkce"]
+
+[ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_mmkuo"]
+[ext_resource type="Texture2D" uid="uid://b1d6momi5xddi" path="res://assets/weapons/machine_gun/machinegun_antibiotic.png" id="1_tqdi5"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_machinegun.gd" id="2_kky5m"]
+[ext_resource type="PackedScene" uid="uid://bfsg2gtwmwosi" path="res://scenes/projectiles/projectile_antibiotic.tscn" id="3_iblwm"]
+
+[node name="WeaponBase" instance=ExtResource("1_mmkuo")]
+position = Vector2(0, -37.525)
+texture = ExtResource("1_tqdi5")
+script = ExtResource("2_kky5m")
+type = 0
+shoot_delay = 0.15
+spread = 25.0
+shake_magnitude = 0.15
+projectile_scene = ExtResource("3_iblwm")
+
+[node name="ProjectileSpawn" parent="." index="0"]
+position = Vector2(0, -30)
