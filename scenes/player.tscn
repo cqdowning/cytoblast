@@ -1,14 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://66l7cq75kuch"]
+[gd_scene load_steps=9 format=3 uid="uid://66l7cq75kuch"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k120h"]
 [ext_resource type="PackedScene" uid="uid://blj10piebn5pp" path="res://scenes/projectiles/projectile_thrown_weapon.tscn" id="2_4uq7s"]
 [ext_resource type="Texture2D" uid="uid://dt73ntvev3fxg" path="res://assets/player/player_spritesheet.png" id="2_ux3k7"]
 
+[sub_resource type="Animation" id="Animation_00lnj"]
+resource_name = "melee"
+length = 0.85
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.566667, 0.633333, 0.7, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16, 17, 18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_74lic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Hitbox:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsdjr"]
+_data = {
+"RESET": SubResource("Animation_74lic"),
+"melee": SubResource("Animation_00lnj")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m552"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdg35"]
+radius = 16.0
+height = 75.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 15
+collision_mask = 13
 script = ExtResource("1_k120h")
 thrown_weapon_scene = ExtResource("2_4uq7s")
 
@@ -19,9 +85,22 @@ texture = ExtResource("2_ux3k7")
 offset = Vector2(0, -15)
 hframes = 5
 vframes = 4
+frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hsdjr")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.34, 3.34)
 shape = SubResource("CircleShape2D_2m552")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -38.535)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_bdg35")
+one_way_collision_margin = 4.0
