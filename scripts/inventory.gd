@@ -18,8 +18,8 @@ func _ready() -> void:
 	# demo inverntory with all three rifles
 	rifle_ab.is_equipped = true
 	weapons.push_back(rifle_ab)
-	weapons.push_back(null)
-	weapons.push_back(null)
+	weapons.push_back(rifle_av)
+	weapons.push_back(rifle_ap)
 	
 	# set the current slot to the first slot with a weapon
 	for i in range(weapons.size()):
