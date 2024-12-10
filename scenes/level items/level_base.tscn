@@ -29,8 +29,9 @@ shape = SubResource("RectangleShape2D_7y381")
 script = ExtResource("3_blfvy")
 player = NodePath("../Player")
 
-[node name="CameraController" type="Camera2D" parent="."]
+[node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
 position = Vector2(307, 311)
 script = ExtResource("4_tvwq0")
+subject = NodePath("../Player")
 
 [connection signal="body_entered" from="LevelEndGate" to="." method="_on_level_end_gate_body_entered"]

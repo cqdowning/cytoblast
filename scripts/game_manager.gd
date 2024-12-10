@@ -31,4 +31,4 @@ func _process(_delta: float) -> void:
 func change_level(next_level:PackedScene):
 	# reset the room id, each level's rooms will be indexed starting at 1
 	room_id = 0
-	get_tree().change_scene_to_packed(next_level)
+	get_tree().call_deferred("change_scene_to_packed", next_level)
