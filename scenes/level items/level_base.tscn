@@ -16,6 +16,10 @@ script = ExtResource("1_utkjf")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 
+[node name="Decal" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
 [node name="SpawnPoint" type="Marker2D" parent="."]
 
 [node name="LevelEndGate" type="Area2D" parent="."]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/weapons/weapon_base.gd" id="1_fw6jg"]
 
 [node name="WeaponBase" type="Sprite2D"]
+z_index = 1
 script = ExtResource("1_fw6jg")
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
