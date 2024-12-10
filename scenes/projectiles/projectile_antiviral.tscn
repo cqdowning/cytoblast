@@ -7,7 +7,7 @@
 
 [node name="ProjectileAntiviral" type="Area2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_ltswc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

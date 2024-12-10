@@ -9,6 +9,8 @@
 radius = 52.0
 
 [node name="ProjectileThrownWeapon" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_snh1e")
 explosion_projectile = ExtResource("2_kccho")
 explosion_effect = ExtResource("3_lcsyc")

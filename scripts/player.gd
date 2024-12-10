@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export_category("Combat")
 @export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = false
+@export var melee_damage: float = 25.0
 
 @export_category("Movement")
 @export var speed: float = 400.0
@@ -20,6 +21,7 @@ extends CharacterBody2D
 var current_health: float = max_health
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var melee_hitbox: Area2D = $Area2D
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
@@ -30,6 +32,8 @@ var dash_timer: Timer
 
 func _ready():
 	add_to_group("player")
+	melee_hitbox.get_child(0).disabled = true
+	melee_hitbox.body_entered.connect(_on_melee_entered)
 	
 	melee_timer = Timer.new()
 	melee_timer.one_shot = true
@@ -102,12 +106,12 @@ func _on_melee_completed():
 
 
 func perform_dash(direction: Vector2):
-	print("Perform dash called, can_dash:", can_dash) # Debug print
+	#print("Perform dash called, can_dash:", can_dash) # Debug print
 	if !can_dash or direction.length() == 0:
-		print("Dash cancelled - can_dash:", can_dash, " direction:", direction.length()) # Debug print
+		#print("Dash cancelled - can_dash:", can_dash, " direction:", direction.length()) # Debug print
 		return
 	
-	print("Executing dash") # Debug print
+	#print("Executing dash") # Debug print
 	can_dash = false
 	change_state(PlayerState.DASHING)
 	
@@ -220,3 +224,9 @@ func _on_weapon_changed():
 			# remove it from the player, not delete it entirely
 			remove_child(child)
 	add_child(current_inventory.current_weapon())
+	
+func _on_melee_entered(body: Node2D):
+	# Check if we hit an enemy
+	print("hi")
+	if body.is_in_group("enemies") and body.has_method("take_damage"):
+		body.take_damage(melee_damage)

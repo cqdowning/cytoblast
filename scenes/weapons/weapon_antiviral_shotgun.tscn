@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b52e2g4rx38l7"]
+
+[ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_wwfq7"]
+[ext_resource type="Texture2D" uid="uid://3fu4ty63i1r" path="res://assets/weapons/shotgun/shotgun_antiviral.png" id="2_tftjl"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_shotgun.gd" id="3_irefk"]
+[ext_resource type="PackedScene" uid="uid://c11shkgihf2en" path="res://scenes/projectiles/projectile_antiviral.tscn" id="4_f336l"]
+
+[node name="WeaponBase" instance=ExtResource("1_wwfq7")]
+position = Vector2(0, -43.165)
+texture = ExtResource("2_tftjl")
+script = ExtResource("3_irefk")
+projectile_amount = 6
+type = 1
+speed = 900.0
+shoot_delay = 0.75
+spread = 30.0
+shake_magnitude = 0.5
+projectile_scene = ExtResource("4_f336l")
+
+[node name="ProjectileSpawn" parent="." index="0"]
+position = Vector2(0, -28)

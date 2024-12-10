@@ -4,12 +4,20 @@ extends Node
 
 signal weapon_changed
 
-@export var max_size = 3
+@export var max_size = 9
 
 var weapons:Array[Weapon]
 var rifle_ab = preload("res://scenes/weapons/weapon_antibiotic_rifle.tscn").instantiate() as Weapon
 var rifle_av = preload("res://scenes/weapons/weapon_antiviral_rifle.tscn").instantiate() as Weapon
 var rifle_ap = preload("res://scenes/weapons/weapon_antiparasitic_rifle.tscn").instantiate() as Weapon
+
+var machinegun_ab = preload("res://scenes/weapons/weapon_antibiotic_machinegun.tscn").instantiate() as Weapon
+var machinegun_av = preload("res://scenes/weapons/weapon_antiviral_machinegun.tscn").instantiate() as Weapon
+var machinegun_ap = preload("res://scenes/weapons/weapon_antiparasitic_machinegun.tscn").instantiate() as Weapon
+
+var shotgun_ab = preload("res://scenes/weapons/weapon_antibiotic_shotgun.tscn").instantiate() as Weapon
+var shotgun_av = preload("res://scenes/weapons/weapon_antiviral_shotgun.tscn").instantiate() as Weapon
+var shotgun_ap = preload("res://scenes/weapons/weapon_antiparasitic_shotgun.tscn").instantiate() as Weapon
 
 var _cur_slot = 0
 
@@ -20,6 +28,14 @@ func _ready() -> void:
 	weapons.push_back(rifle_ab)
 	weapons.push_back(rifle_av)
 	weapons.push_back(rifle_ap)
+	
+	weapons.push_back(machinegun_ab)
+	weapons.push_back(machinegun_av)
+	weapons.push_back(machinegun_ap)
+	
+	weapons.push_back(shotgun_ab)
+	weapons.push_back(shotgun_av)
+	weapons.push_back(shotgun_ap)
 	
 	# set the current slot to the first slot with a weapon
 	for i in range(weapons.size()):
