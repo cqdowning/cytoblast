@@ -120,10 +120,10 @@ func _switch_to_closest_taken_slot():
 	# prioritize autoequipping the next weapon above, then below
 	if next_above != _cur_slot:
 		_cur_slot = next_above
-		weapon_changed.emit()
+		weapon_changed.emit(_cur_slot)
 	elif next_below != _cur_slot:
 		_cur_slot = next_below
-		weapon_changed.emit()
+		weapon_changed.emit(_cur_slot)
 	# if the inventory is empty, set the current slot to 0
 	else:
 		_cur_slot = 0

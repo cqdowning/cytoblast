@@ -1,7 +1,7 @@
 class_name EnemySpawner
 extends Node2D
 
-
+@export var enemy_specs:Array[EnemySpec]
 @export var enemies:Array[PackedScene]
 @export var wave_delay:float
 @export var initial_delay:float
