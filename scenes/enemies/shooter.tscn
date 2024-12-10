@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://v4ioc7f6g67r"]
+[gd_scene load_steps=8 format=3 uid="uid://v4ioc7f6g67r"]
 
 [ext_resource type="Script" path="res://scripts/enemies/shooter.gd" id="1_rbl1y"]
+[ext_resource type="PackedScene" uid="uid://do281r4ajjeka" path="res://scenes/weapons/weapon_antibiotic_rifle.tscn" id="2_atys5"]
 [ext_resource type="Texture2D" uid="uid://x5e6pweh6yl3" path="res://assets/objects/decor/cell1.png" id="2_ewyul"]
 [ext_resource type="PackedScene" uid="uid://r3rcjeoxjifl" path="res://scenes/projectiles/projectile_bacterial.tscn" id="2_yc8ce"]
+[ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="3_n0k1a"]
+[ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="4_76xfq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onteg"]
 
@@ -13,6 +16,7 @@ script = ExtResource("1_rbl1y")
 move_speed = 200.0
 attack_delay = 2.0
 attack_speed = 800.0
+weapon_drops = Array[PackedScene]([ExtResource("2_atys5"), ExtResource("3_n0k1a"), ExtResource("4_76xfq")])
 projectile_scene = ExtResource("2_yc8ce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
