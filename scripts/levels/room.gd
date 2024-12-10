@@ -14,7 +14,7 @@ var _entered: bool = false
 
 func _ready():
 	for spawner in spawners:
-		starting_enemy_count += spawner.enemies.size()
+		starting_enemy_count += spawner.enemy_specs.size()
 
 
 # once room is entered, tell the game manager

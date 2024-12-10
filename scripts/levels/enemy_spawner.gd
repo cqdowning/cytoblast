@@ -1,8 +1,7 @@
 class_name EnemySpawner
 extends Node2D
 
-
-@export var enemies:Array[PackedScene]
+@export var enemy_specs:Array[EnemySpec]
 @export var wave_delay:float
 @export var initial_delay:float
 
@@ -19,7 +18,7 @@ func _ready() -> void:
 	_timer.timeout.connect(_on_timeout)
 	
 func _process(delta):
-	if _timer.time_left < 1.0 && !enemies.is_empty():
+	if _timer.time_left < 1.0 && !enemy_specs.is_empty():
 		particles.emitting = true
 	else:
 		particles.emitting = false
@@ -30,9 +29,9 @@ func start_timer():
 
 
 func _on_timeout():
-	var enemy_scene = enemies.pop_front()
-	if enemy_scene:
-		var enemy = enemy_scene.instantiate() as Enemy
+	var enemy_spec = enemy_specs.pop_front()
+	if enemy_spec:
+		var enemy = EnemyFactory.build(enemy_spec)
 		enemy.target = $"../Player"
 		# add code here for making random enemies?
 		add_child(enemy)
