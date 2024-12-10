@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://8f7wguw806d0"]
+[gd_scene load_steps=7 format=3 uid="uid://8f7wguw806d0"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_utkjf"]
 [ext_resource type="PackedScene" uid="uid://66l7cq75kuch" path="res://scenes/player.tscn" id="2_pu35u"]
 [ext_resource type="Script" path="res://scripts/controller_command.gd" id="3_blfvy"]
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="4_tvwq0"]
+[ext_resource type="PackedScene" uid="uid://cbfu4ny2eqkqs" path="res://scenes/hud.tscn" id="5_1siuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7y381"]
 size = Vector2(39.7537, 18.7668)
@@ -33,5 +34,7 @@ player = NodePath("../Player")
 position = Vector2(307, 311)
 script = ExtResource("4_tvwq0")
 subject = NodePath("../Player")
+
+[node name="HUD" parent="CameraController" instance=ExtResource("5_1siuq")]
 
 [connection signal="body_entered" from="LevelEndGate" to="." method="_on_level_end_gate_body_entered"]

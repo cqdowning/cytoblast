@@ -42,4 +42,3 @@ func _on_enemy_defeated():
 func show_hud():
 	var hud = hud_scene.instantiate()
 	get_tree().get_root().add_child(hud)
-

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=8 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_7c6su"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://d042h1k8gia83" path="res://scenes/level items/enemy_spawner.tscn" id="6_ak8yx"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
 [ext_resource type="PackedScene" uid="uid://v4ioc7f6g67r" path="res://scenes/enemies/shooter.tscn" id="8_awv5l"]
-[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="8_gf7ej"]
-[ext_resource type="PackedScene" uid="uid://cbfu4ny2eqkqs" path="res://scenes/hud.tscn" id="9_r4k2l"]
 
 [node name="LevelBase" instance=ExtResource("1_7c6su")]
 next_level = ExtResource("2_lk1tq")
@@ -40,25 +38,16 @@ spawners = [NodePath("../EnemySpawner1_1")]
 position = Vector2(2372, -2984)
 scale = Vector2(1.64, 6.91)
 
-
 [node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("6_ak8yx")]
 position = Vector2(1041, -2958)
 enemies = Array[PackedScene]([ExtResource("8_awv5l"), ExtResource("8_awv5l")])
 wave_delay = 10.0
 initial_delay = 2.0
 
-[node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
-position = Vector2(307, 311)
-script = ExtResource("8_gf7ej")
-subject = NodePath("../Player")
-
-[node name="HUD" parent="CameraController" instance=ExtResource("9_r4k2l")]
-
-[node name="Shooter" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
+[node name="Shooter" parent="." index="10" node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
 position = Vector2(324, -470)
 target = NodePath("../Player")
 
-[node name="Shooter2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
+[node name="Shooter2" parent="." index="11" node_paths=PackedStringArray("target") instance=ExtResource("8_awv5l")]
 position = Vector2(328, -580)
 target = NodePath("../Player")
-
