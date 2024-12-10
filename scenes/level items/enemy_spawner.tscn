@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d042h1k8gia83"]
+
+[ext_resource type="Script" path="res://scripts/levels/enemy_spawner.gd" id="1_ckb52"]
+[ext_resource type="PackedScene" uid="uid://v4ioc7f6g67r" path="res://scenes/enemies/shooter.tscn" id="2_xe4f2"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_ckb52")
+enemies = Array[PackedScene]([ExtResource("2_xe4f2")])
+wave_delay = 2.0

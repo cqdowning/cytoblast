@@ -35,6 +35,7 @@ func _ready():
 func _process(delta):
 	_ai(delta)
 	if health <= 0:
+		game_manager.enemies_remaining -= 1
 		queue_free()
 	
 func take_damage(projectile_damage:float):

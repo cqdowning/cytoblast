@@ -13,7 +13,6 @@ func _ready() -> void:
 	# the health, inventory, etc.
 	player.position = spawn_point.position
 	game_manager.room_over.connect(_on_room_over)
-	print(next_level)
 
 
 func _on_level_end_gate_body_entered(body: Node2D) -> void:
@@ -26,8 +25,6 @@ func _on_level_end_gate_body_entered(body: Node2D) -> void:
 				# remove it from the player, not delete it entirely
 				player.remove_child(child)
 		game_manager.change_level(next_level)
-		
-		
 
 
 func _on_room_over(room_id:int):
