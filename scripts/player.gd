@@ -224,7 +224,7 @@ func pickup_weapon():
 		item_detector.add_to_inventory()
 
 
-func _on_weapon_changed():
+func _on_weapon_changed(_cur_slot:int):
 	for child in get_children():
 		if child is Weapon:
 			# using remove_child instead of queue_free because we just want to 

@@ -2,7 +2,8 @@ class_name Inventory
 extends Node
 
 
-signal weapon_changed
+signal weapon_changed(cur_slot:int)
+signal weapon_added(weapon:Weapon, slot:int)
 
 @export var max_size = 9
 
@@ -50,16 +51,16 @@ func _process(delta: float) -> void:
 		if next_slot == _cur_slot:
 			return
 		_cur_slot = next_slot
-		weapon_changed.emit()
-		print(_cur_slot)
+		weapon_changed.emit(_cur_slot)
+		print("Current slot: ", _cur_slot)
 		
 	if Input.is_action_just_pressed("prev_weapon"):
 		var next_slot = _get_next_available_slot(-1)
 		if next_slot == _cur_slot:
 			return
 		_cur_slot = next_slot
-		weapon_changed.emit()
-		print(_cur_slot)
+		weapon_changed.emit(_cur_slot)
+		print("Current slot: ", _cur_slot)
 		
 		
 func current_weapon():
@@ -88,10 +89,11 @@ func add_weapon(weapon:Weapon):
 		return
 	weapons[slot_to_fill] = weapon
 	weapon.is_equipped = true
+	weapon_added.emit(weapon, slot_to_fill)
 	get_tree().current_scene.remove_child(weapon)
 	# equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:
-		weapon_changed.emit()
+		weapon_changed.emit(_cur_slot)
 	
 
 func _get_first_available_slot() -> int:
