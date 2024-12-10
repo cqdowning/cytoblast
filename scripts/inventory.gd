@@ -16,9 +16,10 @@ var _cur_slot = 0
 
 func _ready() -> void:
 	# demo inverntory with all three rifles
+	rifle_ab.is_equipped = true
 	weapons.push_back(rifle_ab)
-	weapons.push_back(rifle_av)
-	weapons.push_back(rifle_ap)
+	weapons.push_back(null)
+	weapons.push_back(null)
 	
 	# set the current slot to the first slot with a weapon
 	for i in range(weapons.size()):
@@ -26,7 +27,6 @@ func _ready() -> void:
 			_cur_slot = i
 			return
 	
-		
 		
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("next_weapon"):

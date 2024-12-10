@@ -169,6 +169,9 @@ func throw():
 	if current_state == PlayerState.DASHING:
 		return
 	
+	if current_inventory.is_empty():
+		return
+	
 	# Create and setup projectile
 	var projectile:ProjectileThrownWeapon = thrown_weapon_scene.instantiate()
 	get_tree().current_scene.add_child(projectile)

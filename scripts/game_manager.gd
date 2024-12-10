@@ -11,7 +11,7 @@ signal ammo_changed(current_ammo:int, max_ammo:int)
 signal shake_camera(magnitude:float)
 
 var hud_scene:PackedScene = preload("res://scenes/hud.tscn")
-
+var player: Player
 var enemies_remaining = 0
 var room_active = false
 var room_id = 0

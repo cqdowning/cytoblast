@@ -16,7 +16,9 @@ enum Type {
 @export var rotation_speed:float = 10.0
 @export var attack_delay:float = -1.0
 @export var attack_speed:float = -1.0
+@export var weapon_drops:Array[PackedScene]
 @export var projectile_scene = preload("res://scenes/projectiles/projectile.tscn")
+
 
 var _attack_delay_timer:Timer
 
@@ -36,6 +38,11 @@ func _process(delta):
 	_ai(delta)
 	if health <= 0:
 		game_manager.enemy_defeated.emit()
+		if not weapon_drops.is_empty():
+			var weapon_to_drop = weapon_drops.pick_random()
+			var drop = weapon_to_drop.instantiate() as Weapon
+			get_tree().current_scene.add_child(drop)
+			drop.global_position = global_position
 		queue_free()
 	
 func take_damage(projectile_damage:float):
