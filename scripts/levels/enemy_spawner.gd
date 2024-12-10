@@ -19,7 +19,7 @@ func _ready() -> void:
 	_timer.timeout.connect(_on_timeout)
 	
 func _process(delta):
-	if _timer.time_left < 1.0 && !_timer.is_stopped():
+	if _timer.time_left < 1.0 && !enemies.is_empty():
 		particles.emitting = true
 	else:
 		particles.emitting = false
@@ -37,4 +37,3 @@ func _on_timeout():
 		# add code here for making random enemies?
 		add_child(enemy)
 		_timer.start(wave_delay)
-	
