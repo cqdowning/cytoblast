@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://66l7cq75kuch"]
+[gd_scene load_steps=10 format=3 uid="uid://66l7cq75kuch"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k120h"]
 [ext_resource type="PackedScene" uid="uid://blj10piebn5pp" path="res://scenes/projectiles/projectile_thrown_weapon.tscn" id="2_4uq7s"]
 [ext_resource type="Texture2D" uid="uid://dt73ntvev3fxg" path="res://assets/player/player_spritesheet.png" id="2_ux3k7"]
+[ext_resource type="Script" path="res://scripts/item_detector.gd" id="4_yudxs"]
 
 [sub_resource type="Animation" id="Animation_74lic"]
 length = 0.001
@@ -105,8 +106,9 @@ collision_mask = 4
 shape = SubResource("CapsuleShape2D_bdg35")
 one_way_collision_margin = 4.0
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="ItemDetector" type="RayCast2D" parent="."]
 target_position = Vector2(0, -80)
 collision_mask = 128
 collide_with_areas = true
 collide_with_bodies = false
+script = ExtResource("4_yudxs")
