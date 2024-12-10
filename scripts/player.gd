@@ -183,6 +183,7 @@ func throw():
 	projectile.launch(global_position, direction)
 	
 	# TODO: Remove current weapon from inventory
+	current_inventory.drop_weapon()
 
 func change_state(new_state: PlayerState):
 	if new_state == current_state:
