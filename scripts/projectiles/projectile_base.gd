@@ -39,6 +39,7 @@ func launch(spawn_position: Vector2, launch_direction: Vector2):
 
 func _on_body_entered(body: Node2D):
 	print("Projectile hit ", body, name)
+	
 
 func _on_despawn_timeout():
 	queue_free()
