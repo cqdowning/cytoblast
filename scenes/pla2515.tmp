@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=11 format=3 uid="uid://66l7cq75kuch"]
+[gd_scene load_steps=10 format=3 uid="uid://66l7cq75kuch"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k120h"]
 [ext_resource type="PackedScene" uid="uid://blj10piebn5pp" path="res://scenes/projectiles/projectile_thrown_weapon.tscn" id="2_4uq7s"]
@@ -62,48 +61,10 @@ tracks/1/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_ngcfe"]
-resource_name = "idle"
-length = 0.4
-loop_mode = 1
-step = 0.0333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_qw20u"]
-resource_name = "moving"
-length = 0.3
-loop_mode = 1
-step = 0.0333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hsdjr"]
 _data = {
 "RESET": SubResource("Animation_74lic"),
-"idle": SubResource("Animation_ngcfe"),
-"melee": SubResource("Animation_00lnj"),
-"moving": SubResource("Animation_qw20u")
+"melee": SubResource("Animation_00lnj")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m552"]
@@ -114,7 +75,7 @@ height = 75.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 29
+collision_mask = 13
 script = ExtResource("1_k120h")
 thrown_weapon_scene = ExtResource("2_4uq7s")
 
@@ -132,7 +93,6 @@ frame = 10
 libraries = {
 "": SubResource("AnimationLibrary_hsdjr")
 }
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3.34, 3.34)

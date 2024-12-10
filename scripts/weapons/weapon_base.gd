@@ -16,11 +16,15 @@ enum Type {
 @export var spread: float = 0.0
 @export var shake_magnitude: float = 0.0
 @export var projectile_scene:PackedScene
+@export var curve:Curve
 
 var can_shoot: bool = true
+var is_equipped = true
 
 var _shoot_delay_timer: Timer
 var _rng: RandomNumberGenerator
+var _hover_progress = 0
+var _hover_dir = 1
 
 @onready var projectile_spawn:Node2D = $ProjectileSpawn
 
@@ -34,6 +38,13 @@ func _ready():
 	activate_weapon()
 	_rng = RandomNumberGenerator.new()
 
+func _process(delta: float) -> void:
+	if not is_equipped and curve:
+		_hover_progress += delta * _hover_dir
+		position.y += curve.sample(_hover_progress) * 0.2
+		if _hover_progress < 0 or _hover_progress > 1:
+			_hover_dir *= -1
+		_hover_progress = clamp(_hover_progress, 0, 1)
 
 func shoot():
 	game_manager.shake_camera.emit(shake_magnitude)

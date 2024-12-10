@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddwc8tdixrb5a"]
+[gd_scene load_steps=4 format=3 uid="uid://ddwc8tdixrb5a"]
 
 [ext_resource type="Script" path="res://scripts/weapons/weapon_base.gd" id="1_fw6jg"]
+
+[sub_resource type="Curve" id="Curve_iq7do"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyhlk"]
 
 [node name="WeaponBase" type="Sprite2D"]
 z_index = 1
 script = ExtResource("1_fw6jg")
+curve = SubResource("Curve_iq7do")
 
 [node name="ProjectileSpawn" type="Node2D" parent="."]
+
+[node name="PickupArea" type="Area2D" parent="."]
+scale = Vector2(7, 7)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_yyhlk")

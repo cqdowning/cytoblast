@@ -51,6 +51,7 @@ script = ExtResource("1_rbl1y")
 move_speed = 200.0
 attack_delay = 2.0
 attack_speed = 800.0
+weapon_drops = Array[PackedScene]([ExtResource("2_atys5"), ExtResource("3_n0k1a"), ExtResource("4_76xfq")])
 projectile_scene = ExtResource("2_yc8ce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
