@@ -9,7 +9,6 @@ extends Node2D
 var active = false
 
 var _timer:Timer
-var _has_started = false
 
 
 func _ready() -> void:
@@ -26,7 +25,6 @@ func start_timer():
 func _on_timeout():
 	var enemy_scene = enemies.pop_front()
 	if enemy_scene:
-		print("hello")
 		var enemy = enemy_scene.instantiate() as Enemy
 		enemy.target = $"../Player"
 		# add code here for making random enemies?

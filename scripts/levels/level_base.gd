@@ -18,7 +18,6 @@ func _ready() -> void:
 func _on_level_end_gate_body_entered(body: Node2D) -> void:
 	# switch to the next level once the player collides with the trigger
 	if body is Player:
-		print("changing levels")
 		for child in player.get_children():
 			if child is Weapon:
 				# using remove_child instead of queue_free because we just want to 

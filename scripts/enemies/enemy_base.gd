@@ -16,7 +16,7 @@ enum Type {
 @export var rotation_speed:float = 10.0
 @export var attack_delay:float = -1.0
 @export var attack_speed:float = -1.0
-@export var projectile_scene = preload("res://scenes/projectile.tscn")
+@export var projectile_scene = preload("res://scenes/projectiles/projectile.tscn")
 
 var _attack_delay_timer:Timer
 
@@ -35,13 +35,11 @@ func _ready():
 func _process(delta):
 	_ai(delta)
 	if health <= 0:
-		game_manager.enemies_remaining -= 1
+		game_manager.enemy_defeated.emit()
 		queue_free()
 	
 func take_damage(projectile_damage:float):
-	print(projectile_damage)
 	health -= projectile_damage
-	print(health)
 	
 func _face_target(delta):
 	# Get target angle to mouse
