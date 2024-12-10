@@ -43,6 +43,7 @@ func _process(delta):
 			var drop = weapon_to_drop.instantiate() as Weapon
 			get_tree().current_scene.add_child(drop)
 			drop.global_position = global_position
+			drop.is_equipped = false
 		queue_free()
 	
 func take_damage(projectile_damage:float):

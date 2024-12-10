@@ -80,7 +80,21 @@ func drop_weapon():
 		_switch_to_closest_taken_slot()
 	
 
-func get_first_available_slot() -> int:
+func add_weapon(weapon:Weapon):
+	var picking_up_from_empty = is_empty()
+	var slot_to_fill = _get_first_available_slot()
+	# only pick up a weapon if there is an open space in the inventory
+	if slot_to_fill == -1:
+		return
+	weapons[slot_to_fill] = weapon
+	weapon.is_equipped = true
+	get_tree().current_scene.remove_child(weapon)
+	# equip the weapon if the inventory was previously empty
+	if picking_up_from_empty:
+		weapon_changed.emit()
+	
+
+func _get_first_available_slot() -> int:
 	for i in range(weapons.size()):
 		# return the first null slot
 		if !weapons[i]:

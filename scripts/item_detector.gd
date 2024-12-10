@@ -19,9 +19,4 @@ func add_to_inventory() -> void:
 	if is_colliding():
 		var collider = get_collider().get_parent()
 		if collider is Weapon:
-			var slot_to_fill = current_inventory.get_first_available_slot()
-			# only pick up a weapon if there is an open space in the inventory
-			if slot_to_fill == -1:
-				return
-			current_inventory.weapons[slot_to_fill] = collider
-			get_tree().current_scene.remove_child(collider)
+			current_inventory.add_weapon(collider)
