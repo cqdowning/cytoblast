@@ -49,9 +49,8 @@ func deactivate_weapon():
 	can_shoot = false
 
 func _on_pickup_area_body_entered(body: Node2D) -> void:
-	if body is Player:
-		if not is_equipped:
-			modulate = Color(1.5, 1.5, 1.5)
+	if not is_equipped:
+		modulate = Color(1.5, 1.5, 1.5)
 
 
 func _on_pickup_area_body_exited(body: Node2D) -> void:

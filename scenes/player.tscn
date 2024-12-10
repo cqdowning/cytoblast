@@ -104,3 +104,9 @@ collision_mask = 4
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_bdg35")
 one_way_collision_margin = 4.0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -80)
+collision_mask = 128
+collide_with_areas = true
+collide_with_bodies = false

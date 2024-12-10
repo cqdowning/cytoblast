@@ -18,6 +18,3 @@ projectile_scene = ExtResource("4_wf8s6")
 
 [node name="ProjectileSpawn" parent="." index="0"]
 position = Vector2(0, -35)
-
-[node name="PickupArea" parent="." index="1"]
-visible = false
