@@ -22,6 +22,8 @@ var current_health: float = max_health
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var melee_hitbox: Area2D = $Area2D
+@onready var item_detector: RayCast2D = $ItemDetector
+
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
@@ -216,6 +218,11 @@ func heal(amount: float):
 	current_health = min(max_health, current_health + amount)
 	game_manager.health_changed.emit(current_health, max_health)
 			
+			
+func pickup_weapon():
+	if item_detector.is_colliding():
+		item_detector.add_to_inventory()
+
 
 func _on_weapon_changed():
 	for child in get_children():
@@ -223,7 +230,9 @@ func _on_weapon_changed():
 			# using remove_child instead of queue_free because we just want to 
 			# remove it from the player, not delete it entirely
 			remove_child(child)
-	add_child(current_inventory.current_weapon())
+	var new_weapon = current_inventory.current_weapon()
+	add_child(new_weapon)
+	new_weapon.position = $WeaponHolder.position
 	
 func _on_melee_entered(body: Node2D):
 	# Check if we hit an enemy

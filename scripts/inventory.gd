@@ -79,6 +79,14 @@ func drop_weapon():
 		weapons[_cur_slot] = null
 		_switch_to_closest_taken_slot()
 	
+
+func get_first_available_slot() -> int:
+	for i in range(weapons.size()):
+		# return the first null slot
+		if !weapons[i]:
+			return i
+	return -1 	
+	
 	
 func _get_next_available_slot(increment:int):
 	var next_slot = _cur_slot + increment
