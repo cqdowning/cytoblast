@@ -50,7 +50,6 @@ _data = {
 
 [node name="Turret" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 7
 script = ExtResource("1_rbl1y")
 type = 1
 move_speed = 750.0
@@ -73,3 +72,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ocbgw")
 }
 autoplay = "moving"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+scale = Vector2(5.165, 5.165)
+shape = SubResource("CircleShape2D_onteg")

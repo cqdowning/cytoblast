@@ -27,7 +27,10 @@ var _rng: RandomNumberGenerator
 func _ready():
 	add_to_group("enemies")
 	_rng = RandomNumberGenerator.new()
-	
+	for child in get_children():
+		if child is Area2D:
+			child.body_entered.connect(_on_body_entered)
+			
 	if attack_delay > 0.0:
 		_attack_delay_timer = Timer.new()
 		add_child(_attack_delay_timer)
@@ -85,3 +88,7 @@ func _ai(delta):
 	
 func _attack():
 	pass
+
+func _on_body_entered(body):
+	if body.is_in_group("player") and body.has_method("take_damage"):
+		body.take_damage(damage)

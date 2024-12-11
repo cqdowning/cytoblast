@@ -33,7 +33,3 @@ func _on_movement_timeout():
 		# End charge
 		is_charging = false
 		start_movement_timer(CHARGE_COOLDOWN)
-
-func _on_body_entered(body):
-	if body.is_in_group("player") and body.has_method("take_damage"):
-		body.take_damage(damage)
