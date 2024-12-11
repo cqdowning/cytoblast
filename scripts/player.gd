@@ -234,7 +234,7 @@ func _on_weapon_changed(_cur_slot:int):
 	var new_weapon = current_inventory.current_weapon()
 	add_child(new_weapon)
 	new_weapon.position = $WeaponHolder.position
-	game_manager.weapon_switched.emit(new_weapon)
+	game_manager.weapon_switched.emit(new_weapon, _cur_slot)
 	
 func _on_melee_entered(body: Node2D):
 	# Check if we hit an enemy

@@ -12,7 +12,8 @@ extends Control
 
 # Store weapon information
 var weapon: Weapon
-var max_ammo = 0
+var index: int 
+var ammo = [10, 10, 10]
 
 func _ready():
 	# Set initial health bar value to 100%
@@ -28,6 +29,7 @@ func connect_player_signals():
 	game_manager.no_weapon.connect(_no_weapon)
 	game_manager.weapon_switched.connect(_on_weapon_switched)
 	game_manager.ammo_changed.connect(_on_ammo_shot)
+	game_manager.weapon_dropped.connect(_on_weapon_dropped)
 
 func _on_health_changed(current_health, max_health):
 	# Update health bar
@@ -41,16 +43,22 @@ func _no_weapon():
 	machinegun_label.modulate = Color(0.5, 0.5, 0.5, 1)
 	ammo_label.text = "0 / 0"
 
-func _on_weapon_switched(new_weapon):
+func _on_weapon_dropped(dropped_index):
+	# Set the ammo to 0 when weapon is dropped
+	ammo[dropped_index] = 10
+
+func _on_weapon_switched(new_weapon, new_weapon_index):
 	# Switch the current weapon
 	weapon = new_weapon
+	index = new_weapon_index
 	update_weapon_display()
 
 func _on_ammo_shot(current_ammo, given_max_ammo):
 	# Update ammo display for current weapon
+	ammo[index] = current_ammo
 	if current_ammo < 0:
 		current_ammo = 0
-	ammo_label.text = "%d / %d" % [current_ammo, given_max_ammo]
+	ammo_label.text = "%d / %d" % [ammo[index], given_max_ammo]
 
 func update_weapon_display():
 	# Highlight the selected weapon
@@ -87,7 +95,7 @@ func update_weapon_display():
 	
 	# Update ammo display for current weapon
 	# Max ammo is already set
-	ammo_label.text = "%d / %d" % [max_ammo, max_ammo]
+	ammo_label.text = "%d / %d" % [ammo[index], weapon.max_ammo]
 
 # Optional: Handle window resize events for additional scaling
 func _on_resized():

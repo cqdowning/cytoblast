@@ -88,6 +88,7 @@ func drop_weapon():
 	if weapons[_cur_slot]:
 		weapons[_cur_slot].queue_free()
 		weapons[_cur_slot] = null
+		game_manager.weapon_dropped.emit(_cur_slot)
 		_switch_to_closest_taken_slot()
 	
 
