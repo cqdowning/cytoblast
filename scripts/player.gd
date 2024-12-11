@@ -90,7 +90,7 @@ func move(direction: Vector2):
 		velocity = Vector2.ZERO # Stop movement when no direction
 
 func perform_melee():
-	if !can_melee or current_state == PlayerState.DASHING:
+	if !can_melee or current_state == PlayerState.DASHING or !current_inventory.is_empty():
 			return
 			
 	can_melee = false

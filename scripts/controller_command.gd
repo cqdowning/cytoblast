@@ -29,7 +29,7 @@ func _process(_delta):
 	move_command.execute(player)
 	
 	# Execute melee command
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("shoot"):
 		#print("Attack pressed")
 		var melee_command = MeleeCommand.new()
 		melee_command.execute(player)
