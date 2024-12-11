@@ -1,23 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdaytupynu0p6"]
+[gd_scene load_steps=3 format=3 uid="uid://cdaytupynu0p6"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_1ja7b"]
-[ext_resource type="AudioStream" uid="uid://ctqo0sury4ov5" path="res://assets/audio/sound effects/weapon/weapon_pickup.wav" id="2_csprn"]
 [ext_resource type="AudioStream" uid="uid://d1ru3qymsj42v" path="res://assets/audio/sound effects/weapon/weapon_switch.wav" id="3_mms0f"]
-[ext_resource type="AudioStream" uid="uid://c1mk6lf3na10f" path="res://assets/audio/sound effects/weapon/weapon_throw.wav" id="4_22knr"]
-[ext_resource type="AudioStream" uid="uid://1m3latpw6mac" path="res://assets/audio/sound effects/weapon/rifle_shoot.wav" id="5_w7se4"]
-[ext_resource type="AudioStream" uid="uid://vs6ik5ghyxcw" path="res://assets/audio/sound effects/weapon/melee.wav" id="6_eqc4q"]
-[ext_resource type="AudioStream" uid="uid://dhk7xgyh5ogsx" path="res://assets/audio/sound effects/weapon/shotgun_shoot.wav" id="7_3017b"]
-[ext_resource type="AudioStream" uid="uid://eafb365y20ud" path="res://assets/audio/sound effects/weapon/machine_gun_shoot.wav" id="8_m8nhs"]
-[ext_resource type="AudioStream" uid="uid://dppcr8jphcv0s" path="res://assets/audio/sound effects/weapon/weapon_explosion.wav" id="9_44otx"]
-[ext_resource type="AudioStream" uid="uid://hstirahepp8b" path="res://assets/audio/sound effects/enemies/shooter_shoot.wav" id="10_r488k"]
-[ext_resource type="AudioStream" uid="uid://b8glqwgwtl5sd" path="res://assets/audio/sound effects/enemies/turret_shoot.wav" id="11_1tfe4"]
-[ext_resource type="AudioStream" uid="uid://be40ec5a4wuea" path="res://assets/audio/sound effects/enemies/enemy_hit_marker.wav" id="11_extvq"]
-[ext_resource type="AudioStream" uid="uid://dsacuc2cfo78x" path="res://assets/audio/sound effects/environment/room_entered.wav" id="12_dyw06"]
-[ext_resource type="AudioStream" uid="uid://nwvqhfscabgg" path="res://assets/audio/sound effects/player/player_hit_marker.wav" id="12_qi7jj"]
-[ext_resource type="AudioStream" uid="uid://bbmmfcuahie2m" path="res://assets/audio/sound effects/enemies/biter_attack.wav" id="12_vwcbf"]
-[ext_resource type="AudioStream" uid="uid://bqbtygpajgc7t" path="res://assets/audio/sound effects/environment/enemy_spawn.wav" id="13_djd1t"]
-[ext_resource type="AudioStream" uid="uid://by6hu3bu8pr0i" path="res://assets/audio/sound effects/player/player_dash.wav" id="15_uk5ae"]
-[ext_resource type="AudioStream" uid="uid://ctlvnwtq0ggqe" path="res://assets/audio/sound effects/environment/door_open.wav" id="16_5um3u"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_1ja7b")
@@ -25,7 +9,6 @@ script = ExtResource("1_1ja7b")
 [node name="Weapons" type="Node" parent="."]
 
 [node name="WeaponPickup" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("2_csprn")
 bus = &"Sound Effects"
 
 [node name="WeaponSwitch" type="AudioStreamPlayer" parent="Weapons"]
@@ -33,67 +16,52 @@ stream = ExtResource("3_mms0f")
 bus = &"Sound Effects"
 
 [node name="WeaponThrow" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("4_22knr")
 bus = &"Sound Effects"
 
 [node name="RifleShoot" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("5_w7se4")
 bus = &"Sound Effects"
 
 [node name="ShotgunShoot" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("7_3017b")
 bus = &"Sound Effects"
 
 [node name="MachineGunShoot" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("8_m8nhs")
 bus = &"Sound Effects"
 
 [node name="WeaponExplosion" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("9_44otx")
 bus = &"Sound Effects"
 
 [node name="Melee" type="AudioStreamPlayer" parent="Weapons"]
-stream = ExtResource("6_eqc4q")
 bus = &"Sound Effects"
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="ShooterShoot" type="AudioStreamPlayer" parent="Enemies"]
-stream = ExtResource("10_r488k")
 bus = &"Sound Effects"
 
 [node name="TurretShoot" type="AudioStreamPlayer" parent="Enemies"]
-stream = ExtResource("11_1tfe4")
 bus = &"Sound Effects"
 
 [node name="BiterAttack" type="AudioStreamPlayer" parent="Enemies"]
-stream = ExtResource("12_vwcbf")
 bus = &"Sound Effects"
 
 [node name="EnemyHitMarker" type="AudioStreamPlayer" parent="Enemies"]
-stream = ExtResource("11_extvq")
 bus = &"Sound Effects"
 
 [node name="Environment" type="Node" parent="."]
 
 [node name="RoomEntered" type="AudioStreamPlayer" parent="Environment"]
-stream = ExtResource("12_dyw06")
 bus = &"Sound Effects"
 
 [node name="EnemySpawn" type="AudioStreamPlayer" parent="Environment"]
-stream = ExtResource("13_djd1t")
 bus = &"Sound Effects"
 
 [node name="DoorOpen" type="AudioStreamPlayer" parent="Environment"]
-stream = ExtResource("16_5um3u")
 bus = &"Sound Effects"
 
 [node name="Player" type="Node" parent="."]
 
 [node name="PlayerHitMarker" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("12_qi7jj")
 bus = &"Sound Effects"
 
 [node name="PlayerDash" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("15_uk5ae")
 bus = &"Sound Effects"
