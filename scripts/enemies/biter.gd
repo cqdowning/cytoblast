@@ -1,10 +1,12 @@
 class_name Biter
 extends Enemy
 
-var CHARGE_SPEED_MULTIPLIER = 3.0
-var CHARGE_DURATION = 1.0
+var CHARGE_SPEED_MULTIPLIER = 5.0
+var CHARGE_DURATION = 0.75
 var CHARGE_COOLDOWN = 2.0
 var is_charging = false
+
+var _direction = Vector2(0, 0)
 
 func _ready():
 	super()
@@ -15,13 +17,12 @@ func _ai(delta):
 	super(delta)
 	if not is_charging:
 		# Move towards player slowly
-		var direction = global_position.direction_to(target.global_position)
-		move_in_direction(direction, delta)
+		_direction = global_position.direction_to(target.global_position)
+		move_in_direction(_direction, delta)
+		_face_target(delta)
 	else:
 		# Charge in current direction
-		move_in_direction(global_position.direction_to(target.global_position), delta * CHARGE_SPEED_MULTIPLIER)
-	
-	_face_target(delta)
+		move_in_direction(_direction, delta * CHARGE_SPEED_MULTIPLIER)
 
 func _on_movement_timeout():
 	if not is_charging:
