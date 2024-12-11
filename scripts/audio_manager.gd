@@ -28,3 +28,15 @@ func play_melee():
 	
 func play_shooter_shoot():
 	$Enemies/ShooterShoot.play()
+	
+func play_enemy_hit_marker():
+	$Enemies/EnemyHitMarker.play()
+	
+func play_room_entered():
+	$Environment/RoomEntered.play()
+	
+func play_enemy_spawn():
+	$Environment/EnemySpawn.play()
+	
+func play_player_hit_marker():
+	$Player/PlayerHitMarker.play()

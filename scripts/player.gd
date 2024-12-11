@@ -217,6 +217,7 @@ func change_state(new_state: PlayerState):
 
 func take_damage(amount: float):
 	current_health = max(0, current_health - amount)
+	audio_manager.play_player_hit_marker()
 	game_manager.health_changed.emit(current_health, max_health)
 
 func heal(amount: float):
