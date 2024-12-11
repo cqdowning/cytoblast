@@ -68,6 +68,9 @@ func _process(delta):
 	angle_diff = fmod(angle_diff + PI, PI * 2) - PI
 	# Apply rotation with sensitivity
 	rotation += angle_diff * rotation_speed * delta
+	
+	if current_health <= 0:
+		game_manager.player_death.emit()
 
 func _physics_process(delta):
 	if current_state != PlayerState.MELEE or can_move_while_attacking:
@@ -192,7 +195,6 @@ func throw():
 	projectile.set_properties(thrown_weapon_damage, current_inventory.current_weapon().type, thrown_weapon_speed)
 	projectile.launch(global_position, direction)
 	
-	# TODO: Remove current weapon from inventory
 	current_inventory.drop_weapon()
 
 func change_state(new_state: PlayerState):
