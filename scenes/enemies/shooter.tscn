@@ -1,13 +1,52 @@
-[gd_scene load_steps=8 format=3 uid="uid://v4ioc7f6g67r"]
+[gd_scene load_steps=11 format=3 uid="uid://v4ioc7f6g67r"]
 
 [ext_resource type="Script" path="res://scripts/enemies/shooter.gd" id="1_rbl1y"]
 [ext_resource type="PackedScene" uid="uid://do281r4ajjeka" path="res://scenes/weapons/weapon_antibiotic_rifle.tscn" id="2_atys5"]
-[ext_resource type="Texture2D" uid="uid://x5e6pweh6yl3" path="res://assets/objects/decor/cell1.png" id="2_ewyul"]
 [ext_resource type="PackedScene" uid="uid://r3rcjeoxjifl" path="res://scenes/projectiles/projectile_bacterial.tscn" id="2_yc8ce"]
 [ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="3_n0k1a"]
 [ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="4_76xfq"]
+[ext_resource type="Texture2D" uid="uid://cncypdtqa0fgq" path="res://assets/enemies/bacteria/bacteria_sprite_sheet.png" id="6_8s431"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onteg"]
+
+[sub_resource type="Animation" id="Animation_fcl10"]
+resource_name = "moving"
+length = 0.4
+loop_mode = 1
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 2,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_c4rnh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocbgw"]
+_data = {
+"RESET": SubResource("Animation_c4rnh"),
+"moving": SubResource("Animation_fcl10")
+}
 
 [node name="Shooter" type="RigidBody2D"]
 collision_layer = 4
@@ -20,9 +59,16 @@ weapon_drops = Array[PackedScene]([ExtResource("2_atys5"), ExtResource("3_n0k1a"
 projectile_scene = ExtResource("2_yc8ce")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.71733
-texture = ExtResource("2_ewyul")
+texture = ExtResource("6_8s431")
+hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(5.165, 5.165)
 shape = SubResource("CircleShape2D_onteg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ocbgw")
+}
+autoplay = "moving"
