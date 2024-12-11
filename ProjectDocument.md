@@ -68,6 +68,21 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **List your assets, including their sources and licenses.**
 
+Both of the following sources for sound effects do not require credit, but here are links to the pages.
+
+From https://shapeforms.itch.io/shapeforms-audio-free-sfx:
+* WeaponThrow
+* RifleShoot
+* ShotgunShoot
+* MachineGunShoot
+* WeaponExplosion
+* Melee
+* ShooterShoot
+
+From https://kronbits.itch.io/freesfx#google_vignette:
+* WeaponPickup
+* WeaponSwitch
+
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
