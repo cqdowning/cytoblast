@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdaytupynu0p6"]
+[gd_scene load_steps=18 format=3 uid="uid://cdaytupynu0p6"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_1ja7b"]
 [ext_resource type="AudioStream" uid="uid://ctqo0sury4ov5" path="res://assets/audio/sound effects/weapon/weapon_pickup.wav" id="2_csprn"]
@@ -10,9 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://eafb365y20ud" path="res://assets/audio/sound effects/weapon/machine_gun_shoot.wav" id="8_m8nhs"]
 [ext_resource type="AudioStream" uid="uid://dppcr8jphcv0s" path="res://assets/audio/sound effects/weapon/weapon_explosion.wav" id="9_44otx"]
 [ext_resource type="AudioStream" uid="uid://hstirahepp8b" path="res://assets/audio/sound effects/enemies/shooter_shoot.wav" id="10_r488k"]
+[ext_resource type="AudioStream" uid="uid://b8glqwgwtl5sd" path="res://assets/audio/sound effects/enemies/turret_shoot.wav" id="11_1tfe4"]
 [ext_resource type="AudioStream" uid="uid://be40ec5a4wuea" path="res://assets/audio/sound effects/enemies/enemy_hit_marker.wav" id="11_extvq"]
 [ext_resource type="AudioStream" uid="uid://dsacuc2cfo78x" path="res://assets/audio/sound effects/environment/room_entered.wav" id="12_dyw06"]
 [ext_resource type="AudioStream" uid="uid://nwvqhfscabgg" path="res://assets/audio/sound effects/player/player_hit_marker.wav" id="12_qi7jj"]
+[ext_resource type="AudioStream" uid="uid://bbmmfcuahie2m" path="res://assets/audio/sound effects/enemies/biter_attack.wav" id="12_vwcbf"]
 [ext_resource type="AudioStream" uid="uid://bqbtygpajgc7t" path="res://assets/audio/sound effects/environment/enemy_spawn.wav" id="13_djd1t"]
 [ext_resource type="AudioStream" uid="uid://by6hu3bu8pr0i" path="res://assets/audio/sound effects/player/player_dash.wav" id="15_uk5ae"]
 
@@ -57,6 +59,14 @@ bus = &"Sound Effects"
 
 [node name="ShooterShoot" type="AudioStreamPlayer" parent="Enemies"]
 stream = ExtResource("10_r488k")
+bus = &"Sound Effects"
+
+[node name="TurretShoot" type="AudioStreamPlayer" parent="Enemies"]
+stream = ExtResource("11_1tfe4")
+bus = &"Sound Effects"
+
+[node name="BiterAttack" type="AudioStreamPlayer" parent="Enemies"]
+stream = ExtResource("12_vwcbf")
 bus = &"Sound Effects"
 
 [node name="EnemyHitMarker" type="AudioStreamPlayer" parent="Enemies"]

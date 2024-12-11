@@ -29,6 +29,12 @@ func play_melee():
 func play_shooter_shoot():
 	$Enemies/ShooterShoot.play()
 	
+func play_turret_shoot():
+	$Enemies/TurretShoot.play()
+	
+func play_biter_attack():
+	$Enemies/BiterAttack.play()
+	
 func play_enemy_hit_marker():
 	$Enemies/EnemyHitMarker.play()
 	

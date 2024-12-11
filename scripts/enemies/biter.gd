@@ -7,6 +7,7 @@ var CHARGE_COOLDOWN = 2.0
 var is_charging = false
 
 var _direction = Vector2(0, 0)
+var _is_sound_playing = false
 
 func _ready():
 	super()
@@ -16,11 +17,15 @@ func _ready():
 func _ai(delta):
 	super(delta)
 	if not is_charging:
+		_is_sound_playing = false
 		# Move towards player slowly
 		_direction = global_position.direction_to(target.global_position)
 		move_in_direction(_direction, delta)
 		_face_target(delta)
 	else:
+		if not _is_sound_playing:
+			audio_manager.play_biter_attack()
+			_is_sound_playing = true
 		# Charge in current direction
 		move_in_direction(_direction, delta * CHARGE_SPEED_MULTIPLIER)
 

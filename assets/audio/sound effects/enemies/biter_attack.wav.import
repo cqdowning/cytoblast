@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbmmfcuahie2m"
+path="res://.godot/imported/biter_attack.wav-2a666d964bf7a4196bc1343bffb2ddac.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/enemies/biter_attack.wav"
+dest_files=["res://.godot/imported/biter_attack.wav-2a666d964bf7a4196bc1343bffb2ddac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
