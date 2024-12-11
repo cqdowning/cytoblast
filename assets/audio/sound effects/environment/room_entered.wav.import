@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dsacuc2cfo78x"
-path="res://.godot/imported/room_entered.wav-487f319db5424a6b02e6ed1a869b8647.sample"
+path="res://.godot/imported/room_entered.wav-8b26cbeda461f30dfd4581d27250c893.sample"
 
 [deps]
 
-source_file="res://assets/audio/room_entered.wav"
-dest_files=["res://.godot/imported/room_entered.wav-487f319db5424a6b02e6ed1a869b8647.sample"]
+source_file="res://assets/audio/sound effects/environment/room_entered.wav"
+dest_files=["res://.godot/imported/room_entered.wav-8b26cbeda461f30dfd4581d27250c893.sample"]
 
 [params]
 

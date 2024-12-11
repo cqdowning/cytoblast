@@ -40,3 +40,6 @@ func play_enemy_spawn():
 	
 func play_player_hit_marker():
 	$Player/PlayerHitMarker.play()
+	
+func play_player_dash():
+	$Player/PlayerDash.play()

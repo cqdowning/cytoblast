@@ -121,6 +121,7 @@ func perform_dash(direction: Vector2):
 		#print("Dash cancelled - can_dash:", can_dash, " direction:", direction.length()) # Debug print
 		return
 	
+	audio_manager.play_player_dash()
 	#print("Executing dash") # Debug print
 	can_dash = false
 	change_state(PlayerState.DASHING)
