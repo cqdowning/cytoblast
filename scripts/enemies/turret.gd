@@ -2,7 +2,7 @@ class_name Turret
 extends Enemy
 
 var PROJECTILE_COUNT = 8
-var MOVEMENT_DURATION = 2.0
+var MOVEMENT_DURATION = 0.5
 var MOVEMENT_COOLDOWN = 3.0
 var current_direction = Vector2.ZERO
 
@@ -10,8 +10,7 @@ func _ready():
 	super()
 	type = Type.VIRUS
 	start_movement_timer(MOVEMENT_DURATION)
-	if attack_delay > 0:
-		_attack_delay_timer.start(attack_delay)
+	
 
 func _ai(delta):
 	super(delta)
