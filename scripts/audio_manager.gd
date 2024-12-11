@@ -3,16 +3,28 @@ extends Node
 
 
 func play_weapon_pickup():
-	$WeaponPickup.play()
+	$Weapons/WeaponPickup.play()
 
 func play_weapon_switch():
-	$WeaponSwitch.play()
+	$Weapons/WeaponSwitch.play()
 
 func play_throw_weapon():
-	$WeaponThrow.play()
+	$Weapons/WeaponThrow.play()
 	
 func play_rifle_shoot():
-	$RifleShoot.play()
+	$Weapons/RifleShoot.play()
+	
+func play_shotgun_shoot():
+	$Weapons/ShotgunShoot.play()
+	
+func play_machine_gun_shoot():
+	$Weapons/MachineGunShoot.play()
+	
+func play_weapon_explosion():
+	$Weapons/WeaponExplosion.play()
 	
 func play_melee():
-	$Melee.play()
+	$Weapons/Melee.play()
+	
+func play_shooter_shoot():
+	$Enemies/ShooterShoot.play()

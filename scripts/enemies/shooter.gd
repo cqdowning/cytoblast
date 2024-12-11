@@ -36,5 +36,6 @@ func _attack():
 	projectile.set_properties(damage, Weapon.Type.NONE, attack_speed)
 	projectile.launch(global_position, direction_towards_player)
 
+	audio_manager.play_shooter_shoot()
 	# Start cooldown
 	_attack_delay_timer.start(attack_delay)

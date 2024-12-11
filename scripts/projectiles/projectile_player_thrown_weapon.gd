@@ -18,6 +18,7 @@ func _physics_process(delta):
 	rotation_degrees += rotation_rate
 
 func _on_body_entered(body: Node2D):
+	audio_manager.play_weapon_explosion()
 	var explosion: ProjectilePlayer = explosion_projectile.instantiate()
 	add_sibling(explosion)
 	explosion.global_position = global_position
