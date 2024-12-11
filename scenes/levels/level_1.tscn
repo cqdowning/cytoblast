@@ -1,12 +1,22 @@
-[gd_scene load_steps=14 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=24 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_7c6su"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
 [ext_resource type="PackedScene" uid="uid://dpdauiwuc4bmm" path="res://scenes/levels/level_2.tscn" id="2_lk1tq"]
+[ext_resource type="Texture2D" uid="uid://x5e6pweh6yl3" path="res://assets/objects/decor/cell1.png" id="4_8ik7x"]
+[ext_resource type="PackedScene" uid="uid://qt78ahux04k7" path="res://scenes/objects/cells/large_cell.tscn" id="4_b4cs6"]
 [ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="5_8n3ms"]
+[ext_resource type="Texture2D" uid="uid://nqufvjy5f8j4" path="res://assets/objects/decor/cell2.png" id="5_qnkjj"]
+[ext_resource type="PackedScene" uid="uid://bjgwskhtms22g" path="res://scenes/objects/cells/small_cell_round.tscn" id="5_u8k5r"]
 [ext_resource type="PackedScene" uid="uid://d042h1k8gia83" path="res://scenes/level items/enemy_spawner.tscn" id="6_ak8yx"]
+[ext_resource type="Texture2D" uid="uid://dibcqifcrxt4a" path="res://assets/objects/decor/cell_string1.png" id="6_k5yjy"]
+[ext_resource type="PackedScene" uid="uid://er81yisr6ajj" path="res://scenes/objects/cells/small_cell_long.tscn" id="6_msbxg"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
+[ext_resource type="PackedScene" uid="uid://ccuuf8jinc15p" path="res://scenes/objects/cells/medium_cell.tscn" id="7_g3872"]
+[ext_resource type="Texture2D" uid="uid://c5nur23k3funu" path="res://assets/decal/dna_strand.png" id="7_go0d3"]
 [ext_resource type="Script" path="res://scripts/enemies/enemy_spec.gd" id="7_vg5hi"]
+[ext_resource type="Texture2D" uid="uid://oidbkloiqinh" path="res://assets/decal/pest.png" id="8_6irv0"]
+[ext_resource type="PackedScene" uid="uid://di8ch2sq1r8t7" path="res://scenes/objects/cells/spikes_cell.tscn" id="8_eic3d"]
 [ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="9_njl1c"]
 [ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="10_3i7yc"]
 [ext_resource type="PackedScene" uid="uid://bovtbuvyfjrlm" path="res://scenes/weapons/weapon_antiparasitic_shotgun.tscn" id="10_syif5"]
@@ -34,10 +44,200 @@ position = Vector2(767, 0)
 tile_map_data = PackedByteArray("AAD4/+L/AAABAAEAAAD4/+P/AAADAAIAAAD4/+T/AAADAAMAAAD4/+X/AAADAAMAAAD4/+b/AAADAAIAAAD4/+f/AAADAAMAAAD4/+j/AAADAAIAAAD4/+n/AAADAAMAAAD4/+r/AAADAAIAAAD4/+v/AAADAAMAAAD4/+z/AAADAAMAAAD4/+3/AAADAAIAAAD4/+7/AAADAAMAAAD4/+//AAABAAIAAAD5/+L/AAABAAAAAAD5/+//AAABAAAAAAD6/+L/AAABAAAAAAD6/+//AAACAAAAAAD6//b/AAABAAEAAAD6//f/AAADAAIAAAD6//j/AAADAAMAAAD6//n/AAADAAIAAAD6//r/AAADAAMAAAD6//v/AAADAAIAAAD6//z/AAADAAIAAAD6//3/AAADAAMAAAD6//7/AAADAAMAAAD6////AAABAAIAAAD7/+L/AAACAAAAAAD7/+X/AAABAAEAAAD7/+b/AAADAAMAAAD7/+f/AAABAAIAAAD7/+r/AAABAAEAAAD7/+v/AAADAAMAAAD7/+z/AAABAAIAAAD7/+//AAABAAAAAAD7//b/AAABAAAAAAD7////AAABAAAAAAD8/+L/AAABAAAAAAD8/+X/AAACAAAAAAD8/+f/AAACAAAAAAD8/+r/AAACAAAAAAD8/+z/AAACAAAAAAD8/+//AAACAAAAAAD8//b/AAABAAAAAAD8////AAACAAAAAAD9/+L/AAACAAAAAAD9/+X/AAACAAEAAAD9/+b/AAADAAIAAAD9/+f/AAACAAIAAAD9/+r/AAACAAEAAAD9/+v/AAADAAIAAAD9/+z/AAACAAIAAAD9/+//AAACAAAAAAD9//b/AAABAAAAAAD9////AAABAAAAAAD+/+L/AAABAAAAAAD+/+//AAACAAEAAAD+//D/AAADAAIAAAD+//H/AAADAAMAAAD+//L/AAADAAIAAAD+//P/AAADAAMAAAD+//T/AAADAAIAAAD+//X/AAADAAMAAAD+//b/AAACAAIAAAD+////AAACAAAAAAD//+L/AAACAAAAAAD/////AAABAAAAAAAAAOL/AAABAAAAAAAAAP//AAACAAAAAAABAOL/AAACAAAAAAABAP//AAABAAAAAAACAOL/AAABAAAAAAACAO//AAABAAEAAAACAPD/AAADAAIAAAACAPH/AAADAAMAAAACAPL/AAADAAIAAAACAPP/AAADAAIAAAACAPT/AAADAAMAAAACAPX/AAADAAMAAAACAPb/AAABAAIAAAACAP//AAACAAAAAAADAOL/AAACAAAAAAADAO//AAABAAAAAAADAPb/AAACAAAAAAADAP//AAABAAAAAAAEAOL/AAABAAAAAAAEAO//AAACAAAAAAAEAPb/AAABAAAAAAAEAP//AAACAAAAAAAFAOL/AAABAAAAAAAFAO//AAABAAAAAAAFAPb/AAACAAAAAAAFAP//AAABAAAAAAAGAOL/AAACAAAAAAAGAOX/AAABAAEAAAAGAOb/AAADAAMAAAAGAOf/AAABAAIAAAAGAOr/AAABAAEAAAAGAOv/AAADAAMAAAAGAOz/AAABAAIAAAAGAO//AAACAAAAAAAGAPb/AAACAAEAAAAGAPf/AAADAAIAAAAGAPj/AAADAAIAAAAGAPn/AAADAAMAAAAGAPr/AAADAAIAAAAGAPv/AAADAAMAAAAGAPz/AAADAAMAAAAGAP3/AAADAAIAAAAGAP7/AAADAAMAAAAGAP//AAACAAIAAAAHAOL/AAABAAAAAAAHAOX/AAACAAAAAAAHAOf/AAACAAAAAAAHAOr/AAACAAAAAAAHAOz/AAACAAAAAAAHAO//AAABAAAAAAAIAOL/AAABAAAAAAAIAOX/AAACAAEAAAAIAOb/AAADAAIAAAAIAOf/AAACAAIAAAAIAOr/AAACAAEAAAAIAOv/AAADAAIAAAAIAOz/AAACAAIAAAAIAO//AAABAAAAAAAJAOL/AAACAAAAAAAJAO//AAABAAAAAAAKAOL/AAABAAAAAAAKAO//AAABAAAAAAALAOL/AAACAAAAAAALAO//AAACAAAAAAAMAOL/AAACAAEAAAAMAOP/AAADAAIAAAAMAOT/AAABAAIAAAAMAOz/AAABAAEAAAAMAO3/AAADAAMAAAAMAO7/AAADAAMAAAAMAO//AAACAAIAAAANAOT/AAABAAAAAAAOAOT/AAABAAAAAAANAOz/AAABAAAAAAAOAOz/AAABAAAAAAAPAOz/AAACAAIAAAAPAOT/AAACAAEAAAAPAOX/AAADAAIAAAAPAOb/AAABAAIAAAAPAOv/AAADAAIAAAAPAOr/AAABAAEAAAAQAOr/AAABAAAAAAARAOr/AAABAAAAAAASAOr/AAABAAAAAAAQAOb/AAACAAAAAAARAOb/AAACAAAAAAASAOb/AAACAAAAAAATAOb/AAADAAAAAAATAOr/AAADAAAAAAA=")
 tile_set = ExtResource("2_1ogo2")
 
-[node name="SpawnPoint" parent="." index="2"]
+[node name="Cell1" type="Sprite2D" parent="Decal" index="0"]
+position = Vector2(315, -3262)
+texture = ExtResource("4_8ik7x")
+
+[node name="Cell2" type="Sprite2D" parent="Decal" index="1"]
+position = Vector2(1734, -2621)
+texture = ExtResource("5_qnkjj")
+
+[node name="CellString1" type="Sprite2D" parent="Decal" index="2"]
+position = Vector2(454, -1983)
+texture = ExtResource("6_k5yjy")
+
+[node name="DnaStrand" type="Sprite2D" parent="Decal" index="3"]
+position = Vector2(194, -946)
+rotation = 0.575959
+texture = ExtResource("7_go0d3")
+
+[node name="Pest" type="Sprite2D" parent="Decal" index="4"]
+position = Vector2(629, -639)
+texture = ExtResource("8_6irv0")
+
+[node name="Pest2" type="Sprite2D" parent="Decal" index="5"]
+position = Vector2(1231, -226)
+rotation = -1.50098
+texture = ExtResource("8_6irv0")
+
+[node name="DnaStrand2" type="Sprite2D" parent="Decal" index="6"]
+position = Vector2(265, -422)
+rotation = -0.584685
+texture = ExtResource("7_go0d3")
+
+[node name="DnaStrand3" type="Sprite2D" parent="Decal" index="7"]
+position = Vector2(1285, -803)
+rotation = -0.532325
+texture = ExtResource("7_go0d3")
+
+[node name="CellCluster1" type="Node2D" parent="Objects" index="0"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="LargeCell" parent="Objects/CellCluster1" index="0" instance=ExtResource("4_b4cs6")]
+position = Vector2(104, -104)
+
+[node name="SmallCellRound" parent="Objects/CellCluster1" index="1" instance=ExtResource("5_u8k5r")]
+position = Vector2(137, -98)
+
+[node name="SmallCellRound2" parent="Objects/CellCluster1" index="2" instance=ExtResource("5_u8k5r")]
+position = Vector2(118, -156)
+rotation = -2.88677
+
+[node name="SmallCellLong" parent="Objects/CellCluster1" index="3" instance=ExtResource("6_msbxg")]
+position = Vector2(123, -127)
+rotation = 2.27242
+
+[node name="MediumCell" parent="Objects/CellCluster1" index="4" instance=ExtResource("7_g3872")]
+position = Vector2(95, -150)
+
+[node name="CellCluster2" type="Node2D" parent="Objects" index="1"]
+position = Vector2(450, -1001)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="LargeCell" parent="Objects/CellCluster2" index="0" instance=ExtResource("4_b4cs6")]
+position = Vector2(-4, -146)
+rotation = -4.07534
+
+[node name="LargeCell2" parent="Objects/CellCluster2" index="1" instance=ExtResource("4_b4cs6")]
+position = Vector2(100, -176)
+rotation = 1.69821
+
+[node name="SmallCellRound" parent="Objects/CellCluster2" index="2" instance=ExtResource("5_u8k5r")]
+position = Vector2(84, -146)
+rotation = -5.43321
+
+[node name="SmallCellRound3" parent="Objects/CellCluster2" index="3" instance=ExtResource("5_u8k5r")]
+position = Vector2(60, -135)
+rotation = -3.05607
+
+[node name="SmallCellRound2" parent="Objects/CellCluster2" index="4" instance=ExtResource("5_u8k5r")]
+position = Vector2(1, -178)
+
+[node name="SmallCellLong" parent="Objects/CellCluster2" index="5" instance=ExtResource("6_msbxg")]
+position = Vector2(67, -174)
+rotation = -0.417134
+
+[node name="SmallCellLong3" parent="Objects/CellCluster2" index="6" instance=ExtResource("6_msbxg")]
+position = Vector2(-42, -179)
+rotation = 3.99855
+
+[node name="SmallCellLong2" parent="Objects/CellCluster2" index="7" instance=ExtResource("6_msbxg")]
+position = Vector2(29, -133)
+rotation = 1.79071
+
+[node name="MediumCell" parent="Objects/CellCluster2" index="8" instance=ExtResource("7_g3872")]
+position = Vector2(-27, -168)
+rotation = -2.68781
+
+[node name="SpikesCell" parent="Objects/CellCluster2" index="9" instance=ExtResource("8_eic3d")]
+position = Vector2(35, -165)
+
+[node name="CellCluster3" type="Node2D" parent="Objects" index="2"]
+position = Vector2(1414, -201)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="LargeCell" parent="Objects/CellCluster3" index="0" instance=ExtResource("4_b4cs6")]
+position = Vector2(150, -187)
+rotation = 4.75428
+
+[node name="LargeCell2" parent="Objects/CellCluster3" index="1" instance=ExtResource("4_b4cs6")]
+position = Vector2(147, -275)
+rotation = 4.75428
+
+[node name="SmallCellRound" parent="Objects/CellCluster3" index="2" instance=ExtResource("5_u8k5r")]
+position = Vector2(134, -243)
+
+[node name="SmallCellRound3" parent="Objects/CellCluster3" index="3" instance=ExtResource("5_u8k5r")]
+position = Vector2(109, -247)
+rotation = -0.767945
+
+[node name="SmallCellRound4" parent="Objects/CellCluster3" index="4" instance=ExtResource("5_u8k5r")]
+position = Vector2(125, -266)
+rotation = 1.94953
+
+[node name="SmallCellRound2" parent="Objects/CellCluster3" index="5" instance=ExtResource("5_u8k5r")]
+position = Vector2(124, -200)
+rotation = 2.71748
+
+[node name="SmallCellLong" parent="Objects/CellCluster3" index="6" instance=ExtResource("6_msbxg")]
+position = Vector2(131, -223)
+rotation = 2.27242
+
+[node name="SmallCellLong3" parent="Objects/CellCluster3" index="7" instance=ExtResource("6_msbxg")]
+position = Vector2(105, -217)
+rotation = -0.397935
+
+[node name="MediumCell" parent="Objects/CellCluster3" index="8" instance=ExtResource("7_g3872")]
+position = Vector2(155, -232)
+
+[node name="MiniCellCluster1" type="Node2D" parent="Objects" index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="SmallCellLong" parent="Objects/MiniCellCluster1" index="0" instance=ExtResource("6_msbxg")]
+position = Vector2(-162, -2149)
+
+[node name="LargeCell" parent="Objects/MiniCellCluster1" index="1" instance=ExtResource("4_b4cs6")]
+position = Vector2(-132, -2147)
+
+[node name="MiniCellCluster2" type="Node2D" parent="Objects" index="4"]
+position = Vector2(458, -925)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MediumCell" parent="Objects/MiniCellCluster2" index="0" instance=ExtResource("7_g3872")]
+position = Vector2(-223, -2181)
+rotation = -1.5324
+
+[node name="SmallCellRound" parent="Objects/MiniCellCluster2" index="1" instance=ExtResource("5_u8k5r")]
+position = Vector2(-254, -2162)
+
+[node name="MiniCellCluster3" type="Node2D" parent="Objects" index="5"]
+position = Vector2(1908, -1257)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="SmallCellRound" parent="Objects/MiniCellCluster3" index="0" instance=ExtResource("5_u8k5r")]
+position = Vector2(-254, -2162)
+
+[node name="SmallCellRound2" parent="Objects/MiniCellCluster3" index="1" instance=ExtResource("5_u8k5r")]
+position = Vector2(-186, -2163)
+
+[node name="SpikesCell" parent="Objects/MiniCellCluster3" index="2" instance=ExtResource("8_eic3d")]
+position = Vector2(-220, -2179)
+
+[node name="IsolatedCells" type="Node2D" parent="Objects" index="6"]
+metadata/_edit_lock_ = true
+
+[node name="LargeCell" parent="Objects/IsolatedCells" index="0" instance=ExtResource("4_b4cs6")]
+position = Vector2(-154, -2700)
+
+[node name="LargeCell2" parent="Objects/IsolatedCells" index="1" instance=ExtResource("4_b4cs6")]
+position = Vector2(486, -2616)
+
+[node name="SpikesCell" parent="Objects/IsolatedCells" index="2" instance=ExtResource("8_eic3d")]
+position = Vector2(620, -1674)
+
+[node name="SpikesCell2" parent="Objects/IsolatedCells" index="3" instance=ExtResource("8_eic3d")]
+position = Vector2(2324, -2266)
+
+[node name="SpawnPoint" parent="." index="4"]
 position = Vector2(869, -582)
 
-[node name="LevelEndGate" parent="." index="3"]
+[node name="LevelEndGate" parent="." index="5"]
 position = Vector2(3202, -3003)
 scale = Vector2(-4.24192, 23.6481)
 

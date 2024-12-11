@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qcyay"]
 radius = 24.0832
 
-[node name="ObjectBase" instance=ExtResource("1_m4xum")]
+[node name="SpikesCell" instance=ExtResource("1_m4xum")]
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(1, 0)

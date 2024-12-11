@@ -7,7 +7,7 @@
 radius = 11.0
 height = 56.0
 
-[node name="ObjectBase" instance=ExtResource("1_2v07c")]
+[node name="MediumCell" instance=ExtResource("1_2v07c")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_rrxhn")

@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_v7aje"]
 radius = 14.0
 
-[node name="ObjectBase" instance=ExtResource("1_0c8ou")]
+[node name="SmallCellRound" instance=ExtResource("1_0c8ou")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_xpx6a")
