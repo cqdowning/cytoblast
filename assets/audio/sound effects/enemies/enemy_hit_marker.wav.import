@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://be40ec5a4wuea"
-path="res://.godot/imported/enemy_hit_marker.wav-f3b7e9fec76804f9ab5d4ce03dc1ef36.sample"
+path="res://.godot/imported/enemy_hit_marker.wav-86f61440b17bda75f8b091cb8d905258.sample"
 
 [deps]
 
-source_file="res://assets/audio/enemy_hit_marker.wav"
-dest_files=["res://.godot/imported/enemy_hit_marker.wav-f3b7e9fec76804f9ab5d4ce03dc1ef36.sample"]
+source_file="res://assets/audio/sound effects/enemies/enemy_hit_marker.wav"
+dest_files=["res://.godot/imported/enemy_hit_marker.wav-86f61440b17bda75f8b091cb8d905258.sample"]
 
 [params]
 

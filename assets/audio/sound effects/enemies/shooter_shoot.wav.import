@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://hstirahepp8b"
-path="res://.godot/imported/shooter_shoot.wav-04ce8cf26e74b5affc403dc70faa18c9.sample"
+path="res://.godot/imported/shooter_shoot.wav-ad8ce1ec0294706a6ed3b1496d61eb38.sample"
 
 [deps]
 
-source_file="res://assets/audio/shooter_shoot.wav"
-dest_files=["res://.godot/imported/shooter_shoot.wav-04ce8cf26e74b5affc403dc70faa18c9.sample"]
+source_file="res://assets/audio/sound effects/enemies/shooter_shoot.wav"
+dest_files=["res://.godot/imported/shooter_shoot.wav-ad8ce1ec0294706a6ed3b1496d61eb38.sample"]
 
 [params]
 

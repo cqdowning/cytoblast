@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://vs6ik5ghyxcw"
-path="res://.godot/imported/melee.wav-89241c8069fb6afab9b1557edb1f1464.sample"
+path="res://.godot/imported/melee.wav-abb3b0606ad9ba53b832fa6cf7c7f0ef.sample"
 
 [deps]
 
-source_file="res://assets/audio/melee.wav"
-dest_files=["res://.godot/imported/melee.wav-89241c8069fb6afab9b1557edb1f1464.sample"]
+source_file="res://assets/audio/sound effects/weapon/melee.wav"
+dest_files=["res://.godot/imported/melee.wav-abb3b0606ad9ba53b832fa6cf7c7f0ef.sample"]
 
 [params]
 
