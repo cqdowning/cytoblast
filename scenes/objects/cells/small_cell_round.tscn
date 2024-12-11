@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjgwskhtms22g"]
+
+[ext_resource type="PackedScene" uid="uid://35452p7mm2vd" path="res://scenes/objects/object_base.tscn" id="1_0c8ou"]
+[ext_resource type="Texture2D" uid="uid://v8j8ptyhur0k" path="res://assets/objects/decor/cell_infestation/small.png" id="2_xpx6a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v7aje"]
+radius = 14.0
+
+[node name="SmallCellRound" instance=ExtResource("1_0c8ou")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_xpx6a")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_v7aje")

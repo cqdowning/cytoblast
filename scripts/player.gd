@@ -2,8 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 @export_category("Combat")
-@export var melee_duration: float = 0.4
-@export var can_move_while_attacking: bool = false
+@export var melee_duration: float = 0.8
+@export var can_move_while_attacking: bool = true
 @export var melee_damage: float = 25.0
 
 @export_category("Movement")
@@ -72,6 +72,7 @@ func _process(delta):
 	if current_health <= 0:
 		game_manager.player_death.emit()
 
+
 func _physics_process(delta):
 	if current_state != PlayerState.MELEE or can_move_while_attacking:
 			# Apply movement
@@ -84,10 +85,12 @@ func _physics_process(delta):
 func move(direction: Vector2):
 	velocity = direction.normalized() * speed
 	if direction.length() > 0:
-		change_state(PlayerState.MOVING)
+		if current_state != PlayerState.MELEE:
+			change_state(PlayerState.MOVING)
 	else:
-		change_state(PlayerState.IDLE)
 		velocity = Vector2.ZERO # Stop movement when no direction
+		if current_state != PlayerState.MELEE:
+			change_state(PlayerState.IDLE)
 
 func perform_melee():
 	if !can_melee or current_state == PlayerState.DASHING or !current_inventory.is_empty():
@@ -95,7 +98,7 @@ func perform_melee():
 			
 	can_melee = false
 	change_state(PlayerState.MELEE)
-	
+
 	# Start the melee duration timer
 	melee_timer.start()
 	
