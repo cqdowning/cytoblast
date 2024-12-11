@@ -240,6 +240,5 @@ func _on_weapon_changed(_cur_slot:int):
 	
 func _on_melee_entered(body: Node2D):
 	# Check if we hit an enemy
-	print("hi")
 	if body.is_in_group("enemies") and body.has_method("take_damage"):
 		body.take_damage(melee_damage)
