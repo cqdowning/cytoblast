@@ -54,7 +54,7 @@ func shoot():
 	game_manager.ammo_changed.emit(current_ammo, max_ammo)
 
 func _on_shoot_delay_timeout():
-	if max_ammo > 0:
+	if current_ammo > 0:
 		can_shoot = true
 
 func activate_weapon():

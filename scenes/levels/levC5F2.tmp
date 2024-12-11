@@ -7,20 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://d042h1k8gia83" path="res://scenes/level items/enemy_spawner.tscn" id="6_ak8yx"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
 [ext_resource type="Script" path="res://scripts/enemies/enemy_spec.gd" id="7_vg5hi"]
+[ext_resource type="PackedScene" uid="uid://do281r4ajjeka" path="res://scenes/weapons/weapon_antibiotic_rifle.tscn" id="8_xr13b"]
 [ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="9_njl1c"]
 [ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="10_3i7yc"]
-[ext_resource type="PackedScene" uid="uid://bovtbuvyfjrlm" path="res://scenes/weapons/weapon_antiparasitic_shotgun.tscn" id="10_syif5"]
-[ext_resource type="PackedScene" uid="uid://chmjdrcj3epwi" path="res://scenes/weapons/weapon_antiviral_rifle.tscn" id="11_4w860"]
+[ext_resource type="PackedScene" uid="uid://bauu2u33usqu8" path="res://scenes/weapons/weapon_antiparasitic_machinegun.tscn" id="11_koa5b"]
 
-[sub_resource type="Resource" id="Resource_h2bc2"]
+[sub_resource type="Resource" id="Resource_bs2ai"]
 script = ExtResource("7_vg5hi")
 type = 0
-weapon_drops = Array[PackedScene]([ExtResource("9_njl1c"), ExtResource("10_3i7yc")])
+weapon_drops = Array[PackedScene]([ExtResource("10_3i7yc"), ExtResource("8_xr13b"), ExtResource("9_njl1c")])
 
-[sub_resource type="Resource" id="Resource_t0ppy"]
+[sub_resource type="Resource" id="Resource_i5iau"]
 script = ExtResource("7_vg5hi")
 type = 0
-weapon_drops = Array[PackedScene]([ExtResource("10_syif5"), ExtResource("11_4w860")])
+weapon_drops = Array[PackedScene]([ExtResource("11_koa5b")])
 
 [node name="LevelBase" instance=ExtResource("1_7c6su")]
 next_level = ExtResource("2_lk1tq")
@@ -54,6 +54,6 @@ scale = Vector2(1.64, 6.91)
 
 [node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("6_ak8yx")]
 position = Vector2(1041, -2958)
-enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_h2bc2"), SubResource("Resource_t0ppy")])
+enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_bs2ai"), SubResource("Resource_i5iau")])
 wave_delay = 10.0
 initial_delay = 2.0

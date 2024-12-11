@@ -4,7 +4,6 @@ extends Node
 
 signal weapon_changed(cur_slot:int)
 signal weapon_added(weapon:Weapon, max_ammo:int, slot:int)
-signal shot_fired(cur_slot:int, shots_remaining:int)
 
 @export var max_size = 3
 
@@ -83,6 +82,13 @@ func is_empty():
 			return false
 	return true
 	
+
+func reset():
+	for i in range(0, max_size):
+		if weapons[i]:
+			weapons[i].queue_free()
+		weapons[i] = null
+
 	
 func drop_weapon():
 	if weapons[_cur_slot]:
