@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=15 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_7c6su"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="10_3i7yc"]
 [ext_resource type="PackedScene" uid="uid://bovtbuvyfjrlm" path="res://scenes/weapons/weapon_antiparasitic_shotgun.tscn" id="10_syif5"]
 [ext_resource type="PackedScene" uid="uid://chmjdrcj3epwi" path="res://scenes/weapons/weapon_antiviral_rifle.tscn" id="11_4w860"]
-[ext_resource type="PackedScene" uid="uid://r8pchj2nqpmx" path="res://scenes/enemies/turret.tscn" id="12_cdoox"]
-[ext_resource type="PackedScene" uid="uid://c5y3ch274ei06" path="res://scenes/enemies/biter.tscn" id="13_2f4bn"]
 
 [sub_resource type="Resource" id="Resource_h2bc2"]
 script = ExtResource("7_vg5hi")
@@ -21,8 +19,13 @@ weapon_drops = Array[PackedScene]([ExtResource("9_njl1c"), ExtResource("10_3i7yc
 
 [sub_resource type="Resource" id="Resource_t0ppy"]
 script = ExtResource("7_vg5hi")
-type = 0
+type = 1
 weapon_drops = Array[PackedScene]([ExtResource("10_syif5"), ExtResource("11_4w860")])
+
+[sub_resource type="Resource" id="Resource_s7v7h"]
+script = ExtResource("7_vg5hi")
+type = 2
+weapon_drops = Array[PackedScene]([])
 
 [node name="LevelBase" instance=ExtResource("1_7c6su")]
 next_level = ExtResource("2_lk1tq")
@@ -56,14 +59,6 @@ scale = Vector2(1.64, 6.91)
 
 [node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("6_ak8yx")]
 position = Vector2(1041, -2958)
-enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_h2bc2"), SubResource("Resource_t0ppy")])
-wave_delay = 10.0
+enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_h2bc2"), SubResource("Resource_t0ppy"), SubResource("Resource_s7v7h")])
+wave_delay = 3.0
 initial_delay = 2.0
-
-[node name="Turret" parent="." index="10" node_paths=PackedStringArray("target") instance=ExtResource("12_cdoox")]
-position = Vector2(988, -924)
-target = NodePath("../Player")
-
-[node name="Biter" parent="." index="11" node_paths=PackedStringArray("target") instance=ExtResource("13_2f4bn")]
-position = Vector2(604, -946)
-target = NodePath("../Player")
