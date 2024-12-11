@@ -36,6 +36,7 @@ func _on_timeout():
 		enemy.target = $"../Player"
 		# add code here for making random enemies?
 		add_child(enemy)
+		audio_manager.play_enemy_spawn()
 		_timer.start(wave_delay)
 		_spec_index += 1
 	
