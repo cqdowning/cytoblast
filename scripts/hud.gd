@@ -87,7 +87,7 @@ func update_weapon_display():
 	
 	# Update ammo display for current weapon
 	# Max ammo is already set
-	ammo_label.text = "%d / %d" % [max_ammo, max_ammo]
+	ammo_label.text = "%d / %d" % [weapon.current_ammo, weapon.max_ammo]
 
 # Optional: Handle window resize events for additional scaling
 func _on_resized():
