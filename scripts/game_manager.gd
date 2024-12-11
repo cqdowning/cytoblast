@@ -15,10 +15,13 @@ var player: Player
 var enemies_remaining = 0
 var room_active = false
 var room_id = 0
+var starting_inventory:Array[Weapon]
 
 
 func _ready() -> void:
 	enemy_defeated.connect(_on_enemy_defeated)
+	for i in range(current_inventory.max_size):
+		starting_inventory.push_back(null)
 
 
 func _process(_delta: float) -> void:		
@@ -27,13 +30,26 @@ func _process(_delta: float) -> void:
 		room_over.emit(room_id)	
 		room_active = false
 		print("Room ", game_manager.room_id, " completed")
+	if Input.is_action_just_pressed("restart"):
+		room_id = 0
+		current_inventory.weapons = starting_inventory
+		get_tree().reload_current_scene()
+	
 			
 func change_level(next_level:PackedScene):
 	# reset the room id, each level's rooms will be indexed starting at 1
 	room_id = 0
 	get_tree().call_deferred("change_scene_to_packed", next_level)
+	for i in range(current_inventory.max_size):
+		var weapon = current_inventory.weapons[i]
+		if weapon:
+			starting_inventory[i] = current_inventory.weapons[i].duplicate()
+		else:
+			starting_inventory[i] = null
+	print(starting_inventory)
 	show_hud()
 
+	
 func _on_enemy_defeated():
 	enemies_remaining -= 1
 	print("Enemies remaining: ", game_manager.enemies_remaining)
