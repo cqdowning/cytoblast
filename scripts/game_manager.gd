@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		print("Room ", game_manager.room_id, " completed")
 	if Input.is_action_just_pressed("restart"):
 		room_id = 0
-		current_inventory.weapons = starting_inventory
+		current_inventory.reset()
 		get_tree().reload_current_scene()
 	
 			
@@ -40,15 +40,9 @@ func change_level(next_level:PackedScene):
 	# reset the room id, each level's rooms will be indexed starting at 1
 	room_id = 0
 	get_tree().call_deferred("change_scene_to_packed", next_level)
-	for i in range(current_inventory.max_size):
-		var weapon = current_inventory.weapons[i]
-		if weapon:
-			starting_inventory[i] = current_inventory.weapons[i].duplicate()
-		else:
-			starting_inventory[i] = null
-	print(starting_inventory)
+	current_inventory.reset()
 	show_hud()
-
+	
 	
 func _on_enemy_defeated():
 	enemies_remaining -= 1
