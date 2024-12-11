@@ -99,7 +99,6 @@ func add_weapon(weapon:Weapon):
 		return
 	weapons[slot_to_fill] = weapon
 	weapon.is_equipped = true
-	weapon_added.emit(weapon, weapon.max_ammo, slot_to_fill)
 	get_tree().current_scene.remove_child(weapon)
 	# equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:
@@ -137,3 +136,4 @@ func _switch_to_closest_taken_slot():
 	# if the inventory is empty, set the current slot to 0
 	else:
 		_cur_slot = 0
+		game_manager.no_weapon.emit()

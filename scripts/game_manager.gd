@@ -5,8 +5,8 @@ extends Node
 signal room_over(room_id:int)
 signal enemy_defeated
 signal health_changed(current_health:int, max_health:int)
-signal weapon_added(weapon_name:String)
 signal weapon_switched(new_weapon_index:int)
+signal no_weapon()
 signal ammo_changed(current_ammo:int, max_ammo:int)
 signal shake_camera(magnitude:float)
 
