@@ -1,26 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdaytupynu0p6"]
+[gd_scene load_steps=11 format=3 uid="uid://cdaytupynu0p6"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_1ja7b"]
 [ext_resource type="AudioStream" uid="uid://ceiis1hku3ylf" path="res://assets/audio/weapon_pickup.wav" id="2_csprn"]
 [ext_resource type="AudioStream" uid="uid://d1ru3qymsj42v" path="res://assets/audio/weapon_switch.wav" id="3_mms0f"]
-[ext_resource type="AudioStream" uid="uid://be556ifd7o6re" path="res://assets/audio/weapon_throw.wav" id="4_22knr"]
-[ext_resource type="AudioStream" uid="uid://cyqf5w7ivg4tt" path="res://assets/audio/rifle_shoot.wav" id="5_w7se4"]
-[ext_resource type="AudioStream" uid="uid://cgkv3sebg8048" path="res://assets/audio/melee.wav" id="6_eqc4q"]
+[ext_resource type="AudioStream" uid="uid://c1mk6lf3na10f" path="res://assets/audio/weapon_throw.wav" id="4_22knr"]
+[ext_resource type="AudioStream" uid="uid://1m3latpw6mac" path="res://assets/audio/rifle_shoot.wav" id="5_w7se4"]
+[ext_resource type="AudioStream" uid="uid://vs6ik5ghyxcw" path="res://assets/audio/melee.wav" id="6_eqc4q"]
+[ext_resource type="AudioStream" uid="uid://dhk7xgyh5ogsx" path="res://assets/audio/shotgun_shoot.wav" id="7_3017b"]
+[ext_resource type="AudioStream" uid="uid://eafb365y20ud" path="res://assets/audio/machine_gun_shoot.wav" id="8_m8nhs"]
+[ext_resource type="AudioStream" uid="uid://dppcr8jphcv0s" path="res://assets/audio/weapon_explosion.wav" id="9_44otx"]
+[ext_resource type="AudioStream" uid="uid://hstirahepp8b" path="res://assets/audio/shooter_shoot.wav" id="10_r488k"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_1ja7b")
 
-[node name="WeaponPickup" type="AudioStreamPlayer" parent="."]
+[node name="Weapons" type="Node" parent="."]
+
+[node name="WeaponPickup" type="AudioStreamPlayer" parent="Weapons"]
 stream = ExtResource("2_csprn")
 
-[node name="WeaponSwitch" type="AudioStreamPlayer" parent="."]
+[node name="WeaponSwitch" type="AudioStreamPlayer" parent="Weapons"]
 stream = ExtResource("3_mms0f")
 
-[node name="WeaponThrow" type="AudioStreamPlayer" parent="."]
+[node name="WeaponThrow" type="AudioStreamPlayer" parent="Weapons"]
 stream = ExtResource("4_22knr")
 
-[node name="RifleShoot" type="AudioStreamPlayer" parent="."]
+[node name="RifleShoot" type="AudioStreamPlayer" parent="Weapons"]
 stream = ExtResource("5_w7se4")
 
-[node name="Melee" type="AudioStreamPlayer" parent="."]
+[node name="Melee" type="AudioStreamPlayer" parent="Weapons"]
 stream = ExtResource("6_eqc4q")
+
+[node name="ShotgunShoot" type="AudioStreamPlayer" parent="Weapons"]
+stream = ExtResource("7_3017b")
+
+[node name="MachineGunShoot" type="AudioStreamPlayer" parent="Weapons"]
+stream = ExtResource("8_m8nhs")
+
+[node name="WeaponExplosion" type="AudioStreamPlayer" parent="Weapons"]
+stream = ExtResource("9_44otx")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="ShooterShoot" type="AudioStreamPlayer" parent="Enemies"]
+stream = ExtResource("10_r488k")
