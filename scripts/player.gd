@@ -101,6 +101,7 @@ func perform_melee():
 
 	# Start the melee duration timer
 	melee_timer.start()
+	audio_manager.play_melee()
 	
 	# Might want to stop or reduce movement during attack
 	if !can_move_while_attacking:
@@ -120,6 +121,7 @@ func perform_dash(direction: Vector2):
 		#print("Dash cancelled - can_dash:", can_dash, " direction:", direction.length()) # Debug print
 		return
 	
+	audio_manager.play_player_dash()
 	#print("Executing dash") # Debug print
 	can_dash = false
 	change_state(PlayerState.DASHING)
@@ -198,6 +200,7 @@ func throw():
 	projectile.set_properties(thrown_weapon_damage, current_inventory.current_weapon().type, thrown_weapon_speed)
 	projectile.launch(global_position, direction)
 	
+	audio_manager.play_throw_weapon()
 	current_inventory.drop_weapon()
 
 func change_state(new_state: PlayerState):
@@ -218,6 +221,7 @@ func change_state(new_state: PlayerState):
 
 func take_damage(amount: float):
 	current_health = max(0, current_health - amount)
+	audio_manager.play_player_hit_marker()
 	game_manager.health_changed.emit(current_health, max_health)
 
 func heal(amount: float):

@@ -57,6 +57,7 @@ func _process(delta):
 	
 func take_damage(projectile_damage: float):
 	health -= projectile_damage
+	audio_manager.play_enemy_hit_marker()
 	print(health)
 	
 
