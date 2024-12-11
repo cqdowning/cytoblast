@@ -98,6 +98,7 @@ func perform_melee():
 	
 	# Start the melee duration timer
 	melee_timer.start()
+	audio_manager.play_melee()
 	
 	# Might want to stop or reduce movement during attack
 	if !can_move_while_attacking:
@@ -195,6 +196,7 @@ func throw():
 	projectile.set_properties(thrown_weapon_damage, current_inventory.current_weapon().type, thrown_weapon_speed)
 	projectile.launch(global_position, direction)
 	
+	audio_manager.play_throw_weapon()
 	current_inventory.drop_weapon()
 
 func change_state(new_state: PlayerState):

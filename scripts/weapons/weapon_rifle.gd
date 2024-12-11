@@ -25,5 +25,6 @@ func shoot():
 	projectile.set_properties(damage, type, speed + _rng.randf_range(-speed_variation * 0.5, speed_variation * 0.5))
 	projectile.launch(projectile_spawn.global_position, direction)
 
+	audio_manager.play_rifle_shoot()
 	# Start cooldown
 	_shoot_delay_timer.start(shoot_delay)

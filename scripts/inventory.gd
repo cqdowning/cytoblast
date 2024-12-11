@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 			return
 		_cur_slot = next_slot
 		weapon_changed.emit(_cur_slot)
+		audio_manager.play_weapon_switch()
 		print("Current slot: ", _cur_slot)
 		
 	if Input.is_action_just_pressed("prev_weapon"):
@@ -65,6 +66,7 @@ func _process(delta: float) -> void:
 			return
 		_cur_slot = next_slot
 		weapon_changed.emit(_cur_slot)
+		audio_manager.play_weapon_switch()
 		print("Current slot: ", _cur_slot)
 		
 		
@@ -107,6 +109,7 @@ func add_weapon(weapon:Weapon):
 	weapons[slot_to_fill] = weapon
 	weapon.is_equipped = true
 	get_tree().current_scene.remove_child(weapon)
+	audio_manager.play_weapon_pickup()
 	# equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:
 		weapon_changed.emit(_cur_slot)
