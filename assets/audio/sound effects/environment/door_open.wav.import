@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ctlvnwtq0ggqe"
-path="res://.godot/imported/Rotate Stone 03.wav-769c2015dc98a80673203ef21a35f1a0.sample"
+path="res://.godot/imported/door_open.wav-2be34cf1fea2af7b4809419d3c8fe249.sample"
 
 [deps]
 
-source_file="res://assets/audio/sound effects/environment/Rotate Stone 03.wav"
-dest_files=["res://.godot/imported/Rotate Stone 03.wav-769c2015dc98a80673203ef21a35f1a0.sample"]
+source_file="res://assets/audio/sound effects/environment/door_open.wav"
+dest_files=["res://.godot/imported/door_open.wav-2be34cf1fea2af7b4809419d3c8fe249.sample"]
 
 [params]
 

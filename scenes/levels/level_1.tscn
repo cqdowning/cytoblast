@@ -226,7 +226,7 @@ door = NodePath("../RoomDoor1")
 spawners = [NodePath("../EnemySpawner1_1")]
 
 [node name="RoomDoor1" parent="." index="8" instance=ExtResource("6_q2qt6")]
-position = Vector2(2372, -2984)
+position = Vector2(2380, -3518)
 scale = Vector2(1.64, 6.91)
 
 [node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("6_ak8yx")]

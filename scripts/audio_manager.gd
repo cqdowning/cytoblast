@@ -44,6 +44,12 @@ func play_room_entered():
 func play_enemy_spawn():
 	$Environment/EnemySpawn.play()
 	
+func play_door_open():
+	$Environment/DoorOpen.play()
+	
+func is_playing_door_open():
+	return $Environment/DoorOpen.playing
+	
 func play_player_hit_marker():
 	$Player/PlayerHitMarker.play()
 	

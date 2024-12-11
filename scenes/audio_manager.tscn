@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cdaytupynu0p6"]
+[gd_scene load_steps=19 format=3 uid="uid://cdaytupynu0p6"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_1ja7b"]
 [ext_resource type="AudioStream" uid="uid://ctqo0sury4ov5" path="res://assets/audio/sound effects/weapon/weapon_pickup.wav" id="2_csprn"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bbmmfcuahie2m" path="res://assets/audio/sound effects/enemies/biter_attack.wav" id="12_vwcbf"]
 [ext_resource type="AudioStream" uid="uid://bqbtygpajgc7t" path="res://assets/audio/sound effects/environment/enemy_spawn.wav" id="13_djd1t"]
 [ext_resource type="AudioStream" uid="uid://by6hu3bu8pr0i" path="res://assets/audio/sound effects/player/player_dash.wav" id="15_uk5ae"]
+[ext_resource type="AudioStream" uid="uid://ctlvnwtq0ggqe" path="res://assets/audio/sound effects/environment/door_open.wav" id="16_5um3u"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_1ja7b")
@@ -81,6 +82,10 @@ bus = &"Sound Effects"
 
 [node name="EnemySpawn" type="AudioStreamPlayer" parent="Environment"]
 stream = ExtResource("13_djd1t")
+bus = &"Sound Effects"
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="Environment"]
+stream = ExtResource("16_5um3u")
 bus = &"Sound Effects"
 
 [node name="Player" type="Node" parent="."]
