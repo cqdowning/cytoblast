@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var speed: float = 400.0
 @export var dash_speed_multiplier: float = 3.0
 @export var dash_distance: float = 150.0
-@export var dash_cooldown: float = 0.75
+@export var dash_cooldown: float = 0.5
 @export var rotation_speed: float = 10.0
 @export var thrown_weapon_scene: PackedScene
 @export var thrown_weapon_damage: float = 50.0
