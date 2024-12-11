@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://v4ioc7f6g67r"]
+[gd_scene load_steps=11 format=3 uid="uid://r8pchj2nqpmx"]
 
-[ext_resource type="Script" path="res://scripts/enemies/shooter.gd" id="1_rbl1y"]
-[ext_resource type="PackedScene" uid="uid://do281r4ajjeka" path="res://scenes/weapons/weapon_antibiotic_rifle.tscn" id="2_atys5"]
-[ext_resource type="PackedScene" uid="uid://r3rcjeoxjifl" path="res://scenes/projectiles/projectile_bacterial.tscn" id="2_yc8ce"]
-[ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="3_n0k1a"]
-[ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="4_76xfq"]
-[ext_resource type="Texture2D" uid="uid://cncypdtqa0fgq" path="res://assets/enemies/bacteria/bacteria_sprite_sheet.png" id="6_8s431"]
+[ext_resource type="Script" path="res://scripts/enemies/turret.gd" id="1_rbl1y"]
+[ext_resource type="PackedScene" uid="uid://chmjdrcj3epwi" path="res://scenes/weapons/weapon_antiviral_rifle.tscn" id="2_atys5"]
+[ext_resource type="PackedScene" uid="uid://c11shkgihf2en" path="res://scenes/projectiles/projectile_antiviral.tscn" id="2_yc8ce"]
+[ext_resource type="PackedScene" uid="uid://csqe4qkvd6tt" path="res://scenes/weapons/weapon_antiviral_machinegun.tscn" id="3_n0k1a"]
+[ext_resource type="PackedScene" uid="uid://b52e2g4rx38l7" path="res://scenes/weapons/weapon_antiviral_shotgun.tscn" id="4_76xfq"]
+[ext_resource type="Texture2D" uid="uid://c4nb5vaqt6pkq" path="res://assets/enemies/virus/virus_sprite_sheet.png" id="6_8s431"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onteg"]
 
@@ -48,13 +48,13 @@ _data = {
 "moving": SubResource("Animation_fcl10")
 }
 
-[node name="Shooter" type="RigidBody2D"]
+[node name="Turret" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_rbl1y")
-move_speed = 200.0
-attack_delay = 2.0
-attack_speed = 800.0
+move_speed = 100.0
+attack_delay = 2.5
+attack_speed = 500.0
 weapon_drops = Array[PackedScene]([ExtResource("2_atys5"), ExtResource("3_n0k1a"), ExtResource("4_76xfq")])
 projectile_scene = ExtResource("2_yc8ce")
 
