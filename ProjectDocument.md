@@ -68,22 +68,6 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **List your assets, including their sources and licenses.**
 
-Both of the following sources for sound effects do not require credit, but here are links to the pages.
-
-From https://shapeforms.itch.io/shapeforms-audio-free-sfx: WILL ADD LINKS TO FILES IN REPO ONCE PROJECT COMPLETE
-* [enemy_hit_marker.wav]()
-* [enemy_spawn.wav]()
-* [machine_gun_shoot.wav]()
-* [melee.wav]()
-* [player_hit_marker.wav]()
-* [rifle_shoot.wav]()
-* [room_entered.wav]()
-* [shooter_shoot.wav]()
-* [shotgun_shoot.wav]()
-* [weapon_explosion.wav]()
-* [weapon_pickup.wav]()
-* [weapon_throw.wav]()
-
 From https://kronbits.itch.io/freesfx#google_vignette:
 * [weapon_switch.wav]()
 
