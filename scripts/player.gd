@@ -83,6 +83,8 @@ func _physics_process(delta):
 
 
 func move(direction: Vector2):
+	if current_state == PlayerState.DASHING:
+		return
 	velocity = direction.normalized() * speed
 	if direction.length() > 0:
 		if current_state != PlayerState.MELEE:
@@ -143,6 +145,9 @@ func perform_dash(direction: Vector2):
 			velocity = direction.normalized() * dash_speed
 			move_and_slide()
 			
+			# Make player invulnerable to damage
+			add_to_group("invulnerable")
+			
 			# Check if we hit something that blocks our dash direction
 			var blocking_dash = false
 			for i in get_slide_collision_count():
@@ -158,6 +163,9 @@ func perform_dash(direction: Vector2):
 					break
 					
 			await get_tree().process_frame
+	
+	# Make player vulnerable to damage
+	remove_from_group("invulnerable")
 	
 	# Reset state
 	if current_state == PlayerState.DASHING:
