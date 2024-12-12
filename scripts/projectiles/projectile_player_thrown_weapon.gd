@@ -20,11 +20,11 @@ func _physics_process(delta):
 func _on_body_entered(body: Node2D):
 	audio_manager.play_weapon_explosion()
 	var explosion: ProjectilePlayer = explosion_projectile.instantiate()
-	add_sibling(explosion)
+	call_deferred("add_sibling", explosion)
 	explosion.global_position = global_position
 	explosion.set_properties(damage, type, 0)
 	var effect: Sprite2D = explosion_effect.instantiate()
-	add_sibling(effect)
+	call_deferred("add_sibling", effect)
 	effect.global_position = global_position
 	super(body)
 	game_manager.shake_camera.emit(0.5)

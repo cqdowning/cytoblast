@@ -62,7 +62,7 @@ func take_damage(projectile_damage: float):
 		if not weapon_drops.is_empty():
 			var weapon_to_drop = weapon_drops.pick_random()
 			var drop = weapon_to_drop.instantiate() as Weapon
-			get_tree().current_scene.add_child(drop)
+			get_tree().current_scene.call_deferred("add_child", drop)
 			drop.global_position = global_position
 			drop.is_equipped = false
 		queue_free()
