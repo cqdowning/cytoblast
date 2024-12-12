@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=39 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_7c6su"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bauu2u33usqu8" path="res://scenes/weapons/weapon_antiparasitic_machinegun.tscn" id="19_qaiji"]
 [ext_resource type="PackedScene" uid="uid://b0s53oelrjs5q" path="res://scenes/weapons/weapon_antiparasitic_rifle.tscn" id="20_exk01"]
 [ext_resource type="PackedScene" uid="uid://csqe4qkvd6tt" path="res://scenes/weapons/weapon_antiviral_machinegun.tscn" id="21_tgfdg"]
+[ext_resource type="PackedScene" uid="uid://b52e2g4rx38l7" path="res://scenes/weapons/weapon_antiviral_shotgun.tscn" id="23_rnpmo"]
 
 [sub_resource type="Resource" id="Resource_h2bc2"]
 script = ExtResource("7_vg5hi")
@@ -80,7 +81,7 @@ max_health = 0.0
 [sub_resource type="Resource" id="Resource_wtg3n"]
 script = ExtResource("7_vg5hi")
 type = 0
-weapon_drops = Array[PackedScene]([])
+weapon_drops = Array[PackedScene]([ExtResource("15_sesb3"), ExtResource("20_exk01"), ExtResource("11_4w860")])
 max_health = 0.0
 
 [sub_resource type="Resource" id="Resource_xeaqt"]
@@ -92,7 +93,7 @@ max_health = 0.0
 [sub_resource type="Resource" id="Resource_wdsuu"]
 script = ExtResource("7_vg5hi")
 type = 0
-weapon_drops = Array[PackedScene]([])
+weapon_drops = Array[PackedScene]([ExtResource("10_3i7yc"), ExtResource("10_syif5"), ExtResource("23_rnpmo")])
 max_health = 0.0
 
 [sub_resource type="Resource" id="Resource_14oy6"]
@@ -110,7 +111,7 @@ max_health = 0.0
 [sub_resource type="Resource" id="Resource_4dqdu"]
 script = ExtResource("7_vg5hi")
 type = 2
-weapon_drops = Array[PackedScene]([])
+weapon_drops = Array[PackedScene]([ExtResource("9_njl1c"), ExtResource("19_qaiji"), ExtResource("21_tgfdg")])
 max_health = 0.0
 
 [node name="LevelBase" instance=ExtResource("1_7c6su")]
