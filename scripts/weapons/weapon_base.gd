@@ -10,7 +10,6 @@ enum Type {
 
 @export var damage: float = 10
 @export var max_ammo = 10
-@export var current_ammo = 10
 @export var type: Type = Type.NONE
 @export var speed: float = 800
 @export var speed_variation: float = 100.0
@@ -22,6 +21,7 @@ enum Type {
 
 var can_shoot: bool = true
 var is_equipped = true
+var current_ammo: int = 0
 
 var _shoot_delay_timer: Timer
 var _rng: RandomNumberGenerator
@@ -39,6 +39,7 @@ func _ready():
 	_shoot_delay_timer.timeout.connect(_on_shoot_delay_timeout) # Fix indentation
 	activate_weapon()
 	_rng = RandomNumberGenerator.new()
+	_set_ammo(max_ammo)
 
 func _process(delta: float) -> void:
 	if not is_equipped and curve:
@@ -50,8 +51,7 @@ func _process(delta: float) -> void:
 
 func shoot():
 	game_manager.shake_camera.emit(shake_magnitude)
-	current_ammo -= 1
-	game_manager.ammo_changed.emit(current_ammo, max_ammo)
+	_set_ammo(current_ammo - 1)
 
 func _on_shoot_delay_timeout():
 	if current_ammo > 0:
@@ -74,3 +74,7 @@ func get_weapon_type() -> String:
 
 func get_type_enum_value() -> int:
 	return type
+
+func _set_ammo(amnt: int):
+	current_ammo = amnt
+	game_manager.ammo_changed.emit(current_ammo, max_ammo)
