@@ -10,7 +10,7 @@ enum Type {
 
 @export var target: Player
 @export var damage: float = 10.0
-@export var health: float = 100.0
+@export var max_health: float = 100.0
 @export var type: Type = Type.BACTERIA
 @export var move_speed: float = 150.0
 @export var rotation_speed: float = 10.0
@@ -19,12 +19,15 @@ enum Type {
 @export var weapon_drops: Array[PackedScene]
 @export var projectile_scene = preload("res://scenes/projectiles/projectile.tscn")
 
+var health: float
+
 var _attack_delay_timer: Timer
 var _movement_timer: Timer
 var _rng: RandomNumberGenerator
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	health = max_health
 	add_to_group("enemies")
 	_rng = RandomNumberGenerator.new()
 	for child in get_children():

@@ -23,16 +23,19 @@
 script = ExtResource("7_vg5hi")
 type = 0
 weapon_drops = Array[PackedScene]([ExtResource("9_njl1c"), ExtResource("10_3i7yc")])
+max_health = 25.0
 
 [sub_resource type="Resource" id="Resource_t0ppy"]
 script = ExtResource("7_vg5hi")
 type = 1
 weapon_drops = Array[PackedScene]([ExtResource("10_syif5"), ExtResource("11_4w860")])
+max_health = 100.0
 
 [sub_resource type="Resource" id="Resource_s7v7h"]
 script = ExtResource("7_vg5hi")
 type = 2
 weapon_drops = Array[PackedScene]([])
+max_health = 100.0
 
 [node name="LevelBase" instance=ExtResource("1_7c6su")]
 next_level = ExtResource("2_lk1tq")
@@ -223,7 +226,7 @@ door = NodePath("../RoomDoor1")
 spawners = [NodePath("../EnemySpawner1_1")]
 
 [node name="RoomDoor1" parent="." index="8" instance=ExtResource("6_q2qt6")]
-position = Vector2(2372, -2984)
+position = Vector2(2380, -3518)
 scale = Vector2(1.64, 6.91)
 
 [node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("6_ak8yx")]

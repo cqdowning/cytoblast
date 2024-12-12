@@ -39,3 +39,4 @@ func _attack():
 		get_tree().current_scene.add_child(projectile)
 		projectile.set_properties(damage, Weapon.Type.NONE, attack_speed)
 		projectile.launch(global_position, direction)
+	audio_manager.play_turret_shoot()
