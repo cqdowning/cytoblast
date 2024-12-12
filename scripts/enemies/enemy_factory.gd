@@ -16,5 +16,6 @@ static func build(spec: EnemySpec):
 			enemy_scene = load("res://scenes/enemies/test_enemy.tscn")
 	enemy = enemy_scene.instantiate() as Enemy
 	enemy.weapon_drops = spec.weapon_drops
-	enemy.max_health = spec.max_health
+	if spec.max_health > 0.0:
+		enemy.max_health = spec.max_health
 	return enemy
