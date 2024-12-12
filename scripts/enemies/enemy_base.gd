@@ -45,6 +45,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_ai(delta)
+	
+	
+func take_damage(projectile_damage: float):
+	health -= projectile_damage
+	audio_manager.play_enemy_hit_marker()
+	print(health)
+	
 	if health <= 0:
 		game_manager.enemy_defeated.emit()
 		if not weapon_drops.is_empty():
@@ -54,11 +61,6 @@ func _process(delta):
 			drop.global_position = global_position
 			drop.is_equipped = false
 		queue_free()
-	
-func take_damage(projectile_damage: float):
-	health -= projectile_damage
-	audio_manager.play_enemy_hit_marker()
-	print(health)
 	
 
 func _face_target(delta):
