@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csqe4qkvd6tt" path="res://scenes/weapons/weapon_antiviral_machinegun.tscn" id="3_n0k1a"]
 [ext_resource type="PackedScene" uid="uid://b52e2g4rx38l7" path="res://scenes/weapons/weapon_antiviral_shotgun.tscn" id="4_76xfq"]
 [ext_resource type="PackedScene" uid="uid://ddarp5vj63mod" path="res://scenes/projectiles/projectile_viral.tscn" id="5_3t375"]
-[ext_resource type="Texture2D" uid="uid://c4nb5vaqt6pkq" path="res://assets/enemies/virus/virus_sprite_sheet.png" id="6_8s431"]
+[ext_resource type="Texture2D" uid="uid://5myrf8ueh8jy" path="res://assets/enemies/virus/virus_sprite_sheet.png" id="6_8s431"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onteg"]
 
@@ -51,6 +51,7 @@ _data = {
 [node name="Turret" type="RigidBody2D"]
 collision_layer = 4
 script = ExtResource("1_rbl1y")
+max_health = 75.0
 type = 1
 move_speed = 750.0
 attack_delay = 2.5

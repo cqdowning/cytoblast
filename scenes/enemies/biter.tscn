@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4op0c3jp0umn" path="res://scenes/projectiles/projectile_antiparasitic.tscn" id="2_yc8ce"]
 [ext_resource type="PackedScene" uid="uid://bauu2u33usqu8" path="res://scenes/weapons/weapon_antiparasitic_machinegun.tscn" id="3_n0k1a"]
 [ext_resource type="PackedScene" uid="uid://bovtbuvyfjrlm" path="res://scenes/weapons/weapon_antiparasitic_shotgun.tscn" id="4_76xfq"]
-[ext_resource type="Texture2D" uid="uid://dvnt0wer8po8x" path="res://assets/enemies/parasite/parasite_sprite_sheet.png" id="6_8s431"]
+[ext_resource type="Texture2D" uid="uid://01pk22a0hdw2" path="res://assets/enemies/parasite/parasite_sprite_sheet.png" id="6_8s431"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6s7ru"]
 radius = 4.61
@@ -53,6 +53,7 @@ _data = {
 [node name="Biter" type="RigidBody2D"]
 collision_layer = 4
 script = ExtResource("1_rbl1y")
+max_health = 125.0
 attack_delay = 1.5
 attack_speed = 600.0
 weapon_drops = Array[PackedScene]([ExtResource("2_atys5"), ExtResource("3_n0k1a"), ExtResource("4_76xfq")])
