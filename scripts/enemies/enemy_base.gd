@@ -24,6 +24,7 @@ var health: float
 var _attack_delay_timer: Timer
 var _movement_timer: Timer
 var _rng: RandomNumberGenerator
+var _is_dead: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,7 +56,8 @@ func take_damage(projectile_damage: float):
 	audio_manager.play_enemy_hit_marker()
 	print(health)
 	
-	if health <= 0:
+	if health <= 0 and !_is_dead:
+		_is_dead = true
 		game_manager.enemy_defeated.emit()
 		if not weapon_drops.is_empty():
 			var weapon_to_drop = weapon_drops.pick_random()
