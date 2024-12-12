@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmlt5tpftu1cg"
+path="res://.godot/imported/enemy_hit_marker.wav-86f61440b17bda75f8b091cb8d905258.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/enemies/enemy_hit_marker.wav"
+dest_files=["res://.godot/imported/enemy_hit_marker.wav-86f61440b17bda75f8b091cb8d905258.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

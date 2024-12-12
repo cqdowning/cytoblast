@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://csqe4qkvd6tt"]
+
+[ext_resource type="PackedScene" uid="uid://ddwc8tdixrb5a" path="res://scenes/weapons/weapon_base.tscn" id="1_kl7qs"]
+[ext_resource type="Texture2D" uid="uid://c7u4i3wubr448" path="res://assets/weapons/machine_gun/machinegun_antiviral.png" id="2_osh3t"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_machinegun.gd" id="3_801so"]
+[ext_resource type="PackedScene" uid="uid://c11shkgihf2en" path="res://scenes/projectiles/projectile_antiviral.tscn" id="4_d88d7"]
+
+[node name="WeaponBase" instance=ExtResource("1_kl7qs")]
+position = Vector2(0, -37.525)
+texture = ExtResource("2_osh3t")
+script = ExtResource("3_801so")
+damage = 20.0
+max_ammo = 30
+type = 1
+shoot_delay = 0.15
+spread = 25.0
+shake_magnitude = 0.15
+projectile_scene = ExtResource("4_d88d7")
+
+[node name="ProjectileSpawn" parent="." index="0"]
+position = Vector2(0, -30)

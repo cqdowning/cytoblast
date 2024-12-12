@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://etads63vse8w"
+path="res://.godot/imported/room_enter.wav-0c01577853813b66e3675a47ad5b271c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/environment/room_enter.wav"
+dest_files=["res://.godot/imported/room_enter.wav-0c01577853813b66e3675a47ad5b271c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://8f7wguw806d0"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_utkjf"]
+[ext_resource type="PackedScene" uid="uid://66l7cq75kuch" path="res://scenes/player.tscn" id="2_pu35u"]
+[ext_resource type="Script" path="res://scripts/controller_command.gd" id="3_blfvy"]
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="4_tvwq0"]
+[ext_resource type="PackedScene" uid="uid://cbfu4ny2eqkqs" path="res://scenes/hud.tscn" id="5_1siuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7y381"]
+size = Vector2(55.3501, 70.6391)
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_utkjf")
+
+[node name="Background" type="TileMapLayer" parent="."]
+
+[node name="Walls" type="TileMapLayer" parent="."]
+
+[node name="Decal" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+
+[node name="LevelEndGate" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="EndGateCollider" type="CollisionShape2D" parent="LevelEndGate"]
+shape = SubResource("RectangleShape2D_7y381")
+
+[node name="Player" parent="." instance=ExtResource("2_pu35u")]
+
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_blfvy")
+player = NodePath("../Player")
+
+[node name="CameraController" type="Camera2D" parent="." node_paths=PackedStringArray("subject")]
+position = Vector2(307, 311)
+script = ExtResource("4_tvwq0")
+subject = NodePath("../Player")
+
+[node name="HUD" parent="CameraController" instance=ExtResource("5_1siuq")]
+
+[connection signal="body_entered" from="LevelEndGate" to="." method="_on_level_end_gate_body_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5dh6s7op7f2"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/projectile_player_explosion.gd" id="1_nuldt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3ceo"]
+radius = 125.0
+
+[node name="ProjectileExplosion" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_nuldt")
+lifetime = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b3ceo")
