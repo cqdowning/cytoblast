@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dqems3330qk8d"
+path="res://.godot/imported/shoot_attack.wav-9c8f7be4ca0072c129b33bbca4be0501.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/enemies/shoot_attack.wav"
+dest_files=["res://.godot/imported/shoot_attack.wav-9c8f7be4ca0072c129b33bbca4be0501.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
