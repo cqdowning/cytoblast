@@ -53,6 +53,7 @@ _data = {
 [node name="Biter" type="RigidBody2D"]
 collision_layer = 4
 script = ExtResource("1_rbl1y")
+damage = 20.0
 max_health = 125.0
 attack_delay = 1.5
 attack_speed = 600.0

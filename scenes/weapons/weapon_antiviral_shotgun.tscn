@@ -11,6 +11,7 @@ texture = ExtResource("2_tftjl")
 script = ExtResource("3_irefk")
 projectile_amount = 6
 damage = 18.0
+max_ammo = 6
 type = 1
 speed = 900.0
 shoot_delay = 0.8

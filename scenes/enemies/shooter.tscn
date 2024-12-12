@@ -51,6 +51,7 @@ _data = {
 [node name="Shooter" type="RigidBody2D"]
 collision_layer = 4
 script = ExtResource("1_rbl1y")
+damage = 15.0
 move_speed = 200.0
 attack_delay = 2.0
 attack_speed = 800.0
@@ -62,7 +63,6 @@ texture = ExtResource("6_8s431")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(5.165, 5.165)
 shape = SubResource("CircleShape2D_onteg")
 

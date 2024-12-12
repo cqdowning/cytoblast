@@ -10,7 +10,6 @@ position = Vector2(0, -40)
 texture = ExtResource("2_2eg3d")
 script = ExtResource("2_ldv8v")
 damage = 50.0
-max_ammo = 20
 type = 0
 speed = 1000.0
 shoot_delay = 0.6
