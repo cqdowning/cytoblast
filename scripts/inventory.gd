@@ -40,8 +40,6 @@ func _ready() -> void:
 	
 	for i in range(0, max_size):
 		weapons.push_back(null)
-		weapons.push_back(null)
-		weapons.push_back(null)
 	
 	# set the current slot to the first slot with a weapon
 	for i in range(weapons.size()):
