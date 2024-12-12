@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bjgybysitftgb"]
+
+[ext_resource type="FontFile" uid="uid://dfhrdf7enuaer" path="res://assets/Chewy Bubble.otf" id="1_gdgqh"]
+[ext_resource type="Texture2D" uid="uid://bjv2dul32e3o4" path="res://assets/ui/buttons/button_normal.png" id="2_45ygx"]
+[ext_resource type="Texture2D" uid="uid://dslqg3jvbex7c" path="res://assets/ui/buttons/button_hover.png" id="2_si3tw"]
+[ext_resource type="Texture2D" uid="uid://btub1d6k4k08d" path="res://assets/ui/buttons/button_pressed.png" id="4_fy31l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_052uv"]
+texture = ExtResource("2_si3tw")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdoc8"]
+texture = ExtResource("2_45ygx")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vkv4h"]
+texture = ExtResource("4_fy31l")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+
+[resource]
+Button/colors/font_color = Color(0.233379, 0.28982, 0.524306, 1)
+Button/colors/font_hover_color = Color(0.337255, 0.407843, 0.686275, 1)
+Button/colors/font_pressed_color = Color(1, 0.85098, 0.4, 1)
+Button/fonts/font = ExtResource("1_gdgqh")
+Button/styles/hover = SubResource("StyleBoxTexture_052uv")
+Button/styles/normal = SubResource("StyleBoxTexture_kdoc8")
+Button/styles/pressed = SubResource("StyleBoxTexture_vkv4h")
