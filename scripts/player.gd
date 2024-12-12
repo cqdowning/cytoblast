@@ -80,6 +80,8 @@ func _physics_process(delta):
 			# Check if practically stopped
 			if velocity.length() < 0.1 and current_state != PlayerState.MELEE:
 					change_state(PlayerState.IDLE)
+					
+	pickup_weapon()
 
 
 func move(direction: Vector2):

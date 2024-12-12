@@ -51,9 +51,3 @@ func _process(_delta):
 			#print("Throw pressed")
 			var throw_command = ThrowCommand.new()
 			throw_command.execute(player)
-			
-	
-	if Input.is_action_just_pressed("pickup_weapon"):
-			#print("Throw pressed")
-			var pickup_command = PickupCommand.new()
-			pickup_command.execute(player)
