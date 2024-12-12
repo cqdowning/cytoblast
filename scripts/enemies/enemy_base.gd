@@ -26,6 +26,8 @@ var _movement_timer: Timer
 var _rng: RandomNumberGenerator
 var _is_dead: bool = false
 
+@onready var _damage_indicator: PackedScene = load("res://scenes/effects/damage_indicator.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = max_health
@@ -51,10 +53,23 @@ func _process(delta):
 	_ai(delta)
 	
 	
-func take_damage(projectile_damage: float):
-	health -= projectile_damage
+func take_damage(projectile_damage: float, multiplier: float):
+	var new_damage = projectile_damage * multiplier
+	health -= new_damage
 	audio_manager.play_enemy_hit_marker()
-	print(health)
+	var new_indicator:DamageIndicator = _damage_indicator.instantiate() as DamageIndicator
+	if multiplier > 1.0:
+		new_indicator.set_color(Color.YELLOW)
+		new_indicator.scale *= 1.25
+	elif multiplier < 1.0:
+		new_indicator.set_color(Color.DIM_GRAY)
+		new_indicator.scale *= 0.75
+	else:
+		new_indicator.set_color(Color.GHOST_WHITE)
+	new_indicator.damage = new_damage
+	get_tree().current_scene.call_deferred("add_child", new_indicator)
+	new_indicator.global_position = global_position
+	new_indicator.call_deferred("update_end_position")
 	
 	if health <= 0 and !_is_dead:
 		_is_dead = true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://0f02bishi85"]
+
+[ext_resource type="Script" path="res://scripts/effects/damage_indicator.gd" id="1_tlj26"]
+
+[sub_resource type="Curve" id="Curve_t1fad"]
+_data = [Vector2(0, 0), 0.0, 3.19296, 0, 0, Vector2(0.897906, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DamageIndicator" type="Label"]
+offset_right = 133.0
+offset_bottom = 161.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 35
+text = "10"
+script = ExtResource("1_tlj26")
+movement_curve = SubResource("Curve_t1fad")

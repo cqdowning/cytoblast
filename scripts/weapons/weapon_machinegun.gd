@@ -1,3 +1,4 @@
+
 class_name Machinegun
 extends Weapon
 
