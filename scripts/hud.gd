@@ -13,7 +13,6 @@ extends Control
 # Store weapon information
 var weapon: Weapon
 var index: int 
-var ammo = [10, 10, 10]
 
 func _ready():
 	# Set initial health bar value to 100%
@@ -45,7 +44,7 @@ func _no_weapon():
 
 func _on_weapon_dropped(dropped_index):
 	# Set the ammo to 0 when weapon is dropped
-	ammo[dropped_index] = 10
+	ammo_label.text = "%d / %d" % [0, 0]
 
 func _on_weapon_switched(new_weapon, new_weapon_index):
 	# Switch the current weapon
@@ -55,10 +54,7 @@ func _on_weapon_switched(new_weapon, new_weapon_index):
 
 func _on_ammo_shot(current_ammo, given_max_ammo):
 	# Update ammo display for current weapon
-	ammo[index] = current_ammo
-	if current_ammo < 0:
-		current_ammo = 0
-	ammo_label.text = "%d / %d" % [ammo[index], given_max_ammo]
+	ammo_label.text = "%d / %d" % [weapon.current_ammo, weapon.max_ammo]
 
 func update_weapon_display():
 	# Highlight the selected weapon
@@ -95,7 +91,7 @@ func update_weapon_display():
 	
 	# Update ammo display for current weapon
 	# Max ammo is already set
-	ammo_label.text = "%d / %d" % [ammo[index], weapon.max_ammo]
+	ammo_label.text = "%d / %d" % [weapon.current_ammo, weapon.max_ammo]
 
 # Optional: Handle window resize events for additional scaling
 func _on_resized():

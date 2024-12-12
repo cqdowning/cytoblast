@@ -88,6 +88,7 @@ func reset():
 		if weapons[i]:
 			weapons[i].queue_free()
 		weapons[i] = null
+	_cur_slot = 0
 
 	
 func drop_weapon():

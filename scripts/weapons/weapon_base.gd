@@ -39,7 +39,7 @@ func _ready():
 	_shoot_delay_timer.timeout.connect(_on_shoot_delay_timeout) # Fix indentation
 	activate_weapon()
 	_rng = RandomNumberGenerator.new()
-	_set_ammo(max_ammo)
+	current_ammo = max_ammo
 
 func _process(delta: float) -> void:
 	if not is_equipped and curve:
