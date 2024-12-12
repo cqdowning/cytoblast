@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=20 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_7c6su"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
@@ -14,12 +14,31 @@
 [ext_resource type="PackedScene" uid="uid://ccuuf8jinc15p" path="res://scenes/objects/cells/medium_cell.tscn" id="7_g3872"]
 [ext_resource type="Script" path="res://scripts/enemies/enemy_spec.gd" id="7_vg5hi"]
 [ext_resource type="PackedScene" uid="uid://di8ch2sq1r8t7" path="res://scenes/objects/cells/spikes_cell.tscn" id="8_eic3d"]
+[ext_resource type="PackedScene" uid="uid://do281r4ajjeka" path="res://scenes/weapons/weapon_antibiotic_rifle.tscn" id="15_sesb3"]
 
 [sub_resource type="Resource" id="Resource_h2bc2"]
 script = ExtResource("7_vg5hi")
 type = 2
-weapon_drops = Array[PackedScene]([])
+weapon_drops = Array[PackedScene]([ExtResource("15_sesb3")])
 max_health = 25.0
+
+[sub_resource type="Resource" id="Resource_3vbll"]
+script = ExtResource("7_vg5hi")
+type = 0
+weapon_drops = Array[PackedScene]([])
+max_health = 100.0
+
+[sub_resource type="Resource" id="Resource_65dpq"]
+script = ExtResource("7_vg5hi")
+type = 2
+weapon_drops = Array[PackedScene]([])
+max_health = 75.0
+
+[sub_resource type="Resource" id="Resource_bc7ca"]
+script = ExtResource("7_vg5hi")
+type = 2
+weapon_drops = Array[PackedScene]([])
+max_health = 75.0
 
 [node name="LevelBase" instance=ExtResource("1_7c6su")]
 next_level = ExtResource("2_lk1tq")
@@ -30,7 +49,7 @@ tile_set = ExtResource("2_1ogo2")
 
 [node name="Walls" parent="." index="1"]
 position = Vector2(767, 0)
-tile_map_data = PackedByteArray("AAD6//b/AAABAAEAAAD6//f/AAADAAIAAAD6//j/AAADAAMAAAD6//n/AAADAAIAAAD6//r/AAADAAMAAAD6//v/AAADAAIAAAD6//z/AAADAAIAAAD6//3/AAADAAMAAAD6//7/AAADAAMAAAD6////AAABAAIAAAD7//b/AAABAAAAAAD7////AAABAAAAAAD8//b/AAABAAAAAAD8////AAACAAAAAAD9//b/AAABAAAAAAD9////AAABAAAAAAD+//b/AAACAAIAAAD+////AAACAAAAAAD/////AAABAAAAAAAAAP//AAACAAAAAAABAP//AAABAAAAAAACAPb/AAABAAIAAAACAP//AAACAAAAAAADAPb/AAACAAAAAAADAP//AAABAAAAAAAEAPb/AAABAAAAAAAEAP//AAACAAAAAAAFAPb/AAACAAAAAAAFAP//AAABAAAAAAAGAPb/AAACAAEAAAAGAPf/AAADAAIAAAAGAPj/AAADAAIAAAAGAPn/AAADAAMAAAAGAPr/AAADAAIAAAAGAPv/AAADAAMAAAAGAPz/AAADAAMAAAAGAP3/AAADAAIAAAAGAP7/AAADAAMAAAAGAP//AAACAAIAAAACAPT/AAADAAIAAAACAPX/AAADAAMAAAACAPP/AAADAAMAAAACAPH/AAADAAMAAAACAPL/AAADAAIAAAACAO//AAADAAMAAAACAPD/AAADAAIAAAD+//T/AAADAAMAAAD+//X/AAADAAMAAAD+//L/AAADAAMAAAD+//P/AAADAAIAAAD+//D/AAADAAMAAAD+//H/AAADAAIAAAD+/+7/AAADAAMAAAD+/+//AAADAAIAAAACAO7/AAADAAIAAAACAOz/AAADAAIAAAACAO3/AAADAAMAAAACAOr/AAADAAIAAAACAOv/AAADAAMAAAD+/+3/AAADAAIAAAD+/+v/AAADAAMAAAD+/+z/AAADAAMAAAD+/+r/AAADAAIAAAA=")
+tile_map_data = PackedByteArray("AAD6//b/AAABAAEAAAD6//f/AAADAAIAAAD6//j/AAADAAMAAAD6//n/AAADAAIAAAD6//r/AAADAAMAAAD6//v/AAADAAIAAAD6//z/AAADAAIAAAD6//3/AAADAAMAAAD6//7/AAADAAMAAAD6////AAABAAIAAAD7//b/AAABAAAAAAD7////AAABAAAAAAD8//b/AAABAAAAAAD8////AAACAAAAAAD9//b/AAABAAAAAAD9////AAABAAAAAAD+//b/AAACAAIAAAD+////AAACAAAAAAD/////AAABAAAAAAAAAP//AAACAAAAAAABAP//AAABAAAAAAACAPb/AAABAAIAAAACAP//AAACAAAAAAADAPb/AAACAAAAAAADAP//AAABAAAAAAAEAPb/AAABAAAAAAAEAP//AAACAAAAAAAFAPb/AAACAAAAAAAFAP//AAABAAAAAAAGAPb/AAACAAEAAAAGAPf/AAADAAIAAAAGAPj/AAADAAIAAAAGAPn/AAADAAMAAAAGAPr/AAADAAIAAAAGAPv/AAADAAMAAAAGAPz/AAADAAMAAAAGAP3/AAADAAIAAAAGAP7/AAADAAMAAAAGAP//AAACAAIAAAACAPT/AAADAAIAAAACAPX/AAADAAMAAAACAPP/AAADAAMAAAACAPH/AAADAAMAAAACAPL/AAADAAIAAAACAO//AAADAAMAAAACAPD/AAADAAIAAAD+//T/AAADAAMAAAD+//X/AAADAAMAAAD+//L/AAADAAMAAAD+//P/AAADAAIAAAD+//D/AAADAAMAAAD+//H/AAADAAIAAAD+/+7/AAADAAMAAAD+/+//AAADAAIAAAACAO7/AAADAAIAAAACAOz/AAADAAIAAAACAO3/AAADAAMAAAACAOr/AAADAAIAAAACAOv/AAADAAMAAAD+/+3/AAADAAIAAAD+/+v/AAADAAMAAAD+/+z/AAADAAMAAAD+/+r/AAADAAIAAAACAOn/AAABAAEAAAD+/+n/AAACAAEAAAADAOn/AAABAAAAAAAEAOn/AAABAAAAAAAFAOn/AAACAAAAAAAGAOn/AAABAAAAAAAHAOn/AAABAAAAAAAIAOn/AAABAAAAAAAJAOn/AAACAAAAAAD8/+n/AAACAAAAAAD9/+n/AAACAAAAAAD7/+n/AAACAAAAAAD5/+n/AAACAAAAAAD6/+n/AAABAAAAAAD4/+n/AAACAAAAAAD3/+n/AAABAAAAAAD2/+n/AAABAAIAAAAKAOn/AAACAAIAAAAKAOf/AAADAAMAAAAKAOj/AAADAAMAAAAKAOX/AAADAAMAAAAKAOb/AAADAAIAAAAKAOT/AAADAAIAAAAKAOL/AAADAAMAAAAKAOP/AAADAAMAAAAKAOH/AAADAAIAAAD2/+f/AAADAAIAAAD2/+j/AAADAAMAAAD2/+X/AAADAAIAAAD2/+b/AAADAAMAAAD2/+P/AAADAAMAAAD2/+T/AAADAAMAAAD2/+H/AAADAAIAAAD2/+L/AAADAAIAAAD2/9//AAADAAMAAAD2/+D/AAADAAMAAAD2/97/AAADAAIAAAAKAN//AAADAAMAAAAKAOD/AAADAAMAAAAKAN7/AAADAAIAAAD2/93/AAABAAEAAAAKAN3/AAACAAEAAAD3/93/AAABAAAAAAD4/93/AAABAAAAAAD5/93/AAACAAAAAAD6/93/AAABAAAAAAD7/93/AAACAAAAAAAGAN3/AAACAAAAAAAHAN3/AAABAAAAAAAIAN3/AAABAAAAAAAJAN3/AAACAAAAAAD4/9//AAABAAEAAAD6/+H/AAACAAIAAAD6/9//AAACAAEAAAD4/+H/AAABAAIAAAD4/+D/AAADAAIAAAD6/+D/AAADAAMAAAD5/9//AAACAAAAAAD5/+H/AAABAAAAAAD4/+X/AAABAAEAAAD4/+b/AAADAAIAAAD4/+f/AAABAAIAAAD5/+X/AAACAAAAAAD5/+f/AAABAAAAAAD6/+X/AAACAAEAAAD6/+b/AAADAAMAAAD6/+f/AAACAAIAAAAGAOX/AAABAAEAAAAGAOb/AAADAAIAAAAGAOf/AAABAAIAAAAHAOX/AAACAAAAAAAHAOf/AAABAAAAAAAIAOX/AAACAAEAAAAIAOb/AAADAAMAAAAIAOf/AAACAAIAAAAGAN//AAABAAEAAAAGAOD/AAADAAIAAAAGAOH/AAABAAIAAAAHAN//AAACAAAAAAAHAOH/AAABAAAAAAAIAN//AAACAAEAAAAIAOD/AAADAAMAAAAIAOH/AAACAAIAAAAFAN3/AAACAAAAAAAEAN3/AAABAAIAAAD8/93/AAACAAIAAAD8/9v/AAADAAIAAAD8/9z/AAADAAMAAAD8/9j/AAADAAIAAAD8/9n/AAADAAIAAAD8/9r/AAADAAMAAAD8/9T/AAADAAIAAAD8/9X/AAADAAMAAAD8/9b/AAADAAIAAAD8/9f/AAADAAMAAAAEANv/AAADAAMAAAAEANz/AAADAAMAAAAEANj/AAADAAIAAAAEANn/AAADAAIAAAAEANb/AAADAAIAAAAEANf/AAADAAMAAAAEANr/AAADAAIAAAAEANX/AAADAAIAAAAEANP/AAADAAIAAAAEANT/AAADAAMAAAD8/9L/AAADAAMAAAD8/9P/AAADAAMAAAD8/9H/AAADAAIAAAAEANH/AAADAAIAAAAEANL/AAADAAMAAAA=")
 tile_set = ExtResource("2_1ogo2")
 
 [node name="Decal" parent="." index="2"]
@@ -208,20 +227,49 @@ position = Vector2(869, -582)
 position = Vector2(3202, -3003)
 scale = Vector2(-4.24192, 23.6481)
 
-[node name="RoomEntrance1" parent="." index="7" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("5_8n3ms")]
+[node name="EndGateCollider" parent="LevelEndGate" index="0"]
+position = Vector2(-285.72, 0.38058)
+
+[node name="RoomEntrance1" parent="." index="9" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("5_8n3ms")]
 position = Vector2(838, -1221)
 rotation = -3.14159
 scale = Vector2(26.558, -9.162)
 door = NodePath("../RoomDoor1")
 spawners = [NodePath("../EnemySpawner1_1")]
 
-[node name="RoomDoor1" parent="." index="8" instance=ExtResource("6_q2qt6")]
+[node name="RoomDoor1" parent="." index="10" instance=ExtResource("6_q2qt6")]
 position = Vector2(574, -2482)
 rotation = -1.5708
 scale = Vector2(1.64, 3.45)
 
-[node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("6_ak8yx")]
+[node name="EnemySpawner1_1" parent="." index="11" instance=ExtResource("6_ak8yx")]
 position = Vector2(837, -2157)
 enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_h2bc2")])
 wave_delay = 3.0
+initial_delay = 2.0
+
+[node name="RoomEntrance2" parent="." index="12" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("5_8n3ms")]
+position = Vector2(833, -2866)
+scale = Vector2(27.615, 11.965)
+door = NodePath("../RoomDoor2")
+spawners = [NodePath("../EnemySpawner2_1"), NodePath("../EnemySpawner2_2"), NodePath("../EnemySpawner2_3")]
+
+[node name="RoomDoor2" parent="." index="13" instance=ExtResource("6_q2qt6")]
+position = Vector2(297, -4618)
+rotation = -1.5708
+scale = Vector2(4.215, 6.99)
+
+[node name="EnemySpawner2_1" parent="." index="14" instance=ExtResource("6_ak8yx")]
+position = Vector2(840, -4147)
+enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_3vbll")])
+initial_delay = 6.0
+
+[node name="EnemySpawner2_2" parent="." index="15" instance=ExtResource("6_ak8yx")]
+position = Vector2(356, -3890)
+enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_65dpq")])
+initial_delay = 2.0
+
+[node name="EnemySpawner2_3" parent="." index="16" instance=ExtResource("6_ak8yx")]
+position = Vector2(1296, -3878)
+enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_bc7ca")])
 initial_delay = 2.0
