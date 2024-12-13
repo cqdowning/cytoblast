@@ -6,11 +6,13 @@ Dive into the microscopic battlefield of Cytoblast, a high-octane top-down shoot
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
+[Web-playable version of Cytoblast](https://cqdowning.itch.io/cytoblast)
+
+[Trailer](https://youtu.be/lT30_l2WA_A)
+
+[Press Kit]()
+
 [Proposal](https://docs.google.com/document/d/1MSlS52ui7cZe5zUArDbUQV3-Qev-chPhb2aMK8_9N7w/edit?usp=sharing) 
-[Font](https://www.1001fonts.com/chewy-bubble-font.html)
 
 ## Gameplay Explanation ##
 
@@ -30,6 +32,10 @@ You can also use the dash to close distance between enemies and dodge attacks, a
 # External Code, Ideas, and Structure #
 
 [Inspiration for smooth floating weapon drops](https://www.youtube.com/watch?v=3ZXrUhoBbUI&t=68s)
+
+[Font](https://www.1001fonts.com/chewy-bubble-font.html) - Free for personal use
+
+[Trailer Music](https://www.youtube.com/watch?v=7xRhw5nOkCs) - [premium license](https://darkfantasystudio.com/premium-licence/) purchased from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
 # Main Roles #
 
@@ -113,7 +119,7 @@ The game is designed for Desktop, I thought about adding game controller inputs 
 ## Movement/Physics
 
 Our game uses a hybrid approach to physics and movement, building upon Godot's CharacterBody2D system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
-[command pattern implementation.]: https://github.com/cqdowning/cytoblast/blob/main/scripts/commands/command.gd
+[command pattern implementation.](https://github.com/cqdowning/cytoblast/blob/main/scripts/commands/command.gd)
 
 Key Features:
 - Base Movement System
@@ -204,28 +210,32 @@ From https://kronbits.itch.io/freesfx#google_vignette:
 
 **Gameplay Feedback**
 
-- overall our demo received positive feedback (average rating of 4.4/5 on gameplay experience), with users enjoying the game's narrative, weapon variety/use and the simplicity of the concept
-- we also had very positive feedback on player movement and controls (average rating of 4.5/5), with users being particular fond of the basic movement and the rifle weapon
-- most of the testers found the game's difficulty to be just right (64%) but expressed ranging difficulty in understand enemy attack patterns and behavior
+- Overall our demo received positive feedback (average rating of 4.4/5 on gameplay experience), with users enjoying the game's narrative, weapon variety/use and the simplicity of the concept
+- We also had very positive feedback on player movement and controls (average rating of 4.5/5), with users being particular fond of the basic movement and the rifle weapon
+- Most of the testers found the game's difficulty to be just right (64%) but expressed ranging difficulty in understanding enemy attack patterns and behavior
 
 **Changes Made Based on Feedback**
-- there were some issues with understanding the HUD's inventory system, so we decided to change the HUD to show the actual weapons in the player's inventory and highlight the selected weapon label with the weapon's color
-- there were also a couple requests to add a little bit more to the game's environment, so we added a few more visual elements to the game's levels (extra clumps of cells on walls, more detailed obstacles etc.)
+- There were some issues with understanding the HUD's inventory system, so we decided to change the HUD to show the actual weapons in the player's inventory and highlight the selected weapon label with the weapon's color
+- There were also a couple requests to add a little bit more to the game's environment, so we added a few more visual elements to the game's levels (extra clumps of cells on walls, more detailed obstacles etc.)
 
 **Further Improvements**
-- given more time there were requests for more variety in enemy types and behaviors, as well as more weapon types that could've been added to the game
-- there were also a couple of requests for a multiplayer mode, which could be an interesting addition to the game
-- the HUD could also just use a little bit more polish, maybe eliminating the labels and just using some sort of higlight to show selected weapons
+- Given more time there were requests for more variety in enemy types and behaviors, as well as more weapon types that could've been added to the game
+- There were also a couple of requests for a multiplayer mode, which could be an interesting addition to the game
+- The HUD could also just use a little bit more polish, maybe eliminating the labels and just using some sort of higlight to show selected weapons
 
 ## Narrative Design
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
-## Press Kit and Trailer
+## Press Kit
 
-**Include links to your presskit materials and trailer.**
+## Trailer - Casey Downing
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+[Link to Trailer](https://youtu.be/lT30_l2WA_A)
+
+For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. 
+
+The music used in the trailer is Dark Fantasy Studio - Neon God under their [premium license](https://darkfantasystudio.com/premium-licence/). I purchased this license from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
 ## Game Feel and Polish - Casey Downing
 *Screen Shake* - I implemented a simple screen shake algorithm and applied it to various parts of the game. Shooting the guns will shake the screen to make them feel more impactful. The explosion from throwing the weapon will also have a powerful screen shake.
