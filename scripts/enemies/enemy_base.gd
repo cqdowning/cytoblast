@@ -18,6 +18,7 @@ enum Type {
 @export var attack_speed: float = -1.0
 @export var weapon_drops: Array[PackedScene]
 @export var health_drop_chance: float = 0.5
+@export var drop_offset: float = 75.0
 @export var projectile_scene = preload("res://scenes/projectiles/projectile.tscn")
 @export var health_drop_scene = preload("res://scenes/health_drop.tscn")
 
@@ -80,13 +81,13 @@ func take_damage(projectile_damage: float, multiplier: float):
 		if _rng.randf() <= health_drop_chance:
 			var health_drop = health_drop_scene.instantiate() as HealthDrop
 			get_tree().current_scene.call_deferred("add_child", health_drop)
-			health_drop.global_position = global_position
+			health_drop.global_position = global_position + Vector2(_rng.randf_range(-drop_offset, drop_offset), _rng.randf_range(-drop_offset, drop_offset))
 
 		if not weapon_drops.is_empty():
 			var weapon_to_drop = weapon_drops.pick_random()
 			var drop = weapon_to_drop.instantiate() as Weapon
 			get_tree().current_scene.call_deferred("add_child", drop)
-			drop.global_position = global_position
+			drop.global_position = global_position + Vector2(_rng.randf_range(-drop_offset, drop_offset), _rng.randf_range(-drop_offset, drop_offset))
 			drop.is_equipped = false
 		queue_free()
 	
