@@ -28,7 +28,7 @@
 script = ExtResource("7_vg5hi")
 type = 2
 weapon_drops = Array[PackedScene]([ExtResource("15_sesb3")])
-max_health = 50.0
+max_health = 1.0
 health_drop_chance = 1.0
 
 [sub_resource type="Resource" id="Resource_3vbll"]
@@ -351,7 +351,7 @@ scale = Vector2(4.215, 6.99)
 [node name="EnemySpawner2_1" parent="." index="14" instance=ExtResource("6_ak8yx")]
 position = Vector2(840, -4147)
 enemy_specs = Array[ExtResource("7_vg5hi")]([SubResource("Resource_3vbll")])
-initial_delay = 6.0
+initial_delay = 3.0
 
 [node name="EnemySpawner2_2" parent="." index="15" instance=ExtResource("6_ak8yx")]
 position = Vector2(356, -3890)
