@@ -3,7 +3,7 @@ extends Node
 
 
 signal weapon_changed(cur_slot:int)
-signal weapon_added(weapon:Weapon, max_ammo:int, slot:int)
+signal weapon_added(weapon:Weapon, slot:int)
 
 @export var max_size = 3
 
@@ -110,6 +110,7 @@ func add_weapon(weapon:Weapon):
 	# Disable weapon's pickup area once it is equipped
 	weapon.pickup_area.monitorable = false
 	get_tree().current_scene.remove_child(weapon)
+	weapon_added.emit(weapon, slot_to_fill)
 	audio_manager.play_weapon_pickup()
 	# equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:
