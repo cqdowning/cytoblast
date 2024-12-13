@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export_category("Combat")
-@export var melee_duration: float = 0.8
+@export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = true
 @export var melee_damage: float = 25.0
 
