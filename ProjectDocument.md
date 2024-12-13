@@ -64,7 +64,12 @@ The first level was what was used in our demo. The main problem with level desig
 
 Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. 
 
+![Layout for Level 2](./project_doc_images/Level_2_Layout.PNG "Layout for Level 2")
+
 Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time.
+
+![Layout for Level 3](./project_doc_images/Level_3_Layout.PNG "Layout for Level 3")
+
 
 ### Additional Features
 
