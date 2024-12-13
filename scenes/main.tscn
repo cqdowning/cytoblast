@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwbkuy7imft8q"]
+[gd_scene load_steps=7 format=4 uid="uid://bwbkuy7imft8q"]
 
 [ext_resource type="Script" path="res://scripts/start_button.gd" id="1_gsk1m"]
 [ext_resource type="FontFile" uid="uid://dfhrdf7enuaer" path="res://assets/Chewy Bubble.otf" id="1_j6q0n"]
@@ -6,68 +6,6 @@
 [ext_resource type="Theme" uid="uid://bjgybysitftgb" path="res://assets/default_theme.tres" id="4_foox1"]
 [ext_resource type="Script" path="res://scripts/credits_button.gd" id="4_v68n2"]
 [ext_resource type="Texture2D" uid="uid://b516eaobwautn" path="res://assets/ui/game_title.png" id="5_43uid"]
-
-[sub_resource type="Animation" id="Animation_whtlr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Buttons/Button:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(280, 128)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Buttons/Credits:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(272, 200)]
-}
-
-[sub_resource type="Animation" id="Animation_hcfe6"]
-resource_name = "buttons_hovering"
-loop_mode = 1
-capture_included = true
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Buttons/Button:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 2,
-"values": [Vector2(280, 128), Vector2(280, 132)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Buttons/Credits:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 2,
-"values": [Vector2(272, 200), Vector2(272, 204)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4086"]
-_data = {
-"RESET": SubResource("Animation_whtlr"),
-"buttons_hovering": SubResource("Animation_hcfe6")
-}
 
 [node name="Main" type="Node2D"]
 
@@ -94,9 +32,10 @@ offset_bottom = 152.0
 [node name="Button" type="Button" parent="Buttons"]
 offset_left = 280.0
 offset_top = 128.0
-offset_right = 370.0
-offset_bottom = 193.0
+offset_right = 396.0
+offset_bottom = 206.0
 theme = ExtResource("4_foox1")
+theme_override_font_sizes/font_size = 28
 text = "Start"
 script = ExtResource("1_gsk1m")
 
@@ -115,22 +54,16 @@ text = "Start Game
 "
 
 [node name="Credits" type="Button" parent="Buttons"]
-offset_left = 272.0
-offset_top = 200.0
-offset_right = 381.0
-offset_bottom = 265.0
+offset_left = 264.0
+offset_top = 224.0
+offset_right = 411.0
+offset_bottom = 302.0
 theme = ExtResource("4_foox1")
 theme_override_colors/font_focus_color = Color(0.796078, 0.384314, 0.929412, 1)
 theme_override_colors/font_outline_color = Color(0.898039, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "CREDITS"
 script = ExtResource("4_v68n2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons"]
-root_node = NodePath("../../GameTitle/Sprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_r4086")
-}
-autoplay = "buttons_hovering"
 
 [node name="GameTitle" type="Control" parent="."]
 layout_mode = 3
