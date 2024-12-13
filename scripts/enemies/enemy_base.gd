@@ -115,7 +115,7 @@ func start_movement_timer(duration: float):
 func _on_movement_timeout():
 	pass
 
-func _ai(delta):
+func _ai(_delta):
 	pass
 	
 func _attack():

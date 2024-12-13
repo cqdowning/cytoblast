@@ -67,18 +67,18 @@ func _on_weapon_switched(new_weapon, new_weapon_index):
 	update_weapon_display()
 	_highlight_slot(new_weapon_index)
 
-func _on_ammo_shot(current_ammo, given_max_ammo):
+func _on_ammo_shot(current_ammo, _given_max_ammo):
 	# Update ammo display for current weapon
 	ammo_label.text = "%d / %d" % [weapon.current_ammo, weapon.max_ammo]
 
-func _on_weapon_added(weapon:Weapon, slot:int):
+func _on_weapon_added(new_weapon:Weapon, slot:int):
 	match slot:
 		0:
-			slot_0.texture = weapon.texture
+			slot_0.texture = new_weapon.texture
 		1:
-			slot_1.texture = weapon.texture
+			slot_1.texture = new_weapon.texture
 		2:
-			slot_2.texture = weapon.texture
+			slot_2.texture = new_weapon.texture
 		_:
 			pass
 

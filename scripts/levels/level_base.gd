@@ -19,9 +19,8 @@ func _ready() -> void:
 	add_child(_room_door_timer)
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("skip"):
-		#print("Switch weapon pressed")
 		_on_level_end_gate_body_entered(player)
 
 
@@ -36,7 +35,7 @@ func _on_level_end_gate_body_entered(body: Node2D) -> void:
 		game_manager.change_level(next_level)
 
 
-func _on_room_over(room_id:int):
+func _on_room_over(_room_id:int):
 	# open the correct door depending on the room we are in after delay
 	_room_door_timer.start(1)
 

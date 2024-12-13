@@ -23,7 +23,7 @@ func _ready() -> void:
 	_timer.timeout.connect(_on_timeout)
 	_update_particle()
 	
-func _process(delta):
+func _process(_delta):
 	if _timer.time_left < 1.0 and _timer.time_left > 0.0 and _spec_index < enemy_specs.size():
 		particles.emitting = true
 	else:

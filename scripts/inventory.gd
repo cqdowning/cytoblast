@@ -48,7 +48,7 @@ func _ready() -> void:
 			return
 	
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("next_weapon"):
 		var next_slot = _get_next_available_slot(1)
 		if next_slot == _cur_slot:
@@ -56,7 +56,6 @@ func _process(delta: float) -> void:
 		_cur_slot = next_slot
 		weapon_changed.emit(_cur_slot)
 		audio_manager.play_weapon_switch()
-		print("Current slot: ", _cur_slot)
 		
 	if Input.is_action_just_pressed("prev_weapon"):
 		var next_slot = _get_next_available_slot(-1)
@@ -65,7 +64,6 @@ func _process(delta: float) -> void:
 		_cur_slot = next_slot
 		weapon_changed.emit(_cur_slot)
 		audio_manager.play_weapon_switch()
-		print("Current slot: ", _cur_slot)
 		
 		
 func current_weapon():

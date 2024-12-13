@@ -80,7 +80,7 @@ func _process(delta):
 		game_manager.player_death.emit()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if current_state != PlayerState.MELEE or can_move_while_attacking:
 			# Apply movement
 			move_and_slide()

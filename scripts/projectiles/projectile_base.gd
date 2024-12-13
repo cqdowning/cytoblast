@@ -37,8 +37,7 @@ func launch(spawn_position: Vector2, launch_direction: Vector2):
 	direction = launch_direction.normalized()
 	rotation = direction.angle()
 
-func _on_body_entered(body: Node2D):
-	#print("Projectile hit ", body, name)
+func _on_body_entered(_body: Node2D):
 	pass
 	
 

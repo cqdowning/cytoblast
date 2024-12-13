@@ -32,7 +32,6 @@ func _process(_delta: float) -> void:
 	if room_active and enemies_remaining == 0:
 		room_over.emit(room_id)	
 		room_active = false
-		print("Room ", game_manager.room_id, " completed")
 	
 			
 func change_level(next_level:PackedScene):
@@ -45,7 +44,6 @@ func change_level(next_level:PackedScene):
 	
 func _on_enemy_defeated():
 	enemies_remaining -= 1
-	print("Enemies remaining: ", game_manager.enemies_remaining)
 	
 
 func _on_player_death():
