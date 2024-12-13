@@ -17,4 +17,4 @@ func _ready():
 
 func _on_pressed():
 	# jump to scene level_1.tscn
-	get_tree().change_scene_to_file("res://scenes/end.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")

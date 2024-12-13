@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bwbkuy7imft8q"]
+[gd_scene load_steps=5 format=4 uid="uid://bwbkuy7imft8q"]
 
 [ext_resource type="Script" path="res://scripts/start_button.gd" id="1_gsk1m"]
 [ext_resource type="FontFile" uid="uid://dfhrdf7enuaer" path="res://assets/Chewy Bubble.otf" id="1_j6q0n"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_41k60"]
+[ext_resource type="Script" path="res://scripts/credits_button.gd" id="4_v68n2"]
 
 [node name="Main" type="Node2D"]
 
@@ -23,6 +24,7 @@ offset_left = 261.0
 offset_top = 129.32
 offset_right = 915.0
 offset_bottom = 571.32
+scale = Vector2(1.00633, 0.835906)
 theme_override_colors/font_hover_color = Color(0.952941, 0.435294, 0.45098, 1)
 theme_override_colors/font_pressed_color = Color(0.952941, 0.435294, 0.45098, 1)
 theme_override_colors/font_focus_color = Color(0.796919, 0.383305, 0.929767, 1)
@@ -45,4 +47,18 @@ theme_override_fonts/font = ExtResource("1_j6q0n")
 theme_override_font_sizes/font_size = 40
 text = "Click To Play"
 
+[node name="Credits" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_hover_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_pressed_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_focus_color = Color(0.796078, 0.384314, 0.929412, 1)
+theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0.898039, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_j6q0n")
+theme_override_font_sizes/font_size = 35
+text = "CREDITS"
+script = ExtResource("4_v68n2")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
