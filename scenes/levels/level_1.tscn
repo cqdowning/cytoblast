@@ -304,6 +304,20 @@ scale = Vector2(8.925, 11.58)
 [node name="EndGateCollider" parent="LevelEndGate" index="0"]
 position = Vector2(-265.546, -572.366)
 
+[node name="Player" parent="." index="6"]
+melee_duration = null
+can_move_while_attacking = null
+melee_damage = null
+damage_effect_duration = null
+speed = null
+dash_speed_multiplier = null
+dash_distance = null
+dash_cooldown = null
+rotation_speed = null
+thrown_weapon_damage = null
+thrown_weapon_speed = null
+max_health = null
+
 [node name="RoomEntrance1" parent="." index="9" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("5_8n3ms")]
 position = Vector2(838, -1221)
 rotation = -3.14159

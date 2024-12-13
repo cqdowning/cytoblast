@@ -29,7 +29,7 @@ var _hover_progress = 0
 var _hover_dir = 1
 
 @onready var projectile_spawn:Node2D = $ProjectileSpawn
-
+@onready var pickup_area:Area2D = $PickupArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

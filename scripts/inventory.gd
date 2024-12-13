@@ -107,6 +107,8 @@ func add_weapon(weapon:Weapon):
 		return
 	weapons[slot_to_fill] = weapon
 	weapon.is_equipped = true
+	# Disable weapon's pickup area once it is equipped
+	weapon.pickup_area.monitorable = false
 	get_tree().current_scene.remove_child(weapon)
 	audio_manager.play_weapon_pickup()
 	# equip the weapon if the inventory was previously empty

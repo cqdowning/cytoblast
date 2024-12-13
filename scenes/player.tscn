@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://66l7cq75kuch"]
+[gd_scene load_steps=13 format=3 uid="uid://66l7cq75kuch"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_k120h"]
 [ext_resource type="PackedScene" uid="uid://blj10piebn5pp" path="res://scenes/projectiles/projectile_thrown_weapon.tscn" id="2_4uq7s"]
@@ -104,16 +104,32 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m552"]
+radius = 35.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdg35"]
 radius = 27.7
 height = 121.81
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ku58t"]
+radius = 75.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_k120h")
+melee_duration = null
+can_move_while_attacking = null
+melee_damage = null
+damage_effect_duration = null
+speed = null
+dash_speed_multiplier = null
+dash_distance = null
+dash_cooldown = null
+rotation_speed = null
 thrown_weapon_scene = ExtResource("2_4uq7s")
+thrown_weapon_damage = null
+thrown_weapon_speed = null
+max_health = null
 
 [node name="WeaponHolder" type="Node2D" parent="."]
 position = Vector2(0, -40)
@@ -132,21 +148,21 @@ libraries = {
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3.34, 3.34)
 shape = SubResource("CircleShape2D_2m552")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -38.535)
-collision_layer = 2
+collision_layer = 0
 collision_mask = 4
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_bdg35")
 one_way_collision_margin = 4.0
 
-[node name="ItemDetector" type="RayCast2D" parent="."]
-target_position = Vector2(0, -80)
+[node name="ItemDetector" type="Area2D" parent="."]
+collision_layer = 16
 collision_mask = 128
-collide_with_areas = true
-collide_with_bodies = false
 script = ExtResource("4_yudxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemDetector"]
+shape = SubResource("CircleShape2D_ku58t")

@@ -23,7 +23,7 @@ var current_health: float = max_health
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var melee_hitbox: Area2D = $Area2D
-@onready var item_detector: RayCast2D = $ItemDetector
+@onready var item_detector: ItemDetector = $ItemDetector
 
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
@@ -61,7 +61,6 @@ func _ready():
 		add_child(current_inventory.current_weapon())
 	
 	current_inventory.weapon_changed.connect(_on_weapon_changed)
-	
 
 	current_health = max_health
 	game_manager.health_changed.emit(current_health, max_health)
@@ -88,7 +87,6 @@ func _physics_process(delta):
 			# Check if practically stopped
 			if velocity.length() < 0.1 and current_state != PlayerState.MELEE:
 					change_state(PlayerState.IDLE)
-					
 	pickup_weapon()
 
 
@@ -243,6 +241,7 @@ func take_damage(amount: float):
 	game_manager.health_changed.emit(current_health, max_health)
 	game_manager.shake_camera.emit(0.25)
 	modulate = Color.PALE_VIOLET_RED
+	add_to_group("invulnerable")
 	damage_timer.start()
 
 func heal(amount: float):
@@ -251,8 +250,7 @@ func heal(amount: float):
 			
 			
 func pickup_weapon():
-	if item_detector.is_colliding():
-		item_detector.add_to_inventory()
+	item_detector.add_to_player()
 
 
 func _on_weapon_changed(_cur_slot:int):
@@ -273,3 +271,4 @@ func _on_melee_entered(body: Node2D):
 		
 func _on_damage_timer_timeout():
 	modulate = Color(1, 1, 1)
+	remove_from_group("invulnerable")
