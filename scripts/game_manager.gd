@@ -33,8 +33,6 @@ func _process(_delta: float) -> void:
 		room_over.emit(room_id)	
 		room_active = false
 		print("Room ", game_manager.room_id, " completed")
-	if Input.is_action_just_pressed("restart"):
-		_restart_level()
 	
 			
 func change_level(next_level:PackedScene):
