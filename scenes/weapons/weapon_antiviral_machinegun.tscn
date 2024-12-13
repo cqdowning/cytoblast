@@ -12,6 +12,7 @@ script = ExtResource("3_801so")
 damage = 20.0
 max_ammo = 30
 type = 1
+speed = 1000.0
 shoot_delay = 0.15
 spread = 25.0
 shake_magnitude = 0.15
