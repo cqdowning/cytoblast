@@ -117,19 +117,7 @@ radius = 75.0
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_k120h")
-melee_duration = null
-can_move_while_attacking = null
-melee_damage = null
-damage_effect_duration = null
-speed = null
-dash_speed_multiplier = null
-dash_distance = null
-dash_cooldown = null
-rotation_speed = null
 thrown_weapon_scene = ExtResource("2_4uq7s")
-thrown_weapon_damage = null
-thrown_weapon_speed = null
-max_health = null
 
 [node name="WeaponHolder" type="Node2D" parent="."]
 position = Vector2(0, -40)

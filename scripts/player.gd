@@ -250,7 +250,7 @@ func heal(amount: float):
 			
 			
 func pickup_weapon():
-	item_detector.add_to_player()
+	item_detector.add_to_player(self)
 
 
 func _on_weapon_changed(_cur_slot:int):
