@@ -1,7 +1,7 @@
 class_name Turret
 extends Enemy
 
-var PROJECTILE_COUNT = 8
+var PROJECTILE_COUNT = 16
 var MOVEMENT_DURATION = 0.5
 var MOVEMENT_COOLDOWN = 3.0
 var current_direction = Vector2.ZERO
