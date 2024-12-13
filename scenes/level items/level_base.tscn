@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cbfu4ny2eqkqs" path="res://scenes/hud.tscn" id="5_1siuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7y381"]
-size = Vector2(55.3501, 70.6391)
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_utkjf")

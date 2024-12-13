@@ -51,7 +51,3 @@ func _process(_delta):
 			#print("Throw pressed")
 			var throw_command = ThrowCommand.new()
 			throw_command.execute(player)
-	
-	if Input.is_action_just_pressed("skip"):
-		#print("Switch weapon pressed")
-		get_tree().change_scene_to_file("res://scenes/end.tscn")
