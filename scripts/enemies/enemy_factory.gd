@@ -22,6 +22,6 @@ static func build(spec: EnemySpec) -> Enemy:
 	enemy.weapon_drops = spec.weapon_drops
 	if spec.max_health > 0.0:
 		enemy.max_health = spec.max_health
-	if spec.health_drop_chance >= 0.0 or spec.health_drop_chance <= 1.0:
+	if spec.health_drop_chance >= 0.0 and spec.health_drop_chance <= 1.0:
 		enemy.health_drop_chance = spec.health_drop_chance
 	return enemy
