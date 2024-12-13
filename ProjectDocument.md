@@ -10,6 +10,7 @@ Dive into the microscopic battlefield of Cytoblast, a high-octane top-down shoot
 [Trailor](https://youtube.com)  
 [Press Kit](https://dopresskit.com/)  
 [Proposal](https://docs.google.com/document/d/1MSlS52ui7cZe5zUArDbUQV3-Qev-chPhb2aMK8_9N7w/edit?usp=sharing) 
+[Font](https://www.1001fonts.com/chewy-bubble-font.html)
 
 ## Gameplay Explanation ##
 
@@ -77,17 +78,17 @@ Throwable Weapons - This was a more advanced feature so I wanted to handle it. W
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
 
 
-## User Interface and Input
+## User Interface and Input - Quinn Broderick
 
 *Main Menu* - The main menu has two primary buttons, the bigger of the two is the “Click to Play, CYTOBLAST” button that starts the game as soon as it's pressed. The other is the smaller credits button that will take you to the list of the game makers’ names and roles. Both buttons will be shadowed by a faint pink rectangle when hovered over; the opacity and color of the rectangular trace were written into each of the scripts associated with the buttons and were defined in the _ready() functions. This feature is supposed to let the user know which are clickable elements on the main menu. The background was also designed using our gameplay tileset. I used the get_tree().change_scene_to_file() in the _on_pressed() functions (linked via the node signals) for the buttons so that there would be an immediate transition to either the first level scene or the associated credits scene. [Start button script](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/start_button.gd#L1) 
 
-[main_menu]: ./projec_doc_images/main_menu.png "Main Menu"
+![Main Menu](./project_doc_images/main_menu.png "Main Menu")
 
 *Credits* - The credits screen contains the team’s names and roles using the same theme as the Main Menu (tileset, font, font colors, hovering background for buttons) but only contains an exit button in the top right corner that, when pressed, returns the user to the Main Menu. It uses a script very similar to the Main Menu. [Exit credits script](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/exit_credits.gd#L1) 
 
 *End Screen* - The end screen is done in a very similar style as the Main Menu: the user has two button options, either view the credits or restart the game. The buttons are done in an almost identical fashion as described in the Main Menu section, a faint pink rectangular background appears when hovered to indicate it’s interactable. This scene can only be reached after the game has been completed successfully. The restart button also implements the get_tree().change_scene_to_file() function to jump cut right back to the first level when pressed. The credit scene is the same as described before. [Restart button](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/restart_button.gd#L1)
 
-[victory_screen]: ./projec_doc_images/victory.png "Victory Screen"
+![Victory Screen](./project_doc_images/victory.png "Victory Screen")
 
 **Heads-up Display:**
 
@@ -98,7 +99,7 @@ Throwable Weapons - This was a more advanced feature so I wanted to handle it. W
 *Weapon Selection/Inventory* - There is also a list of potential weapons below the ammo readout, Rifle, Shotgun, and Machine Gun, when no weapons are equipped, all three labels are dark gray (indicating nothing is being used). When a weapon is equipped, a signal is sent from the inventory to the hud, alerting it to which weapon was added. Once added, the sprite image of the weapon will appear below the labels, and the label will turn the color of the selected weapon. As you acquire and throw weapons the Weapons Container will show the inventory you have accordingly and the label corresponding to the the weapon you are using will highlight the color of the gun. 
 [All the code for the previous can be found in the hud.gd script](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/hud.gd#L1)
 
-[HUD]: ./projec_doc_images/hud.png "HUD"
+![HUD](./project_doc_images/hud.png "HUD")
 
 **Input/Game Controls**
 
@@ -138,9 +139,22 @@ From https://kronbits.itch.io/freesfx#google_vignette:
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+[These](https://docs.google.com/spreadsheets/d/1nMg0oud1pyU_8W3mC56qX38ab4eTNiMxi88uNB_Y8t4/edit?usp=sharing) are the results of the Google Forms survey we sent out to our playtesters. We had 11 responses.
 
-**Summarize the key findings from your gameplay tests.**
+**Gameplay Feedback**
+
+- overall our demo received positive feedback (average rating of 4.4/5 on gameplay experience), with users enjoying the game's narrative, weapon variety/use and the simplicity of the concept
+- we also had very positive feedback on player movement and controls (average rating of 4.5/5), with users being particular fond of the basic movement and the rifle weapon
+- most of the testers found the game's difficulty to be just right (64%) but expressed ranging difficulty in understand enemy attack patterns and behavior
+
+**Changes Made Based on Feedback**
+- there were some issues with understanding the HUD's inventory system, so we decided to change the HUD to show the actual weapons in the player's inventory and highlight the selected weapon label with the weapon's color
+- there were also a couple requests to add a little bit more to the game's environment, so we added a few more visual elements to the game's levels (extra clumps of cells on walls, more detailed obstacles etc.)
+
+**Further Improvements**
+- given more time there were requests for more variety in enemy types and behaviors, as well as more weapon types that could've been added to the game
+- there were also a couple of requests for a multiplayer mode, which could be an interesting addition to the game
+- the HUD could also just use a little bit more polish, maybe eliminating the labels and just using some sort of higlight to show selected weapons
 
 ## Narrative Design
 
