@@ -112,7 +112,68 @@ The game is designed for Desktop, I thought about adding game controller inputs 
 
 ## Movement/Physics
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+Our game uses a hybrid approach to physics and movement, building upon Godot's CharacterBody2D system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
+[command pattern implementation.]: https://github.com/cqdowning/cytoblast/blob/main/scripts/commands/command.gd
+
+Key Features:
+- Base Movement System
+  - Top-down movement with independent rotation
+  - Mouse-aimed directional control
+  - Smooth rotation interpolation
+Configurable movement speeds and sensitivity
+Advanced Movement Mechanics
+Dash ability with configurable distance and speed
+Invulnerability frames during dash
+Cooldown system for abilities
+Momentum-based movement transitions
+Weapon System & Physics
+Three distinct weapon types:
+Rifles: Precise, single-shot weapons
+Shotguns: Spread-based, close-range weapons
+Machine Guns: Rapid-fire, sustained damage
+Weapon Mechanics:
+Projectile spawn point system
+Configurable spread patterns
+Speed variation for projectiles
+Screen shake feedback system
+Ammo management system
+Weapon States:
+Equipped vs Unequipped behaviors
+Hover animations when dropped
+Pickup detection
+Weapon Type Categories:
+Antibiotic: Effective against bacteria
+Antiviral: Counters virus enemies
+Antiparasitic: Specialized for parasites
+Enemy Movement Types
+Turret (Virus Type):
+Stationary defensive enemy
+Rotates to track player position
+Fires projectiles in ring patterns
+Uses timer-based movement phases
+Alternates between stationary attack and repositioning
+Biter (Parasite Type):
+Aggressive melee enemy
+Direct chase behavior towards player
+Quick burst movements
+Close-range attack patterns
+Uses velocity-based movement for smooth pursuit
+Base Enemy Features:
+Health and damage systems
+Type-specific weapon drops
+Custom collision detection
+Death animations and effects
+Specialized audio feedback
+State-based behavior patterns
+
+While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The weapon system particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
+
+I modified the standard physics model by implementing several custom systems. The player movement uses a command pattern for precise control, allowing for custom velocity calculations and smooth rotation towards the mouse cursor. For combat mechanics, I implemented specialized collision layers that handle different interaction types - player movement collisions are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
+
+We created a hybrid system where core movement and collisions use the physics engine, but many features like weapon handling, projectile behavior, and enemy movement use custom calculations outside the physics system. This approach allows for precise control while maintaining proper physics interactions where needed.
+
+This implementation creates a responsive, fluid movement system with engaging weapon mechanics that support both precise combat and dynamic enemy interactions, while maintaining consistent physics behavior throughout the game.
+
 
 ## Animation and Visuals
 
