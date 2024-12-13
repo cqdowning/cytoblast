@@ -15,13 +15,13 @@ func _ready():
 
 func _process(_delta):
 	var direction = Vector2()
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("right"):
 		direction.x += 1
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("left"):
 		direction.x -= 1
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("up"):
 		direction.y -= 1
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("down"):
 		direction.y += 1
 	
 	# Execute movement or idle command
@@ -55,4 +55,3 @@ func _process(_delta):
 	if Input.is_action_just_pressed("skip"):
 		#print("Switch weapon pressed")
 		get_tree().change_scene_to_file("res://scenes/end.tscn")
-

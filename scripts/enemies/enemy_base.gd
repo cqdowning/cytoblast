@@ -17,7 +17,9 @@ enum Type {
 @export var attack_delay: float = -1.0
 @export var attack_speed: float = -1.0
 @export var weapon_drops: Array[PackedScene]
+@export var health_drop_chance: float = 0.5
 @export var projectile_scene = preload("res://scenes/projectiles/projectile.tscn")
+@export var health_drop_scene = preload("res://scenes/health_drop.tscn")
 
 var health: float
 
@@ -74,6 +76,12 @@ func take_damage(projectile_damage: float, multiplier: float):
 	if health <= 0 and !_is_dead:
 		_is_dead = true
 		game_manager.enemy_defeated.emit()
+		
+		if _rng.randf() <= health_drop_chance:
+			var health_drop = health_drop_scene.instantiate() as HealthDrop
+			get_tree().current_scene.call_deferred("add_child", health_drop)
+			health_drop.global_position = global_position
+
 		if not weapon_drops.is_empty():
 			var weapon_to_drop = weapon_drops.pick_random()
 			var drop = weapon_to_drop.instantiate() as Weapon
@@ -112,6 +120,6 @@ func _ai(delta):
 func _attack():
 	pass
 
-func _on_body_entered(body):
+func _on_body_entered(body: Node2D):
 	if body.is_in_group("player") and !body.is_in_group("invulnerable") and body.has_method("take_damage"):
 		body.take_damage(damage)

@@ -2,9 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 @export_category("Combat")
-@export var melee_duration: float = 0.8
+@export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = true
 @export var melee_damage: float = 25.0
+@export var damage_effect_duration: float = 0.1
 
 @export_category("Movement")
 @export var speed: float = 400.0
@@ -22,7 +23,7 @@ var current_health: float = max_health
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var melee_hitbox: Area2D = $Area2D
-@onready var item_detector: RayCast2D = $ItemDetector
+@onready var item_detector: ItemDetector = $ItemDetector
 
 
 enum PlayerState {IDLE, MOVING, MELEE, DASHING}
@@ -31,6 +32,7 @@ var can_melee: bool = true
 var melee_timer: Timer
 var can_dash: bool = true
 var dash_timer: Timer
+var damage_timer: Timer
 
 func _ready():
 	add_to_group("player")
@@ -49,11 +51,16 @@ func _ready():
 	dash_timer.timeout.connect(_on_dash_cooldown_timeout)
 	add_child(dash_timer)
 	
+	damage_timer = Timer.new()
+	damage_timer.one_shot = true
+	damage_timer.wait_time = damage_effect_duration
+	damage_timer.timeout.connect(_on_damage_timer_timeout)
+	add_child(damage_timer)
+	
 	if not current_inventory.is_empty():
 		add_child(current_inventory.current_weapon())
 	
 	current_inventory.weapon_changed.connect(_on_weapon_changed)
-	
 
 	current_health = max_health
 	game_manager.health_changed.emit(current_health, max_health)
@@ -80,7 +87,6 @@ func _physics_process(delta):
 			# Check if practically stopped
 			if velocity.length() < 0.1 and current_state != PlayerState.MELEE:
 					change_state(PlayerState.IDLE)
-					
 	pickup_weapon()
 
 
@@ -233,6 +239,10 @@ func take_damage(amount: float):
 	current_health = max(0, current_health - amount)
 	audio_manager.play_player_hit_marker()
 	game_manager.health_changed.emit(current_health, max_health)
+	game_manager.shake_camera.emit(0.25)
+	modulate = Color.PALE_VIOLET_RED
+	add_to_group("invulnerable")
+	damage_timer.start()
 
 func heal(amount: float):
 	current_health = min(max_health, current_health + amount)
@@ -240,8 +250,7 @@ func heal(amount: float):
 			
 			
 func pickup_weapon():
-	if item_detector.is_colliding():
-		item_detector.add_to_inventory()
+	item_detector.add_to_player(self)
 
 
 func _on_weapon_changed(_cur_slot:int):
@@ -259,3 +268,7 @@ func _on_melee_entered(body: Node2D):
 	# Check if we hit an enemy
 	if body.is_in_group("enemies") and body.has_method("take_damage"):
 		body.take_damage(melee_damage, 1.0)
+		
+func _on_damage_timer_timeout():
+	modulate = Color(1, 1, 1)
+	remove_from_group("invulnerable")
