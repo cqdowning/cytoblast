@@ -1,4 +1,8 @@
 extends Sprite2D
+## Represents an explosion
+##
+## Does not have an actual hitbox
+## Quickly fades out
 
 @export var despawn_rate: float = 5.0
 
@@ -11,3 +15,5 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	self_modulate.a -= despawn_rate * delta
+	if self_modulate.a <= 0.0:
+		queue_free()
