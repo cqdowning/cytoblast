@@ -2,8 +2,8 @@ class_name Inventory
 extends Node
 
 
-signal weapon_changed(cur_slot:int)
-signal weapon_added(weapon:Weapon, slot:int)
+signal weapon_changed(cur_slot: int)
+signal weapon_added(weapon: Weapon, slot: int)
 
 @export var max_size = 3
 
@@ -123,7 +123,7 @@ func _get_first_available_slot() -> int:
 	return -1 	
 	
 	
-func _get_next_available_slot(increment:int):
+func _get_next_available_slot(increment:int) -> int:
 	var next_slot = _cur_slot + increment
 	for i in range(0, max_size):
 		if next_slot >= max_size:
@@ -136,9 +136,9 @@ func _get_next_available_slot(increment:int):
 	return _cur_slot
 		
 
-func _switch_to_closest_taken_slot():
-	var next_above = _get_next_available_slot(1)
-	var next_below = _get_next_available_slot(-1)
+func _switch_to_closest_taken_slot() -> void:
+	var next_above: int = _get_next_available_slot(1)
+	var next_below: int = _get_next_available_slot(-1)
 	
 	# prioritize autoequipping the next weapon above, then below
 	if next_above != _cur_slot:

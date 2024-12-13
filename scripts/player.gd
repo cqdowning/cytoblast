@@ -1,6 +1,14 @@
 class_name Player
 extends CharacterBody2D
 
+
+enum PlayerState {
+	IDLE,
+	MOVING,
+	MELEE,
+	DASHING,
+}
+
 @export_category("Combat")
 @export var melee_duration: float = 0.4
 @export var can_move_while_attacking: bool = true
@@ -19,20 +27,19 @@ extends CharacterBody2D
 
 @export_category("Stats")
 @export var max_health: float = 100.0
+
 var current_health: float = max_health
-
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var melee_hitbox: Area2D = $Area2D
-@onready var item_detector: ItemDetector = $ItemDetector
-
-
-enum PlayerState {IDLE, MOVING, MELEE, DASHING}
 var current_state: PlayerState = PlayerState.IDLE
 var can_melee: bool = true
 var melee_timer: Timer
 var can_dash: bool = true
 var dash_timer: Timer
 var damage_timer: Timer
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var melee_hitbox: Area2D = $Area2D
+@onready var item_detector: ItemDetector = $ItemDetector
+
 
 func _ready():
 	add_to_group("player")
@@ -65,12 +72,13 @@ func _ready():
 	current_health = max_health
 	game_manager.health_changed.emit(current_health, max_health)
 
+
 func _process(delta):
 	# Get target angle to mouse
-	var target_angle = (get_global_mouse_position() - global_position).angle()
+	var target_angle: float = (get_global_mouse_position() - global_position).angle()
 	
 	# Smoothly rotate towards target angle
-	var angle_diff = target_angle + PI/2 - rotation
+	var angle_diff: float = target_angle + PI/2 - rotation
 	# Normalize the angle difference
 	angle_diff = fmod(angle_diff + PI, PI * 2) - PI
 	# Apply rotation with sensitivity
@@ -90,7 +98,7 @@ func _physics_process(_delta):
 	pickup_weapon()
 
 
-func move(direction: Vector2):
+func move(direction: Vector2) -> void:
 	if current_state == PlayerState.DASHING:
 		return
 	velocity = direction.normalized() * speed
@@ -102,8 +110,9 @@ func move(direction: Vector2):
 		if current_state != PlayerState.MELEE:
 			change_state(PlayerState.IDLE)
 
-func perform_melee():
-	if !can_melee or current_state == PlayerState.DASHING or !current_inventory.is_empty():
+
+func perform_melee() -> void:
+	if not can_melee or current_state == PlayerState.DASHING or not current_inventory.is_empty():
 			return
 			
 	can_melee = false
@@ -117,7 +126,8 @@ func perform_melee():
 	if !can_move_while_attacking:
 			velocity = Vector2.ZERO
 
-func _on_melee_completed():
+
+func _on_melee_completed() -> void:
 	can_melee = true
 	if current_state == PlayerState.MELEE:
 			# Only change state if we're still in MELEE state
@@ -125,9 +135,9 @@ func _on_melee_completed():
 			change_state(PlayerState.IDLE)
 
 
-func perform_dash(direction: Vector2):
+func perform_dash(direction: Vector2) -> void:
 	#print("Perform dash called, can_dash:", can_dash) # Debug print
-	if !can_dash or direction.length() == 0:
+	if not can_dash or direction.length() == 0:
 		#print("Dash cancelled - can_dash:", can_dash, " direction:", direction.length()) # Debug print
 		return
 	
@@ -137,9 +147,9 @@ func perform_dash(direction: Vector2):
 	change_state(PlayerState.DASHING)
 	
 	# Calculate dash speed and duration
-	var dash_speed = speed * dash_speed_multiplier
-	var dash_duration = dash_distance / dash_speed
-	var time_elapsed = 0.0
+	var dash_speed: float = speed * dash_speed_multiplier
+	var dash_duration: float = dash_distance / dash_speed
+	var time_elapsed: float = 0.0
 	
 	# Optional: Add visual feedback
 	modulate = Color(1.5, 1.5, 1.5)
@@ -150,7 +160,7 @@ func perform_dash(direction: Vector2):
 			if not is_inside_tree():
 				break
 				
-			var delta = get_process_delta_time()
+			var delta: float = get_process_delta_time()
 			time_elapsed += delta
 			
 			# Apply dash movement with collision detection
@@ -161,7 +171,7 @@ func perform_dash(direction: Vector2):
 			add_to_group("invulnerable")
 			
 			# Check if we hit something that blocks our dash direction
-			var blocking_dash = false
+			var blocking_dash: bool = false
 			for i in get_slide_collision_count():
 					var collision = get_slide_collision(i)
 					# Calculate dot product between dash direction and collision normal
@@ -188,10 +198,7 @@ func perform_dash(direction: Vector2):
 	dash_timer.start()
 
 
-func _on_dash_cooldown_timeout():
-	can_dash = true
-
-func shoot():
+func shoot() -> void:
 	if current_state == PlayerState.DASHING:
 		return
 
@@ -200,7 +207,8 @@ func shoot():
 			child.shoot()
 			return
 			
-func throw():
+
+func throw() -> void:
 	if current_state == PlayerState.DASHING:
 		return
 	
@@ -223,7 +231,8 @@ func throw():
 	audio_manager.play_throw_weapon()
 	current_inventory.drop_weapon()
 
-func change_state(new_state: PlayerState):
+
+func change_state(new_state: PlayerState) -> void:
 	if new_state == current_state:
 		return
 		
@@ -239,7 +248,7 @@ func change_state(new_state: PlayerState):
 			animation_player.play("moving")
 
 
-func take_damage(amount: float):
+func take_damage(amount: float) -> void:
 	current_health = max(0, current_health - amount)
 	audio_manager.play_player_hit_marker()
 	game_manager.health_changed.emit(current_health, max_health)
@@ -248,16 +257,17 @@ func take_damage(amount: float):
 	add_to_group("invulnerable")
 	damage_timer.start()
 
-func heal(amount: float):
+
+func heal(amount: float) -> void:
 	current_health = min(max_health, current_health + amount)
 	game_manager.health_changed.emit(current_health, max_health)
 			
 			
-func pickup_weapon():
+func pickup_weapon() -> void:
 	item_detector.add_to_player(self)
 
 
-func _on_weapon_changed(_cur_slot:int):
+func _on_weapon_changed(_cur_slot:int) -> void:
 	for child in get_children():
 		if child is Weapon:
 			# using remove_child instead of queue_free because we just want to 
@@ -268,11 +278,17 @@ func _on_weapon_changed(_cur_slot:int):
 	new_weapon.position = $WeaponHolder.position
 	game_manager.weapon_switched.emit(new_weapon, _cur_slot)
 	
-func _on_melee_entered(body: Node2D):
+	
+func _on_melee_entered(body: Node2D) -> void:
 	# Check if we hit an enemy
 	if body.is_in_group("enemies") and body.has_method("take_damage"):
 		body.take_damage(melee_damage, 1.0)
 		
-func _on_damage_timer_timeout():
+		
+func _on_damage_timer_timeout() -> void:
 	modulate = Color(1, 1, 1)
 	remove_from_group("invulnerable")
+	
+
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true

@@ -3,8 +3,10 @@ extends Command
 
 var direction: Vector2
 
-func _init(move_direction: Vector2):
+
+func _init(move_direction: Vector2) -> void:
 	direction = move_direction
+
 
 func execute(player: CharacterBody2D) -> Status:
 	if player.has_method("move"):

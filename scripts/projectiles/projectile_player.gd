@@ -11,7 +11,8 @@ func _ready():
 func _physics_process(delta):
 	super(delta)
 
-func _on_body_entered(body: Node2D):
+
+func _on_body_entered(body: Node2D) -> void:
 	super(body)
 	# Check if we hit an enemy
 	if body.is_in_group("enemies") and body.has_method("take_damage"):
@@ -19,5 +20,5 @@ func _on_body_entered(body: Node2D):
 		body.take_damage(damage, multiplier)
 	
 	# Destroy the projectile on any collision except the player
-	if !body.is_in_group("player"):
+	if not body.is_in_group("player"):
 		queue_free()

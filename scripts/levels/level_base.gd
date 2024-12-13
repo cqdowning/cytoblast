@@ -2,9 +2,9 @@ class_name Level
 extends Node2D
 
 
-@export var next_level:PackedScene
+@export var next_level: PackedScene
 
-var _room_door_timer:Timer
+var _room_door_timer: Timer
 
 @onready var player: Player = $Player
 @onready var spawn_point: Marker2D = $SpawnPoint
@@ -35,12 +35,12 @@ func _on_level_end_gate_body_entered(body: Node2D) -> void:
 		game_manager.change_level(next_level)
 
 
-func _on_room_over(_room_id:int):
+func _on_room_over(_room_id:int) -> void:
 	# open the correct door depending on the room we are in after delay
 	_room_door_timer.start(1)
 
 
-func _on_door_timer():
+func _on_door_timer() -> void:
 	var current_room = "RoomEntrance" + str(game_manager.room_id)
 	for child in get_children():
 		if child.name == current_room:

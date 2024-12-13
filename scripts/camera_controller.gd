@@ -20,8 +20,9 @@ func _ready() -> void:
 	_shake_timer.one_shot = true
 	_rng = RandomNumberGenerator.new()
 
+
 func _process(_delta: float) -> void:
-	if (!_shake_timer.is_stopped()):
+	if not _shake_timer.is_stopped():
 		var offsetX: float = _rng.randf_range(-_shake_timer.time_left, _shake_timer.time_left)
 		var offsetY: float = _rng.randf_range(-_shake_timer.time_left, _shake_timer.time_left)
 		offset = Vector2(shake_multiplier * offsetX, shake_multiplier * offsetY)
@@ -32,6 +33,7 @@ func _process(_delta: float) -> void:
 	if $HUD:
 		$HUD.position = -get_viewport_rect().size / 2
 
-func shake(magnitude: float):
+
+func shake(magnitude: float) -> void:
 	if magnitude > 0.0:
 		_shake_timer.start(magnitude)

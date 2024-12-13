@@ -9,15 +9,15 @@ enum Type {
 }
 
 @export var damage: float = 10
-@export var max_ammo = 10
+@export var max_ammo: int = 10
 @export var type: Type = Type.NONE
 @export var speed: float = 800
 @export var speed_variation: float = 100.0
 @export var shoot_delay: float = 0.01
 @export var spread: float = 0.0
 @export var shake_magnitude: float = 0.0
-@export var projectile_scene:PackedScene
-@export var curve:Curve
+@export var projectile_scene: PackedScene
+@export var curve: Curve
 
 var can_shoot: bool = true
 var is_equipped = true
@@ -25,11 +25,12 @@ var current_ammo: int = 0
 
 var _shoot_delay_timer: Timer
 var _rng: RandomNumberGenerator
-var _hover_progress = 0
-var _hover_dir = 1
+var _hover_progress: float = 0
+var _hover_dir: int = 1
 
-@onready var projectile_spawn:Node2D = $ProjectileSpawn
-@onready var pickup_area:Area2D = $PickupArea
+@onready var projectile_spawn: Node2D = $ProjectileSpawn
+@onready var pickup_area: Area2D = $PickupArea
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,6 +42,7 @@ func _ready():
 	_rng = RandomNumberGenerator.new()
 	current_ammo = max_ammo
 
+
 func _process(delta: float) -> void:
 	if not is_equipped and curve:
 		_hover_progress += delta * _hover_dir
@@ -49,20 +51,20 @@ func _process(delta: float) -> void:
 			_hover_dir *= -1
 		_hover_progress = clamp(_hover_progress, 0, 1)
 
-func shoot():
+
+func shoot() -> void:
 	game_manager.shake_camera.emit(shake_magnitude)
 	if current_ammo > 0:
 		_set_ammo(current_ammo - 1)
 
 
-func _on_shoot_delay_timeout():
-	can_shoot = true
-
 func activate_weapon():
 	can_shoot = true
 
+
 func deactivate_weapon():
 	can_shoot = false
+
 
 func get_weapon_type() -> String:
 	if self is Rifle:
@@ -73,9 +75,15 @@ func get_weapon_type() -> String:
 		return "Machine Gun"
 	return "Unknown"
 
+
 func get_type_enum_value() -> int:
 	return type
 
-func _set_ammo(amnt: int):
+
+func _set_ammo(amnt: int) -> void:
 	current_ammo = amnt
 	game_manager.ammo_changed.emit(current_ammo, max_ammo)
+
+
+func _on_shoot_delay_timeout() -> void:
+	can_shoot = true

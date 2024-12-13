@@ -6,5 +6,6 @@ enum Status {
 	ERROR,
 }
 
+
 func execute(_player: CharacterBody2D) -> Status:
 	return Status.DONE

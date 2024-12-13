@@ -4,8 +4,8 @@ extends Node2D
 @export var heal_amount: float = 20.0
 @export var curve:Curve
 
-var _hover_progress = 0
-var _hover_dir = 1
+var _hover_progress: float = 0
+var _hover_dir: int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

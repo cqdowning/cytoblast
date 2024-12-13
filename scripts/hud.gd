@@ -17,7 +17,8 @@ extends Control
 var weapon: Weapon
 var index: int 
 
-func _ready():
+
+func _ready() -> void:
 	# Set initial health bar value to 100%
 	health_bar.max_value = 100
 	health_bar.value = 100
@@ -26,7 +27,8 @@ func _ready():
 	connect_player_signals()
 	_no_weapon()
 
-func connect_player_signals():
+
+func connect_player_signals() -> void:
 	game_manager.health_changed.connect(_on_health_changed)
 	game_manager.no_weapon.connect(_no_weapon)
 	game_manager.weapon_switched.connect(_on_weapon_switched)
@@ -34,19 +36,22 @@ func connect_player_signals():
 	game_manager.weapon_dropped.connect(_on_weapon_dropped)
 	current_inventory.weapon_added.connect(_on_weapon_added)
 
-func _on_health_changed(current_health, max_health):
+
+func _on_health_changed(current_health, max_health) -> void:
 	# Update health bar
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 
-func _no_weapon():
+
+func _no_weapon() -> void:
 	# Clear weapon display
 	rifle_label.modulate = Color(0.5, 0.5, 0.5, 1)
 	shotgun_label.modulate = Color(0.5, 0.5, 0.5, 1)
 	machinegun_label.modulate = Color(0.5, 0.5, 0.5, 1)
 	ammo_label.text = "0 / 0"
 
-func _on_weapon_dropped(dropped_index):
+
+func _on_weapon_dropped(dropped_index: int) -> void:
 	# Set the ammo to 0 when weapon is dropped
 	ammo_label.text = "%d / %d" % [0, 0]
 	
@@ -60,18 +65,21 @@ func _on_weapon_dropped(dropped_index):
 		_:
 			pass
 
-func _on_weapon_switched(new_weapon, new_weapon_index):
+
+func _on_weapon_switched(new_weapon: Weapon, new_weapon_index: int) -> void:
 	# Switch the current weapon
 	weapon = new_weapon
 	index = new_weapon_index
 	update_weapon_display()
 	_highlight_slot(new_weapon_index)
 
-func _on_ammo_shot(current_ammo, _given_max_ammo):
+
+func _on_ammo_shot(current_ammo, _given_max_ammo) -> void:
 	# Update ammo display for current weapon
 	ammo_label.text = "%d / %d" % [weapon.current_ammo, weapon.max_ammo]
 
-func _on_weapon_added(new_weapon:Weapon, slot:int):
+
+func _on_weapon_added(new_weapon:Weapon, slot:int) -> void:
 	match slot:
 		0:
 			slot_0.texture = new_weapon.texture
@@ -81,6 +89,7 @@ func _on_weapon_added(new_weapon:Weapon, slot:int):
 			slot_2.texture = new_weapon.texture
 		_:
 			pass
+
 
 func _highlight_slot(slot:int):
 	slot_0.modulate = Color(0.5, 0.5, 0.5, 1)
@@ -96,7 +105,8 @@ func _highlight_slot(slot:int):
 		_:
 			pass
 
-func update_weapon_display():
+
+func update_weapon_display() -> void:
 	# Highlight the selected weapon
 	var highlight_color = Color(0, 1, 1, 1)  # Bright cyan color
 	var dimmed_color = Color(0.5, 0.5, 0.5, 1)
@@ -133,7 +143,8 @@ func update_weapon_display():
 	# Max ammo is already set
 	ammo_label.text = "%d / %d" % [weapon.current_ammo, weapon.max_ammo]
 
+
 # Optional: Handle window resize events for additional scaling
-func _on_resized():
+func _on_resized() -> void:
 	# Additional custom scaling logic if needed
 	pass

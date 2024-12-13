@@ -19,7 +19,8 @@ func _physics_process(delta):
 	super(delta)
 	rotation_degrees += rotation_rate
 
-func _on_body_entered(body: Node2D):
+
+func _on_body_entered(body: Node2D) -> void:
 	audio_manager.play_weapon_explosion()
 	var explosion: ProjectilePlayer = explosion_projectile.instantiate()
 	call_deferred("add_sibling", explosion)
@@ -36,6 +37,7 @@ func _on_body_entered(body: Node2D):
 	effect.global_position = global_position
 	super(body)
 	game_manager.shake_camera.emit(0.5)
+
 
 func get_sprite() -> Sprite2D:
 	return sprite
