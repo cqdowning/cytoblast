@@ -146,6 +146,10 @@ func perform_dash(direction: Vector2):
 	
 	# Handle the dash movement over time
 	while time_elapsed < dash_duration:
+			# Fixes issue where dashing while changing scenes freezes the game
+			if not is_inside_tree():
+				break
+				
 			var delta = get_process_delta_time()
 			time_elapsed += delta
 			
@@ -169,7 +173,7 @@ func perform_dash(direction: Vector2):
 			
 			if blocking_dash:
 					break
-					
+
 			await get_tree().process_frame
 	
 	# Make player vulnerable to damage

@@ -304,7 +304,7 @@ position = Vector2(605, -1669)
 position = Vector2(1059, -1938)
 
 [node name="SpawnPoint" parent="." index="4"]
-position = Vector2(847, -806)
+position = Vector2(853, -629)
 
 [node name="LevelEndGate" parent="." index="5"]
 position = Vector2(840, -9781)
