@@ -313,12 +313,8 @@ position = Vector2(2324, -2266)
 position = Vector2(847, -806)
 
 [node name="LevelEndGate" parent="." index="5"]
-position = Vector2(3202, -3003)
-scale = Vector2(8.925, 11.58)
-
-[node name="EndGateCollider" parent="LevelEndGate" index="0"]
-position = Vector2(-265.546, -580.052)
-scale = Vector2(3.085, 3.085)
+position = Vector2(840, -9781)
+scale = Vector2(30.39, 25.29)
 
 [node name="RoomEntrance1" parent="." index="9" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("5_8n3ms")]
 position = Vector2(838, -1221)

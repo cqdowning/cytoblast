@@ -1,8 +1,8 @@
 [gd_scene load_steps=50 format=4 uid="uid://dpdauiwuc4bmm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_gp0se"]
-[ext_resource type="PackedScene" uid="uid://bh8tiudw33h6r" path="res://scenes/end.tscn" id="2_nj264"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_ntg4l"]
+[ext_resource type="PackedScene" uid="uid://bjleo5bgkqubd" path="res://scenes/levels/level_3.tscn" id="2_s0omt"]
 [ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="3_yxnoo"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="4_170vo"]
 [ext_resource type="PackedScene" uid="uid://d042h1k8gia83" path="res://scenes/level items/enemy_spawner.tscn" id="4_h1b00"]
@@ -249,7 +249,7 @@ max_health = 0.0
 health_drop_chance = -1.0
 
 [node name="LevelBase" instance=ExtResource("1_gp0se")]
-next_level = ExtResource("2_nj264")
+next_level = ExtResource("2_s0omt")
 
 [node name="Background" parent="." index="0"]
 position = Vector2(253, -45)
@@ -264,11 +264,8 @@ tile_set = ExtResource("2_ntg4l")
 position = Vector2(661, -801)
 
 [node name="LevelEndGate" parent="." index="5"]
-position = Vector2(986, 468)
-
-[node name="EndGateCollider" parent="LevelEndGate" index="0"]
-position = Vector2(12483, -2829)
-scale = Vector2(29.75, 29.75)
+position = Vector2(13552, -2350)
+scale = Vector2(27.55, 33.78)
 
 [node name="RoomEntrance1" parent="." index="9" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_yxnoo")]
 position = Vector2(1195, -831)
