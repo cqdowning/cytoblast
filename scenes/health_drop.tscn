@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://nxlno2jrrfxr"]
 
 [ext_resource type="Script" path="res://scripts/health_drop.gd" id="1_a6bg8"]
-[ext_resource type="Texture2D" uid="uid://dhogx5w72coq7" path="res://assets/items/heart_temp.png" id="2_1k38j"]
+[ext_resource type="Texture2D" uid="uid://dsbtbcb5q2so" path="res://assets/items/health_item.png" id="2_h4tnc"]
 
 [sub_resource type="Curve" id="Curve_b2vjw"]
 min_value = -1.0
@@ -23,4 +23,4 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_8mv4a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_1k38j")
+texture = ExtResource("2_h4tnc")

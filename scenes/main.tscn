@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://bwbkuy7imft8q"]
+[gd_scene load_steps=7 format=4 uid="uid://bwbkuy7imft8q"]
 
 [ext_resource type="Script" path="res://scripts/start_button.gd" id="1_gsk1m"]
 [ext_resource type="FontFile" uid="uid://dfhrdf7enuaer" path="res://assets/Chewy Bubble.otf" id="1_j6q0n"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_41k60"]
+[ext_resource type="Theme" uid="uid://bjgybysitftgb" path="res://assets/default_theme.tres" id="4_foox1"]
 [ext_resource type="Script" path="res://scripts/credits_button.gd" id="4_v68n2"]
+[ext_resource type="Texture2D" uid="uid://b516eaobwautn" path="res://assets/ui/game_title.png" id="5_43uid"]
 
 [node name="Main" type="Node2D"]
 
@@ -19,23 +21,26 @@ position = Vector2(123, 75)
 tile_map_data = PackedByteArray("AAD//wAAAAADAAIAAAD//wEAAAADAAIAAAD//wIAAAADAAMAAAD//wMAAAABAAIAAAAHAAEAAAADAAEAAGAIAAEAAAADAAIAAGAJAAEAAAADAAMAAGAKAAEAAAACAAEAAAD//wUAAAACAAEAAAD+/wUAAAADAAIAAFD9/wUAAAADAAMAAFD8/wUAAAADAAQAAFAKAAIAAAADAAIAAAAKAAMAAAADAAMAAAAKAAQAAAADAAQAAAD+////AAABAAEAAAD+/wEAAAACAAIAAAD/////AAACAAEAAAD+/wAAAAADAAIAAAD9/wEAAAABAAAAADAAAAMAAAABAAAAAAABAAMAAAACAAAAAAACAAMAAAADAAAAAAAEAPz/AAABAAAAAAAFAPz/AAACAAAAAAAGAPz/AAADAAAAAAAGAP7/AAADAAIAAAAGAP//AAADAAMAAAAGAAAAAAABAAIAAAAHAAAAAAABAAAAAAAIAAAAAAACAAAAAAAJAAAAAAADAAAAAAAFAAQAAAAAAAIAAAAGAAQAAAABAAAAAAAHAAQAAAACAAAAAAAIAAQAAAADAAAAAAAEAAQAAAABAAAAADADAAQAAAACAAAAADACAAQAAAADAAAAADAFAAcAAAADAAAAAFAFAAYAAAACAAAAAFAFAAUAAAABAAAAAFD7/wEAAAADAAAAADD8/wEAAAACAAAAADA=")
 tile_set = ExtResource("2_41k60")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 261.0
-offset_top = 129.32
-offset_right = 915.0
-offset_bottom = 571.32
-scale = Vector2(1.00633, 0.835906)
-theme_override_colors/font_hover_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_pressed_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_focus_color = Color(0.796919, 0.383305, 0.929767, 1)
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_outline_color = Color(0.898039, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_j6q0n")
-theme_override_font_sizes/font_size = 100
-text = "CYTOBLAST"
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 240.0
+offset_top = 152.0
+offset_right = 240.0
+offset_bottom = 152.0
+
+[node name="Button" type="Button" parent="Buttons"]
+offset_left = 280.0
+offset_top = 128.0
+offset_right = 396.0
+offset_bottom = 206.0
+theme = ExtResource("4_foox1")
+theme_override_font_sizes/font_size = 28
+text = "Start"
 script = ExtResource("1_gsk1m")
 
-[node name="Click" type="Label" parent="."]
+[node name="Click" type="Label" parent="Buttons"]
+visible = false
 top_level = true
 offset_left = 460.0
 offset_top = 194.0
@@ -45,20 +50,30 @@ theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
 theme_override_colors/font_shadow_color = Color(0.654902, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_j6q0n")
 theme_override_font_sizes/font_size = 40
-text = "Click To Play"
+text = "Start Game
+"
 
-[node name="Credits" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_colors/font_hover_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_pressed_color = Color(0.952941, 0.435294, 0.45098, 1)
+[node name="Credits" type="Button" parent="Buttons"]
+offset_left = 264.0
+offset_top = 224.0
+offset_right = 411.0
+offset_bottom = 302.0
+theme = ExtResource("4_foox1")
 theme_override_colors/font_focus_color = Color(0.796078, 0.384314, 0.929412, 1)
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
 theme_override_colors/font_outline_color = Color(0.898039, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_j6q0n")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 28
 text = "CREDITS"
 script = ExtResource("4_v68n2")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
+[node name="GameTitle" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="GameTitle"]
+position = Vector2(576, 136)
+texture = ExtResource("5_43uid")
+
+[connection signal="pressed" from="Buttons/Button" to="Buttons/Button" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="Buttons/Credits" method="_on_pressed"]
