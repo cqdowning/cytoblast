@@ -26,6 +26,9 @@ func play_weapon_explosion():
 func play_melee():
 	$Weapons/Melee.play()
 	
+func play_shoot_blank():
+	$Weapons/ShootBlank.play()
+	
 func play_shooter_shoot():
 	$Enemies/ShooterShoot.play()
 	
@@ -49,6 +52,9 @@ func play_door_open():
 	
 func is_playing_door_open():
 	return $Environment/DoorOpen.playing
+	
+func play_health_pickup():
+	$Environment/HealthPickup.play()
 	
 func play_player_hit_marker():
 	$Player/PlayerHitMarker.play()

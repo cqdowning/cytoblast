@@ -126,7 +126,11 @@ func _get_first_available_slot() -> int:
 	
 func _get_next_available_slot(increment:int):
 	var next_slot = _cur_slot + increment
-	while next_slot < max_size and next_slot >= 0:
+	for i in range(0, max_size):
+		if next_slot >= max_size:
+			next_slot = 0
+		if next_slot < 0:
+			next_slot = max_size - 1
 		if weapons[next_slot]:
 			return next_slot
 		next_slot = next_slot + increment
