@@ -79,10 +79,35 @@ Throwable Weapons - This was a more advanced feature so I wanted to handle it. W
 
 ## User Interface and Input
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+*Main Menu* - The main menu has two primary buttons, the bigger of the two is the “Click to Play, CYTOBLAST” button that starts the game as soon as it's pressed. The other is the smaller credits button that will take you to the list of the game makers’ names and roles. Both buttons will be shadowed by a faint pink rectangle when hovered over; the opacity and color of the rectangular trace were written into each of the scripts associated with the buttons and were defined in the _ready() functions. This feature is supposed to let the user know which are clickable elements on the main menu. The background was also designed using our gameplay tileset. I used the get_tree().change_scene_to_file() in the _on_pressed() functions (linked via the node signals) for the buttons so that there would be an immediate transition to either the first level scene or the associated credits scene. [Start button script](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/start_button.gd#L1) 
 
-**Add an entry for each platform or input style your project supports.**
+[main_menu]: /example_images/main_menu.png "Main Menu"
+
+*Credits* - The credits screen contains the team’s names and roles using the same theme as the Main Menu (tileset, font, font colors, hovering background for buttons) but only contains an exit button in the top right corner that, when pressed, returns the user to the Main Menu. It uses a script very similar to the Main Menu. [Exit credits script](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/exit_credits.gd#L1) 
+
+*End Screen* - The end screen is done in a very similar style as the Main Menu: the user has two button options, either view the credits or restart the game. The buttons are done in an almost identical fashion as described in the Main Menu section, a faint pink rectangular background appears when hovered to indicate it’s interactable. This scene can only be reached after the game has been completed successfully. The restart button also implements the get_tree().change_scene_to_file() function to jump cut right back to the first level when pressed. The credit scene is the same as described before. [Restart button](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/restart_button.gd#L1)
+
+[victory_screen]: /example_images/victory.png "Victory Screen"
+
+**Heads-up Display:**
+
+*Health Bar* - The top left corner of the screen shows the player’s health bar, which is a progress bar linked to a signal from the player.gd script letting the hud.gd script know when the player’s health has been changed. I used Godot’s theme overrides to match the font and style to the theme used throughout our game to maintain the aesthetic; the progress bar reads “PLAYER HEALTH: “ and then displays the progress bar containing the player's current life percentage left. 
+
+*Ammunition* - In the top right corner, there is an ammunition readout for the player’s weapons. Also done in the same theme as all text in the game, the readout shows the number of rounds left separated by / and followed by the maximum amount of rounds the current weapon can hold. Without a weapon equipped, it defaults to a “0/0” readout. 
+
+*Weapon Selection/Inventory* - There is also a list of potential weapons below the ammo readout, Rifle, Shotgun, and Machine Gun, when no weapons are equipped, all three labels are dark gray (indicating nothing is being used). When a weapon is equipped, a signal is sent from the inventory to the hud, alerting it to which weapon was added. Once added, the sprite image of the weapon will appear below the labels, and the label will turn the color of the selected weapon. As you acquire and throw weapons the Weapons Container will show the inventory you have accordingly and the label corresponding to the the weapon you are using will highlight the color of the gun. 
+[All the code for the previous can be found in the hud.gd script](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/hud.gd#L1)
+
+[HUD]: /example_images/hud.png "HUD"
+
+**Input/Game Controls**
+
+The game is designed for Desktop, I thought about adding game controller inputs but I couldn’t find a combination that I liked for certain actions with a game controller or on a mobile device.
+
+*Gameplay on Desktop* - navigate the player around using the movement commands listed below. To attack your enemy left-click to either melee or fire whatever weapon you have equipped. To dash hold down shift and any of the movement commands for a brief speed boost. Weapons are picked up automatically, to switch your weapon use the mouse wheel up or down. 
+
+*Command Controller* - Commands are determined in a fashion very similar to what we implemented in exercise 1 from class, we have a controller that responds to input and executes the associated command, which is defined by the base class commands.gd, with each specific action being defined based on the input. [Example of a throw command](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/controller_command.gd#L51)
+
 
 ## Movement/Physics
 
