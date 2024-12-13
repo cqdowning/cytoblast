@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blj10piebn5pp"]
+[gd_scene load_steps=8 format=3 uid="uid://blj10piebn5pp"]
 
 [ext_resource type="Script" path="res://scripts/projectiles/projectile_player_thrown_weapon.gd" id="1_snh1e"]
 [ext_resource type="Texture2D" uid="uid://bm407fix2bldq" path="res://assets/weapons/rifle/rifle_antibiotic.png" id="2_2e8wo"]
 [ext_resource type="PackedScene" uid="uid://cp5dh6s7op7f2" path="res://scenes/projectiles/projectile_explosion.tscn" id="2_kccho"]
-[ext_resource type="PackedScene" uid="uid://dlytikq0d0fen" path="res://scenes/effects/explosion.tscn" id="3_lcsyc"]
+[ext_resource type="PackedScene" uid="uid://dlytikq0d0fen" path="res://scenes/effects/explosion_antibiotic.tscn" id="3_lcsyc"]
+[ext_resource type="PackedScene" uid="uid://ct1tujki1rn3o" path="res://scenes/effects/explosion_antiparasitic.tscn" id="4_wnavb"]
+[ext_resource type="PackedScene" uid="uid://dx1ryrrqn8uhs" path="res://scenes/effects/explosion_antiviral.tscn" id="5_0h3j2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2yqk"]
 radius = 52.0
@@ -13,7 +15,9 @@ collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_snh1e")
 explosion_projectile = ExtResource("2_kccho")
-explosion_effect = ExtResource("3_lcsyc")
+antibiotic_explosion_effect = ExtResource("3_lcsyc")
+antiparasitic_explosion_effect = ExtResource("4_wnavb")
+antiviral_explosion_effect = ExtResource("5_0h3j2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(27.35, -3.12)
