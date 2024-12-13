@@ -10,5 +10,6 @@ func _ready():
 func _physics_process(delta):
 	super(delta)
 
-func _on_body_entered(body: Node2D):
+
+func _on_body_entered(body: Node2D) -> void:
 	super(body)

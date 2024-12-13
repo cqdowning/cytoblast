@@ -26,8 +26,6 @@ func _on_body_entered(body: Node2D) -> void:
 		# an array in the game manager
 		game_manager.enemies_remaining = starting_enemy_count
 		audio_manager.play_room_entered()
-		print("Room ", game_manager.room_id, " entered")
-		print("Enemies in room: ", game_manager.enemies_remaining)
 		for spawner in spawners:
 			spawner.start_timer()
 	_entered = true

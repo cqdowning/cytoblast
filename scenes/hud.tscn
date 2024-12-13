@@ -89,3 +89,28 @@ theme_override_fonts/font = ExtResource("2_4as0k")
 theme_override_font_sizes/font_size = 35
 text = "MACHINE GUN"
 horizontal_alignment = 2
+
+[node name="Weapons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1434.82
+offset_top = 88.38
+offset_right = 3533.82
+offset_bottom = 1482.38
+grow_horizontal = 0
+rotation = 1.5708
+scale = Vector2(0.225, 0.225)
+
+[node name="Slot2" type="TextureRect" parent="Weapons"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="Slot1" type="TextureRect" parent="Weapons"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="Slot0" type="TextureRect" parent="Weapons"]
+layout_mode = 2
+expand_mode = 3

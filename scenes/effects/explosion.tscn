@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlytikq0d0fen"]
-
-[ext_resource type="Texture2D" uid="uid://btc4kug2qd3sv" path="res://assets/effects/explosion.png" id="1_40ma0"]
-[ext_resource type="Script" path="res://scripts/effects/explosion_effect.gd" id="1_xqgkk"]
-
-[node name="Explosion" type="Sprite2D"]
-texture = ExtResource("1_40ma0")
-script = ExtResource("1_xqgkk")

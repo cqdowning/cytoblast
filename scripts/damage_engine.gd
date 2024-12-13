@@ -2,7 +2,7 @@ class_name DamageEngine
 extends Node
 
 
-static func damage_multiplier(projectile:Projectile, enemy:Enemy) -> float:
+static func damage_multiplier(projectile: Projectile, enemy: Enemy) -> float:
 	if projectile.type == Weapon.Type.ANTIBIOTIC:
 		if enemy.type == Enemy.Type.BACTERIA:
 			return 1.5

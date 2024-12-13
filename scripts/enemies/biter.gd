@@ -1,18 +1,20 @@
 class_name Biter
 extends Enemy
 
-var CHARGE_SPEED_MULTIPLIER = 5.0
-var CHARGE_DURATION = 0.75
-var CHARGE_COOLDOWN = 2.0
-var is_charging = false
+var CHARGE_SPEED_MULTIPLIER: float = 5.0
+var CHARGE_DURATION: float = 0.75
+var CHARGE_COOLDOWN: float = 2.0
+var is_charging: bool = false
 
-var _direction = Vector2(0, 0)
-var _is_sound_playing = false
+var _direction: Vector2 = Vector2(0, 0)
+var _is_sound_playing: bool = false
+
 
 func _ready():
 	super()
 	type = Type.PARASITE
 	start_movement_timer(CHARGE_COOLDOWN)
+
 
 func _ai(delta):
 	super(delta)
@@ -29,7 +31,8 @@ func _ai(delta):
 		# Charge in current direction
 		move_in_direction(_direction, delta * CHARGE_SPEED_MULTIPLIER)
 
-func _on_movement_timeout():
+
+func _on_movement_timeout() -> void:
 	if not is_charging:
 		# Start charge
 		is_charging = true

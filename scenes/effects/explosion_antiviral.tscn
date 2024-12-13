@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx1ryrrqn8uhs"]
+
+[ext_resource type="Texture2D" uid="uid://bjoe2wr4ektkx" path="res://assets/effects/explosion_antiviral.png" id="1_dtxhd"]
+[ext_resource type="Script" path="res://scripts/effects/explosion_effect.gd" id="2_5064h"]
+
+[node name="Explosion" type="Sprite2D"]
+texture = ExtResource("1_dtxhd")
+script = ExtResource("2_5064h")

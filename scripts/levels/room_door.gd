@@ -2,7 +2,7 @@ class_name RoomDoor
 extends StaticBody2D
 
 
-var is_closing = false
+var is_closing: bool = false
 
 
 func _process(delta: float) -> void:

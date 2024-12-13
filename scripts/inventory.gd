@@ -2,8 +2,8 @@ class_name Inventory
 extends Node
 
 
-signal weapon_changed(cur_slot:int)
-signal weapon_added(weapon:Weapon, max_ammo:int, slot:int)
+signal weapon_changed(cur_slot: int)
+signal weapon_added(weapon: Weapon, slot: int)
 
 @export var max_size = 3
 
@@ -48,7 +48,7 @@ func _ready() -> void:
 			return
 	
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("next_weapon"):
 		var next_slot = _get_next_available_slot(1)
 		if next_slot == _cur_slot:
@@ -56,7 +56,6 @@ func _process(delta: float) -> void:
 		_cur_slot = next_slot
 		weapon_changed.emit(_cur_slot)
 		audio_manager.play_weapon_switch()
-		print("Current slot: ", _cur_slot)
 		
 	if Input.is_action_just_pressed("prev_weapon"):
 		var next_slot = _get_next_available_slot(-1)
@@ -65,7 +64,6 @@ func _process(delta: float) -> void:
 		_cur_slot = next_slot
 		weapon_changed.emit(_cur_slot)
 		audio_manager.play_weapon_switch()
-		print("Current slot: ", _cur_slot)
 		
 		
 func current_weapon():
@@ -107,7 +105,10 @@ func add_weapon(weapon:Weapon):
 		return
 	weapons[slot_to_fill] = weapon
 	weapon.is_equipped = true
+	# Disable weapon's pickup area once it is equipped
+	weapon.pickup_area.monitorable = false
 	get_tree().current_scene.remove_child(weapon)
+	weapon_added.emit(weapon, slot_to_fill)
 	audio_manager.play_weapon_pickup()
 	# equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:
@@ -122,18 +123,22 @@ func _get_first_available_slot() -> int:
 	return -1 	
 	
 	
-func _get_next_available_slot(increment:int):
+func _get_next_available_slot(increment:int) -> int:
 	var next_slot = _cur_slot + increment
-	while next_slot < max_size and next_slot >= 0:
+	for i in range(0, max_size):
+		if next_slot >= max_size:
+			next_slot = 0
+		if next_slot < 0:
+			next_slot = max_size - 1
 		if weapons[next_slot]:
 			return next_slot
 		next_slot = next_slot + increment
 	return _cur_slot
 		
 
-func _switch_to_closest_taken_slot():
-	var next_above = _get_next_available_slot(1)
-	var next_below = _get_next_available_slot(-1)
+func _switch_to_closest_taken_slot() -> void:
+	var next_above: int = _get_next_available_slot(1)
+	var next_below: int = _get_next_available_slot(-1)
 	
 	# prioritize autoequipping the next weapon above, then below
 	if next_above != _cur_slot:

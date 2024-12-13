@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbyd20l0xw1om"
+path="res://.godot/imported/shoot_blank.wav-c67ff9a6df8963b02bb26b73a99d7398.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/weapon/shoot_blank.wav"
+dest_files=["res://.godot/imported/shoot_blank.wav-c67ff9a6df8963b02bb26b73a99d7398.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

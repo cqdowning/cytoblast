@@ -2,9 +2,9 @@ class_name EnemyFactory
 extends Node
 
 
-static func build(spec: EnemySpec):
-	var enemy_scene
-	var enemy
+static func build(spec: EnemySpec) -> Enemy:
+	var enemy_scene: Resource
+	var enemy: Enemy
 	match spec.type:
 		EnemySpec.Type.BACTERIA:
 			enemy_scene = load("res://scenes/enemies/shooter.tscn")
@@ -18,4 +18,6 @@ static func build(spec: EnemySpec):
 	enemy.weapon_drops = spec.weapon_drops
 	if spec.max_health > 0.0:
 		enemy.max_health = spec.max_health
+	if spec.health_drop_chance >= 0.0:
+		enemy.health_drop_chance = spec.health_drop_chance
 	return enemy

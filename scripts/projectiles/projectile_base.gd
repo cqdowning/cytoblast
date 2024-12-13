@@ -20,27 +20,30 @@ func _ready():
 	_despawn_timer.timeout.connect(_on_despawn_timeout)
 	_despawn_timer.start(lifetime)
 
+
 func _physics_process(delta):
 	# Move the projectile
 	position += direction * speed * delta
 	# Optional: rotate projectile in movement direction
 	# rotation = direction.angle()
-	
-func set_properties(proj_damage:float, proj_type:Weapon.Type, proj_speed:float):
+
+
+func set_properties(proj_damage: float, proj_type: Weapon.Type, proj_speed: float) -> void:
 	damage = proj_damage
 	type = proj_type
 	speed = proj_speed
 
-func launch(spawn_position: Vector2, launch_direction: Vector2):
+
+func launch(spawn_position: Vector2, launch_direction: Vector2) -> void:
 	# Initialize the projectile
 	position = spawn_position
 	direction = launch_direction.normalized()
 	rotation = direction.angle()
 
-func _on_body_entered(body: Node2D):
-	#print("Projectile hit ", body, name)
+
+func _on_body_entered(_body: Node2D) -> void:
 	pass
 	
 
-func _on_despawn_timeout():
+func _on_despawn_timeout() -> void:
 	queue_free()
