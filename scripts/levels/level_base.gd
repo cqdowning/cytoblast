@@ -42,7 +42,7 @@ func _on_room_over(room_id:int):
 
 
 func _on_door_timer():
-	var current_room = "RoomEntrance" + str(game_manager.room_id + 3)
+	var current_room = "RoomEntrance" + str(game_manager.room_id)
 	for child in get_children():
 		if child.name == current_room:
 			child.door.is_closing = true
