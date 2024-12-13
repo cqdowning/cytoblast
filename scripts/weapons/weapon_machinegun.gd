@@ -11,6 +11,11 @@ func _ready():
 func shoot():
 	if !can_shoot:
 		return
+	if current_ammo == 0:
+		audio_manager.play_shoot_blank()
+		can_shoot = false
+		_shoot_delay_timer.start(shoot_delay)
+		return
 	super()
 	can_shoot = false
 	

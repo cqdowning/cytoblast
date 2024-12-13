@@ -51,11 +51,12 @@ func _process(delta: float) -> void:
 
 func shoot():
 	game_manager.shake_camera.emit(shake_magnitude)
-	_set_ammo(current_ammo - 1)
+	if current_ammo > 0:
+		_set_ammo(current_ammo - 1)
+
 
 func _on_shoot_delay_timeout():
-	if current_ammo > 0:
-		can_shoot = true
+	can_shoot = true
 
 func activate_weapon():
 	can_shoot = true

@@ -10,5 +10,6 @@ func add_to_player(player: Player) -> void:
 		if item is Weapon:
 			current_inventory.add_weapon(item)
 		if item is HealthDrop:
+			audio_manager.play_health_pickup()
 			player.heal(item.heal_amount)
 			item.queue_free()
