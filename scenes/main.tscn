@@ -30,6 +30,7 @@ offset_right = 240.0
 offset_bottom = 152.0
 
 [node name="Button" type="Button" parent="Buttons"]
+layout_mode = 0
 offset_left = 280.0
 offset_top = 128.0
 offset_right = 396.0
@@ -42,6 +43,7 @@ script = ExtResource("1_gsk1m")
 [node name="Click" type="Label" parent="Buttons"]
 visible = false
 top_level = true
+layout_mode = 0
 offset_left = 460.0
 offset_top = 194.0
 offset_right = 740.0
@@ -54,6 +56,7 @@ text = "Start Game
 "
 
 [node name="Credits" type="Button" parent="Buttons"]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 224.0
 offset_right = 411.0
