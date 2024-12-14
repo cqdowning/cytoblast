@@ -25,9 +25,18 @@ The game uses keyboard and mouse input for controls.
 * If the current level is too difficult, you can take the ‘L’ and skip to the next level
 
 ### Optimal Gameplay Strategy
-The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage. However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea.
+The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage (see damage type chart). However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea.
 
 You can also use the dash to close distance between enemies and dodge attacks, as it grants you immunity to attacks during the dash. 
+
+Damage Type Chart:
+|                        | Bacteria (Green) | Virus (Blue) | Parasite (Orange) |
+| ---------------------- | ---------------- |------------- |------------------ |
+| Antibiotic (Green)     | 2x               | 0.5x         | 1x                |
+| Antiviral (Blue)       | 1x               | 2x           | 0.5x              |
+| Antiparasitic (Orange) | 0.5x             | 1x           | 2x                |
+
+As a tip, virus enemies are the least common enemy type. This means holding on to antibiotic weapons might be a good idea since they only do less damage against the uncommon virus type.
 
 # External Code, Ideas, and Structure #
 
@@ -45,10 +54,15 @@ You can also use the dash to close distance between enemies and dodge attacks, a
 
 *Task Delegation* - To delegate tasks I kept things simple and created Discord threads for each feature that needed to be implemented. This meant we could keep discussions for features contained in one place. Inside the thread, I would describe the feature that needed to be added and then ping the team member responsible for implementing it.
 
+![List of threads](./project_doc_images/Discord_Threads.PNG "Example list of threads")
+![Thread](./project_doc_images/Thread_Example.PNG "Example of a thread")
+
 *Git Workflow* - For every feature we implemented, we created new branches in the git repository that were based on the development branch. Once a feature was complete, we would create a pull request. As the producer, I would test the feature and fix any merge conflicts or sometimes bugs for critical features. Once I felt the feature was ready, I would merge the feature into the development branch. After the branch was merged, I would delete that branch to reduce the clutter.
 
 ### Logistics Problems
 *Code Style* - Towards the end of development, the code style was not consistent. I thought we would all be following the same code style guidelines from Godot but that ended up not being the case. Even with the code style guide, people have different preferences that resulted in the code style varying in different areas. For example, the code style guide recommends using plain english, such as “and,” “or,” and “not,” for boolean operators but some of us used the traditional operators (I myself am guilty of this). I took responsibility for not establishing strict style guides sooner and I went through the code and fixed the inconsistencies myself.
+
+*Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving.
 
 ### Templates and Design
 As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed.
@@ -69,11 +83,11 @@ The first level was what was used in our demo. The main problem with level desig
 
 ![Layout for Level 1](./project_doc_images/Level_1_Layout.PNG "Layout for Level 1")
 
-Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. 
+Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
 
 ![Layout for Level 2](./project_doc_images/Level_2_Layout.PNG "Layout for Level 2")
 
-Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time.
+Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead.
 
 ![Layout for Level 3](./project_doc_images/Level_3_Layout.PNG "Layout for Level 3")
 
@@ -82,6 +96,17 @@ Level 3 is the last level so I wanted to make it feel more like a final gauntlet
 
 Throwable Weapons - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
+
+### Cut Features
+There were several features that I decided to cut due to time constraints. If we were to continue updating the game, these are features that could be added.
+
+*Boss Fight* - The initial plan document details a final boss fight after the three levels. In order to implement the final boss, we would have had to add several new mechanics and features to our existing code. For example, we wanted the boss to spawn waves of enemies but the current implementation for enemy spawning is specifically made for rooms. We would have had to add to and alter the existing code to make it work.
+
+*Aim Camera* - I wanted to experiment with a camera that lerps to the midpoint between the player and the cursor. This would allow the player to look ahead in the direction they are aiming. 
+
+*Graze System* - To add a way for the player to heal, I wanted to implement a system for healing the player after successfully dodging a projectile. This would have added more risk/reward to the game but we decided it would have been too complicated to implement and used simple enemy health drops instead.
+
+*Dialogue* - The game was originally supposed to be about a cell created by a scientist. The different levels were trials that the scientist was putting the cell through. During down time in the game, there would have been dialogue from the scientist commenting on the cell’s performance. While this would have expanded the lore of the game, it was lower in priority to gameplay features and it had to be cut.
 
 
 ## User Interface and Input - Quinn Broderick
@@ -181,11 +206,16 @@ We created a hybrid system where core movement and collisions use the physics en
 This implementation creates a responsive, fluid movement system with engaging weapon mechanics that support both precise combat and dynamic enemy interactions, while maintaining consistent physics behavior throughout the game.
 
 
-## Animation and Visuals
+## Animation and Visuals - Noor Ashour
 
-**List your assets, including their sources and licenses.**
+All the assets were hand-drawn. This includes:
+* Player sprites and animation
+* Enemy sprites and animation
+* Weapon and bullet sprites
+* Tileset of walls and background
+* Objects and decal for decor
+* UI design (health bar and buttons)
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Game Logic - Jack Schonherr
 
@@ -258,7 +288,7 @@ From https://kronbits.itch.io/freesfx#google_vignette:
 
 [Link to Trailer](https://youtu.be/lT30_l2WA_A)
 
-For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. 
+For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. Overall, the gameplay of Cytoblast is simple but fun so I tried to make the trailer reflect that.
 
 The music used in the trailer is Dark Fantasy Studio - Neon God under their [premium license](https://darkfantasystudio.com/premium-licence/). I purchased this license from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
@@ -278,8 +308,8 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Player immune to damage during dash* - It’s fairly common for playable characters with dash abilities to have immunity during the dash. This was especially important since our game doesn’t have set bullet patterns. There could be situations where enemy attacks are completely unavoidable without dashing through them.
 [Commit for player immunity](https://github.com/cqdowning/cytoblast/commit/7d0175d5777ee87e28693a5ff30bbdc32ec12e86) 
 
-*Player feedback on hit* - I noticed it was difficult to tell when the player took damage. I made it so the player blinks red when taking damage. There is also a small screen shake effect as well.
-[Player blinking red commit](https://github.com/cqdowning/cytoblast/commit/b9bec13e10002d4ec426c2321c14faae984774ff) 
+*Player feedback on hit* - I noticed it was difficult to tell when the player took damage. I made it so the player blinks red when taking damage. There is also a small screen shake effect as well. Additionally, I made it so the player is briefly immune to damage when being hit.
+[Player blinking red commit](https://github.com/cqdowning/cytoblast/commit/b9bec13e10002d4ec426c2321c14faae984774ff) / [Player immune to damage on hit commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7)  
 
 *Item Detector covers the entire player* - The item detector for picking up items was a raycast towards the cursor, which meant you had to look at items to pick them up. This made it confusing to players on when they could pick up items. I changed the item detector to be an Area2D node that can grab items in all directions.
 [AoE Item Detector commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7) 
@@ -289,6 +319,8 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 
 *Item drop randomness* - After introducing the health drop, both weapons and health would drop in the exact same location which did not look good. I allowed drops to be slightly offset from the enemies death position by a slight amount. The variation makes the drops more interesting to look at and the weapon and health won’t always directly overlap each other.
 [Drop offset commit](https://github.com/cqdowning/cytoblast/commit/beff4dca616ea6aeb6187210064fdd7ac46a41d0) 
+
+![Offset Items](./project_doc_images/Offset_Items.PNG "Offset Items")
 
 *Balancing* - Over the course of development I made various balance changes to all parts of the game. For the player, I tweaked player movement speed and dash speed and distance. For weapons, I changed the fire rates, projectile speeds, max ammo, and damage. For enemies, I tuned their health, damage, movement speed and attack rate. For example, one of the major pieces of feedback I received from playtesters was that melee was too difficult. I tried to make melee a bit easier by making it faster and having a larger hitbox than the animation.
 [Commit for buffing melee](https://github.com/cqdowning/cytoblast/commit/1b04e22958873133124a5676dd3ca53dd25dc9ca) 
