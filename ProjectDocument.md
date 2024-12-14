@@ -24,6 +24,8 @@ The game uses keyboard and mouse input for controls.
 * Shift - Dash
 * If the current level is too difficult, you can take the ‘L’ and skip to the next level
 
+In order to progress, you must defeat all of the enemies in the room. Upon defeating the final enemy, the door to the next room will open. If you are to perish in your battle against cellular threats, you will have to restart the level you were on. There are three levels total to clear, good luck!
+
 ### Optimal Gameplay Strategy
 The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage (see damage type chart). However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea.
 
