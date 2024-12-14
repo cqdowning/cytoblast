@@ -146,58 +146,58 @@ The game is designed for Desktop, I thought about adding game controller inputs 
 ## Movement/Physics - Cory Pham
 
 Our game uses a hybrid approach to physics and movement, building upon Godot's CharacterBody2D system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
-[command pattern implementation.](https://github.com/cqdowning/cytoblast/blob/main/scripts/commands/command.gd)
+[command pattern implementation.](https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=commands-,command,-.gd)
 
 Key Features:
 - Base Movement System
   - Top-down movement with independent rotation
   - Mouse-aimed directional control
   - Smooth rotation interpolation
-Configurable movement speeds and sensitivity
-Advanced Movement Mechanics
-Dash ability with configurable distance and speed
-Invulnerability frames during dash
-Cooldown system for abilities
-Momentum-based movement transitions
-Weapon System & Physics
-Three distinct weapon types:
-Rifles: Precise, single-shot weapons
-Shotguns: Spread-based, close-range weapons
-Machine Guns: Rapid-fire, sustained damage
-Weapon Mechanics:
-Projectile spawn point system
-Configurable spread patterns
-Speed variation for projectiles
-Screen shake feedback system
-Ammo management system
-Weapon States:
-Equipped vs Unequipped behaviors
-Hover animations when dropped
-Pickup detection
-Weapon Type Categories:
-Antibiotic: Effective against bacteria
-Antiviral: Counters virus enemies
-Antiparasitic: Specialized for parasites
-Enemy Movement Types
-Turret (Virus Type):
-Stationary defensive enemy
-Rotates to track player position
-Fires projectiles in ring patterns
-Uses timer-based movement phases
-Alternates between stationary attack and repositioning
-Biter (Parasite Type):
-Aggressive melee enemy
-Direct chase behavior towards player
-Quick burst movements
-Close-range attack patterns
-Uses velocity-based movement for smooth pursuit
-Base Enemy Features:
-Health and damage systems
-Type-specific weapon drops
-Custom collision detection
-Death animations and effects
-Specialized audio feedback
-State-based behavior patterns
+  - Configurable movement speeds and sensitivity
+- Advanced Movement Mechanics
+  - Dash ability with configurable distance and speed
+  - Invulnerability frames during dash
+  - Cooldown system for abilities
+  - Momentum-based movement transitions
+- Weapon System & Physics
+  - Three distinct weapon types:
+    - Rifles: Precise, single-shot weapons
+    - Shotguns: Spread-based, close-range weapons
+    - Machine Guns: Rapid-fire, sustained damage
+  - Weapon Mechanics:
+    - Projectile spawn point system
+    - Configurable spread patterns
+    - Speed variation for projectiles
+    - Screen shake feedback system
+    - Ammo management system
+  - Weapon States:
+    - Equipped vs Unequipped behaviors
+    - Hover animations when dropped
+    - Pickup detection
+  - Weapon Type Categories:
+    - Antibiotic: Effective against bacteria
+    - Antiviral: Counters virus enemies
+    - Antiparasitic: Specialized for parasites
+  - Enemy Movement Types
+    - Turret (Virus Type):
+      - Stationary defensive enemy
+      - Rotates to track player position
+      - Fires projectiles in ring patterns
+      - Uses timer-based movement phases
+      - Alternates between stationary attack and repositioning
+    - Biter (Parasite Type):
+      - Aggressive melee enemy
+      - Direct chase behavior towards player
+      - Quick burst movements
+      - Close-range attack patterns
+      - Uses velocity-based movement for smooth pursuit
+    - Base Enemy Features:
+      - Health and damage systems
+      - Type-specific weapon drops
+      - Custom collision detection
+      - Death animations and effects
+      - Specialized audio feedback
+      - State-based behavior patterns
 
 While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The weapon system particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
 
