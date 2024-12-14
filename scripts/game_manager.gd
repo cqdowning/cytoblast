@@ -7,11 +7,17 @@ extends Node
 
 signal room_over(room_id: int)
 signal enemy_defeated
+@warning_ignore("unused_signal")
 signal health_changed(current_health: int, max_health: int)
+@warning_ignore("unused_signal")
 signal weapon_switched(weapon:Weapon, new_weapon_index: int)
+@warning_ignore("unused_signal")
 signal no_weapon()
+@warning_ignore("unused_signal")
 signal ammo_changed(current_ammo: int, max_ammo: int)
+@warning_ignore("unused_signal")
 signal weapon_dropped(index: int)
+@warning_ignore("unused_signal")
 signal shake_camera(magnitude: float)
 signal player_death
 
