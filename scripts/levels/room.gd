@@ -12,7 +12,7 @@ var starting_enemy_count: int
 var _entered: bool = false
 
 
-func _ready():
+func _ready() -> void:
 	for spawner in spawners:
 		starting_enemy_count += spawner.enemy_specs.size()
 

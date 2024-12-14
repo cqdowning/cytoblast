@@ -17,8 +17,8 @@ signal player_death
 
 var hud_scene: PackedScene = preload("res://scenes/hud.tscn")
 var enemies_remaining: int = 0
-var room_active = false
-var room_id = 0
+var room_active: bool = false
+var room_id: int = 0
 
 
 func _ready() -> void:
@@ -42,7 +42,7 @@ func change_level(next_level: PackedScene) -> void:
 
 
 func show_hud() -> void:
-	var hud = hud_scene.instantiate()
+	var hud: Control = hud_scene.instantiate()
 	get_tree().get_root().add_child(hud)
 	
 
