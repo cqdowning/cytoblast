@@ -26,7 +26,7 @@ func _ready() -> void:
 			return
 	
 		
-func switch_weapon(i:int):
+func switch_weapon(i: int):
 	var next_slot = _get_next_available_slot(i)
 	if next_slot == _cur_slot:
 		return
