@@ -203,8 +203,6 @@ While we utilize Godot's physics engine as a foundation, we've implemented signi
 
 ![movement video](project_doc_images/movement.gif)
 
-I modified the standard physics model by implementing several custom systems. The player movement system is built around the [Player class](https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=player.-,gd,-restart_button.gd), which extends `CharacterBody2D`. It uses a state machine to manage player states for precise control, allowing for custom velocity calculations and [smooth rotation](https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L80C1-L88C49) towards the mouse cursor. 
-
 The movement system in this project is built around the `Player` class, which extends `CharacterBody2D` in Godot. It uses a **state machine** to manage player states and integrates custom logic for various movement types such as walking, dashing, and melee attacks. This design ensures clean separation of concerns and allows for precise control and easy extensibility.
 
 ### **Player States**
