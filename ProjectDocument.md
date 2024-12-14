@@ -66,7 +66,9 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 
 *Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving. 
 
-I have never worked on such a large project that required development to be this fast-paced, let alone one where I had to manage a team. I vastly underestimated how long it would take to develop certain features. I feel like I could have made more efficient use of my team members' time by the aforementioned scheduling and keeping better track of all the features. Cytoblast became an incredible learning experience for me and I feel I better understand what it takes to be a project manager.
+#### Closing Thoughs on Logistics Problems
+
+I have never worked on such a large project that required development to be this fast-paced, let alone one where I had to manage a team. I vastly underestimated how long it would take to develop certain features. I feel like I could have made more efficient use of my team members' time by the aforementioned scheduling and keeping better track of all the features. Nevertheless, Cytoblast became an incredible learning experience for me and I feel I better understand what it takes to be a project manager.
 
 ### Templates and Design
 As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed. I also took on any tasks that needed to be completed quickly but the other team members already had work or the feature did not apply to the other roles.
