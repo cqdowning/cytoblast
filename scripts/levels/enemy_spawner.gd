@@ -29,7 +29,7 @@ func _ready() -> void:
 	_update_particle()
 	
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if _timer.time_left < 1.0 and _timer.time_left > 0.0 and _spec_index < enemy_specs.size():
 		particles.emitting = true
 	else:
@@ -42,7 +42,7 @@ func start_timer() -> void:
 
 func _on_timeout() -> void:
 	if _spec_index < enemy_specs.size():
-		var enemy = EnemyFactory.build(enemy_specs[_spec_index])
+		var enemy: Enemy = EnemyFactory.build(enemy_specs[_spec_index])
 		enemy.target = $"../Player"
 		# add code here for making random enemies?
 		add_child(enemy)
