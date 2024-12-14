@@ -122,6 +122,11 @@ There were several features that I decided to cut due to time constraints. If we
 
 *Dialogue* - The game was originally supposed to be about a cell created by a scientist. The different levels were trials that the scientist was putting the cell through. During down time in the game, there would have been dialogue from the scientist commenting on the cell’s performance. While this would have expanded the lore of the game, it was lower in priority to gameplay features and it had to be cut.
 
+### Known Issues
+
+*Melee hitbox can stay active* - Performing a dash while the melee hitbox is active results in the hitbox staying active until another melee attack is performed. This exploit has low impact on game balance. Thus, I decided to keep this exploit in since its somewhat fun and simple.
+
+*Thrown weapons can collide with walls too early* - If the player is right next to a wall when they throw a weapon, the weapon can collide with the wall instantly. This is caused by the weapon's collision box being to large and intersecting with the wall the instant it spawns in. However, I wanted the thrown weapon to have a large hitbox to make it easier to hit. Unfortunately, projectiles are not built to have a separate collision for walls and enemies. Hence, this small problem remains.
 
 ## User Interface and Input - Quinn Broderick
 
