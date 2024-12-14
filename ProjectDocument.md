@@ -107,7 +107,7 @@ Level 3 is the last level so I wanted to make it feel like a final gauntlet. Lev
 ### Additional Features
 
 *Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile uses the sprite of the weapon that was thrown so that I didn’t have to create a version for all nine weapons. The damage type and explosion effect always uses the same type as the thrown weapon.
-[Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
+[Thrown Weapon Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
 
 *Shooter Enemy* - The first enemy to be implemented was the "shooter" or bacteria enemy. I created the enemy using the enemy base class that I wrote. I implemented the _ai and _shoot functions inside the class to make the bacteria move and shoot. The bacteria will try to stay at a certain distance away from the player and shoot towards the player at a constant rate. I implemented this enemy myself to push along development and provide an example of how enemy behavior should be written.
 [Shooter Enemy Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd)
@@ -470,7 +470,7 @@ Dropped items are slightly offset:
 
 *Enemy hit and death effects* - Enemies do not react to being hit at all except for a sound effect. There are also no effects or animation for an enemy being defeated. I think adding particles and some kind of animation to hit and death effects would help make defeating enemies feel more satisfying.
 
-*Damage Drop-off* - Bullets could decrease in damage as they travel. This could potentially nerf the strength of the rifle at long distances.
+*Damage drop-off* - Bullets could decrease in damage as they travel. This could potentially nerf the strength of the rifle at long distances.
 
 # From the Cytoblast Team:
 Thank you for playing our game!
