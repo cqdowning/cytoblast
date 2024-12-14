@@ -32,9 +32,9 @@ You can also use the dash to close distance between enemies and dodge attacks, a
 Damage Type Chart:
 |                        | Bacteria (Green) | Virus (Blue) | Parasite (Orange) |
 | ---------------------- | ---------------- |------------- |------------------ |
-| Antibiotic (Green)     | 2x               | 0.5x         | 1x                |
-| Antiviral (Blue)       | 1x               | 2x           | 0.5x              |
-| Antiparasitic (Orange) | 0.5x             | 1x           | 2x                |
+| Antibiotic (Green)     | 1.5x             | 0.75x        | 1x                |
+| Antiviral (Blue)       | 1x               | 1.5x         | 0.75x             |
+| Antiparasitic (Orange) | 0.75x            | 1x           | 1.5x              |
 
 As a tip, virus enemies are the least common enemy type. This means holding on to antibiotic weapons might be a good idea since they only do less damage against the uncommon virus type.
 
