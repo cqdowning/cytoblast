@@ -1,6 +1,9 @@
 class_name Player
 extends CharacterBody2D
-
+## Class for the player
+##
+## Can move, dash, melee attack, fire weapons, and throw weapons
+## Damaged by enemies and can pick up items
 
 enum PlayerState {
 	IDLE,

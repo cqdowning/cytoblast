@@ -1,6 +1,8 @@
-
 class_name Machinegun
 extends Weapon
+## Machine gun weapon type
+##
+## Rapidly fires in a spread pattern
 
 
 # Called when the node enters the scene tree for the first time.

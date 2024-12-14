@@ -1,5 +1,9 @@
 class_name Projectile
 extends Area2D
+## Abstract base class for all projectiles
+##
+## Projectiles have velocity, damage, and can collide with other objects
+## Projectiles should implement _on_body_entered for handling collisions
 
 @export var lifetime: float = 5.0
 

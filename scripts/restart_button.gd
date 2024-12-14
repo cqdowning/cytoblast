@@ -1,5 +1,5 @@
 extends Button
-
+## Button to take player back to level 1
 
 func _ready() -> void:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
@@ -14,6 +14,7 @@ func _ready() -> void:
 	# Apply the style to normal state
 	add_theme_stylebox_override("normal", style)
 	add_theme_stylebox_override("hover", hover)
+
 
 func _on_pressed() -> void:
 	# jump to scene level_1.tscn

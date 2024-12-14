@@ -10,7 +10,7 @@ Dive into the microscopic battlefield of Cytoblast, a high-octane top-down shoot
 
 [Trailer](https://youtu.be/lT30_l2WA_A)
 
-[Press Kit]()
+[Press Kit](https://petal-shaker-cb1.notion.site/Cytoblast-Press-Kit-15bc1f53cf568017b059e4f6a9154db3#3e2eb46ee41f4da993535af02411b883)
 
 [Proposal](https://docs.google.com/document/d/1MSlS52ui7cZe5zUArDbUQV3-Qev-chPhb2aMK8_9N7w/edit?usp=sharing) 
 
@@ -24,16 +24,27 @@ The game uses keyboard and mouse input for controls.
 * Shift - Dash
 * If the current level is too difficult, you can take the ‘L’ and skip to the next level
 
+In order to progress, you must defeat all of the enemies in the room. Upon defeating the final enemy, the door to the next room will open. If you are to perish in your battle against cellular threats, you will have to restart the level you were on. There are three levels total to clear, good luck!
+
 ### Optimal Gameplay Strategy
-The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage. However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea.
+The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage (see damage type chart). However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea.
 
 You can also use the dash to close distance between enemies and dodge attacks, as it grants you immunity to attacks during the dash. 
+
+Damage Type Chart:
+|                        | Bacteria (Green) | Virus (Blue) | Parasite (Orange) |
+| ---------------------- | ---------------- |------------- |------------------ |
+| Antibiotic (Green)     | 1.5x             | 0.75x        | 1x                |
+| Antiviral (Blue)       | 1x               | 1.5x         | 0.75x             |
+| Antiparasitic (Orange) | 0.75x            | 1x           | 1.5x              |
+
+As a tip, virus enemies are the least common enemy type. This means holding on to antibiotic weapons might be a good idea since they only do less damage against the uncommon virus type.
 
 # External Code, Ideas, and Structure #
 
 [Inspiration for smooth floating weapon drops](https://www.youtube.com/watch?v=3ZXrUhoBbUI&t=68s)
 
-[Font](https://www.1001fonts.com/chewy-bubble-font.html) - Free for personal use
+[Text Font](https://www.1001fonts.com/chewy-bubble-font.html) - [Free for personal use](https://www.1001fonts.com/licenses/general-font-usage-terms.html)
 
 [Trailer Music](https://www.youtube.com/watch?v=7xRhw5nOkCs) - [premium license](https://darkfantasystudio.com/premium-licence/) purchased from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
@@ -43,12 +54,17 @@ You can also use the dash to close distance between enemies and dodge attacks, a
 
 *Communication* - All communication was done through a Discord server. We had a single main chat with threads for each feature being worked on.
 
-*Task Delegation* - To delegate tasks I kept things simple and created Discord threads for each feature that needed to be implemented. This meant we could keep discussions for features contained in one place. Inside the thread, I would describe the feature that needed to be added and then ping the team member responsible for implementing it.
+*Task Delegation* - To delegate tasks I kept things simple and created Discord threads for each feature that needed to be implemented. This meant we could keep discussions for features contained in one place. Inside the thread, I would describe the feature that needed to be added and then ping the team member responsible for implementing it. We would continue any discussion inside of that thread until the feature was completed.
+
+![List of threads](./project_doc_images/Discord_Threads.PNG "Example list of threads")
+![Thread](./project_doc_images/Thread_Example.PNG "Example of a thread")
 
 *Git Workflow* - For every feature we implemented, we created new branches in the git repository that were based on the development branch. Once a feature was complete, we would create a pull request. As the producer, I would test the feature and fix any merge conflicts or sometimes bugs for critical features. Once I felt the feature was ready, I would merge the feature into the development branch. After the branch was merged, I would delete that branch to reduce the clutter.
 
 ### Logistics Problems
 *Code Style* - Towards the end of development, the code style was not consistent. I thought we would all be following the same code style guidelines from Godot but that ended up not being the case. Even with the code style guide, people have different preferences that resulted in the code style varying in different areas. For example, the code style guide recommends using plain english, such as “and,” “or,” and “not,” for boolean operators but some of us used the traditional operators (I myself am guilty of this). I took responsibility for not establishing strict style guides sooner and I went through the code and fixed the inconsistencies myself.
+
+*Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving.
 
 ### Templates and Design
 As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed.
@@ -69,19 +85,30 @@ The first level was what was used in our demo. The main problem with level desig
 
 ![Layout for Level 1](./project_doc_images/Level_1_Layout.PNG "Layout for Level 1")
 
-Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. 
+Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
 
 ![Layout for Level 2](./project_doc_images/Level_2_Layout.PNG "Layout for Level 2")
 
-Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time.
+Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead.
 
 ![Layout for Level 3](./project_doc_images/Level_3_Layout.PNG "Layout for Level 3")
 
 
 ### Additional Features
 
-Throwable Weapons - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
+*Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
+
+### Cut Features
+There were several features that I decided to cut due to time constraints. If we were to continue updating the game, these are features that could be added.
+
+*Boss Fight* - The initial plan document details a final boss fight after the three levels. In order to implement the final boss, we would have had to add several new mechanics and features to our existing code. For example, we wanted the boss to spawn waves of enemies but the current implementation for enemy spawning is specifically made for rooms. We would have had to add to and alter the existing code to make it work.
+
+*Aim Camera* - I wanted to experiment with a camera that lerps to the midpoint between the player and the cursor. This would allow the player to look ahead in the direction they are aiming. 
+
+*Graze System* - To add a way for the player to heal, I wanted to implement a system for healing the player after successfully dodging a projectile. This would have added more risk/reward to the game but we decided it would have been too complicated to implement and used simple enemy health drops instead.
+
+*Dialogue* - The game was originally supposed to be about a cell created by a scientist. The different levels were trials that the scientist was putting the cell through. During down time in the game, there would have been dialogue from the scientist commenting on the cell’s performance. While this would have expanded the lore of the game, it was lower in priority to gameplay features and it had to be cut.
 
 
 ## User Interface and Input - Quinn Broderick
@@ -116,118 +143,151 @@ The game is designed for Desktop, I thought about adding game controller inputs 
 *Command Controller* - Commands are determined in a fashion very similar to what we implemented in exercise 1 from class, we have a controller that responds to input and executes the associated command, which is defined by the base class commands.gd, with each specific action being defined based on the input. [Example of a throw command](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/controller_command.gd#L51)
 
 
-## Movement/Physics
+## Movement/Physics - Cory Pham
 
-Our game uses a hybrid approach to physics and movement, building upon Godot's CharacterBody2D system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
-[command pattern implementation.](https://github.com/cqdowning/cytoblast/blob/main/scripts/commands/command.gd)
+Our game uses a hybrid approach to physics and movement, building upon Godot's [CharacterBody2D][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=player.-,tscn,-scripts] system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
+[command pattern implementation.](https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=commands-,command,-.gd)
 
 Key Features:
 - Base Movement System
-  - Top-down movement with independent rotation
+  - [Top-down movement][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=melee_command.gd-,move_command,-.gd] with independent rotation
   - Mouse-aimed directional control
   - Smooth rotation interpolation
-Configurable movement speeds and sensitivity
-Advanced Movement Mechanics
-Dash ability with configurable distance and speed
-Invulnerability frames during dash
-Cooldown system for abilities
-Momentum-based movement transitions
-Weapon System & Physics
-Three distinct weapon types:
-Rifles: Precise, single-shot weapons
-Shotguns: Spread-based, close-range weapons
-Machine Guns: Rapid-fire, sustained damage
-Weapon Mechanics:
-Projectile spawn point system
-Configurable spread patterns
-Speed variation for projectiles
-Screen shake feedback system
-Ammo management system
-Weapon States:
-Equipped vs Unequipped behaviors
-Hover animations when dropped
-Pickup detection
-Weapon Type Categories:
-Antibiotic: Effective against bacteria
-Antiviral: Counters virus enemies
-Antiparasitic: Specialized for parasites
-Enemy Movement Types
-Turret (Virus Type):
-Stationary defensive enemy
-Rotates to track player position
-Fires projectiles in ring patterns
-Uses timer-based movement phases
-Alternates between stationary attack and repositioning
-Biter (Parasite Type):
-Aggressive melee enemy
-Direct chase behavior towards player
-Quick burst movements
-Close-range attack patterns
-Uses velocity-based movement for smooth pursuit
-Base Enemy Features:
-Health and damage systems
-Type-specific weapon drops
-Custom collision detection
-Death animations and effects
-Specialized audio feedback
-State-based behavior patterns
+  - Configurable movement speeds and sensitivity
+- Advanced Movement Mechanics
+  - [Dash ability][https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd] with configurable distance and speed
+  - Invulnerability frames during dash
+  - Cooldown system for abilities
+  - Momentum-based movement transitions
+- Weapon System & Physics
+  - Three distinct weapon types:
+    - Rifles: Precise, single-shot weapons
+    - Shotguns: Spread-based, close-range weapons
+    - Machine Guns: Rapid-fire, sustained damage
+  - Weapon Mechanics:
+    - Projectile spawn point system
+    - Configurable spread patterns
+    - Speed variation for projectiles
+    - Screen shake feedback system
+    - Ammo management system
+  - Weapon States:
+    - Equipped vs Unequipped behaviors
+    - Hover animations when dropped
+    - Pickup detection
+  - Weapon Type Categories:
+    - Antibiotic: Effective against bacteria
+    - Antiviral: Counters virus enemies
+    - Antiparasitic: Specialized for parasites
+  - Enemy Movement Types
+    - Turret (Virus Type):
+      - Stationary defensive enemy
+      - Rotates to track player position
+      - Fires projectiles in ring patterns
+      - Uses timer-based movement phases
+      - Alternates between stationary attack and repositioning
+    - Biter (Parasite Type):
+      - Aggressive melee enemy
+      - Direct chase behavior towards player
+      - Quick burst movements
+      - Close-range attack patterns
+      - Uses velocity-based movement for smooth pursuit
+    - Base Enemy Features:
+      - Health and damage systems
+      - Type-specific weapon drops
+      - Custom collision detection
+      - Death animations and effects
+      - Specialized audio feedback
+      - State-based behavior patterns
 
-While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The weapon system particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
+While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The [weapon system][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=projectiles-,weapons,-audio_manager.tscn] particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
 
-I modified the standard physics model by implementing several custom systems. The player movement uses a command pattern for precise control, allowing for custom velocity calculations and smooth rotation towards the mouse cursor. For combat mechanics, I implemented specialized collision layers that handle different interaction types - player movement collisions are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
+I modified the standard physics model by implementing several custom systems. The player movement system is built around the [Player class][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=player.-,gd,-restart_button.gd], which extends `CharacterBody2D`. It uses a command pattern for precise control, allowing for custom velocity calculations and [smooth rotation][https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L80C1-L88C49] towards the mouse cursor. The movement system uses a command pattern through classes like [move_command[https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=melee_command.gd-,move_command,-.gd] and [dash_command][https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd] that provide decoupled input handling, consistent movement behavior, easy extension for new movement types, and clean separation of concerns. This architecture allows for complex movement mechanics while maintaining clean, maintainable code. The hybrid physics approach (using both engine physics and custom calculations) provides precise control while maintaining realistic collisions and interactions. For combat mechanics, I implemented specialized collision layers that handle different interaction types - [player movement collisions][https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L177C1-L190C34] are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
 
 We created a hybrid system where core movement and collisions use the physics engine, but many features like weapon handling, projectile behavior, and enemy movement use custom calculations outside the physics system. This approach allows for precise control while maintaining proper physics interactions where needed.
 
 This implementation creates a responsive, fluid movement system with engaging weapon mechanics that support both precise combat and dynamic enemy interactions, while maintaining consistent physics behavior throughout the game.
 
 
-## Animation and Visuals
+## Animation and Visuals - Noor Ashour
 
-**List your assets, including their sources and licenses.**
+All the assets were hand-drawn. This includes:
+* Player sprites and animation
+* Enemy sprites and animation
+* Weapon and bullet sprites
+* Tileset of walls and background
+* Objects and decal for decor
+* UI design (health bar and buttons)
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Game Logic - Jack Schonherr
 
 My work around game logic involved creating a global game manager, developing the base level architecture, implementing an inventory system, and handling damage logic. Each of these systems can be felt throughout the game and interacts with other mechanics including movement, physics, UI, and visuals.
 
-*Game Manager Singleton* - I created an autoloaded game manager singleton which is the “brains” behind the whole game. It holds three primary global variables which other scripts reference: room_id, room_active, and enemies_remaining. room_id is an integer that refers to the index of the room the player is currently in. Levels use this number to open the correct door upon clearing a given room. This number increments and resets as players clear rooms and restart levels, a process which I will describe further in the *Level Architecture* section. room_active is a boolean flag that indicates whether or not the player is currently in a room. This is used alongside the enemies_remaining variable, which is an integer that represents the number of enemies left to defeat in the current room. Together, these two variables are checked in the _process() function of the game manager to emit a signal telling other areas of the game when a room is complete. The room_active flag allows us to have downtime between rooms because if we only checked for zero enemies remaining, the signal would emit over and over. The game manager also has one public function, change_level(), which allows other areas of the game to switch the scene to a menu or the next level. Its last main duty is to restart levels, seen here in the _restart_level() function. [Game_manager script](https://github.com/cqdowning/cytoblast/blob/main/scripts/game_manager.gd)
+*Game Manager Singleton* - I created an autoloaded game manager singleton which is the “brains” behind the whole game. It holds three primary global variables which other scripts reference: `room_id`, `room_active`, and `enemies_remaining`. `room_id` is an integer that refers to the index of the room the player is currently in. Levels use this number to open the correct door upon clearing a given room. This number increments and resets as players clear rooms and restart levels, a process which I will describe further in the *Level Architecture* section. `room_active` is a boolean flag that indicates whether or not the player is currently in a room. This is used alongside the `enemies_remaining` variable, which is an integer that represents the number of enemies left to defeat in the current room. Together, these two variables are checked in the `_process()` function of the game manager to emit a signal telling other areas of the game when a room is complete. The `room_active` flag allows us to have downtime between rooms because if we only checked for zero enemies remaining, the signal would emit over and over. The game manager also has one public function, `change_level()`, which allows other areas of the game to switch the scene to a menu or the next level. Its last main duty is to restart levels, implemented in the `_restart_level()` function. [Game_manager script](https://github.com/cqdowning/cytoblast/blob/main/scripts/game_manager.gd)
 
-*Level Architecture* - I designed the technical architecture of each level with the hope of abstracting away as much as possible. The goal was to allow my team to simply place scenes on the tilemap, assign some exported variables, and have everything work. Each level inherits from the base level scene. This base scene encompasses everything a level needs at bare minimum – tile map layers for the background and walls, decal and object decorations, a player spawn point, a gate to transition to the next level, a player instance and its controller, and a camera controller with a HUD. Players spawn at their spawn point with an empty inventory of weapons and full health. The base level has no notion of a “room” on its own, so I created additional scenes and their corresponding scripts to encompass the concept of a room within a level: room entrances, room doors, and enemy spawners. [Level base script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/level_base.gd)
+*Level Architecture* - I designed the technical architecture of each level with the hope of abstracting away as much as possible. The goal was to allow my team to simply place scenes on the tilemap, assign some exported variables, and have everything work. Each level inherits from the base level scene. This base scene encompasses everything a level needs at bare minimum – tile map layers for the background and walls, decal and object decorations, a player spawn point, a gate to transition to the next level, a player instance and its controller, and a camera controller with a HUD. Players spawn at their spawn point with an empty inventory of weapons and full health. The base level has no notion of a “room” on its own, so I created additional scenes and their corresponding scripts to encompass the concept of a room within a level. [Level base script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/level_base.gd)
 
-![Base Level Scene](./project_doc_images/LevelBaseScene.png "Base Level Scene")
+<img src="./project_doc_images/LevelBaseScene.png" alt="Alt Text" width="250" height="400">
 
-Upon entry, a room entrance alerts the game manager to set room_active to true, initiates enemies_remaining to the number of enemies in the room, and increments room_id. The player cannot advance until all enemies in the room are defeated, which signals for the room to open its door. Room scenes must be named “RoomX”, where X is its ID number, so that the level knows what the correct sequence of rooms is. Rooms are connected to their doors via an exported variable, so when the level hears from the game manager that the current room is completed, it will tell the current room to open its door. [Room script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/room.gd). [Room door script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/room_door.gd). 
+Upon entry, a room entrance alerts the game manager to set room_active to true, initializes `enemies_remaining` to the number of enemies in the room, and increments `room_id`. The player cannot advance until all enemies in the room are defeated, which signals for the room to open its door. Room scenes must be named “RoomX”, where X is its ID number, so that the level knows what the correct sequence of rooms is. Rooms are connected to their doors via an exported variable, so when the level hears from the game manager that the current room is completed, it will tell the current room to open its door. [Room script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/room.gd). [Room door script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/room_door.gd). 
 
 Enemies are spawned by enemy spawners, which have exported variables for the sequence of enemies they spawn, initial delay upon room entry, and delay between spawns. After the initial delay, enemies will be spawned at the spawner’s location according to an array of enemy specification classes. The spawners iterate through this array once and use the factory pattern to instantiate enemies based on their specifications. The specification classes include the enemy’s type, its pool of possible weapon drops, its max health, and chance to drop health. I made this class inherit from Resource so that we are able to make instances of it in the inspector, which made it really simple for my team to build and balance enemy spawners. [Enemy spawner script](https://github.com/cqdowning/cytoblast/blob/main/scripts/levels/enemy_spawner.gd). [Enemy factory script](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/enemy_factory.gd). [Enemy spec class script](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/enemy_spec.gd).
 
-These three scenes make up the concept of a room, and they can be instantiated in levels at will to create a complex series of challenges. All together, this creates a level. If the player dies at any point during the level, regardless of the room they are in, they are respawned back at the spawn point and their player state returns to empty inventory and full health. This is handled by the _restart_level() function in the game manager.
+These three scenes make up the concept of a room, and they can be instantiated in levels at will to create a complex series of challenges. All together, this creates a level. If the player dies at any point during the level, regardless of the room they are in, they are respawned back at the spawn point and their player state returns to empty inventory and full health. This is handled by the `_restart_level()` function in the game manager.
 
 ![Level Architecture](./project_doc_images/LevelDesign.drawio.png "Level Architecture")
 
 *Inventory System Singleton* - I also created the entire weapon inventory system for Cytoblast. This is also an autoloaded singleton because many areas of the game need to reference it. It contains signals for the HUD, a max size constant, an array of weapons, a private int representing the currently equipped slot, and a bunch of functions. When the inventory is autoloaded, it is initialized with null entries for each of its slots. I decided to do this rather than have it start completely empty to not have to deal with resizing, and it allowed me to do some neat arithmetic with indexing. This is much more efficient than searching an array of unknown size (although this array uses such little space anyways that it probably doesn’t matter). The inventory has public functions to do things like get the current slot, get the current weapon, add to, and drop from the inventory. It has private methods for performing utilities such as finding the next empty slot and switching the closest taken slot. I had to think about things like what slot to fill next when the player picks up a weapon, what slot to auto switch to when they throw a weapon, and how to handle scrolling through weapons. I designed the whole thing so that the rest of the game only ever knows about the weapon in the current slot. On any event where the weapon would change, the inventory handles that change and tells the rest of the game to look at the current slot’s weapon again (because it has been updated). [Inventory script](https://github.com/cqdowning/cytoblast/blob/main/scripts/inventory.gd)
 
-I did some admittedly cool stuff when implementing weapon switching on the player. It seemed naive at first – I would simply delete the current weapon node from the player and replace it with whatever weapon is in the slot that was switched to. However, I learned I could not use queue_free() to do this. queue_free() deletes the node completely, so when trying to switch back to that weapon later, I was trying to access a previously freed object in memory. Instead, I had to use remove_child(). This removes the weapon node from the player, but that node still exists in the global inventory. This way, the player can still reference that weapon later when they need to switch back to it. In essence, the player never actually has the original weapon they picked up – they simply have a reference to the weapon from the inventory (which stores the original weapon), added to the player with add_child(). I learned a lot about how Godot works with this simple, but cool, implementation. [Player weapon switching]().
+I did some admittedly cool stuff when implementing weapon switching on the player. It seemed naive at first – I would simply delete the current weapon node from the player and replace it with whatever weapon is in the slot that was switched to. However, I learned I could not use `queue_free()` to do this. `queue_free()` deletes the node completely, so when trying to switch back to that weapon later, I was trying to access a previously freed object in memory. Instead, I had to use `remove_child()`. This removes the weapon node from the player, but that node still exists in the global inventory. This way, the player can still reference that weapon later when they need to switch back to it. In essence, the player never actually has the original weapon they picked up – they simply have a reference to the weapon from the inventory (which stores the original weapon), added to the player with `add_child()`. I learned a lot about how Godot works with this simple, but cool, implementation. [Player weapon switching](https://github.com/cqdowning/cytoblast/blob/69e667fd0886d5464629b87d06f970472dbf1bfb/scripts/player.gd#L270).
+
+<img src="./project_doc_images/WeaponSwitching.gif" alt="Alt Text" width="400" height="400">
 
 *Damage Engine and Weapon Drops* - My final big contribution in game logic was creating the damage engine and implementing weapon drops from the enemies. The damage engine class has one static method for returning a damage multiplier. The function takes in the projectile type and enemy type to return a multiplier based on a simple RPS-adjacent interaction system, much like the one in Exercise 3. This multiplier is used to calculate damage to enemies and tells the damage indicator scene what color to make its font. [Damage_engine script](https://github.com/cqdowning/cytoblast/blob/main/scripts/damage_engine.gd)
 
-I also created the system for enemies dropping weapons because it ties closely to the inventory system. When enemies die, they choose a random weapon from their pool of possible drops (if the pool is nonempty) and instantiate it as a weapon in the current level. Then, when the player walks over it and has space in their inventory, they actually pick up the weapon. An open slot in the inventory is assigned that weapon instance, and then much like switching between weapons, the weapon is just removed from the level and not deleted completely so that it can be referenced later. [Enemy weapon drops](). [Adding weapons in the inventory]().
+I also created the system for enemies dropping weapons because it ties closely to the inventory system. When enemies die, they choose a random weapon from their pool of possible drops (if the pool is nonempty) and instantiate it as a weapon in the current level. Then, when the player walks over it and has space in their inventory, they actually pick up the weapon. An open slot in the inventory is assigned that weapon instance, and then much like switching between weapons, the weapon is just removed from the level and not deleted completely so that it can be referenced later. [Enemy weapon drops](https://github.com/cqdowning/cytoblast/blob/69e667fd0886d5464629b87d06f970472dbf1bfb/scripts/enemies/enemy_base.gd#L87). [Adding weapons in the inventory](https://github.com/cqdowning/cytoblast/blob/69e667fd0886d5464629b87d06f970472dbf1bfb/scripts/inventory.gd#L75).
 
 
 # Sub-Roles
 
 ## Audio - Jack Schonherr
 
-**List your assets, including their sources and licenses.**
+*Assets* - All of the sound files I used for Cytoblast are listed on itch.io under a [CC0 1.0 Universal License](https://creativecommons.org/publicdomain/zero/1.0/deed.en), meaning the sounds are dedicated to the public domain. While credits are not required when using these sounds, I have listed the sources for each of the sound files below. 
 
 From https://kronbits.itch.io/freesfx#google_vignette:
-* [weapon_switch.wav]()
+* [weapon_switch.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_switch.wav)
+* [machine_gun_shoot.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/machine_gun_shoot.wav)
+* [rifle_shoot.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/rifle_shoot.wav)
+* [shoot_attack.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/enemies/shoot_attack.wav)
+* [enemy_spawn.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/enemy_spawn.wav)
+* [player_hit_marker.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/player/player_hit_marker.wav)
+* [player_dash.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/player/player_dash.wav)
+* [health_pickup.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/health_pickup.wav)
+* [room_enter.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/room_enter.wav)
 
-**Describe the implementation of your audio system.**
+From https://ne-mene.itch.io/general-sound-pack: 
+* [weapon_explosion.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_explosion.wav)
+* [weapon_throw.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_throw.wav)
+* [weapon_pickup.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_pickup.wav)
+* [melee.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/melee.wav)
+* [shoot_blank.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/shoot_blank.wav)
+* [enemy_hit_marker.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/enemies/enemy_hit_marker.wav)
+* [room_door_open.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/room_door_open.wav)
+  
+From https://hzsmith.itch.io/free-sfx-pack-vol-1:
+* [biter_attack.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/enemies/biter_attack.wav)
+  
+From https://hzsmith.itch.io/free-sfx-pack-vol-2:
+* [shotgun_shoot.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/shotgun_shoot.wav)
 
-**Document the sound style.** 
+*Audio System Implementation* - I created an audio manager singleton scene to play sound effects, as well as a sound effects bus. Each sound effect has its own audio stream player and associated function that gets called when the sound is needed. The singleton is useful because it centralizes all sound effects into one area that can be accessed by any node. Sound effects originate from many different places, so it is more efficient to do it like this than have individual audio stream players on nodes. All of the audio stream players use the sound effects bus, so I can tune their audio easily. If we wanted to add other buses in the future for a soundtrack, etc., the infrastructure is already in place to do so. [Audio manager script](https://github.com/cqdowning/cytoblast/blob/main/scripts/audio_manager.gd)
 
-## Gameplay Testing
+*Sound Style* - I was admittedly limited by sounds available online under the CC0 license, but I think the sound palette still works. The style is a mix of classic gaming and futuristic vibes, which fits the cellular aesthetic. Using real gunshot sounds, for example, did not feel right because our weapons are cell-based. It wouldn’t sense for them to sound like real assault rifles. The tracks for little sound effects like hit markers and picking up weapons are very subtle but help with game immersion in my opinion. They coincide with the visual feedback of a damage number and seeing the weapon disappearing, respectively, to create a more satisfying experience for the player. Visual feedback without audio feels less impactful.
+
+The sounds can get overwhelming at times, especially with many concurrent enemy spawns. That sound in particular is loud and a little unsettling by design, but too many of them at once is louder than I’d like. Overall, though, I think the game sounds good.
+ 
+
+## Gameplay Testing - Cory Pham and Quinn Broderick
 
 [These](https://docs.google.com/spreadsheets/d/1nMg0oud1pyU_8W3mC56qX38ab4eTNiMxi88uNB_Y8t4/edit?usp=sharing) are the results of the Google Forms survey we sent out to our playtesters. We had 11 responses.
 
@@ -256,7 +316,7 @@ From https://kronbits.itch.io/freesfx#google_vignette:
 
 [Link to Trailer](https://youtu.be/lT30_l2WA_A)
 
-For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. 
+For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. Overall, the gameplay of Cytoblast is simple but fun so I tried to make the trailer reflect that.
 
 The music used in the trailer is Dark Fantasy Studio - Neon God under their [premium license](https://darkfantasystudio.com/premium-licence/). I purchased this license from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
@@ -276,8 +336,8 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Player immune to damage during dash* - It’s fairly common for playable characters with dash abilities to have immunity during the dash. This was especially important since our game doesn’t have set bullet patterns. There could be situations where enemy attacks are completely unavoidable without dashing through them.
 [Commit for player immunity](https://github.com/cqdowning/cytoblast/commit/7d0175d5777ee87e28693a5ff30bbdc32ec12e86) 
 
-*Player feedback on hit* - I noticed it was difficult to tell when the player took damage. I made it so the player blinks red when taking damage. There is also a small screen shake effect as well.
-[Player blinking red commit](https://github.com/cqdowning/cytoblast/commit/b9bec13e10002d4ec426c2321c14faae984774ff) 
+*Player feedback on hit* - I noticed it was difficult to tell when the player took damage. I made it so the player blinks red when taking damage. There is also a small screen shake effect as well. Additionally, I made it so the player is briefly immune to damage when being hit.
+[Player blinking red commit](https://github.com/cqdowning/cytoblast/commit/b9bec13e10002d4ec426c2321c14faae984774ff) / [Player immune to damage on hit commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7)  
 
 *Item Detector covers the entire player* - The item detector for picking up items was a raycast towards the cursor, which meant you had to look at items to pick them up. This made it confusing to players on when they could pick up items. I changed the item detector to be an Area2D node that can grab items in all directions.
 [AoE Item Detector commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7) 
@@ -287,6 +347,8 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 
 *Item drop randomness* - After introducing the health drop, both weapons and health would drop in the exact same location which did not look good. I allowed drops to be slightly offset from the enemies death position by a slight amount. The variation makes the drops more interesting to look at and the weapon and health won’t always directly overlap each other.
 [Drop offset commit](https://github.com/cqdowning/cytoblast/commit/beff4dca616ea6aeb6187210064fdd7ac46a41d0) 
+
+![Offset Items](./project_doc_images/Offset_Items.PNG "Offset Items")
 
 *Balancing* - Over the course of development I made various balance changes to all parts of the game. For the player, I tweaked player movement speed and dash speed and distance. For weapons, I changed the fire rates, projectile speeds, max ammo, and damage. For enemies, I tuned their health, damage, movement speed and attack rate. For example, one of the major pieces of feedback I received from playtesters was that melee was too difficult. I tried to make melee a bit easier by making it faster and having a larger hitbox than the animation.
 [Commit for buffing melee](https://github.com/cqdowning/cytoblast/commit/1b04e22958873133124a5676dd3ca53dd25dc9ca) 

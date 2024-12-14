@@ -1,5 +1,5 @@
 extends Button
-
+## Button to take player to credits
 
 func _ready():
 	#
@@ -16,6 +16,7 @@ func _ready():
 	#add_theme_stylebox_override("normal", style)
 	#add_theme_stylebox_override("hover", hover)
 	pass
+
 
 func _on_pressed():
 	# jump to scene level_1.tscn

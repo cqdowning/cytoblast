@@ -1,4 +1,5 @@
 extends Button
+## Button to take player back to first level
 
 var starting_level: PackedScene = preload("res://scenes/levels/level_1.tscn")
 

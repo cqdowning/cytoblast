@@ -1,14 +1,19 @@
 class_name HealthDrop
 extends Node2D
+## Item drop for heatlh
+##
+## Will heal the player upon pick up
+## Dropped by enemies
 
 @export var heal_amount: float = 20.0
-@export var curve:Curve
+@export var curve: Curve
 
 var _hover_progress: float = 0
 var _hover_dir: int = 1
 
+
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass # Replace with function body.
 
 

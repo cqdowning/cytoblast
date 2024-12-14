@@ -1,7 +1,11 @@
 class_name ControllerCommand
 extends Node
+## Represents the player controller
+## 
+## Takes input and calls commands on the player
 
 @export var player: CharacterBody2D
+
 
 func _ready():
 	# Verify player reference exists
@@ -52,3 +56,16 @@ func _process(_delta):
 			#print("Throw pressed")
 			var throw_command: Command = ThrowCommand.new()
 			throw_command.execute(player)
+			
+	
+	if Input.is_action_just_pressed("next_weapon"):
+			#print("Throw pressed")
+			var next_weapon: Command = NextWeaponCommand.new()
+			next_weapon.execute(player)
+			
+	
+	if Input.is_action_just_pressed("prev_weapon"):
+			#print("Throw pressed")
+			var prev_weapon: Command = PrevWeaponCommand.new()
+			prev_weapon.execute(player)
+	

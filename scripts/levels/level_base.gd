@@ -1,6 +1,9 @@
 class_name Level
 extends Node2D
-
+## Handles level logic
+##
+## Keeps track of which room the player is in
+## Moves the player to the next level upon reaching the end
 
 @export var next_level: PackedScene
 
@@ -19,7 +22,7 @@ func _ready() -> void:
 	add_child(_room_door_timer)
 
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if Input.is_action_just_pressed("skip"):
 		_on_level_end_gate_body_entered(player)
 
@@ -41,7 +44,7 @@ func _on_room_over(_room_id:int) -> void:
 
 
 func _on_door_timer() -> void:
-	var current_room = "RoomEntrance" + str(game_manager.room_id)
+	var current_room: String = "RoomEntrance" + str(game_manager.room_id)
 	for child in get_children():
 		if child.name == current_room:
 			child.door.is_closing = true

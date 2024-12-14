@@ -1,5 +1,8 @@
 class_name Rifle
 extends Weapon
+## Rifle weapon type
+##
+## Slowly fires in a straight line
 
 
 # Called when the node enters the scene tree for the first time.

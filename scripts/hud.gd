@@ -1,4 +1,8 @@
 extends Control
+## Player HUD
+##
+## Displays player health
+## Shows the player's inventory and currently selected weapon w/ ammo
 
 # References to HUD elements
 @onready var health_bar = $HealthContainer/HealthBar
@@ -24,11 +28,11 @@ func _ready() -> void:
 	health_bar.value = 100
 	
 	# Connect to player signals
-	connect_player_signals()
+	_connect_player_signals()
 	_no_weapon()
 
 
-func connect_player_signals() -> void:
+func _connect_player_signals() -> void:
 	game_manager.health_changed.connect(_on_health_changed)
 	game_manager.no_weapon.connect(_no_weapon)
 	game_manager.weapon_switched.connect(_on_weapon_switched)
@@ -70,7 +74,7 @@ func _on_weapon_switched(new_weapon: Weapon, new_weapon_index: int) -> void:
 	# Switch the current weapon
 	weapon = new_weapon
 	index = new_weapon_index
-	update_weapon_display()
+	_update_weapon_display()
 	_highlight_slot(new_weapon_index)
 
 
@@ -106,7 +110,7 @@ func _highlight_slot(slot:int):
 			pass
 
 
-func update_weapon_display() -> void:
+func _update_weapon_display() -> void:
 	# Highlight the selected weapon
 	var highlight_color = Color(0, 1, 1, 1)  # Bright cyan color
 	var dimmed_color = Color(0.5, 0.5, 0.5, 1)

@@ -1,5 +1,8 @@
 class_name CameraController
 extends Camera2D
+## Position lock camera controller
+##
+## Can apply a screen shake effect
 
 @export var subject: Node2D
 @export var camera_zoom: Vector2 = Vector2(0.6, 0.6)
@@ -7,6 +10,7 @@ extends Camera2D
 
 var _shake_timer: Timer
 var _rng: RandomNumberGenerator
+
 
 func _ready() -> void:
 	zoom = camera_zoom

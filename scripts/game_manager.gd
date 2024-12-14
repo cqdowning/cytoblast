@@ -1,6 +1,9 @@
 class_name GameManager
 extends Node
-
+## Game Manager singleton for global level handling
+##
+## Handles level changing and keeping track of enemy and player death
+## This class is autoloaded as game_manager
 
 signal room_over(room_id: int)
 signal enemy_defeated
@@ -13,18 +16,14 @@ signal shake_camera(magnitude: float)
 signal player_death
 
 var hud_scene: PackedScene = preload("res://scenes/hud.tscn")
-var player: Player
 var enemies_remaining: int = 0
-var room_active = false
-var room_id = 0
-var starting_inventory: Array[Weapon]
+var room_active: bool = false
+var room_id: int = 0
 
 
 func _ready() -> void:
 	player_death.connect(_on_player_death)
 	enemy_defeated.connect(_on_enemy_defeated)
-	for i in range(current_inventory.max_size):
-		starting_inventory.push_back(null)
 
 
 func _process(_delta: float) -> void:		
@@ -43,7 +42,7 @@ func change_level(next_level: PackedScene) -> void:
 
 
 func show_hud() -> void:
-	var hud = hud_scene.instantiate()
+	var hud: Control = hud_scene.instantiate()
 	get_tree().get_root().add_child(hud)
 	
 
