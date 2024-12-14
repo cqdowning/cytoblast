@@ -8,7 +8,7 @@ extends Area2D
 
 func add_to_player(player: Player) -> void:
 	for collider in get_overlapping_areas():
-		var item = collider.get_parent()
+		var item: Node2D = collider.get_parent()
 		if item is Weapon:
 			current_inventory.add_weapon(item)
 		if item is HealthDrop:

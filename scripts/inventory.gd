@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 		
 func switch_weapon(i: int) -> void:
-	var next_slot = _get_next_available_slot(i)
+	var next_slot: int = _get_next_available_slot(i)
 	if next_slot == _cur_slot:
 		return
 	_cur_slot = next_slot
@@ -67,8 +67,8 @@ func drop_weapon() -> void:
 	
 
 func add_weapon(weapon: Weapon) -> void:
-	var picking_up_from_empty = is_empty()
-	var slot_to_fill = _get_first_available_slot()
+	var picking_up_from_empty: bool = is_empty()
+	var slot_to_fill: int = _get_first_available_slot()
 	# only pick up a weapon if there is an open space in the inventory
 	if slot_to_fill == -1:
 		return
@@ -94,7 +94,7 @@ func _get_first_available_slot() -> int:
 
 # find the next slot that can has a weapon, return _cur_slot if none was found
 func _get_next_available_slot(increment: int) -> int:
-	var next_slot = _cur_slot + increment
+	var next_slot: int = _cur_slot + increment
 	for i in range(0, MAX_SIZE):
 		if next_slot >= MAX_SIZE:
 			next_slot = 0
