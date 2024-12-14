@@ -42,7 +42,7 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 
 [Inspiration for smooth floating weapon drops](https://www.youtube.com/watch?v=3ZXrUhoBbUI&t=68s)
 
-[Font](https://www.1001fonts.com/chewy-bubble-font.html) - Free for personal use
+[Text Font](https://www.1001fonts.com/chewy-bubble-font.html) - [Free for personal use](https://www.1001fonts.com/licenses/general-font-usage-terms.html)
 
 [Trailer Music](https://www.youtube.com/watch?v=7xRhw5nOkCs) - [premium license](https://darkfantasystudio.com/premium-licence/) purchased from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
@@ -94,7 +94,7 @@ Level 3 is the last level so I wanted to make it feel more like a final gauntlet
 
 ### Additional Features
 
-Throwable Weapons - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
+*Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
 
 ### Cut Features

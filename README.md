@@ -2,16 +2,12 @@
  
 Learn about more about [how to play Cytoblast and its development.](https://github.com/cqdowning/cytoblast/blob/main/ProjectDocument.md)
 
-Watch the [Cytoblast Trailer!]()
+Watch the [Cytoblast Trailer!](https://youtu.be/lT30_l2WA_A)
 
 Access the [Cytoblast press kit.]()
 
 ### Play Cytoblast
-[Cytoblast official itch.io page]()
-
-- [Web playable Version]()
-- [Windows Version]()
-
+[The Cytoblast official itch.io page](https://cqdowning.itch.io/cytoblast) has an online playable version and a download for a Windows version
 
 # Credits
 
