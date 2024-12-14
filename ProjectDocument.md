@@ -27,11 +27,9 @@ The game uses keyboard and mouse input for controls.
 In order to progress, you must defeat all of the enemies in the room. Upon defeating the final enemy, the door to the next room will open. If you are to perish in your battle against cellular threats, you will have to restart the level you were on. There are three levels total to clear, good luck!
 
 ### Optimal Gameplay Strategy
-The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage (see damage type chart). However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea.
+The game has various levels of strategy for optimizing your gameplay. At the surface level is the type strength and weakness system. Using the proper weapon damage type against enemies will allow you to do more damage (see damage type chart). However, there are also different weapon types, such as the rifle, machine gun, and shotgun. On top of the damage type system, you also want to use the correct weapon for the given situation. For example, if there are multiple enemies in front of you, you might want to switch to a shotgun. You can also throw your weapon for big damage once it runs out of ammo. Optimal play will involve constant switching between weapons and choosing the right time to throw them. Enemies drop a lot of weapons so no need to get too attached to your weapons. Staying near walls to use as cover is also a good idea. You can also use the dash to close distance between enemies and dodge attacks, as it grants you immunity to attacks during the dash. 
 
-You can also use the dash to close distance between enemies and dodge attacks, as it grants you immunity to attacks during the dash. 
-
-Damage Type Chart:
+#### Damage Type Chart:
 |                        | Bacteria (Green) | Virus (Blue) | Parasite (Orange) |
 | ---------------------- | ---------------- |------------- |------------------ |
 | Antibiotic (Green)     | 1.5x             | 0.75x        | 1x                |
@@ -455,7 +453,7 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Item drop randomness* - After introducing the health drop, both weapons and health would drop in the exact same location which did not look good. I allowed drops to be slightly offset from the enemies death position by a slight amount. The variation makes the drops more interesting to look at and the weapon and health won’t always directly overlap each other.
 [Drop Offset Commit](https://github.com/cqdowning/cytoblast/commit/beff4dca616ea6aeb6187210064fdd7ac46a41d0) 
 
-Items are slightly offset:
+Dropped items are slightly offset:
 
 ![Offset Items](./project_doc_images/Offset_Items.PNG "Offset Items")
 
