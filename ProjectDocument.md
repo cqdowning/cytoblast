@@ -141,7 +141,7 @@ The game is designed for Desktop, I thought about adding game controller inputs 
 *Command Controller* - Commands are determined in a fashion very similar to what we implemented in exercise 1 from class, we have a controller that responds to input and executes the associated command, which is defined by the base class commands.gd, with each specific action being defined based on the input. [Example of a throw command](https://github.com/cqdowning/cytoblast/blob/d74ae23a263a4d752c9cb22bdbe0607864586f93/scripts/controller_command.gd#L51)
 
 
-## Movement/Physics
+## Movement/Physics - Cory Pham
 
 Our game uses a hybrid approach to physics and movement, building upon Godot's CharacterBody2D system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
 [command pattern implementation.](https://github.com/cqdowning/cytoblast/blob/main/scripts/commands/command.gd)
@@ -285,7 +285,7 @@ From https://hzsmith.itch.io/free-sfx-pack-vol-2:
 The sounds can get overwhelming at times, especially with many concurrent enemy spawns. That sound in particular is loud and a little unsettling by design, but too many of them at once is louder than I’d like. Overall, though, I think the game sounds good.
  
 
-## Gameplay Testing
+## Gameplay Testing - Cory Pham and Quinn Broderick
 
 [These](https://docs.google.com/spreadsheets/d/1nMg0oud1pyU_8W3mC56qX38ab4eTNiMxi88uNB_Y8t4/edit?usp=sharing) are the results of the Google Forms survey we sent out to our playtesters. We had 11 responses.
 
