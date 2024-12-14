@@ -368,7 +368,7 @@ The sounds can get overwhelming at times, especially with many concurrent enemy 
 - There were also a couple of requests for a multiplayer mode, which could be an interesting addition to the game
 - The HUD could also just use a little bit more polish, maybe eliminating the labels and just using some sort of higlight to show selected weapons
 
-## Narrative Design
+## Narrative Design - Noor Ashour
 
 I originally wanted to add dialogue for the narration, but I unfortunately ran out of time. Instead, I tried to focus on implementing the narration via the assets, since it was my main role.
 
@@ -376,7 +376,7 @@ I gave the player an 80% opacity to the body color, making it look like cell flu
 
 ![Animated GIF of the player cell moving](./presskit_stuff/art_player.gif)
 
-## Press Kit
+## Press Kit - Noor Ashour
 
 [Presskit link](https://petal-shaker-cb1.notion.site/Cytoblast-Press-Kit-15bc1f53cf568017b059e4f6a9154db3)
 
