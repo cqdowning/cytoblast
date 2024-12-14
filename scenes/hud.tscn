@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbfu4ny2eqkqs"]
+[gd_scene load_steps=7 format=3 uid="uid://cbfu4ny2eqkqs"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_4yx2e"]
 [ext_resource type="FontFile" uid="uid://dfhrdf7enuaer" path="res://assets/Chewy Bubble.otf" id="2_4as0k"]
+[ext_resource type="Texture2D" uid="uid://nd0qmma5rroh" path="res://assets/ui/health_bar/bg.png" id="3_ly4ya"]
+[ext_resource type="Texture2D" uid="uid://c1nuuawhhgkpi" path="res://assets/ui/health_bar/over.png" id="4_av1a8"]
+[ext_resource type="Texture2D" uid="uid://885hh6r4sill" path="res://assets/ui/health_bar/progress.png" id="5_4mwtj"]
 
 [sub_resource type="Theme" id="Theme_3epe8"]
 
@@ -21,29 +24,16 @@ script = ExtResource("1_4yx2e")
 [node name="HealthContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 offset_left = -358.0
-offset_top = -95.0
+offset_top = -105.0
 offset_right = 117.0
-offset_bottom = -22.0
+offset_bottom = 23.0
 scale = Vector2(1.34845, 1.3363)
 
-[node name="HealthLabel" type="Label" parent="HealthContainer"]
+[node name="HealthBar" type="TextureProgressBar" parent="HealthContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_shadow_color = Color(0.772549, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.92549, 0, 0.886275, 1)
-theme_override_fonts/font = ExtResource("2_4as0k")
-theme_override_font_sizes/font_size = 35
-text = "PLAYER HEALTH:"
-vertical_alignment = 1
-
-[node name="HealthBar" type="ProgressBar" parent="HealthContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_outline_color = Color(0.768627, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4as0k")
-theme_override_font_sizes/font_size = 30
+texture_under = ExtResource("3_ly4ya")
+texture_over = ExtResource("4_av1a8")
+texture_progress = ExtResource("5_4mwtj")
 
 [node name="Inventory" type="VBoxContainer" parent="."]
 layout_mode = 1
