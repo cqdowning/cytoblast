@@ -294,193 +294,193 @@ position = Vector2(3895, 541)
 position = Vector2(3930, 14742)
 scale = Vector2(27.4, 32.695)
 
-[node name="RoomEntrance1" parent="." index="9" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
+[node name="RoomEntrance1" parent="." index="8" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
 position = Vector2(3906, 1282)
 scale = Vector2(41.66, 15.055)
 door = NodePath("../RoomDoor1")
 spawners = [NodePath("../EnemySpawner1_1"), NodePath("../EnemySpawner1_2"), NodePath("../EnemySpawner1_3")]
 
-[node name="EnemySpawner1_1" parent="." index="10" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner1_1" parent="." index="9" instance=ExtResource("5_cotvm")]
 position = Vector2(3604, 1683)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_mf7j0")])
 initial_delay = 0.5
 
-[node name="EnemySpawner1_2" parent="." index="11" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner1_2" parent="." index="10" instance=ExtResource("5_cotvm")]
 position = Vector2(3892, 2080)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_abgc6")])
 initial_delay = 1.5
 
-[node name="EnemySpawner1_3" parent="." index="12" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner1_3" parent="." index="11" instance=ExtResource("5_cotvm")]
 position = Vector2(4199, 1851)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_t7jgo")])
 initial_delay = 1.0
 
-[node name="RoomDoor1" parent="." index="13" instance=ExtResource("4_jeu38")]
+[node name="RoomDoor1" parent="." index="12" instance=ExtResource("4_jeu38")]
 position = Vector2(3518, 2246)
 rotation = -1.5708
 scale = Vector2(4.43, 5.03)
 
-[node name="RoomEntrance2" parent="." index="14" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
+[node name="RoomEntrance2" parent="." index="13" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
 position = Vector2(3922, 2550)
 scale = Vector2(53.5, 26.005)
 door = NodePath("../RoomDoor2")
 spawners = [NodePath("../EnemySpawner2_1"), NodePath("../EnemySpawner2_2"), NodePath("../EnemySpawner2_3"), NodePath("../EnemySpawner2_4")]
 
-[node name="EnemySpawner2_1" parent="." index="15" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner2_1" parent="." index="14" instance=ExtResource("5_cotvm")]
 position = Vector2(2738, 2625)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_66dfq"), SubResource("Resource_s1spc"), SubResource("Resource_2xm5b")])
 initial_delay = 0.5
 
-[node name="EnemySpawner2_2" parent="." index="16" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner2_2" parent="." index="15" instance=ExtResource("5_cotvm")]
 position = Vector2(5043, 2655)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_vlukm"), SubResource("Resource_tjsy8"), SubResource("Resource_87elp")])
 initial_delay = 1.0
 
-[node name="EnemySpawner2_3" parent="." index="17" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner2_3" parent="." index="16" instance=ExtResource("5_cotvm")]
 position = Vector2(2882, 4871)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_rxpxw"), SubResource("Resource_35yi7"), SubResource("Resource_m4seh")])
 initial_delay = 2.0
 
-[node name="EnemySpawner2_4" parent="." index="18" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner2_4" parent="." index="17" instance=ExtResource("5_cotvm")]
 position = Vector2(4946, 4855)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_hnh7d"), SubResource("Resource_b6p7s"), SubResource("Resource_rkskq")])
 initial_delay = 1.5
 
-[node name="RoomDoor2" parent="." index="19" instance=ExtResource("4_jeu38")]
+[node name="RoomDoor2" parent="." index="18" instance=ExtResource("4_jeu38")]
 position = Vector2(4170, 5285)
 rotation = 1.5708
 scale = Vector2(2.58, 3.515)
 
-[node name="RoomEntrance3" parent="." index="20" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
+[node name="RoomEntrance3" parent="." index="19" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
 position = Vector2(3913, 6053)
 scale = Vector2(27.185, 16.22)
 door = NodePath("../RoomDoor3")
 spawners = [NodePath("../EnemySpawner3_1"), NodePath("../EnemySpawner3_2"), NodePath("../EnemySpawner3_3"), NodePath("../EnemySpawner3_4"), NodePath("../EnemySpawner3_5")]
 
-[node name="EnemySpawner3_1" parent="." index="21" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner3_1" parent="." index="20" instance=ExtResource("5_cotvm")]
 position = Vector2(3572, 7887)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_xmoh1"), SubResource("Resource_n68ei")])
 wave_delay = 6.0
 initial_delay = 0.5
 
-[node name="EnemySpawner3_2" parent="." index="22" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner3_2" parent="." index="21" instance=ExtResource("5_cotvm")]
 position = Vector2(4250, 7898)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_fx884"), SubResource("Resource_hjyrb")])
 wave_delay = 6.0
 initial_delay = 0.5
 
-[node name="EnemySpawner3_3" parent="." index="23" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner3_3" parent="." index="22" instance=ExtResource("5_cotvm")]
 position = Vector2(3911, 7982)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_tpfli"), SubResource("Resource_axqfu")])
 wave_delay = 10.0
 initial_delay = 1.0
 
-[node name="EnemySpawner3_4" parent="." index="24" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner3_4" parent="." index="23" instance=ExtResource("5_cotvm")]
 position = Vector2(3519, 6177)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_x0voo"), SubResource("Resource_yapi0")])
 wave_delay = 6.0
 initial_delay = 5.0
 
-[node name="EnemySpawner3_5" parent="." index="25" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner3_5" parent="." index="24" instance=ExtResource("5_cotvm")]
 position = Vector2(4289, 6185)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_fweco"), SubResource("Resource_au3rb")])
 wave_delay = 6.0
 initial_delay = 5.0
 
-[node name="RoomDoor3" parent="." index="26" instance=ExtResource("4_jeu38")]
+[node name="RoomDoor3" parent="." index="25" instance=ExtResource("4_jeu38")]
 position = Vector2(3766, 8199)
 rotation = -1.5708
 scale = Vector2(2.055, 1.825)
 
-[node name="RoomEntrance4" parent="." index="27" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
+[node name="RoomEntrance4" parent="." index="26" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
 position = Vector2(3903, 9445)
 scale = Vector2(17.565, 9.425)
 door = NodePath("../RoomDoor4")
 spawners = [NodePath("../EnemySpawner4_1"), NodePath("../EnemySpawner4_2")]
 
-[node name="RoomDoor4" parent="." index="28" instance=ExtResource("4_jeu38")]
+[node name="RoomDoor4" parent="." index="27" instance=ExtResource("4_jeu38")]
 position = Vector2(5462, 10709)
 rotation = 1.5708
 scale = Vector2(4.34, 20.39)
 
-[node name="EnemySpawner4_1" parent="." index="29" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner4_1" parent="." index="28" instance=ExtResource("5_cotvm")]
 position = Vector2(3116, 9920)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_6knq0"), SubResource("Resource_vckxe"), SubResource("Resource_gcrbt")])
 initial_delay = 1.0
 
-[node name="EnemySpawner4_2" parent="." index="30" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner4_2" parent="." index="29" instance=ExtResource("5_cotvm")]
 position = Vector2(4869, 9916)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_6knq0"), SubResource("Resource_vckxe"), SubResource("Resource_gcrbt")])
 initial_delay = 1.5
 
-[node name="RoomEntrance5" parent="." index="31" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
+[node name="RoomEntrance5" parent="." index="30" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
 position = Vector2(3914, 10803)
 scale = Vector2(169.455, 9.93)
 door = NodePath("../RoomDoor5")
 spawners = [NodePath("../EnemySpawner5_1"), NodePath("../EnemySpawner5_2"), NodePath("../EnemySpawner5_3"), NodePath("../EnemySpawner5_4")]
 
-[node name="EnemySpawner5_1" parent="." index="32" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner5_1" parent="." index="31" instance=ExtResource("5_cotvm")]
 position = Vector2(3141, 11260)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_mxlrj"), SubResource("Resource_88juv"), SubResource("Resource_1uaq7")])
 initial_delay = 1.5
 
-[node name="EnemySpawner5_2" parent="." index="33" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner5_2" parent="." index="32" instance=ExtResource("5_cotvm")]
 position = Vector2(4845, 11272)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_nakv2"), SubResource("Resource_igh3p"), SubResource("Resource_vqmct")])
 initial_delay = 1.0
 
-[node name="EnemySpawner5_3" parent="." index="34" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner5_3" parent="." index="33" instance=ExtResource("5_cotvm")]
 position = Vector2(3117, 10248)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_6knq0"), SubResource("Resource_vckxe"), SubResource("Resource_gcrbt")])
 initial_delay = 8.0
 
-[node name="EnemySpawner5_4" parent="." index="35" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner5_4" parent="." index="34" instance=ExtResource("5_cotvm")]
 position = Vector2(4873, 10188)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_6knq0"), SubResource("Resource_vckxe"), SubResource("Resource_gcrbt")])
 initial_delay = 8.5
 
-[node name="RoomDoor5" parent="." index="36" instance=ExtResource("4_jeu38")]
+[node name="RoomDoor5" parent="." index="35" instance=ExtResource("4_jeu38")]
 position = Vector2(2343, 11965)
 rotation = -1.5708
 scale = Vector2(3.555, 20.3)
 
-[node name="RoomEntrance6" parent="." index="37" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
+[node name="RoomEntrance6" parent="." index="36" node_paths=PackedStringArray("door", "spawners") instance=ExtResource("3_m1g73")]
 position = Vector2(3905, 12087)
 scale = Vector2(160.5, 10.88)
 door = NodePath("../RoomDoor6")
 spawners = [NodePath("../EnemySpawner6_1"), NodePath("../EnemySpawner6_2"), NodePath("../EnemySpawner6_3"), NodePath("../EnemySpawner6_4"), NodePath("../EnemySpawner6_5"), NodePath("../EnemySpawner6_6")]
 
-[node name="EnemySpawner6_1" parent="." index="38" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner6_1" parent="." index="37" instance=ExtResource("5_cotvm")]
 position = Vector2(3193, 12512)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_w3ol2"), SubResource("Resource_7q4nd"), SubResource("Resource_j73cu")])
 initial_delay = 1.0
 
-[node name="EnemySpawner6_2" parent="." index="39" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner6_2" parent="." index="38" instance=ExtResource("5_cotvm")]
 position = Vector2(4885, 12516)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_w3ol2"), SubResource("Resource_7q4nd"), SubResource("Resource_j73cu")])
 initial_delay = 1.5
 
-[node name="EnemySpawner6_3" parent="." index="40" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner6_3" parent="." index="39" instance=ExtResource("5_cotvm")]
 position = Vector2(3145, 11716)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_mxlrj"), SubResource("Resource_88juv"), SubResource("Resource_1uaq7")])
 initial_delay = 8.5
 
-[node name="EnemySpawner6_4" parent="." index="41" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner6_4" parent="." index="40" instance=ExtResource("5_cotvm")]
 position = Vector2(4829, 11692)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_mxlrj"), SubResource("Resource_88juv"), SubResource("Resource_1uaq7")])
 initial_delay = 8.0
 
-[node name="EnemySpawner6_5" parent="." index="42" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner6_5" parent="." index="41" instance=ExtResource("5_cotvm")]
 position = Vector2(3121, 10532)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_6knq0"), SubResource("Resource_vckxe"), SubResource("Resource_gcrbt")])
 initial_delay = 12.0
 
-[node name="EnemySpawner6_6" parent="." index="43" instance=ExtResource("5_cotvm")]
+[node name="EnemySpawner6_6" parent="." index="42" instance=ExtResource("5_cotvm")]
 position = Vector2(4865, 10452)
 enemy_specs = Array[ExtResource("5_ea4xg")]([SubResource("Resource_6knq0"), SubResource("Resource_vckxe"), SubResource("Resource_gcrbt")])
 initial_delay = 12.5
 
-[node name="RoomDoor6" parent="." index="44" instance=ExtResource("4_jeu38")]
+[node name="RoomDoor6" parent="." index="43" instance=ExtResource("4_jeu38")]
 position = Vector2(4856, 13135)
 rotation = 1.5708
 scale = Vector2(4.37, 12.26)
