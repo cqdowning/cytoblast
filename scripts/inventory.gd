@@ -5,40 +5,15 @@ extends Node
 signal weapon_changed(cur_slot: int)
 signal weapon_added(weapon: Weapon, slot: int)
 
-@export var max_size = 3
+const MAX_SIZE = 3
 
 var weapons:Array[Weapon]
-var rifle_ab = preload("res://scenes/weapons/weapon_antibiotic_rifle.tscn").instantiate() as Weapon
-var rifle_av = preload("res://scenes/weapons/weapon_antiviral_rifle.tscn").instantiate() as Weapon
-var rifle_ap = preload("res://scenes/weapons/weapon_antiparasitic_rifle.tscn").instantiate() as Weapon
-
-var machinegun_ab = preload("res://scenes/weapons/weapon_antibiotic_machinegun.tscn").instantiate() as Weapon
-var machinegun_av = preload("res://scenes/weapons/weapon_antiviral_machinegun.tscn").instantiate() as Weapon
-var machinegun_ap = preload("res://scenes/weapons/weapon_antiparasitic_machinegun.tscn").instantiate() as Weapon
-
-var shotgun_ab = preload("res://scenes/weapons/weapon_antibiotic_shotgun.tscn").instantiate() as Weapon
-var shotgun_av = preload("res://scenes/weapons/weapon_antiviral_shotgun.tscn").instantiate() as Weapon
-var shotgun_ap = preload("res://scenes/weapons/weapon_antiparasitic_shotgun.tscn").instantiate() as Weapon
 
 var _cur_slot = 0
 
 
 func _ready() -> void:
-	# demo inverntory with all three rifles
-	#rifle_ab.is_equipped = true
-	#weapons.push_back(rifle_ab)
-	#weapons.push_back(rifle_av)
-	#weapons.push_back(rifle_ap)
-	#
-	#weapons.push_back(machinegun_ab)
-	#weapons.push_back(machinegun_av)
-	#weapons.push_back(machinegun_ap)
-	#
-	#weapons.push_back(shotgun_ab)
-	#weapons.push_back(shotgun_av)
-	#weapons.push_back(shotgun_ap)
-	
-	for i in range(0, max_size):
+	for i in range(0, MAX_SIZE):
 		weapons.push_back(null)
 	
 	# set the current slot to the first slot with a weapon
@@ -82,7 +57,7 @@ func is_empty():
 	
 
 func reset():
-	for i in range(0, max_size):
+	for i in range(0, MAX_SIZE):
 		if weapons[i]:
 			weapons[i].queue_free()
 		weapons[i] = null
@@ -122,14 +97,14 @@ func _get_first_available_slot() -> int:
 			return i
 	return -1 	
 	
-	
+# find the next slot that can has a weapon, return _cur_slot if none was found
 func _get_next_available_slot(increment:int) -> int:
 	var next_slot = _cur_slot + increment
-	for i in range(0, max_size):
-		if next_slot >= max_size:
+	for i in range(0, MAX_SIZE):
+		if next_slot >= MAX_SIZE:
 			next_slot = 0
 		if next_slot < 0:
-			next_slot = max_size - 1
+			next_slot = MAX_SIZE - 1
 		if weapons[next_slot]:
 			return next_slot
 		next_slot = next_slot + increment
