@@ -232,7 +232,7 @@ var target_angle: float = (get_global_mouse_position() - global_position).angle(
 rotation += angle_diff * rotation_speed * delta
 ```
 
-### **Collidions with Movement**
+### **Collisions with Movement**
 The player's collision is dynamically checked against obstacles during the dash. A dot product calculation ensures the player stops if colliding against an obstacle in their path.
 
 ```gdscript
