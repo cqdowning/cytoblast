@@ -222,17 +222,11 @@ enum PlayerState {
     DASHING,
 }
 ```
-### **Player States**
-The player's movement and actions are governed by an enum-based state machine (`PlayerState`):
-- **IDLE**: The default state when the player is not moving or performing actions.
-- **MOVING**: Active state when the player moves based on directional input.
-- **DASHING**: A high-speed burst movement with temporary invulnerability.
-- **MELEE**: Engaged during close-combat attacks.
 
-### **Player States**
-Player movement is implemented using Godot's `move_and_slide()` method, which handles collision detection during movement. The `move()` function calculates the movement vector based on player input and normalizes the velocity to ensure consistent speed regardless of input magnitude.
+### **Movement Logic**
+Player movement is implemented using Godot's `move_and_slide()` method, which handles collision detection during movement. The `move()` function calculates the movement vector based on player input and normalizes the velocity to ensure consistent speed regardless of input magnitude. It uses a command pattern through classes like [move_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=melee_command.gd-,move_command,-.gd) and [dash_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd) that provide decoupled input handling, consistent movement behavior, easy extension for new movement types, and clean separation of concerns. This architecture allows for complex movement mechanics while maintaining clean, maintainable code. The hybrid physics approach (using both engine physics and custom calculations) provides precise control while maintaining realistic collisions and interactions. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions.
 
-### **Player States**
+### **Smooth Rotation**
 The player's orientation is dynamically aligned with the mouse cursor using smooth interpolation `(lerp)` for fluid aiming.
 
 ```gdscript
@@ -240,7 +234,17 @@ var target_angle: float = (get_global_mouse_position() - global_position).angle(
 rotation += angle_diff * rotation_speed * delta
 ```
 
-The movement system uses a command pattern through classes like [move_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=melee_command.gd-,move_command,-.gd) and [dash_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd) that provide decoupled input handling, consistent movement behavior, easy extension for new movement types, and clean separation of concerns. This architecture allows for complex movement mechanics while maintaining clean, maintainable code. The hybrid physics approach (using both engine physics and custom calculations) provides precise control while maintaining realistic collisions and interactions. For combat mechanics, I implemented specialized collision layers that handle different interaction types - [player movement collisions](https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L177C1-L190C34) are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
+### **Collidions with Movement**
+The player's collision is dynamically checked against obstacles during the dash. A dot product calculation ensures the player stops if colliding against an obstacle in their path.
+
+```gdscript
+for i in get_slide_collision_count():
+    var collision = get_slide_collision(i)
+    if direction.normalized().dot(collision.get_normal()) < -0.5:
+        blocking_dash = true
+        break
+```
+I implemented specialized collision layers that handle different interaction types - [player movement collisions](https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L177C1-L190C34) are separate from combat hitboxes, and projectiles have their own collision masks. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
 
 We created a hybrid system where core movement and collisions use the physics engine, but many features like weapon handling, projectile behavior, and enemy movement use custom calculations outside the physics system. This approach allows for precise control while maintaining proper physics interactions where needed.
 
