@@ -145,17 +145,17 @@ The game is designed for Desktop, I thought about adding game controller inputs 
 
 ## Movement/Physics - Cory Pham
 
-Our game uses a hybrid approach to physics and movement, building upon Godot's CharacterBody2D system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
+Our game uses a hybrid approach to physics and movement, building upon Godot's [CharacterBody2D][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=player.-,tscn,-scripts] system while implementing custom mechanics for precise control. The movement system centers around mouse-aimed directional movement, where the player smoothly rotates to face the cursor while maintaining independent movement direction through our 
 [command pattern implementation.](https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=commands-,command,-.gd)
 
 Key Features:
 - Base Movement System
-  - Top-down movement with independent rotation
+  - [Top-down movement][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=melee_command.gd-,move_command,-.gd] with independent rotation
   - Mouse-aimed directional control
   - Smooth rotation interpolation
   - Configurable movement speeds and sensitivity
 - Advanced Movement Mechanics
-  - Dash ability with configurable distance and speed
+  - [Dash ability][https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd] with configurable distance and speed
   - Invulnerability frames during dash
   - Cooldown system for abilities
   - Momentum-based movement transitions
@@ -199,9 +199,9 @@ Key Features:
       - Specialized audio feedback
       - State-based behavior patterns
 
-While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The weapon system particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
+While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The [weapon system][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=projectiles-,weapons,-audio_manager.tscn] particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
 
-I modified the standard physics model by implementing several custom systems. The player movement uses a command pattern for precise control, allowing for custom velocity calculations and smooth rotation towards the mouse cursor. For combat mechanics, I implemented specialized collision layers that handle different interaction types - player movement collisions are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
+I modified the standard physics model by implementing several custom systems. The player movement system is built around the [Player class][https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=player.-,gd,-restart_button.gd], which extends `CharacterBody2D`. It uses a command pattern for precise control, allowing for custom velocity calculations and [smooth rotation][https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L80C1-L88C49] towards the mouse cursor. The movement system uses a command pattern through classes like [move_command[https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=melee_command.gd-,move_command,-.gd] and [dash_command][https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd] that provide decoupled input handling, consistent movement behavior, easy extension for new movement types, and clean separation of concerns. This architecture allows for complex movement mechanics while maintaining clean, maintainable code. The hybrid physics approach (using both engine physics and custom calculations) provides precise control while maintaining realistic collisions and interactions. For combat mechanics, I implemented specialized collision layers that handle different interaction types - [player movement collisions][https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L177C1-L190C34] are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
 
 We created a hybrid system where core movement and collisions use the physics engine, but many features like weapon handling, projectile behavior, and enemy movement use custom calculations outside the physics system. This approach allows for precise control while maintaining proper physics interactions where needed.
 
