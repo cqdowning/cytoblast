@@ -67,7 +67,7 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 *Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving.
 
 ### Templates and Design
-As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed.
+As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed. I also took on any tasks that needed to be completed quickly but the other team members already had work or the feature did not apply to the other roles.
 
 *Test Levels* - Added two test levels with a basic tileset that had collision. This was important for testing player movement and level switching. They were then deleted in favor of the actual levels. [Commit for test levels](https://github.com/cqdowning/cytoblast/commit/32fd5fb390c1da6cdbb137b5f64c261a54b865b7)
 
@@ -81,15 +81,15 @@ As the producer, I was responsible for the game design. To ensure everyone was o
 * Have around 5 rooms per level
 * Levels should get progressively more difficult
 
-The first level was what was used in our demo. The main problem with level design was that the difficulty of the demo level varied a lot with playtesters. Players more experienced with the genre felt it was too easy while other players struggled to get past the first enemy. I decided to make the first enemies of the levels all take one hit to defeat. In the end, level 1 went mostly unchanged after the demo since I felt it had a decent base line difficulty. 
+The first level was what was used in our demo. The main problem with level design was that the difficulty of the demo level varied a lot with playtesters. Players more experienced with the genre felt it was too easy while other players struggled to get past the first enemy. I decided to make the first enemies of the levels all take one hit to defeat. In the end, level 1 went mostly unchanged after the demo since I felt it had a decent base line difficulty. After a few attempts, level 1 should be fairly easy to get past due to its large levels and low enemy count.
 
 ![Layout for Level 1](./project_doc_images/Level_1_Layout.PNG "Layout for Level 1")
 
-Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
+Level 2 increases the difficulty level by having more enemies and it has some more interesting room layouts. I tried to keep room sizes smaller to force more tense situations and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
 
 ![Layout for Level 2](./project_doc_images/Level_2_Layout.PNG "Layout for Level 2")
 
-Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead.
+Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. The rooms also spawn multiple sets of enemies over time. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. Additionally, I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead. Overall, I think it feels like a proper final level.
 
 ![Layout for Level 3](./project_doc_images/Level_3_Layout.PNG "Layout for Level 3")
 
@@ -98,6 +98,12 @@ Level 3 is the last level so I wanted to make it feel more like a final gauntlet
 
 *Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
+
+*Shooter Enemy* - The first enemy to be implemented was the "shooter" or bacteria enemy. I created the enemy using the enemy base class that I wrote. I implemented the _ai and _shoot functions inside the class to make the bacteria move and shoot. The bacteria will try to stay at a certain distance away from the player and shoot towards the player at a constant rate. I implemented this enemy myself to push along development and provide an example of how enemy behavior should be written.
+[Shooter Enemy Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd)
+
+*Weapons* - I ended up adding all three weapon types, each with three damage type variants. The weapons are built from the weapon base class. The weapons implement the shoot function to handle their behavior. The rifle fires in a straight line towards the cursor. The machine gun has a random spread. The shotgun fires multiple bullets at once with a spread. This was also when I added the projectile speed variation to the weapons as detailed in the Game Feel section.
+[Machine Gun Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_machinegun.gd) / [Rifle Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_rifle.gd) / [Shotgun Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_shotgun.gd)
 
 ### Cut Features
 There were several features that I decided to cut due to time constraints. If we were to continue updating the game, these are features that could be added.
@@ -408,7 +414,7 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Damage Indicator* - Added a damage indicator similar to the one found in Exercise 3. Hitting an enemy creates a damage indicator. This indicator will be a bright color and larger when a weapon is super effective against an enemy. The indicator is gray and smaller when the weapon is ineffective against an enemy. This helps the player learn quickly about the type advantage system. Also, watching big numbers pop out of enemies is satisfying.
 [Damage Indicator Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/effects/damage_indicator.gd) 
 
-*Bullet Variation* - The bullets the player fires have a slight variation in their speed. All weapons also fire in a spread, although the rifle has the smallest spread. This makes the weapons a little more interesting since the bullets will move at slightly different rates. This was especially important for the shotgun so that the bullets did not move in a straight line.
+*Bullet Variation* - The bullets the player fires have a slight variation in their speed. All weapons also fire in a spread, although the rifle has the smallest spread. This makes the weapons a little more interesting since the bullets will move at slightly different angles and speeds. This was especially important for the shotgun so that the bullets did not move in a straight line.
 [Commit with weapons and their shoot code](https://github.com/cqdowning/cytoblast/commit/0e5db44b27ee48765a37aa0cffcda318c1f70628#diff-7d16909ae436c17648e5367112d3e4720d46d3b6617eb0d86dba7ab40d0aacba) 
 
 *Player immune to damage during dash* - It’s fairly common for playable characters with dash abilities to have immunity during the dash. This was especially important since our game doesn’t have set bullet patterns. There could be situations where enemy attacks are completely unavoidable without dashing through them.
@@ -428,10 +434,15 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 
 ![Offset Items](./project_doc_images/Offset_Items.PNG "Offset Items")
 
+*Slight offset on thrown weapon* - I Made the sprite of the thrown weapon slightly off-centered. This makes the projectile look more interesting as the sprite rotates around the center. It makes the weapon feel as though it has real weight.
+[Thrown weapon scene](https://github.com/cqdowning/cytoblast/blob/main/scenes/projectiles/projectile_thrown_weapon.tscn)
+
+![Thrown weapon](./project_doc_images/Thrown_Weapon.PNG "Thrown weapon")
+
 *Balancing* - Over the course of development I made various balance changes to all parts of the game. For the player, I tweaked player movement speed and dash speed and distance. For weapons, I changed the fire rates, projectile speeds, max ammo, and damage. For enemies, I tuned their health, damage, movement speed and attack rate. For example, one of the major pieces of feedback I received from playtesters was that melee was too difficult. I tried to make melee a bit easier by making it faster and having a larger hitbox than the animation.
 [Commit for buffing melee](https://github.com/cqdowning/cytoblast/commit/1b04e22958873133124a5676dd3ca53dd25dc9ca) 
 
-### Further Improvements
+### Further Possible Improvements
 *Hitstop on damage* - I would have liked to experiment with hitstop effects during gameplay. For example, a brief pause on getting hit to make taking damage feel more impactful.
 
 *Enemy hit and death effects* - Enemies do not react to being hit at all except for a sound effect. There are also no effects or animation for an enemy being defeated. I think adding particles and some kind of animation to hit and death effects would help make defeating enemies feel more satisfying.
