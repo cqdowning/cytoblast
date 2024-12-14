@@ -287,18 +287,21 @@ This implementation creates a responsive, fluid movement system with engaging we
 
 All the assets were hand-drawn. This includes:
 
-* Player sprites and animation
-* Enemy sprites and animation
-* Weapon and bullet sprites
-* Tileset of walls and background
-* Health item, objects and decal for decor
-* UI design (health bar, game title and buttons)
+- Player sprites and animation
+- Enemy sprites and animation
+- Weapon and bullet sprites
+- Tileset of walls and background
+- Health item
+- Decorative objects and decal
+- UI design (health bar, game title and buttons)
 
-When drawing the animations, I exported the individual sprites and used an [online spritesheet maker](https://www.finalparsec.com/tools/sprite_sheet_maker). When implementing the animation, I had to tinker with the AnimationPlayer’s key frames to make the animation smooth.
+I opted to use a hand-drawn visual style as that's what I'm familiar with. The players and enemies look like cells but in a Western cartoon style. I used FireAlpaca for the drawing software and used their preset brush "Fluffy" for a hand-drawn/cartoonish feel.
+
+Since the animations were simple, I used an Animation Player that modifies the sprites' frames. When drawing the animations, I exported the individual sprites and used an [online spritesheet maker](https://www.finalparsec.com/tools/sprite_sheet_maker). When implementing the animation, I had to tinker with the AnimationPlayer’s key frames to make the animation smooth.
 
 I created a [theme](https://github.com/cqdowning/cytoblast/blob/main/assets/default_theme.tres), or .tres file, to implement the button sprites. I had to draw them in a way that allows me to apply “Nine Slice” margins. This way, the sprite can be stretched without looking weird.
 
-All my work related directly to the narrative core of the game. Almost every sprite has the look of a cell or microorganism, whether it be an enemy or a health item. I made the walls look like long cells, and drew background tiles with tiny cells or DNA strands as decoration. Since my sub-role is narrative design, more details about how the art intersects with world-building and narration will be in that sub-role’s summary.
+All my work related directly to the narrative core of the game. Almost every sprite has the look of a cell or micro-organism, whether it be an enemy or a health item. I made the walls look like long cells, and drew background tiles with tiny cells or DNA strands as decoration. Since my sub-role is narrative design, more details about how the art intersects with world-building and narration will be in that sub-role’s summary.
 
 For the visual style guide, I created a [design document](https://docs.google.com/document/d/158W1hcS9_ig8T-zrRVKkaezIWNe5X8yCE7sUagEImhA/edit?pli=1&tab=t.0) to house the color palettes, inspiration and reference images, and any extra design info I might need. I also created a [Todo List](https://docs.google.com/document/d/1KbzWFUy0fizjDJrwQ3nopHDPXG2zpBGNWMK9zKoEpvw/edit?pli=1&tab=t.0) to manage my tasks.
 
@@ -393,19 +396,21 @@ The sounds can get overwhelming at times, especially with many concurrent enemy 
 
 I originally wanted to add dialogue for the narration, but I unfortunately ran out of time. Instead, I tried to focus on implementing the narration via the assets, since it was my main role.
 
+I used microscope images of white blood cells to determine the player's look. There were different white blood cell types, so I combined their looks: Neutrophil (bacteria killer), Eosinophil (parasite killer), and Lymphocyte (virus killer). Since the player is a "super soldier" white blood cell, this implies that it's a mutation of different types to enhance its strengths.
+
 I gave the player an 80% opacity to the body color, making it look like cell fluid. I also did this for the buttons and game title, because their looks and colors are based on the player. There are cell objects that are drawn like the player but have 100% opacity. They are meant to be previous white blood cells that failed and “died”, making their body dense like a tumor cell.
 
 ![Animated GIF of the player cell moving](./presskit_stuff/art_player.gif)
 
 ## Press Kit - Noor Ashour
 
-[Presskit link](https://petal-shaker-cb1.notion.site/Cytoblast-Press-Kit-15bc1f53cf568017b059e4f6a9154db3)
+[Press kit link](https://petal-shaker-cb1.notion.site/Cytoblast-Press-Kit-15bc1f53cf568017b059e4f6a9154db3)
 
-[Presskit materials](./presskit_stuff/)
+[Press kit materials](https://github.com/cqdowning/cytoblast/blob/main/presskit_stuff)
 
-The press kit was made using Notion as I was already familiar with it, and it has a feature where you can publish a Notion page as a website. I also found a game press kit template, so I used that to gather what kinds of content I need for the press kit. I embedded the trailer’s video link, created screenshots and GIFs, and added the player’s color palette to serve as the itch.io page color palette.
+The press kit was made using Notion as I was already familiar with it, and it has a feature where you can publish a Notion page as a website. I also found a game press kit template, so I used that to gather what kinds of content I need for the press kit. I embedded the trailer’s video link, created screenshots and GIFs, and added the player’s color palette to serve as the game brand's colors.
 
-The screenshots were chosen to show the gameplay and the different enemies. Additional screenshots show the UI, such as the main menu and credits scene. A GIF of the gameplay was also included to hopefully showcase on the Itch.io (when you hover over a game title’s card, which can draw more attention if it includes a GIF).
+The screenshots were chosen to show the gameplay and the different enemies. Additional screenshots show the UI, such as the main menu and credits scene. A GIF of the gameplay was also included to showcase the gameplay in action.
 
 ## Trailer - Casey Downing
 
