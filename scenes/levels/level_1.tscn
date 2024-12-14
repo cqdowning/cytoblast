@@ -237,7 +237,6 @@ texture = ExtResource("9_uqgja")
 [node name="Pest3" type="Sprite2D" parent="Decal/Pests" index="2"]
 position = Vector2(1130, -142)
 rotation = 0.785398
-scale = Vector2(1, 1)
 texture = ExtResource("9_uqgja")
 
 [node name="Pest4" type="Sprite2D" parent="Decal/Pests" index="3"]

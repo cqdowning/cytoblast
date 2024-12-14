@@ -19,7 +19,7 @@ func _ready() -> void:
 	for i in range(0, MAX_SIZE):
 		weapons.push_back(null)
 	
-	# set the current slot to the first slot with a weapon
+	# Set the current slot to the first slot with a weapon
 	for i in range(weapons.size()):
 		if weapons[i]:
 			_cur_slot = i
@@ -69,7 +69,7 @@ func drop_weapon() -> void:
 func add_weapon(weapon: Weapon) -> void:
 	var picking_up_from_empty: bool = is_empty()
 	var slot_to_fill: int = _get_first_available_slot()
-	# only pick up a weapon if there is an open space in the inventory
+	# Only pick up a weapon if there is an open space in the inventory
 	if slot_to_fill == -1:
 		return
 	weapons[slot_to_fill] = weapon
@@ -79,20 +79,20 @@ func add_weapon(weapon: Weapon) -> void:
 	get_tree().current_scene.remove_child(weapon)
 	weapon_added.emit(weapon, slot_to_fill)
 	audio_manager.play_weapon_pickup()
-	# equip the weapon if the inventory was previously empty
+	# Equip the weapon if the inventory was previously empty
 	if picking_up_from_empty:
 		weapon_changed.emit(_cur_slot)
 	
 
 func _get_first_available_slot() -> int:
 	for i in range(weapons.size()):
-		# return the first null slot
+		# Return the first null slot
 		if !weapons[i]:
 			return i
 	return -1 	
 
 
-# find the next slot that can has a weapon, return _cur_slot if none was found
+# Find the next slot that can has a weapon, return _cur_slot if none was found
 func _get_next_available_slot(increment: int) -> int:
 	var next_slot: int = _cur_slot + increment
 	for i in range(0, MAX_SIZE):
@@ -110,14 +110,14 @@ func _switch_to_closest_taken_slot() -> void:
 	var next_above: int = _get_next_available_slot(1)
 	var next_below: int = _get_next_available_slot(-1)
 	
-	# prioritize autoequipping the next weapon above, then below
+	# Prioritize autoequipping the next weapon above, then below
 	if next_above != _cur_slot:
 		_cur_slot = next_above
 		weapon_changed.emit(_cur_slot)
 	elif next_below != _cur_slot:
 		_cur_slot = next_below
 		weapon_changed.emit(_cur_slot)
-	# if the inventory is empty, set the current slot to 0
+	# If the inventory is empty, set the current slot to 0
 	else:
 		_cur_slot = 0
 		game_manager.no_weapon.emit()

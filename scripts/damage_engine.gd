@@ -28,6 +28,6 @@ static func damage_multiplier(projectile: Projectile, enemy: Enemy) -> float:
 		elif enemy.type == Enemy.Type.PARASITE:
 			return 1.5
 			
-	# return 1.0 if either type is NONE	
+	# Return 1.0 if either type is NONE	
 	return 1.0
 	

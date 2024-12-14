@@ -23,7 +23,7 @@ func shoot() -> void:
 	super()
 	can_shoot = false
 	
-	# Create and setup projectile
+	# Create and setup projectiles
 	for i in projectile_amount:
 		var projectile: Projectile = projectile_scene.instantiate()
 		get_tree().current_scene.add_child(projectile)

@@ -139,9 +139,7 @@ func _on_melee_completed() -> void:
 
 
 func perform_dash(direction: Vector2) -> void:
-	#print("Perform dash called, can_dash:", can_dash) # Debug print
 	if not can_dash or direction.length() == 0:
-		#print("Dash cancelled - can_dash:", can_dash, " direction:", direction.length()) # Debug print
 		return
 	
 	audio_manager.play_player_dash()

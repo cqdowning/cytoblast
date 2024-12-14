@@ -30,6 +30,7 @@ func _on_body_entered(body: Node2D) -> void:
 	call_deferred("add_sibling", explosion)
 	explosion.global_position = global_position
 	explosion.set_properties(damage, type, 0)
+	# Change sprite of the explosion effect
 	var effect: Sprite2D
 	if type == Weapon.Type.ANTIBIOTIC:
 		effect = antibiotic_explosion_effect.instantiate()

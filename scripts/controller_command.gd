@@ -35,37 +35,31 @@ func _process(_delta):
 	
 	# Execute melee command
 	if Input.is_action_pressed("shoot"):
-		#print("Attack pressed")
 		var melee_command: Command = MeleeCommand.new()
 		melee_command.execute(player)
 	
 	# Execute dash command
 	if Input.is_action_just_pressed("dash"):
-		#print("Dash pressed")
 		var dash_command: Command = DashCommand.new(direction)
 		dash_command.execute(player)
 	
 	# Execute shoot command
 	if Input.is_action_pressed("shoot"):
-			#print("Shoot pressed")
 			var shoot_command: Command = ShootCommand.new()
 			shoot_command.execute(player)
 			
 	# Execute shoot command
 	if Input.is_action_just_pressed("throw"):
-			#print("Throw pressed")
 			var throw_command: Command = ThrowCommand.new()
 			throw_command.execute(player)
 			
 	
 	if Input.is_action_just_pressed("next_weapon"):
-			#print("Throw pressed")
 			var next_weapon: Command = NextWeaponCommand.new()
 			next_weapon.execute(player)
 			
 	
 	if Input.is_action_just_pressed("prev_weapon"):
-			#print("Throw pressed")
 			var prev_weapon: Command = PrevWeaponCommand.new()
 			prev_weapon.execute(player)
 	

@@ -6,5 +6,5 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	# jump to scene level_1.tscn
+	# Jump to scene level_1.tscn
 	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")

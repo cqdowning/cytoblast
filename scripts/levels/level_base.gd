@@ -23,6 +23,7 @@ func _ready() -> void:
 
 
 func _process(_delta) -> void:
+	# Debug key, leaving this in to make testing and experiencing the entire game easier
 	if Input.is_action_just_pressed("skip"):
 		_on_level_end_gate_body_entered(player)
 

@@ -29,7 +29,7 @@ func _physics_process(delta):
 	# Move the projectile
 	position += direction * speed * delta
 	# Optional: rotate projectile in movement direction
-	# rotation = direction.angle()
+	#rotation = direction.angle()
 
 
 func set_properties(proj_damage: float, proj_type: Weapon.Type, proj_speed: float) -> void:

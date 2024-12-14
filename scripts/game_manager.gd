@@ -33,14 +33,14 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:		
-	# emit signal once the room is complete
+	# Emit signal once the room is complete
 	if room_active and enemies_remaining == 0:
 		room_over.emit(room_id)	
 		room_active = false
 
 
 func change_level(next_level: PackedScene) -> void:
-	# reset the room id, each level's rooms will be indexed starting at 1
+	# Reset the room id, each level's rooms will be indexed starting at 1
 	room_id = 0
 	get_tree().call_deferred("change_scene_to_packed", next_level)
 	current_inventory.reset()
