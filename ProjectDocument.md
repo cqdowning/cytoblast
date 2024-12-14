@@ -62,12 +62,16 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 *Git Workflow* - For every feature we implemented, we created new branches in the git repository that were based on the development branch. Once a feature was complete, we would create a pull request. As the producer, I would test the feature and fix any merge conflicts or sometimes bugs for critical features. Once I felt the feature was ready, I would merge the feature into the development branch. After the branch was merged, I would delete that branch to reduce the clutter.
 
 ### Logistics Problems
-*Code Style* - Towards the end of development, the code style was not consistent. I thought we would all be following the same code style guidelines from Godot but that ended up not being the case. Even with the code style guide, people have different preferences that resulted in the code style varying in different areas. For example, the code style guide recommends using plain english, such as “and,” “or,” and “not,” for boolean operators but some of us used the traditional operators (I myself am guilty of this). I took responsibility for not establishing strict style guides sooner and I went through the code and fixed the inconsistencies myself.
+*Code Style* - Towards the end of development, the code style was not consistent. I thought we would all be following the same code style guidelines from Godot but that ended up not being the case. Even with the code style guide, people have different preferences that resulted in the code style varying in different areas. For example, the code style guide recommends using plain english, such as “and,” “or,” and “not,” for boolean operators but some of us used the traditional operators (I myself am guilty of this). I took responsibility for not establishing strict style guides sooner and I went through the code and fixed the inconsistencies myself. [Example of a clean up commit](https://github.com/cqdowning/cytoblast/commit/66ca6fc33ac363ed88e81b9b032c52c7dce5f479#diff-3be4409557b9095a29d84623584be93cd46579b0a28239eea3677f5a84533856)
 
-*Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving.
+*Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving. 
+
+#### Closing Thoughs on Logistics Problems
+
+I have never worked on such a large project that required development to be this fast-paced, let alone one where I had to manage a team. I vastly underestimated how long it would take to develop certain features. I feel like I could have made more efficient use of my team members' time by the aforementioned scheduling and keeping better track of all the features. Nevertheless, Cytoblast became an incredible learning experience for me and I feel I better understand what it takes to be a project manager.
 
 ### Templates and Design
-As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed.
+As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed. I also took on any tasks that needed to be completed quickly but the other team members already had work or the feature did not apply to the other roles.
 
 *Test Levels* - Added two test levels with a basic tileset that had collision. This was important for testing player movement and level switching. They were then deleted in favor of the actual levels. [Commit for test levels](https://github.com/cqdowning/cytoblast/commit/32fd5fb390c1da6cdbb137b5f64c261a54b865b7)
 
@@ -81,15 +85,15 @@ As the producer, I was responsible for the game design. To ensure everyone was o
 * Have around 5 rooms per level
 * Levels should get progressively more difficult
 
-The first level was what was used in our demo. The main problem with level design was that the difficulty of the demo level varied a lot with playtesters. Players more experienced with the genre felt it was too easy while other players struggled to get past the first enemy. I decided to make the first enemies of the levels all take one hit to defeat. In the end, level 1 went mostly unchanged after the demo since I felt it had a decent base line difficulty. 
+The first level was what was used in our demo. The main problem with level design was that the difficulty of the demo level varied a lot with playtesters. Players more experienced with the genre felt it was too easy while other players struggled to get past the first enemy. I decided to make the first enemies of the levels all take one hit to defeat. In the end, level 1 went mostly unchanged after the demo since I felt it had a decent base line difficulty. After a few attempts, level 1 should be fairly easy to get past due to its large levels and low enemy count.
 
 ![Layout for Level 1](./project_doc_images/Level_1_Layout.PNG "Layout for Level 1")
 
-Level 2 increases the difficulty level and has some more interesting room layouts. I tried to keep room sizes smaller and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
+Level 2 increases the difficulty level by having more enemies and it has some more interesting room layouts. I tried to keep room sizes smaller to force more tense situations and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
 
 ![Layout for Level 2](./project_doc_images/Level_2_Layout.PNG "Layout for Level 2")
 
-Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead.
+Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. The rooms also spawn multiple sets of enemies over time. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. Additionally, I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead. Overall, I think it feels like a proper final level.
 
 ![Layout for Level 3](./project_doc_images/Level_3_Layout.PNG "Layout for Level 3")
 
@@ -98,6 +102,12 @@ Level 3 is the last level so I wanted to make it feel more like a final gauntlet
 
 *Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
+
+*Shooter Enemy* - The first enemy to be implemented was the "shooter" or bacteria enemy. I created the enemy using the enemy base class that I wrote. I implemented the _ai and _shoot functions inside the class to make the bacteria move and shoot. The bacteria will try to stay at a certain distance away from the player and shoot towards the player at a constant rate. I implemented this enemy myself to push along development and provide an example of how enemy behavior should be written.
+[Shooter Enemy Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd)
+
+*Weapons* - I ended up adding all three weapon types, each with three damage type variants. The weapons are built from the weapon base class. The weapons implement the shoot function to handle their behavior. The rifle fires in a straight line towards the cursor. The machine gun has a random spread. The shotgun fires multiple bullets at once with a spread. This was also when I added the projectile speed variation to the weapons as detailed in the Game Feel section.
+[Machine Gun Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_machinegun.gd) / [Rifle Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_rifle.gd) / [Shotgun Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_shotgun.gd)
 
 ### Cut Features
 There were several features that I decided to cut due to time constraints. If we were to continue updating the game, these are features that could be added.
@@ -179,13 +189,17 @@ Key Features:
     - Antiviral: Counters virus enemies
     - Antiparasitic: Specialized for parasites
   - Enemy Movement Types
-    - Turret (Virus Type):
+    - [Shooter](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd) (Bacteria Type):
+      - Intermediate movement enemy
+      - Shoots at player with green projectiles
+      - Relatively slow and timer-based movement
+    - [Turret](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/turret.gd) (Virus Type):
       - Stationary defensive enemy
       - Rotates to track player position
       - Fires projectiles in ring patterns
       - Uses timer-based movement phases
       - Alternates between stationary attack and repositioning
-    - Biter (Parasite Type):
+    - [Biter](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/biter.gd) (Parasite Type):
       - Aggressive melee enemy
       - Direct chase behavior towards player
       - Quick burst movements
@@ -202,8 +216,6 @@ Key Features:
 While we utilize Godot's physics engine as a foundation, we've implemented significant customizations for more precise control and game-specific mechanics. The [weapon system](https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=projectiles-,weapons,-audio_manager.tscn) particularly demonstrates this with custom projectile physics, spread patterns, and interaction systems.
 
 ![movement video](project_doc_images/movement.gif)
-
-I modified the standard physics model by implementing several custom systems. The player movement system is built around the [Player class](https://github.com/cqdowning/cytoblast/edit/main/ProjectDocument.md#:~:text=player.-,gd,-restart_button.gd), which extends `CharacterBody2D`. It uses a state machine to manage player states for precise control, allowing for custom velocity calculations and [smooth rotation](https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L80C1-L88C49) towards the mouse cursor. 
 
 The movement system in this project is built around the `Player` class, which extends `CharacterBody2D` in Godot. It uses a **state machine** to manage player states and integrates custom logic for various movement types such as walking, dashing, and melee attacks. This design ensures clean separation of concerns and allows for precise control and easy extensibility.
 
@@ -222,17 +234,11 @@ enum PlayerState {
     DASHING,
 }
 ```
-### **Player States**
-The player's movement and actions are governed by an enum-based state machine (`PlayerState`):
-- **IDLE**: The default state when the player is not moving or performing actions.
-- **MOVING**: Active state when the player moves based on directional input.
-- **DASHING**: A high-speed burst movement with temporary invulnerability.
-- **MELEE**: Engaged during close-combat attacks.
 
-### **Player States**
-Player movement is implemented using Godot's `move_and_slide()` method, which handles collision detection during movement. The `move()` function calculates the movement vector based on player input and normalizes the velocity to ensure consistent speed regardless of input magnitude.
+### **Movement Logic**
+Player movement is implemented using Godot's `move_and_slide()` method, which handles collision detection during movement. The `move()` function calculates the movement vector based on player input and normalizes the velocity to ensure consistent speed regardless of input magnitude. It uses a command pattern through classes like [move_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=melee_command.gd-,move_command,-.gd) and [dash_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd) that provide decoupled input handling, consistent movement behavior, easy extension for new movement types, and clean separation of concerns. This architecture allows for complex movement mechanics while maintaining clean, maintainable code. The hybrid physics approach (using both engine physics and custom calculations) provides precise control while maintaining realistic collisions and interactions. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions.
 
-### **Player States**
+### **Smooth Rotation**
 The player's orientation is dynamically aligned with the mouse cursor using smooth interpolation `(lerp)` for fluid aiming.
 
 ```gdscript
@@ -240,7 +246,30 @@ var target_angle: float = (get_global_mouse_position() - global_position).angle(
 rotation += angle_diff * rotation_speed * delta
 ```
 
-The movement system uses a command pattern through classes like [move_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=melee_command.gd-,move_command,-.gd) and [dash_command](https://github.com/cqdowning/cytoblast/blob/main/scripts/player.gd#L80C1-L88C49:~:text=command.gd-,dash_command,-.gd) that provide decoupled input handling, consistent movement behavior, easy extension for new movement types, and clean separation of concerns. This architecture allows for complex movement mechanics while maintaining clean, maintainable code. The hybrid physics approach (using both engine physics and custom calculations) provides precise control while maintaining realistic collisions and interactions. For combat mechanics, I implemented specialized collision layers that handle different interaction types - [player movement collisions](https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L177C1-L190C34) are separate from combat hitboxes, and projectiles have their own collision masks. The dash system features temporary invulnerability frames with modified collision behaviors, allowing players to dash through enemies while maintaining wall collisions. Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
+### **Collisions with Movement**
+The player's collision is dynamically checked against obstacles during the dash. A dot product calculation ensures the player stops if colliding against an obstacle in their path.
+
+```gdscript
+for i in get_slide_collision_count():
+    var collision = get_slide_collision(i)
+    if direction.normalized().dot(collision.get_normal()) < -0.5:
+        blocking_dash = true
+        break
+```
+I implemented specialized collision layers that handle different [interaction player types](https://github.com/cqdowning/cytoblast/blob/4d57b39c29fd9ce0c9d3ad59480c4515fcf127e1/scripts/player.gd#L177C1-L190C34) that are separate from combat hitboxes, and projectiles have their own collision masks. 
+Collision Layers:
+1. Player Movement Collisions: Handles general movement and environmental interactions.
+2. Combat Hitboxes: Independent hitboxes for melee attacks, ensuring precise damage calculation.
+3. Projectile Collisions: Custom masks for weapon projectiles, allowing distinct behaviors for different projectile types.
+
+### **Projectile Interactions**
+Thrown weapons and projectiles are dynamically instantiated and launched in the direction of the mouse cursor. Each projectile uses its own collision layer and applies damage to enemies upon impact.
+
+```gdscript
+var projectile:ProjectileThrownWeapon = thrown_weapon_scene.instantiate()
+projectile.launch(global_position, direction)
+```
+Each weapon type has unique [projectile physics](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player.gd#:~:text=levels-,projectiles,-projectile_base.gd): rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
 
 We created a hybrid system where core movement and collisions use the physics engine, but many features like weapon handling, projectile behavior, and enemy movement use custom calculations outside the physics system. This approach allows for precise control while maintaining proper physics interactions where needed.
 
@@ -353,7 +382,7 @@ The sounds can get overwhelming at times, especially with many concurrent enemy 
 - There were also a couple of requests for a multiplayer mode, which could be an interesting addition to the game
 - The HUD could also just use a little bit more polish, maybe eliminating the labels and just using some sort of higlight to show selected weapons
 
-## Narrative Design
+## Narrative Design - Noor Ashour
 
 I originally wanted to add dialogue for the narration, but I unfortunately ran out of time. Instead, I tried to focus on implementing the narration via the assets, since it was my main role.
 
@@ -361,7 +390,7 @@ I gave the player an 80% opacity to the body color, making it look like cell flu
 
 ![Animated GIF of the player cell moving](./presskit_stuff/art_player.gif)
 
-## Press Kit
+## Press Kit - Noor Ashour
 
 [Presskit link](https://petal-shaker-cb1.notion.site/Cytoblast-Press-Kit-15bc1f53cf568017b059e4f6a9154db3)
 
@@ -389,7 +418,7 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Damage Indicator* - Added a damage indicator similar to the one found in Exercise 3. Hitting an enemy creates a damage indicator. This indicator will be a bright color and larger when a weapon is super effective against an enemy. The indicator is gray and smaller when the weapon is ineffective against an enemy. This helps the player learn quickly about the type advantage system. Also, watching big numbers pop out of enemies is satisfying.
 [Damage Indicator Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/effects/damage_indicator.gd) 
 
-*Bullet Variation* - The bullets the player fires have a slight variation in their speed. All weapons also fire in a spread, although the rifle has the smallest spread. This makes the weapons a little more interesting since the bullets will move at slightly different rates. This was especially important for the shotgun so that the bullets did not move in a straight line.
+*Bullet Variation* - The bullets the player fires have a slight variation in their speed. All weapons also fire in a spread, although the rifle has the smallest spread. This makes the weapons a little more interesting since the bullets will move at slightly different angles and speeds. This was especially important for the shotgun so that the bullets did not move in a straight line.
 [Commit with weapons and their shoot code](https://github.com/cqdowning/cytoblast/commit/0e5db44b27ee48765a37aa0cffcda318c1f70628#diff-7d16909ae436c17648e5367112d3e4720d46d3b6617eb0d86dba7ab40d0aacba) 
 
 *Player immune to damage during dash* - It’s fairly common for playable characters with dash abilities to have immunity during the dash. This was especially important since our game doesn’t have set bullet patterns. There could be situations where enemy attacks are completely unavoidable without dashing through them.
@@ -409,10 +438,18 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 
 ![Offset Items](./project_doc_images/Offset_Items.PNG "Offset Items")
 
+*Slight offset on thrown weapon* - I Made the sprite of the thrown weapon slightly off-centered. This makes the projectile look more interesting as the sprite rotates around the center. It makes the weapon feel as though it has real weight.
+[Thrown weapon scene](https://github.com/cqdowning/cytoblast/blob/main/scenes/projectiles/projectile_thrown_weapon.tscn)
+
+![Thrown weapon](./project_doc_images/Thrown_Weapon.PNG "Thrown weapon")
+
 *Balancing* - Over the course of development I made various balance changes to all parts of the game. For the player, I tweaked player movement speed and dash speed and distance. For weapons, I changed the fire rates, projectile speeds, max ammo, and damage. For enemies, I tuned their health, damage, movement speed and attack rate. For example, one of the major pieces of feedback I received from playtesters was that melee was too difficult. I tried to make melee a bit easier by making it faster and having a larger hitbox than the animation.
 [Commit for buffing melee](https://github.com/cqdowning/cytoblast/commit/1b04e22958873133124a5676dd3ca53dd25dc9ca) 
 
-### Further Improvements
+### Further Possible Improvements
 *Hitstop on damage* - I would have liked to experiment with hitstop effects during gameplay. For example, a brief pause on getting hit to make taking damage feel more impactful.
 
 *Enemy hit and death effects* - Enemies do not react to being hit at all except for a sound effect. There are also no effects or animation for an enemy being defeated. I think adding particles and some kind of animation to hit and death effects would help make defeating enemies feel more satisfying.
+
+# From the Cytoblast Team:
+Thank you for playing our game!
