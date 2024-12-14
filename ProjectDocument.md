@@ -10,7 +10,7 @@ Dive into the microscopic battlefield of Cytoblast, a high-octane top-down shoot
 
 [Trailer](https://youtu.be/lT30_l2WA_A)
 
-[Press Kit]()
+[Press Kit](https://petal-shaker-cb1.notion.site/Cytoblast-Press-Kit-15bc1f53cf568017b059e4f6a9154db3#3e2eb46ee41f4da993535af02411b883)
 
 [Proposal](https://docs.google.com/document/d/1MSlS52ui7cZe5zUArDbUQV3-Qev-chPhb2aMK8_9N7w/edit?usp=sharing) 
 
