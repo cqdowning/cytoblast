@@ -179,13 +179,17 @@ Key Features:
     - Antiviral: Counters virus enemies
     - Antiparasitic: Specialized for parasites
   - Enemy Movement Types
-    - Turret (Virus Type):
+    - [Shooter](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd)
+      - Intermediate movement enemy
+      - Shoots at player with green projectiles
+      - Relatively slow and timer-based movement
+    - [Turret](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/turret.gd) (Virus Type):
       - Stationary defensive enemy
       - Rotates to track player position
       - Fires projectiles in ring patterns
       - Uses timer-based movement phases
       - Alternates between stationary attack and repositioning
-    - Biter (Parasite Type):
+    - [Biter](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/biter.gd) (Parasite Type):
       - Aggressive melee enemy
       - Direct chase behavior towards player
       - Quick burst movements
@@ -255,7 +259,7 @@ Thrown weapons and projectiles are dynamically instantiated and launched in the 
 var projectile:ProjectileThrownWeapon = thrown_weapon_scene.instantiate()
 projectile.launch(global_position, direction)
 ```
-Each weapon type has unique projectile physics: rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
+Each weapon type has unique [projectile physics](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player.gd#:~:text=levels-,projectiles,-projectile_base.gd): rifles have straight-line trajectories with single-target penetration, shotguns implement spread patterns with multiple collision checks, and machine guns handle rapid-fire collision detection. Enemy types also feature distinct collision behaviors - Turrets have stationary collision zones for their rotating attacks, while Biters use dynamic collision detection for their chase and melee mechanics. This layered approach to physics and collisions creates a responsive combat system while maintaining consistent game feel.
 
 We created a hybrid system where core movement and collisions use the physics engine, but many features like weapon handling, projectile behavior, and enemy movement use custom calculations outside the physics system. This approach allows for precise control while maintaining proper physics interactions where needed.
 
