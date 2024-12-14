@@ -179,7 +179,7 @@ Key Features:
     - Antiviral: Counters virus enemies
     - Antiparasitic: Specialized for parasites
   - Enemy Movement Types
-    - [Shooter](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd)
+    - [Shooter](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/shooter.gd) (Bacteria Type):
       - Intermediate movement enemy
       - Shoots at player with green projectiles
       - Relatively slow and timer-based movement
