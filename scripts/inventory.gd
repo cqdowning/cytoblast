@@ -8,11 +8,11 @@ extends Node
 signal weapon_changed(cur_slot: int)
 signal weapon_added(weapon: Weapon, slot: int)
 
-const MAX_SIZE = 3
+const MAX_SIZE: int = 3
 
-var weapons:Array[Weapon]
+var weapons: Array[Weapon]
 
-var _cur_slot = 0
+var _cur_slot: int = 0
 
 
 func _ready() -> void:
@@ -26,7 +26,7 @@ func _ready() -> void:
 			return
 	
 		
-func switch_weapon(i: int):
+func switch_weapon(i: int) -> void:
 	var next_slot = _get_next_available_slot(i)
 	if next_slot == _cur_slot:
 		return
@@ -35,22 +35,22 @@ func switch_weapon(i: int):
 	audio_manager.play_weapon_switch()
 		
 		
-func current_weapon():
+func current_weapon() -> Weapon:
 	return weapons[_cur_slot]
 	
 		
-func get_current_slot():
+func get_current_slot() -> int:
 	return _cur_slot
 		
 		
-func is_empty():
+func is_empty() -> bool:
 	for weapon in weapons:
 		if weapon:
 			return false
 	return true
 	
 
-func reset():
+func reset() -> void:
 	for i in range(0, MAX_SIZE):
 		if weapons[i]:
 			weapons[i].queue_free()
@@ -58,7 +58,7 @@ func reset():
 	_cur_slot = 0
 
 	
-func drop_weapon():
+func drop_weapon() -> void:
 	if weapons[_cur_slot]:
 		weapons[_cur_slot].queue_free()
 		weapons[_cur_slot] = null
@@ -66,7 +66,7 @@ func drop_weapon():
 		_switch_to_closest_taken_slot()
 	
 
-func add_weapon(weapon:Weapon):
+func add_weapon(weapon: Weapon) -> void:
 	var picking_up_from_empty = is_empty()
 	var slot_to_fill = _get_first_available_slot()
 	# only pick up a weapon if there is an open space in the inventory
@@ -93,7 +93,7 @@ func _get_first_available_slot() -> int:
 
 
 # find the next slot that can has a weapon, return _cur_slot if none was found
-func _get_next_available_slot(increment:int) -> int:
+func _get_next_available_slot(increment: int) -> int:
 	var next_slot = _cur_slot + increment
 	for i in range(0, MAX_SIZE):
 		if next_slot >= MAX_SIZE:
