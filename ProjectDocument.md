@@ -446,3 +446,6 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Hitstop on damage* - I would have liked to experiment with hitstop effects during gameplay. For example, a brief pause on getting hit to make taking damage feel more impactful.
 
 *Enemy hit and death effects* - Enemies do not react to being hit at all except for a sound effect. There are also no effects or animation for an enemy being defeated. I think adding particles and some kind of animation to hit and death effects would help make defeating enemies feel more satisfying.
+
+# From the Cytoblast Team:
+Thank you for playing our game!
