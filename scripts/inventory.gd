@@ -26,22 +26,13 @@ func _ready() -> void:
 			return
 	
 		
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("next_weapon"):
-		var next_slot = _get_next_available_slot(1)
-		if next_slot == _cur_slot:
-			return
-		_cur_slot = next_slot
-		weapon_changed.emit(_cur_slot)
-		audio_manager.play_weapon_switch()
-		
-	if Input.is_action_just_pressed("prev_weapon"):
-		var next_slot = _get_next_available_slot(-1)
-		if next_slot == _cur_slot:
-			return
-		_cur_slot = next_slot
-		weapon_changed.emit(_cur_slot)
-		audio_manager.play_weapon_switch()
+func switch_weapon(i:int):
+	var next_slot = _get_next_available_slot(i)
+	if next_slot == _cur_slot:
+		return
+	_cur_slot = next_slot
+	weapon_changed.emit(_cur_slot)
+	audio_manager.play_weapon_switch()
 		
 		
 func current_weapon():
