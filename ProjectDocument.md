@@ -48,6 +48,8 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 
 [Trailer Music](https://www.youtube.com/watch?v=7xRhw5nOkCs) - [premium license](https://darkfantasystudio.com/premium-licence/) purchased from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
+[Damage Indicator](https://github.com/cqdowning/cytoblast/blob/main/scripts/effects/damage_indicator.gd) - Based on damage indicator from Exercise 3
+
 # Main Roles #
 
 ## Producer - Casey Downing
@@ -66,43 +68,47 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 
 *Scheduling* - One of my biggest regrets with this project was not maintaining a strict schedule for development. At the beginning, features that were critical for development would not be done quickly enough which delayed further features from being developed. If I had set stricter deadlines, I could have planned for when each feature would be completed and if someone was busy with other work I could have quickly reassigned tasks to someone who could meet the deadline. Development speed ended up being slower than I would have liked and I had to implement a few features myself to keep development moving.
 
-*Team Communication* - Team communication became lacking at times. Tracking progress would sometimes become difficult as team members would not push code to the repository until the feature they were working on was complete. This made it hard for me to tell how close a feature was to completion. I should have been stricter with pushing branches to the repository and having the team push small commits over time.
+*Team Communication* - Team communication became lacking at times. Tracking progress would sometimes become difficult as team members would not push code to the repository until the feature they were working on was complete. This made it hard for me to tell how close a feature was to completion. I should have been stricter with pushing branches to the repository and having the team push small commits over time. I also should have pushed more for clear and frequent communication.
 
 #### Closing Thoughs on Logistics Problems
 
-I have never worked on such a large project that required development to be this fast-paced, let alone one where I had to manage a team. I vastly underestimated how long it would take to develop certain features. I feel like I could have made more efficient use of my team members' time by the aforementioned scheduling and keeping better track of all the features. Nevertheless, Cytoblast became an incredible learning experience for me and I feel I better understand what it takes to be a project manager.
+I have never worked on such a large project that required development to be this fast-paced, let alone one where I had to manage a team. I vastly underestimated how long it would take to develop certain features. I feel like I could have made more efficient use of my team members' time through the use of the aforementioned scheduling and keeping better track of all the features. Nevertheless, Cytoblast became a great learning experience for me and I feel I better understand what it takes to be a project manager.
 
 ### Templates and Design
-As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed. I also took on any tasks that needed to be completed quickly but the other team members already had work or the feature did not apply to the other roles.
+As the producer, I was responsible for the game design. To ensure everyone was on the same page, I created base classes for features that needed to be further developed. I also took on any tasks that needed to be completed quickly when the other team members already had work or the feature did not apply to the other roles.
 
-*Test Levels* - Added two test levels with a basic tileset that had collision. This was important for testing player movement and level switching. They were then deleted in favor of the actual levels. [Commit for test levels](https://github.com/cqdowning/cytoblast/commit/32fd5fb390c1da6cdbb137b5f64c261a54b865b7)
+*Test Levels* - Added two test levels with a basic tileset that had collision. This was important for testing player movement and level switching. They were then deleted in favor of the actual levels. [Commit For Test Levels](https://github.com/cqdowning/cytoblast/commit/32fd5fb390c1da6cdbb137b5f64c261a54b865b7)
 
 *Weapon Base Class* - Added a base class for weapons. There are functions for activating, deactivating, and shooting the weapon among a few other helpers. The shoot function was designed to be overridden and replaced with each weapon’s unique firing pattern. However, the base class handles the timing for when the shoot function is called on each weapon. [Weapon Base Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/weapons/weapon_base.gd) 
 
 *Enemy Base Class* - Added a base class for enemies. Enemies could be one of three types: bacteria, parasite, or virus. The base class was designed with an abstract ai function that was meant to be used to implement movement. Later we expanded the class with helper functions as well as the ability for enemies to do contact damage. The base class also handles enemy attack timing. [Enemy Base Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/enemies/enemy_base.gd) 
 
 *Level Design* - I designed all three levels. The basic level design is as follows: 
-* Have an easy to defeat enemy at the start to give the player their first weapon
+* Have an easy to defeat enemy(s) at the start to give the player their first weapon(s)
+  * The starting enemy(s) always have 1 health
 * Use unique layouts and enemy compositions
-* Have around 5 rooms per level
+* Have around 4-5 rooms per level
 * Levels should get progressively more difficult
 
-The first level was what was used in our demo. The main problem with level design was that the difficulty of the demo level varied a lot with playtesters. Players more experienced with the genre felt it was too easy while other players struggled to get past the first enemy. I decided to make the first enemies of the levels all take one hit to defeat. In the end, level 1 went mostly unchanged after the demo since I felt it had a decent base line difficulty. After a few attempts, level 1 should be fairly easy to get past due to its large levels and low enemy count.
+The first level was what we used in our demo. The main problem with the level design was the difficulty of the demo level varied a lot with playtesters. Players more experienced with the genre felt it was too easy while other players struggled to get past the first enemy. I decided to make the first enemies of the levels all take one hit to defeat. In the end, level 1 went mostly unchanged after the demo since I felt it had a decent base line difficulty. After a few attempts, level 1 should be fairly easy to get past due to its large rooms and low enemy count.
+[Level 1 Scene](https://github.com/cqdowning/cytoblast/blob/main/scenes/levels/level_1.tscn)
 
 ![Layout for Level 1](./project_doc_images/Level_1_Layout.PNG "Layout for Level 1")
 
-Level 2 increases the difficulty level by having more enemies and it has some more interesting room layouts. I tried to keep room sizes smaller to force more tense situations and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
+Level 2 increases the difficulty level by having more enemies and it has some more interesting room layouts. I tried to keep room sizes smaller to force more tense situations and I increased the enemy density so that all enemies felt threatening. I also made the player travel to the right in level 2 to make it feel different from level 1. This also grants the player a little extra look ahead due to the camera being wider than it is tall.
+[Level 2 Scene](https://github.com/cqdowning/cytoblast/blob/main/scenes/levels/level_2.tscn)
 
 ![Layout for Level 2](./project_doc_images/Level_2_Layout.PNG "Layout for Level 2")
 
-Level 3 is the last level so I wanted to make it feel more like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. The rooms also spawn multiple sets of enemies over time. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. Additionally, I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead. Overall, I think it feels like a proper final level.
+Level 3 is the last level so I wanted to make it feel like a final gauntlet. Level 3 only has a few rooms but they are larger with many enemies and fewer walls to hide behind. The rooms also spawn multiple sets of enemies over time. I tried to make the final room interesting by having it progressively open up with more enemies spawning each time. Additionally, I decided to make the player travel downward into the depths of the level. This also reduces the player’s lookahead. Overall, I think it feels like a proper final level.
+[Level 3 Scene](https://github.com/cqdowning/cytoblast/blob/main/scenes/levels/level_3.tscn)
 
 ![Layout for Level 3](./project_doc_images/Level_3_Layout.PNG "Layout for Level 3")
 
 
 ### Additional Features
 
-*Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile grabs the sprite off of the weapon that was thrown so that I didn’t have to create a version for all nine weapons.
+*Throwable Weapons* - This was a more advanced feature so I wanted to handle it. We needed a way to discard the player’s weapon and I thought it would be interesting if you could throw it for big damage. This solved our weapon discard problem and it gives a risk/reward decision for the player to make. After throwing the weapon, it is discarded and the weapon creates an explosion projectile on collision with an effect that fades out. The projectile uses the sprite of the weapon that was thrown so that I didn’t have to create a version for all nine weapons. The damage type and explosion effect always uses the same type as the thrown weapon.
 [Thrown Projectile Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/projectiles/projectile_player_thrown_weapon.gd) 
 
 *Shooter Enemy* - The first enemy to be implemented was the "shooter" or bacteria enemy. I created the enemy using the enemy base class that I wrote. I implemented the _ai and _shoot functions inside the class to make the bacteria move and shoot. The bacteria will try to stay at a certain distance away from the player and shoot towards the player at a constant rate. I implemented this enemy myself to push along development and provide an example of how enemy behavior should be written.
@@ -118,15 +124,15 @@ There were several features that I decided to cut due to time constraints. If we
 
 *Aim Camera* - I wanted to experiment with a camera that lerps to the midpoint between the player and the cursor. This would allow the player to look ahead in the direction they are aiming. 
 
-*Graze System* - To add a way for the player to heal, I wanted to implement a system for healing the player after successfully dodging a projectile. This would have added more risk/reward to the game but we decided it would have been too complicated to implement and used simple enemy health drops instead.
+*Graze System* - To add a way for the player to heal, I wanted to implement a system for healing the player after successfully dodging a projectile. This would have added more risk/reward to the game but we decided it would have been too complicated to implement with the time we had remaining and used simple enemy health drops instead.
 
 *Dialogue* - The game was originally supposed to be about a cell created by a scientist. The different levels were trials that the scientist was putting the cell through. During down time in the game, there would have been dialogue from the scientist commenting on the cell’s performance. While this would have expanded the lore of the game, it was lower in priority to gameplay features and it had to be cut.
 
 ### Known Issues
 
-*Melee hitbox can stay active* - Performing a dash while the melee hitbox is active results in the hitbox staying active until another melee attack is performed. This exploit has low impact on game balance. Thus, I decided to keep this exploit in since its somewhat fun and simple.
+*Melee hitbox can stay active* - Performing a dash while the melee hitbox is active results in the hitbox staying active until another melee attack is performed. This exploit has low impact on game balance. Thus, I decided to keep this exploit in the game since its somewhat fun and simple.
 
-*Thrown weapons can collide with walls too early* - If the player is right next to a wall when they throw a weapon, the weapon can collide with the wall instantly. This is caused by the weapon's collision box being to large and intersecting with the wall the instant it spawns in. However, I wanted the thrown weapon to have a large hitbox to make it easier to hit. Unfortunately, projectiles are not built to have a separate collision for walls and enemies. Hence, this small problem remains.
+*Thrown weapons can collide with walls too early* - If the player is right next to a wall when they throw a weapon, the weapon can collide with the wall instantly. This is caused by the weapon's collision box being to large and intersecting with the wall the instant it spawns in. However, I wanted the thrown weapon to have a large hitbox to make it easier to hit enemies. Unfortunately, projectiles are not built to have a separate collision for walls and enemies. Hence, this small issue remains.
 
 ## User Interface and Input - Quinn Broderick
 
@@ -333,7 +339,6 @@ I did some admittedly cool stuff when implementing weapon switching on the playe
 
 I also created the system for enemies dropping weapons because it ties closely to the inventory system. When enemies die, they choose a random weapon from their pool of possible drops (if the pool is nonempty) and instantiate it as a weapon in the current level. Then, when the player walks over it and has space in their inventory, they actually pick up the weapon. An open slot in the inventory is assigned that weapon instance, and then much like switching between weapons, the weapon is just removed from the level and not deleted completely so that it can be referenced later. [Enemy weapon drops](https://github.com/cqdowning/cytoblast/blob/69e667fd0886d5464629b87d06f970472dbf1bfb/scripts/enemies/enemy_base.gd#L87). [Adding weapons in the inventory](https://github.com/cqdowning/cytoblast/blob/69e667fd0886d5464629b87d06f970472dbf1bfb/scripts/inventory.gd#L75).
 
-
 # Sub-Roles
 
 ## Audio - Jack Schonherr
@@ -424,8 +429,10 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 *Screen Shake* - I implemented a simple screen shake algorithm and applied it to various parts of the game. Shooting the guns will shake the screen to make them feel more impactful. The explosion from throwing the weapon will also have a powerful screen shake.
 [Camera Controller w/ Screen Shake](https://github.com/cqdowning/cytoblast/blob/main/scripts/camera_controller.gd) 
 
-*Enemy Spawner Particles* - The enemy spawners in the level will produce a particle effect before they spawn an enemy. This helps warn the player when an enemy is about to be spawned so they can move out of the way.
-[Commit that added particles to the existing Enemy Spawner](https://github.com/cqdowning/cytoblast/commit/433c678c74a50d816fbb06b10d0f7621c1dc3ea2) 
+*Enemy Spawner Particles* - The enemy spawners in the level will produce a particle effect before they spawn an enemy. The color of the particle effect matches the enemy that is about to spawn. This helps warn the player when an enemy is about to be spawned so they can move out of the way.
+[Commit that added particles to the existing Enemy Spawner](https://github.com/cqdowning/cytoblast/commit/433c678c74a50d816fbb06b10d0f7621c1dc3ea2)
+
+![Spawner particles](./project_doc_images/spawn_particles.gif "Spawner particles")
 
 *Damage Indicator* - Added a damage indicator similar to the one found in Exercise 3. Hitting an enemy creates a damage indicator. This indicator will be a bright color and larger when a weapon is super effective against an enemy. The indicator is gray and smaller when the weapon is ineffective against an enemy. This helps the player learn quickly about the type advantage system. Also, watching big numbers pop out of enemies is satisfying.
 [Damage Indicator Class](https://github.com/cqdowning/cytoblast/blob/main/scripts/effects/damage_indicator.gd) 
@@ -440,13 +447,15 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 [Player blinking red commit](https://github.com/cqdowning/cytoblast/commit/b9bec13e10002d4ec426c2321c14faae984774ff) / [Player immune to damage on hit commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7)  
 
 *Item Detector covers the entire player* - The item detector for picking up items was a raycast towards the cursor, which meant you had to look at items to pick them up. This made it confusing to players on when they could pick up items. I changed the item detector to be an Area2D node that can grab items in all directions.
-[AoE Item Detector commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7) 
+[AoE Item Detector Commit](https://github.com/cqdowning/cytoblast/commit/0f0d8fb432ec4ed9fb83e5242bd111ffcc936034#diff-2293c7a5ef44266dbd41ff1eb5c6137aab258b8c2e34d5e15dcaf6a75b21c1f7) 
 
 *Health drop* - During playtesting, the game was too difficult for players without any way to recover health. I implemented a simple health item that has a chance to drop from enemies that heals the player when they pick it up. The drop chance can also be configured for each enemy using the enemy spec.
-[Health drop commit](https://github.com/cqdowning/cytoblast/commit/82f30fa5933a1525b49f5b13718fbad316d68892) 
+[Health Drop Commit](https://github.com/cqdowning/cytoblast/commit/82f30fa5933a1525b49f5b13718fbad316d68892) 
 
 *Item drop randomness* - After introducing the health drop, both weapons and health would drop in the exact same location which did not look good. I allowed drops to be slightly offset from the enemies death position by a slight amount. The variation makes the drops more interesting to look at and the weapon and health won’t always directly overlap each other.
-[Drop offset commit](https://github.com/cqdowning/cytoblast/commit/beff4dca616ea6aeb6187210064fdd7ac46a41d0) 
+[Drop Offset Commit](https://github.com/cqdowning/cytoblast/commit/beff4dca616ea6aeb6187210064fdd7ac46a41d0) 
+
+Items are slightly offset:
 
 ![Offset Items](./project_doc_images/Offset_Items.PNG "Offset Items")
 
@@ -455,13 +464,15 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 
 ![Thrown weapon](./project_doc_images/Thrown_Weapon.PNG "Thrown weapon")
 
-*Balancing* - Over the course of development I made various balance changes to all parts of the game. For the player, I tweaked player movement speed and dash speed and distance. For weapons, I changed the fire rates, projectile speeds, max ammo, and damage. For enemies, I tuned their health, damage, movement speed and attack rate. For example, one of the major pieces of feedback I received from playtesters was that melee was too difficult. I tried to make melee a bit easier by making it faster and having a larger hitbox than the animation.
+*Balancing* - Over the course of development I made various balance changes to all parts of the game. For the player, I tweaked player movement speed and dash speed and distance. For weapons, I changed the fire rates, projectile speeds, max ammo, and damage. For enemies, I tuned their health, damage, movement speed and attack rate. For example, one of the major pieces of feedback I received from playtesters was that melee was too difficult. I tried to make melee a bit easier by making it faster and having a larger hitbox than the animation. Another common piece of feedback was that the rifle was the strongest weapon. However, balancing the rifle was difficult since it requires a bit more skill to use. In the end, I think the rifle is still the best weapon but not by too much.
 [Commit for buffing melee](https://github.com/cqdowning/cytoblast/commit/1b04e22958873133124a5676dd3ca53dd25dc9ca) 
 
 ### Further Possible Improvements
 *Hitstop on damage* - I would have liked to experiment with hitstop effects during gameplay. For example, a brief pause on getting hit to make taking damage feel more impactful.
 
 *Enemy hit and death effects* - Enemies do not react to being hit at all except for a sound effect. There are also no effects or animation for an enemy being defeated. I think adding particles and some kind of animation to hit and death effects would help make defeating enemies feel more satisfying.
+
+*Damage Drop-off* - Bullets could decrease in damage as they travel. This could potentially nerf the strength of the rifle at long distances.
 
 # From the Cytoblast Team:
 Thank you for playing our game!
