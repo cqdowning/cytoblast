@@ -289,25 +289,29 @@ This implementation creates a responsive, fluid movement system with engaging we
 
 ## Animation and Visuals - Noor Ashour
 
-All the assets were hand-drawn. This includes:
+*Assets Creation* - All the assets were hand-drawn. This includes:
 
-- Player sprites and animation
-- Enemy sprites and animation
-- Weapon and bullet sprites
-- Tileset of walls and background
-- Health item
-- Decorative objects and decal
-- UI design (health bar, game title and buttons)
+- [Player sprites and animation](https://github.com/cqdowning/cytoblast/tree/main/assets/player)
+- [Enemy sprites and animation](https://github.com/cqdowning/cytoblast/tree/main/assets/enemies)
+- [Weapon and bullet sprites](https://github.com/cqdowning/cytoblast/tree/main/assets/weapons)
+- [Tileset of walls and background](https://github.com/cqdowning/cytoblast/tree/main/assets/tilesets)
+- [Health item](https://github.com/cqdowning/cytoblast/tree/main/assets/items)
+- [Decorative objects](https://github.com/cqdowning/cytoblast/tree/main/assets/objects/decor) and [decal](https://github.com/cqdowning/cytoblast/tree/main/assets/decal)
+- [UI design (health bar, game title and buttons)](https://github.com/cqdowning/cytoblast/tree/main/assets/ui)
 
-I opted to use a hand-drawn visual style as that's what I'm familiar with. The players and enemies look like cells but in a Western cartoon style. I used FireAlpaca for the drawing software and used their preset brush "Fluffy" for a hand-drawn/cartoonish feel.
+I was new to making tilesets, so I relied on the Exercise 1 tileset as a reference, as well as the ClearCode video's tileset from the tutorial playlist. 
 
-Since the animations were simple, I used an Animation Player that modifies the sprites' frames. When drawing the animations, I exported the individual sprites and used an [online spritesheet maker](https://www.finalparsec.com/tools/sprite_sheet_maker). When implementing the animation, I had to tinker with the AnimationPlayer’s key frames to make the animation smooth.
-
-I created a [theme](https://github.com/cqdowning/cytoblast/blob/main/assets/default_theme.tres), or .tres file, to implement the button sprites. I had to draw them in a way that allows me to apply “Nine Slice” margins. This way, the sprite can be stretched without looking weird.
-
-All my work related directly to the narrative core of the game. Almost every sprite has the look of a cell or micro-organism, whether it be an enemy or a health item. I made the walls look like long cells, and drew background tiles with tiny cells or DNA strands as decoration. Since my sub-role is narrative design, more details about how the art intersects with world-building and narration will be in that sub-role’s summary.
+*Visual Style* - I opted to use a hand-drawn visual style as that's what I'm familiar with. The players and enemies look like cells but in a Western cartoon style. I used FireAlpaca for the drawing software and used their preset brush "Fluffy" for a hand-drawn/cartoonish feel.
 
 For the visual style guide, I created a [design document](https://docs.google.com/document/d/158W1hcS9_ig8T-zrRVKkaezIWNe5X8yCE7sUagEImhA/edit?pli=1&tab=t.0) to house the color palettes, inspiration and reference images, and any extra design info I might need. I also created a [Todo List](https://docs.google.com/document/d/1KbzWFUy0fizjDJrwQ3nopHDPXG2zpBGNWMK9zKoEpvw/edit?pli=1&tab=t.0) to manage my tasks.
+
+*Animation* - Since the animations were simple, I used an [AnimationPlayer](https://github.com/cqdowning/cytoblast/blob/291b379903dfb51d5ce41c3967133be432f4dece/scenes/player.tscn#L35) that modifies the sprites' frames. When drawing the animations, I exported the individual sprites and used an [online spritesheet maker](https://www.finalparsec.com/tools/sprite_sheet_maker). When implementing the animation, I had to tinker with the AnimationPlayer’s key frames to make the animation smooth.
+
+*Graphic Design* - I created a [theme](https://github.com/cqdowning/cytoblast/blob/main/assets/default_theme.tres), or .tres file, to implement the button sprites. I had to draw them in a way that allows me to apply “Nine Slice” margins. This way, the sprite can be stretched without looking weird.
+
+The making of the health bar sprites were based on the one from the ClearCode tutorial, such that they were split into three parts: over, under, and progress.
+
+*World-Building* - All my work related directly to the narrative core of the game. Almost every sprite has the look of a cell or micro-organism, whether it be an enemy or a [health item](https://github.com/cqdowning/cytoblast/blob/main/assets/items/health_item.png). I made the walls look like long cells, and drew background tiles with tiny cells or DNA strands as decoration. Since my sub-role is narrative design, more details about how the art intersects with world-building and narration will be in that sub-role’s summary.
 
 ## Game Logic - Jack Schonherr
 
@@ -399,11 +403,13 @@ The sounds can get overwhelming at times, especially with many concurrent enemy 
 
 I originally wanted to add dialogue for the narration, but I unfortunately ran out of time. Instead, I tried to focus on implementing the narration via the assets, since it was my main role.
 
-I used microscope images of white blood cells to determine the player's look. There were different white blood cell types, so I combined their looks: Neutrophil (bacteria killer), Eosinophil (parasite killer), and Lymphocyte (virus killer). Since the player is a "super soldier" white blood cell, this implies that it's a mutation of different types to enhance its strengths.
+*Assets* - I referenced microscope images of white blood cells to determine the player's look. There were different white blood cell types, so I combined their looks: Neutrophil (bacteria killer), Eosinophil (parasite killer), and Lymphocyte (virus killer). Since the player is a "super soldier" white blood cell, this implies that it's a mutation of different types to enhance its strengths.
 
-I gave the player an 80% opacity to the body color, making it look like cell fluid. I also did this for the buttons and game title, because their looks and colors are based on the player. There are cell objects that are drawn like the player but have 100% opacity. They are meant to be previous white blood cells that failed and “died”, making their body dense like a tumor cell.
+I gave the player an 80% opacity to the body color, making it look like cell fluid. I also did this for the buttons and game title, because their looks and colors are based on the player.
 
 ![Animated GIF of the player cell moving](./presskit_stuff/art_player.gif)
+
+*Objects for world-building* - There are [cell objects](https://github.com/cqdowning/cytoblast/tree/main/scenes/objects/cells) that are drawn like the player but have 100% opacity. They are meant to be previous white blood cells that failed and “died”, making their body dense like a tumor cell. I created an [object base](https://github.com/cqdowning/cytoblast/blob/main/scenes/objects/object_base.tscn) scene to use as the template for each cell sprite and provide collision shapes. If the sprites have collision, then they can feel like the dense tumor-like cells they're supposed to be.
 
 ## Press Kit - Noor Ashour
 
@@ -411,9 +417,9 @@ I gave the player an 80% opacity to the body color, making it look like cell flu
 
 [Press kit materials](https://github.com/cqdowning/cytoblast/blob/main/presskit_stuff)
 
-The press kit was made using Notion as I was already familiar with it, and it has a feature where you can publish a Notion page as a website. I also found a game press kit template, so I used that to gather what kinds of content I need for the press kit. I embedded the trailer’s video link, created screenshots and GIFs, and added the player’s color palette to serve as the game brand's colors.
+*Press kit creation* - The press kit was made using Notion as I was already familiar with it, and it has a feature where you can publish a Notion page as a website. I also found a game press kit template, so I used that to gather what kinds of content I need for the press kit. I embedded the trailer’s video link, created screenshots and GIFs, and added the player’s color palette to serve as the game brand's colors.
 
-The screenshots were chosen to show the gameplay and the different enemies. Additional screenshots show the UI, such as the main menu and credits scene. A GIF of the gameplay was also included to showcase the gameplay in action.
+*Screenshots creation* - The screenshots were chosen to show the gameplay and the different enemies. Additional screenshots show the UI, such as the main menu and credits scene. A GIF of the gameplay was also included to showcase the gameplay in action.
 
 ## Trailer - Casey Downing
 
