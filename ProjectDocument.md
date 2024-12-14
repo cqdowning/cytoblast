@@ -316,7 +316,7 @@ The sounds can get overwhelming at times, especially with many concurrent enemy 
 
 [Link to Trailer](https://youtu.be/lT30_l2WA_A)
 
-For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. Overall, the gameplay of Cytoblast is simple but fun so I tried to make the trailer reflect that.
+For the trailer, I recorded a full playthrough of the game. I tried to incorporate clips that showed off the game’s combat the best by picking the parts with the most action. I also intentionally set up the part at 0:34 where I dash through the four parasites because I thought it would look cool. Overall, the gameplay of Cytoblast is simple but fun so I tried to make the trailer reflect that. Unfortunately, the trailer was made on a version of the game without the amazing health bar and health drop sprites.
 
 The music used in the trailer is Dark Fantasy Studio - Neon God under their [premium license](https://darkfantasystudio.com/premium-licence/). I purchased this license from [Humble Bundle](https://www.humblebundle.com/software/big-royaltyfree-game-dev-music-and-sfx-software).
 
@@ -354,7 +354,6 @@ The music used in the trailer is Dark Fantasy Studio - Neon God under their [pre
 [Commit for buffing melee](https://github.com/cqdowning/cytoblast/commit/1b04e22958873133124a5676dd3ca53dd25dc9ca) 
 
 ### Further Improvements
-*Health bar visibility* - Since the health bar is gray, it can be difficult to see your health, especially since it’s in the corner. I think it would be better for it to be red. 
-
 *Hitstop on damage* - I would have liked to experiment with hitstop effects during gameplay. For example, a brief pause on getting hit to make taking damage feel more impactful.
 
+*Enemy hit and death effects* - Enemies do not react to being hit at all except for a sound effect. There are also no effects or animation for an enemy being defeated. I think adding particles and some kind of animation to hit and death effects would help make defeating enemies feel more satisfying.
