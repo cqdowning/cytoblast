@@ -220,14 +220,40 @@ I also created the system for enemies dropping weapons because it ties closely t
 
 ## Audio - Jack Schonherr
 
-**List your assets, including their sources and licenses.**
+*Assets* - All of the sound files I used for Cytoblast are listed on itch.io under a [CC0 1.0 Universal License](https://creativecommons.org/publicdomain/zero/1.0/deed.en), meaning the sounds are dedicated to the public domain. While credits are not required when using these sounds, I have listed the sources for each of the sound files below. 
 
 From https://kronbits.itch.io/freesfx#google_vignette:
-* [weapon_switch.wav]()
+* [weapon_switch.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_switch.wav)
+* [machine_gun_shoot.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/machine_gun_shoot.wav)
+* [rifle_shoot.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/rifle_shoot.wav)
+* [shoot_attack.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/enemies/shoot_attack.wav)
+* [enemy_spawn.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/enemy_spawn.wav)
+* [player_hit_marker.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/player/player_hit_marker.wav)
+* [player_dash.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/player/player_dash.wav)
+* [health_pickup.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/health_pickup.wav)
+* [room_enter.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/room_enter.wav)
 
-**Describe the implementation of your audio system.**
+From https://ne-mene.itch.io/general-sound-pack: 
+* [weapon_explosion.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_explosion.wav)
+* [weapon_throw.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_throw.wav)
+* [weapon_pickup.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/weapon_pickup.wav)
+* [melee.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/melee.wav)
+* [shoot_blank.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/shoot_blank.wav)
+* [enemy_hit_marker.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/enemies/enemy_hit_marker.wav)
+* [room_door_open.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/environment/room_door_open.wav)
+  
+From https://hzsmith.itch.io/free-sfx-pack-vol-1:
+* [biter_attack.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/enemies/biter_attack.wav)
+  
+From https://hzsmith.itch.io/free-sfx-pack-vol-2:
+* [shotgun_shoot.wav](https://github.com/cqdowning/cytoblast/blob/main/assets/audio/sound%20effects/weapon/shotgun_shoot.wav)
 
-**Document the sound style.** 
+*Audio System Implementation* - I created an audio manager singleton scene to play sound effects, as well as a sound effects bus. Each sound effect has its own audio stream player and associated function that gets called when the sound is needed. The singleton is useful because it centralizes all sound effects into one area that can be accessed by any node. Sound effects originate from many different places, so it is more efficient to do it like this than have individual audio stream players on nodes. All of the audio stream players use the sound effects bus, so I can tune their audio easily. If we wanted to add other buses in the future for a soundtrack, etc., the infrastructure is already in place to do so.
+
+*Sound Style* - I was admittedly limited by sounds available online under the CC0 license, but I think the sound palette still works. The style is a mix of classic gaming and futuristic vibes, which fits the cellular aesthetic. Using real gunshot sounds, for example, did not feel right because our weapons are cell-based. It wouldn’t sense for them to sound like real assault rifles. The tracks for little sound effects like hit markers and picking up weapons are very subtle but help with game immersion in my opinion. They coincide with the visual feedback of a damage number and seeing the weapon disappearing, respectively, to create a more satisfying experience for the player. Visual feedback without audio feels less impactful.
+
+The sounds can get overwhelming at times, especially with many concurrent enemy spawns. That sound in particular is loud and a little unsettling by design, but too many of them at once is louder than I’d like. Overall, though, I think the game sounds good.
+ 
 
 ## Gameplay Testing
 
