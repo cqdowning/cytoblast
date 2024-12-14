@@ -1,21 +1,34 @@
-[gd_scene load_steps=54 format=4 uid="uid://bjleo5bgkqubd"]
+[gd_scene load_steps=67 format=4 uid="uid://bjleo5bgkqubd"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_l0hhi"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1fwgf"]
 [ext_resource type="PackedScene" uid="uid://bh8tiudw33h6r" path="res://scenes/end.tscn" id="2_5rq54"]
 [ext_resource type="PackedScene" uid="uid://cl5t30ihg8qtj" path="res://scenes/level items/room_entrance.tscn" id="3_m1g73"]
+[ext_resource type="Texture2D" uid="uid://nqufvjy5f8j4" path="res://assets/objects/decor/cell2.png" id="4_2ahqu"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="4_jeu38"]
+[ext_resource type="Texture2D" uid="uid://x5e6pweh6yl3" path="res://assets/objects/decor/cell1.png" id="5_2po17"]
 [ext_resource type="PackedScene" uid="uid://d042h1k8gia83" path="res://scenes/level items/enemy_spawner.tscn" id="5_cotvm"]
 [ext_resource type="Script" path="res://scripts/enemies/enemy_spec.gd" id="5_ea4xg"]
+[ext_resource type="Texture2D" uid="uid://dibcqifcrxt4a" path="res://assets/objects/decor/cell_string1.png" id="6_hpi02"]
 [ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="7_q6yfh"]
+[ext_resource type="Texture2D" uid="uid://bb6xmyqlu21j5" path="res://assets/decal/dna_strand2.png" id="7_u18ax"]
 [ext_resource type="PackedScene" uid="uid://bovtbuvyfjrlm" path="res://scenes/weapons/weapon_antiparasitic_shotgun.tscn" id="8_4teoh"]
+[ext_resource type="Texture2D" uid="uid://c5nur23k3funu" path="res://assets/decal/dna_strand.png" id="8_d4dxi"]
 [ext_resource type="PackedScene" uid="uid://b52e2g4rx38l7" path="res://scenes/weapons/weapon_antiviral_shotgun.tscn" id="9_mibk0"]
+[ext_resource type="Texture2D" uid="uid://dpxhu01mydqka" path="res://assets/decal/jelly_cell.png" id="9_n17ie"]
+[ext_resource type="Texture2D" uid="uid://oidbkloiqinh" path="res://assets/decal/pest.png" id="10_5o1il"]
 [ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="10_46q8s"]
 [ext_resource type="PackedScene" uid="uid://do281r4ajjeka" path="res://scenes/weapons/weapon_antibiotic_rifle.tscn" id="10_lttk1"]
+[ext_resource type="Texture2D" uid="uid://ds8hxx3l21pip" path="res://assets/decal/mini_bacteria.png" id="11_7phvu"]
 [ext_resource type="PackedScene" uid="uid://bauu2u33usqu8" path="res://scenes/weapons/weapon_antiparasitic_machinegun.tscn" id="11_d8214"]
 [ext_resource type="PackedScene" uid="uid://b0s53oelrjs5q" path="res://scenes/weapons/weapon_antiparasitic_rifle.tscn" id="11_p4tr8"]
 [ext_resource type="PackedScene" uid="uid://csqe4qkvd6tt" path="res://scenes/weapons/weapon_antiviral_machinegun.tscn" id="12_0xx5s"]
 [ext_resource type="PackedScene" uid="uid://chmjdrcj3epwi" path="res://scenes/weapons/weapon_antiviral_rifle.tscn" id="12_ugogq"]
+[ext_resource type="PackedScene" uid="uid://qt78ahux04k7" path="res://scenes/objects/cells/large_cell.tscn" id="12_ycuk7"]
+[ext_resource type="PackedScene" uid="uid://ccuuf8jinc15p" path="res://scenes/objects/cells/medium_cell.tscn" id="13_4vgyb"]
+[ext_resource type="PackedScene" uid="uid://er81yisr6ajj" path="res://scenes/objects/cells/small_cell_long.tscn" id="14_rv3g6"]
+[ext_resource type="PackedScene" uid="uid://di8ch2sq1r8t7" path="res://scenes/objects/cells/spikes_cell.tscn" id="15_572il"]
+[ext_resource type="PackedScene" uid="uid://bjgwskhtms22g" path="res://scenes/objects/cells/small_cell_round.tscn" id="16_t2kiw"]
 
 [sub_resource type="Resource" id="Resource_mf7j0"]
 script = ExtResource("5_ea4xg")
@@ -286,6 +299,263 @@ tile_set = ExtResource("2_1fwgf")
 [node name="Walls" parent="." index="1"]
 tile_map_data = PackedByteArray("AAAaAAAAAAABAAEAAAAbAAAAAAACAAAAAAAcAAAAAAACAAAAAAAdAAAAAAABAAAAAAAeAAAAAAACAAAAAAAfAAAAAAABAAAAAAAgAAAAAAACAAAAAAAhAAAAAAABAAAAAAAiAAAAAAACAAEAAAAiAAEAAAADAAIAAAAiAAIAAAADAAIAAAAiAAMAAAADAAMAAAAiAAQAAAADAAMAAAAaAAEAAAADAAIAAAAaAAIAAAADAAMAAAAaAAMAAAADAAIAAAAaAAQAAAADAAMAAAAaAAUAAAADAAIAAAAaAAYAAAADAAMAAAAaAAcAAAADAAIAAAAiAAUAAAADAAMAAAAiAAYAAAADAAMAAAAiAAcAAAADAAIAAAAiAAgAAAACAAIAAAAaAAgAAAABAAIAAAAbAAgAAAACAAEAAAAhAAgAAAABAAEAAAAbAAkAAAADAAMAAAAbAAoAAAADAAIAAAAbAAsAAAADAAIAAAAbAAwAAAADAAMAAAAbAA0AAAADAAMAAAAbAA4AAAADAAMAAAAhAAkAAAADAAIAAAAhAAoAAAADAAMAAAAhAAsAAAADAAIAAAAhAAwAAAADAAMAAAAhAA0AAAADAAIAAAAhAA4AAAADAAMAAAAhAA8AAAADAAMAAAAhABAAAAADAAMAAAAhABEAAAADAAMAAAAbAA8AAAADAAMAAAAbABAAAAADAAMAAAAbABEAAAADAAMAAAAbABIAAAACAAIAAAAhABIAAAABAAIAAAAiABIAAAABAAAAAAAjABIAAAACAAAAAAAkABIAAAABAAAAAAAlABIAAAABAAAAAAAmABIAAAABAAAAAAAnABIAAAABAAAAAAAoABIAAAABAAAAAAAaABIAAAACAAAAAAAZABIAAAABAAAAAAAYABIAAAACAAAAAAAXABIAAAABAAAAAAAWABIAAAACAAAAAAAVABIAAAACAAAAAAAUABIAAAABAAAAAAATABIAAAABAAEAAAApABIAAAACAAEAAAATABMAAAADAAIAAAATABQAAAADAAMAAAATABUAAAADAAIAAAATABYAAAADAAMAAAATABcAAAADAAIAAAATABgAAAADAAMAAAATABkAAAADAAIAAAATABoAAAADAAMAAAATABsAAAADAAIAAAATABwAAAADAAMAAAATAB0AAAADAAMAAAATAB4AAAADAAMAAAATAB8AAAADAAIAAAATACAAAAADAAIAAAATACEAAAADAAMAAAATACIAAAADAAIAAAATACMAAAADAAMAAAApABMAAAADAAIAAAApABQAAAADAAIAAAApABUAAAADAAMAAAApABYAAAADAAIAAAApABcAAAADAAIAAAApABgAAAADAAIAAAApABkAAAADAAMAAAApABoAAAADAAMAAAApABsAAAADAAIAAAApABwAAAADAAIAAAApAB0AAAADAAIAAAApAB4AAAADAAMAAAApAB8AAAADAAMAAAApACAAAAADAAMAAAApACEAAAADAAIAAAApACIAAAADAAIAAAApACMAAAADAAIAAAATACQAAAADAAIAAAApACQAAAADAAIAAAATACUAAAADAAIAAAATACYAAAADAAIAAAATACcAAAADAAIAAAApACUAAAADAAMAAAApACYAAAADAAMAAAApACcAAAADAAIAAAATACgAAAABAAIAAAApACgAAAACAAIAAAAoACgAAAABAAAAAAAnACgAAAABAAAAAAAmACgAAAACAAAAAAAlACgAAAABAAAAAAAkACgAAAABAAAAAAAjACgAAAABAAAAAAAiACgAAAABAAAAAAAhACgAAAABAAAAAAAYACgAAAACAAAAAAAXACgAAAACAAAAAAAWACgAAAABAAAAAAAVACgAAAACAAAAAAAUACgAAAACAAAAAAAZACgAAAABAAAAAAAaACgAAAACAAAAAAAcACgAAAACAAEAAAAgACgAAAABAAEAAAAZACIAAAABAAIAAAAZABgAAAABAAEAAAAjABgAAAACAAEAAAAjACIAAAACAAIAAAAZABkAAAADAAMAAAAZABoAAAADAAIAAAAZABsAAAADAAMAAAAZABwAAAADAAMAAAAZAB0AAAADAAMAAAAZAB4AAAADAAIAAAAZAB8AAAADAAMAAAAZACAAAAADAAIAAAAZACEAAAADAAMAAAAjABkAAAADAAIAAAAjABoAAAADAAMAAAAjABsAAAADAAMAAAAjABwAAAADAAIAAAAjAB0AAAADAAIAAAAjAB4AAAADAAMAAAAjAB8AAAADAAIAAAAjACAAAAADAAIAAAAjACEAAAADAAMAAAAaACIAAAABAAAAAAAbACIAAAACAAAAAAAcACIAAAACAAAAAAAdACIAAAACAAAAAAAeACIAAAACAAAAAAAfACIAAAACAAAAAAAgACIAAAABAAAAAAAhACIAAAACAAAAAAAiACIAAAACAAAAAAAaABgAAAACAAAAAAAbABgAAAACAAAAAAAcABgAAAACAAAAAAAdABgAAAABAAAAAAAeABgAAAABAAAAAAAfABgAAAACAAAAAAAgABgAAAABAAAAAAAhABgAAAACAAAAAAAiABgAAAABAAAAAAAbACgAAAACAAAAAAAgACkAAAADAAMAAAAgACoAAAADAAMAAAAgACsAAAADAAIAAAAgACwAAAADAAMAAAAcACkAAAADAAIAAAAcACoAAAADAAIAAAAcACsAAAADAAMAAAAcACwAAAADAAIAAAAgAC0AAAADAAIAAAAcAC0AAAADAAMAAAAgAC4AAAABAAIAAAAcAC4AAAACAAIAAAAhAC4AAAACAAAAAAAbAC4AAAACAAAAAAAiAC4AAAACAAEAAAAaAC4AAAABAAEAAAAaAC8AAAADAAIAAAAaADAAAAADAAIAAAAaADEAAAADAAIAAAAaADIAAAADAAMAAAAaADMAAAADAAIAAAAaADQAAAADAAMAAAAaADUAAAADAAMAAAAaADYAAAADAAIAAAAaADcAAAADAAMAAAAaADgAAAADAAIAAAAaADkAAAADAAMAAAAiAC8AAAADAAMAAAAiADAAAAADAAIAAAAiADEAAAADAAIAAAAiADIAAAADAAMAAAAiADMAAAADAAMAAAAiADQAAAADAAIAAAAiADUAAAADAAMAAAAiADYAAAADAAIAAAAiADcAAAADAAIAAAAiADgAAAADAAMAAAAiADkAAAADAAIAAAAaADoAAAADAAMAAAAaADsAAAADAAIAAAAaADwAAAADAAMAAAAaAD0AAAADAAMAAAAaAD4AAAADAAIAAAAiADoAAAADAAIAAAAiADsAAAADAAIAAAAiADwAAAADAAIAAAAiAD0AAAADAAIAAAAiAD4AAAADAAIAAAAaAD8AAAABAAIAAAAiAD8AAAACAAIAAAAhAD8AAAABAAAAAAAbAD8AAAABAAAAAAAgAD8AAAACAAAAAAAcAD8AAAACAAAAAAAdAD8AAAACAAEAAAAfAD8AAAABAAEAAAAdAEAAAAADAAMAAAAdAEEAAAADAAIAAAAdAEIAAAADAAIAAAAdAEMAAAADAAIA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")
 tile_set = ExtResource("2_1fwgf")
+
+[node name="Decal" parent="." index="2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Cells" type="Node2D" parent="Decal" index="0"]
+
+[node name="Cell2" type="Sprite2D" parent="Decal" index="1"]
+position = Vector2(3370, 3492)
+texture = ExtResource("4_2ahqu")
+
+[node name="Cell1" type="Sprite2D" parent="Decal" index="2"]
+position = Vector2(4402, 4215)
+rotation = -1.01229
+texture = ExtResource("5_2po17")
+
+[node name="CellString1" type="Sprite2D" parent="Decal" index="3"]
+position = Vector2(4327, 3658)
+texture = ExtResource("6_hpi02")
+
+[node name="DNAStrands" type="Node2D" parent="Decal" index="4"]
+
+[node name="DnaStrand2" type="Sprite2D" parent="Decal/DNAStrands" index="0"]
+position = Vector2(3526, 189)
+rotation = -0.759218
+texture = ExtResource("7_u18ax")
+
+[node name="DnaStrand" type="Sprite2D" parent="Decal/DNAStrands" index="1"]
+position = Vector2(4237, 1623)
+texture = ExtResource("8_d4dxi")
+
+[node name="DnaStrand3" type="Sprite2D" parent="Decal/DNAStrands" index="2"]
+position = Vector2(3483, 3281)
+rotation = -2.57785
+texture = ExtResource("8_d4dxi")
+
+[node name="DnaStrand4" type="Sprite2D" parent="Decal/DNAStrands" index="3"]
+position = Vector2(4108, 4964)
+rotation = 2.0944
+texture = ExtResource("7_u18ax")
+
+[node name="DnaStrand5" type="Sprite2D" parent="Decal/DNAStrands" index="4"]
+position = Vector2(3852, 6807)
+rotation = -1.93382
+texture = ExtResource("8_d4dxi")
+
+[node name="DnaStrand6" type="Sprite2D" parent="Decal/DNAStrands" index="5"]
+position = Vector2(3291, 10195)
+rotation = 2.41728
+texture = ExtResource("8_d4dxi")
+
+[node name="DnaStrand7" type="Sprite2D" parent="Decal/DNAStrands" index="6"]
+position = Vector2(4018, 11060)
+rotation = -3.22188
+texture = ExtResource("7_u18ax")
+
+[node name="DnaStrand8" type="Sprite2D" parent="Decal/DNAStrands" index="7"]
+position = Vector2(3927, 13719)
+rotation = 1.28805
+texture = ExtResource("8_d4dxi")
+
+[node name="JellyCells" type="Node2D" parent="Decal" index="5"]
+
+[node name="JellyCell" type="Sprite2D" parent="Decal/JellyCells" index="0"]
+position = Vector2(3504, 14037)
+rotation = -2.25497
+texture = ExtResource("9_n17ie")
+
+[node name="JellyCell2" type="Sprite2D" parent="Decal/JellyCells" index="1"]
+position = Vector2(2753, 12328)
+rotation = -3.06131
+texture = ExtResource("9_n17ie")
+
+[node name="JellyCell3" type="Sprite2D" parent="Decal/JellyCells" index="2"]
+position = Vector2(2752, 10066)
+rotation = -2.57785
+texture = ExtResource("9_n17ie")
+
+[node name="JellyCell4" type="Sprite2D" parent="Decal/JellyCells" index="3"]
+position = Vector2(3498, 7635)
+rotation = -1.213
+texture = ExtResource("9_n17ie")
+
+[node name="JellyCell5" type="Sprite2D" parent="Decal/JellyCells" index="4"]
+position = Vector2(4269, 6070)
+texture = ExtResource("9_n17ie")
+
+[node name="JellyCell6" type="Sprite2D" parent="Decal/JellyCells" index="5"]
+position = Vector2(3603, 4258)
+rotation = -3.54476
+texture = ExtResource("9_n17ie")
+
+[node name="JellyCell7" type="Sprite2D" parent="Decal/JellyCells" index="6"]
+position = Vector2(3736, 1965)
+rotation = -3.88336
+texture = ExtResource("9_n17ie")
+
+[node name="Pests" type="Node2D" parent="Decal" index="6"]
+
+[node name="Pest" type="Sprite2D" parent="Decal/Pests" index="0"]
+position = Vector2(3413, 13576)
+texture = ExtResource("10_5o1il")
+
+[node name="Pest2" type="Sprite2D" parent="Decal/Pests" index="1"]
+position = Vector2(3408, 12810)
+rotation = -3.54476
+texture = ExtResource("10_5o1il")
+
+[node name="Pest3" type="Sprite2D" parent="Decal/Pests" index="2"]
+position = Vector2(2385, 11212)
+rotation = 4.83282
+texture = ExtResource("10_5o1il")
+
+[node name="Pest4" type="Sprite2D" parent="Decal/Pests" index="3"]
+position = Vector2(3674, 9514)
+rotation = 2.68781
+texture = ExtResource("10_5o1il")
+
+[node name="Pest5" type="Sprite2D" parent="Decal/Pests" index="4"]
+position = Vector2(4179, 7587)
+rotation = 6.28319
+texture = ExtResource("10_5o1il")
+
+[node name="Pest6" type="Sprite2D" parent="Decal/Pests" index="5"]
+position = Vector2(3898, 4552)
+texture = ExtResource("10_5o1il")
+
+[node name="Pest7" type="Sprite2D" parent="Decal/Pests" index="6"]
+position = Vector2(3208, 2911)
+rotation = -4.17134
+texture = ExtResource("10_5o1il")
+
+[node name="MiniBacterias" type="Node2D" parent="Decal" index="7"]
+
+[node name="MiniBacteria" type="Sprite2D" parent="Decal/MiniBacterias" index="0"]
+position = Vector2(3598, 866)
+texture = ExtResource("11_7phvu")
+
+[node name="MiniBacteria2" type="Sprite2D" parent="Decal/MiniBacterias" index="1"]
+position = Vector2(4640, 3558)
+rotation = 1.06465
+texture = ExtResource("11_7phvu")
+
+[node name="MiniBacteria3" type="Sprite2D" parent="Decal/MiniBacterias" index="2"]
+position = Vector2(3384, 5099)
+rotation = -3.38245
+texture = ExtResource("11_7phvu")
+
+[node name="MiniBacteria4" type="Sprite2D" parent="Decal/MiniBacterias" index="3"]
+position = Vector2(3479, 6503)
+rotation = -5.47684
+texture = ExtResource("11_7phvu")
+
+[node name="MiniBacteria5" type="Sprite2D" parent="Decal/MiniBacterias" index="4"]
+position = Vector2(3831, 8515)
+rotation = -5.98648
+texture = ExtResource("11_7phvu")
+
+[node name="MiniBacteria6" type="Sprite2D" parent="Decal/MiniBacterias" index="5"]
+position = Vector2(5082, 10389)
+rotation = 3.54476
+texture = ExtResource("11_7phvu")
+
+[node name="MiniBacteria7" type="Sprite2D" parent="Decal/MiniBacterias" index="6"]
+position = Vector2(4079, 14133)
+texture = ExtResource("11_7phvu")
+
+[node name="Objects" parent="." index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ClusterCell" type="Node2D" parent="Objects" index="0"]
+
+[node name="LargeCell" parent="Objects/ClusterCell" index="0" instance=ExtResource("12_ycuk7")]
+position = Vector2(4380, 517)
+
+[node name="MediumCell" parent="Objects/ClusterCell" index="1" instance=ExtResource("13_4vgyb")]
+position = Vector2(4352, 504)
+rotation = -2.54644
+
+[node name="SmallCellLong" parent="Objects/ClusterCell" index="2" instance=ExtResource("14_rv3g6")]
+position = Vector2(4361, 535)
+rotation = -0.340339
+
+[node name="SmallCellRound" parent="Objects/ClusterCell" index="3" instance=ExtResource("16_t2kiw")]
+position = Vector2(4386, 484)
+
+[node name="SmallCellRound2" parent="Objects/ClusterCell" index="4" instance=ExtResource("16_t2kiw")]
+position = Vector2(4387, 551)
+
+[node name="ClusterCell2" type="Node2D" parent="Objects" index="1"]
+
+[node name="SpikesCell" parent="Objects/ClusterCell2" index="0" instance=ExtResource("15_572il")]
+position = Vector2(2541, 2747)
+
+[node name="LargeCell2" parent="Objects/ClusterCell2" index="1" instance=ExtResource("12_ycuk7")]
+position = Vector2(2535, 2791)
+
+[node name="ClusterCell3" type="Node2D" parent="Objects" index="2"]
+
+[node name="MediumCell" parent="Objects/ClusterCell3" index="0" instance=ExtResource("13_4vgyb")]
+position = Vector2(5125, 5141)
+rotation = 0.340339
+
+[node name="SmallCellRound" parent="Objects/ClusterCell3" index="1" instance=ExtResource("16_t2kiw")]
+position = Vector2(5139, 5158)
+
+[node name="SmallCellLong" parent="Objects/ClusterCell3" index="2" instance=ExtResource("14_rv3g6")]
+position = Vector2(5147, 5127)
+
+[node name="LargeCell" parent="Objects/ClusterCell3" index="3" instance=ExtResource("12_ycuk7")]
+position = Vector2(5170, 5149)
+
+[node name="ClusterCell4" type="Node2D" parent="Objects" index="3"]
+
+[node name="LargeCell" parent="Objects/ClusterCell4" index="0" instance=ExtResource("12_ycuk7")]
+position = Vector2(3661, 8092)
+
+[node name="LargeCell2" parent="Objects/ClusterCell4" index="1" instance=ExtResource("12_ycuk7")]
+position = Vector2(3621, 8092)
+rotation = 3.56571
+
+[node name="SmallCellRound" parent="Objects/ClusterCell4" index="2" instance=ExtResource("16_t2kiw")]
+position = Vector2(3628, 8059)
+
+[node name="SmallCellLong" parent="Objects/ClusterCell4" index="3" instance=ExtResource("14_rv3g6")]
+position = Vector2(3647, 8066)
+rotation = -2.54644
+
+[node name="IsolatedCells" type="Node2D" parent="Objects" index="4"]
+
+[node name="SpikesCell" parent="Objects/IsolatedCells" index="0" instance=ExtResource("15_572il")]
+position = Vector2(3176, 9457)
+
+[node name="MediumCell" parent="Objects/IsolatedCells" index="1" instance=ExtResource("13_4vgyb")]
+position = Vector2(4000, 9007)
+rotation = -2.88677
+
+[node name="LargeCell" parent="Objects/IsolatedCells" index="2" instance=ExtResource("12_ycuk7")]
+position = Vector2(2184, 10653)
+
+[node name="SmallCellRound" parent="Objects/IsolatedCells" index="3" instance=ExtResource("16_t2kiw")]
+position = Vector2(2016, 11740)
+
+[node name="MediumCell2" parent="Objects/IsolatedCells" index="4" instance=ExtResource("13_4vgyb")]
+position = Vector2(5547, 11936)
+rotation = -1.22173
+
+[node name="SmallCellRound2" parent="Objects/IsolatedCells" index="5" instance=ExtResource("16_t2kiw")]
+position = Vector2(2632, 13091)
+
+[node name="SpikesCell2" parent="Objects/IsolatedCells" index="6" instance=ExtResource("15_572il")]
+position = Vector2(3308, 14101)
+
+[node name="MediumCell3" parent="Objects/IsolatedCells" index="7" instance=ExtResource("13_4vgyb")]
+position = Vector2(5023, 13589)
+rotation = 0.375246
 
 [node name="SpawnPoint" parent="." index="4"]
 position = Vector2(3895, 541)

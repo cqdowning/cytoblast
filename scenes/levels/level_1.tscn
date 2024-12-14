@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bhx1af230urm"]
+[gd_scene load_steps=45 format=4 uid="uid://bhx1af230urm"]
 
 [ext_resource type="PackedScene" uid="uid://8f7wguw806d0" path="res://scenes/level items/level_base.tscn" id="1_7c6su"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="2_1ogo2"]
@@ -9,12 +9,18 @@
 [ext_resource type="Texture2D" uid="uid://nqufvjy5f8j4" path="res://assets/objects/decor/cell2.png" id="5_qnkjj"]
 [ext_resource type="PackedScene" uid="uid://bjgwskhtms22g" path="res://scenes/objects/cells/small_cell_round.tscn" id="5_u8k5r"]
 [ext_resource type="PackedScene" uid="uid://d042h1k8gia83" path="res://scenes/level items/enemy_spawner.tscn" id="6_ak8yx"]
+[ext_resource type="Texture2D" uid="uid://c5nur23k3funu" path="res://assets/decal/dna_strand.png" id="6_dw42a"]
 [ext_resource type="PackedScene" uid="uid://er81yisr6ajj" path="res://scenes/objects/cells/small_cell_long.tscn" id="6_msbxg"]
+[ext_resource type="Texture2D" uid="uid://dibcqifcrxt4a" path="res://assets/objects/decor/cell_string1.png" id="6_mxofq"]
 [ext_resource type="PackedScene" uid="uid://d1gg7ig7xr4w7" path="res://scenes/level items/room_door.tscn" id="6_q2qt6"]
+[ext_resource type="Texture2D" uid="uid://bb6xmyqlu21j5" path="res://assets/decal/dna_strand2.png" id="7_6r7xe"]
 [ext_resource type="PackedScene" uid="uid://ccuuf8jinc15p" path="res://scenes/objects/cells/medium_cell.tscn" id="7_g3872"]
 [ext_resource type="Script" path="res://scripts/enemies/enemy_spec.gd" id="7_vg5hi"]
 [ext_resource type="PackedScene" uid="uid://di8ch2sq1r8t7" path="res://scenes/objects/cells/spikes_cell.tscn" id="8_eic3d"]
+[ext_resource type="Texture2D" uid="uid://dpxhu01mydqka" path="res://assets/decal/jelly_cell.png" id="8_p5ga6"]
 [ext_resource type="PackedScene" uid="uid://cobsxuxdjkkce" path="res://scenes/weapons/weapon_antibiotic_machinegun.tscn" id="9_njl1c"]
+[ext_resource type="Texture2D" uid="uid://oidbkloiqinh" path="res://assets/decal/pest.png" id="9_uqgja"]
+[ext_resource type="Texture2D" uid="uid://ds8hxx3l21pip" path="res://assets/decal/mini_bacteria.png" id="10_1xini"]
 [ext_resource type="PackedScene" uid="uid://ds2xjbx70l0wo" path="res://scenes/weapons/weapon_antibiotic_shotgun.tscn" id="10_3i7yc"]
 [ext_resource type="PackedScene" uid="uid://bovtbuvyfjrlm" path="res://scenes/weapons/weapon_antiparasitic_shotgun.tscn" id="10_syif5"]
 [ext_resource type="PackedScene" uid="uid://chmjdrcj3epwi" path="res://scenes/weapons/weapon_antiviral_rifle.tscn" id="11_4w860"]
@@ -141,13 +147,131 @@ position = Vector2(767, 0)
 tile_map_data = PackedByteArray("AAD6//b/AAABAAEAAAD6//f/AAADAAIAAAD6//j/AAADAAMAAAD6//n/AAADAAIAAAD6//r/AAADAAMAAAD6//v/AAADAAIAAAD6//z/AAADAAIAAAD6//3/AAADAAMAAAD6//7/AAADAAMAAAD6////AAABAAIAAAD7//b/AAABAAAAAAD7////AAABAAAAAAD8//b/AAABAAAAAAD8////AAACAAAAAAD9//b/AAABAAAAAAD9////AAABAAAAAAD+//b/AAACAAIAAAD+////AAACAAAAAAD/////AAABAAAAAAAAAP//AAACAAAAAAABAP//AAABAAAAAAACAPb/AAABAAIAAAACAP//AAACAAAAAAADAPb/AAACAAAAAAADAP//AAABAAAAAAAEAPb/AAABAAAAAAAEAP//AAACAAAAAAAFAPb/AAACAAAAAAAFAP//AAABAAAAAAAGAPb/AAACAAEAAAAGAPf/AAADAAIAAAAGAPj/AAADAAIAAAAGAPn/AAADAAMAAAAGAPr/AAADAAIAAAAGAPv/AAADAAMAAAAGAPz/AAADAAMAAAAGAP3/AAADAAIAAAAGAP7/AAADAAMAAAAGAP//AAACAAIAAAACAPT/AAADAAIAAAACAPX/AAADAAMAAAACAPP/AAADAAMAAAACAPH/AAADAAMAAAACAPL/AAADAAIAAAACAO//AAADAAMAAAACAPD/AAADAAIAAAD+//T/AAADAAMAAAD+//X/AAADAAMAAAD+//L/AAADAAMAAAD+//P/AAADAAIAAAD+//D/AAADAAMAAAD+//H/AAADAAIAAAD+/+7/AAADAAMAAAD+/+//AAADAAIAAAACAO7/AAADAAIAAAACAOz/AAADAAIAAAACAO3/AAADAAMAAAACAOr/AAADAAIAAAACAOv/AAADAAMAAAD+/+3/AAADAAIAAAD+/+v/AAADAAMAAAD+/+z/AAADAAMAAAD+/+r/AAADAAIAAAACAOn/AAABAAEAAAD+/+n/AAACAAEAAAADAOn/AAABAAAAAAAEAOn/AAABAAAAAAAFAOn/AAACAAAAAAAGAOn/AAABAAAAAAAHAOn/AAABAAAAAAAIAOn/AAABAAAAAAAJAOn/AAACAAAAAAD8/+n/AAACAAAAAAD9/+n/AAACAAAAAAD7/+n/AAACAAAAAAD5/+n/AAACAAAAAAD6/+n/AAABAAAAAAD4/+n/AAACAAAAAAD3/+n/AAABAAAAAAD2/+n/AAABAAIAAAAKAOn/AAACAAIAAAAKAOf/AAADAAMAAAAKAOj/AAADAAMAAAAKAOX/AAADAAMAAAAKAOb/AAADAAIAAAAKAOT/AAADAAIAAAAKAOL/AAADAAMAAAAKAOP/AAADAAMAAAAKAOH/AAADAAIAAAD2/+f/AAADAAIAAAD2/+j/AAADAAMAAAD2/+X/AAADAAIAAAD2/+b/AAADAAMAAAD2/+P/AAADAAMAAAD2/+T/AAADAAMAAAD2/+H/AAADAAIAAAD2/+L/AAADAAIAAAD2/9//AAADAAMAAAD2/+D/AAADAAMAAAD2/97/AAADAAIAAAAKAN//AAADAAMAAAAKAOD/AAADAAMAAAAKAN7/AAADAAIAAAD2/93/AAABAAEAAAAKAN3/AAACAAEAAAD3/93/AAABAAAAAAD4/93/AAABAAAAAAD5/93/AAACAAAAAAD6/93/AAABAAAAAAD7/93/AAACAAAAAAAGAN3/AAACAAAAAAAHAN3/AAABAAAAAAAIAN3/AAABAAAAAAAJAN3/AAACAAAAAAD4/9//AAABAAEAAAD6/+H/AAACAAIAAAD6/9//AAACAAEAAAD4/+H/AAABAAIAAAD4/+D/AAADAAIAAAD6/+D/AAADAAMAAAD5/9//AAACAAAAAAD5/+H/AAABAAAAAAD4/+X/AAABAAEAAAD4/+b/AAADAAIAAAD4/+f/AAABAAIAAAD5/+X/AAACAAAAAAD5/+f/AAABAAAAAAD6/+X/AAACAAEAAAD6/+b/AAADAAMAAAD6/+f/AAACAAIAAAAGAOX/AAABAAEAAAAGAOb/AAADAAIAAAAGAOf/AAABAAIAAAAHAOX/AAACAAAAAAAHAOf/AAABAAAAAAAIAOX/AAACAAEAAAAIAOb/AAADAAMAAAAIAOf/AAACAAIAAAAGAN//AAABAAEAAAAGAOD/AAADAAIAAAAGAOH/AAABAAIAAAAHAN//AAACAAAAAAAHAOH/AAABAAAAAAAIAN//AAACAAEAAAAIAOD/AAADAAMAAAAIAOH/AAACAAIAAAAFAN3/AAACAAAAAAAEAN3/AAABAAIAAAD8/93/AAACAAIAAAD8/9v/AAADAAIAAAD8/9z/AAADAAMAAAD8/9j/AAADAAIAAAD8/9n/AAADAAIAAAD8/9r/AAADAAMAAAD8/9T/AAADAAIAAAD8/9X/AAADAAMAAAD8/9b/AAADAAIAAAD8/9f/AAADAAMAAAAEANv/AAADAAMAAAAEANz/AAADAAMAAAAEANj/AAADAAIAAAAEANn/AAADAAIAAAAEANb/AAADAAIAAAAEANf/AAADAAMAAAAEANr/AAADAAIAAAAEANX/AAADAAIAAAAEANP/AAADAAIAAAAEANT/AAADAAMAAAD8/9L/AAADAAMAAAD8/9P/AAADAAMAAAD8/9H/AAADAAMAAAAEANH/AAADAAIAAAAEANL/AAADAAMAAAAEAM//AAADAAMAAAAEAND/AAADAAMAAAAEAM3/AAADAAIAAAAEAM7/AAADAAIAAAAEAMz/AAADAAIAAAD8/8//AAADAAIAAAD8/9D/AAADAAIAAAD8/8z/AAADAAIAAAD8/83/AAADAAMAAAD8/87/AAADAAIAAAD//9T/AAABAAEAAAD//9X/AAADAAIAAAD//9b/AAABAAIAAAAAANT/AAACAAAAAAAAANb/AAABAAAAAAABANT/AAACAAEAAAABANX/AAADAAMAAAABANb/AAACAAIAAAD//8z/AAABAAEAAAD//83/AAADAAIAAAD//87/AAABAAIAAAAAAMz/AAACAAAAAAAAAM7/AAABAAAAAAABAMz/AAACAAEAAAABAM3/AAADAAMAAAABAM7/AAACAAIAAAAEAMr/AAADAAIAAAAEAMv/AAADAAMAAAAEAMj/AAADAAMAAAAEAMn/AAADAAIAAAD8/8r/AAADAAMAAAD8/8v/AAADAAMAAAD8/8j/AAADAAMAAAD8/8n/AAADAAIAAAD8/8f/AAACAAEAAAAEAMf/AAABAAEAAAAFAMf/AAABAAAAAAAGAMf/AAACAAAAAAAHAMf/AAABAAAAAAAIAMf/AAACAAIAAAD5/8f/AAACAAAAAAD6/8f/AAABAAAAAAD4/8f/AAABAAIAAAD7/8f/AAACAAAAAAAIAMX/AAADAAIAAAAIAMb/AAADAAMAAAAIAMP/AAADAAMAAAAIAMT/AAADAAMAAAAIAML/AAABAAEAAAD4/8X/AAADAAMAAAD4/8b/AAADAAMAAAD4/8T/AAADAAIAAAD4/8L/AAACAAEAAAD4/8P/AAADAAMAAAAJAML/AAACAAIAAAD3/8L/AAABAAIAAAD3/8D/AAADAAIAAAD3/8H/AAADAAMAAAD3/77/AAADAAIAAAD3/7//AAADAAIAAAD3/7z/AAABAAEAAAD3/73/AAADAAMAAAAJAMD/AAADAAMAAAAJAMH/AAADAAMAAAAJAL7/AAADAAIAAAAJAL//AAADAAIAAAAJALz/AAACAAEAAAAJAL3/AAADAAIAAAD4/7z/AAACAAIAAAAIALz/AAABAAIAAAAIALr/AAADAAIAAAAIALv/AAADAAMAAAD4/7r/AAADAAIAAAD4/7v/AAADAAMAAAAIALn/AAACAAEAAAD4/7n/AAABAAEAAAD5/7n/AAABAAAAAAD6/7n/AAABAAAAAAD7/7n/AAABAAAAAAD8/7n/AAACAAAAAAD9/7n/AAABAAAAAAADALn/AAABAAAAAAAEALn/AAACAAAAAAAFALn/AAABAAAAAAAGALn/AAACAAAAAAAHALn/AAACAAAAAAD8/77/AAACAAEAAAAEAL7/AAABAAEAAAAFAL7/AAACAAAAAAAGAL7/AAADAAAAAAD6/77/AAAAAAAAAAD7/77/AAABAAAAAAAEAL//AAADAAMAAAAEAMD/AAADAAQAAAD8/7//AAADAAMAAAD8/8D/AAADAAQAAAD+/7n/AAACAAIAAAACALn/AAABAAIAAAACALf/AAADAAMAAAACALj/AAADAAMAAAD+/7f/AAADAAIAAAD+/7j/AAADAAMAAAD+/7X/AAADAAMAAAD+/7b/AAADAAMAAAACALX/AAADAAMAAAACALb/AAADAAIAAAACALT/AAADAAIAAAD+/7L/AAADAAIAAAD+/7P/AAADAAMAAAD+/7T/AAADAAIAAAACALL/AAADAAIAAAACALP/AAADAAMAAAD+/7H/AAABAAEAAAACALH/AAACAAEAAAD//7H/AAABAAAAAAAAALH/AAACAAAAAAABALH/AAACAAAAAAA=")
 tile_set = ExtResource("2_1ogo2")
 
-[node name="Cell1" type="Sprite2D" parent="Decal" index="0"]
+[node name="Decal" parent="." index="2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Cells" type="Node2D" parent="Decal" index="0"]
+
+[node name="Cell1" type="Sprite2D" parent="Decal/Cells" index="0"]
 position = Vector2(-66, -3259)
 texture = ExtResource("4_8ik7x")
 
-[node name="Cell2" type="Sprite2D" parent="Decal" index="1"]
+[node name="Cell2" type="Sprite2D" parent="Decal/Cells" index="1"]
 position = Vector2(837, -6464)
 texture = ExtResource("5_qnkjj")
+
+[node name="Cell3" type="Sprite2D" parent="Decal/Cells" index="2"]
+position = Vector2(1733, -4036)
+rotation = -3.22013
+texture = ExtResource("5_qnkjj")
+
+[node name="CellString1" type="Sprite2D" parent="Decal/Cells" index="3"]
+position = Vector2(833, -5501)
+rotation = -2.1101
+texture = ExtResource("6_mxofq")
+
+[node name="DNAStrands" type="Node2D" parent="Decal" index="1"]
+
+[node name="DnaStrand" type="Sprite2D" parent="Decal/DNAStrands" index="0"]
+position = Vector2(380, -836)
+rotation = -2.41728
+texture = ExtResource("6_dw42a")
+
+[node name="DnaStrand2" type="Sprite2D" parent="Decal/DNAStrands" index="1"]
+position = Vector2(399, -192)
+rotation = -0.644027
+texture = ExtResource("6_dw42a")
+
+[node name="DnaStrand3" type="Sprite2D" parent="Decal/DNAStrands" index="2"]
+position = Vector2(1317, -980)
+rotation = -1.28805
+texture = ExtResource("6_dw42a")
+
+[node name="DnaStrand4" type="Sprite2D" parent="Decal/DNAStrands" index="3"]
+position = Vector2(965, -2351)
+texture = ExtResource("7_6r7xe")
+
+[node name="DnaStrand5" type="Sprite2D" parent="Decal/DNAStrands" index="4"]
+position = Vector2(165, -3694)
+rotation = -2.41728
+texture = ExtResource("7_6r7xe")
+
+[node name="DnaStrand6" type="Sprite2D" parent="Decal/DNAStrands" index="5"]
+position = Vector2(851, -3286)
+rotation = -4.67225
+texture = ExtResource("6_dw42a")
+
+[node name="JellyCells" type="Node2D" parent="Decal" index="2"]
+
+[node name="JellyCell" type="Sprite2D" parent="Decal/JellyCells" index="0"]
+position = Vector2(1368, -601)
+texture = ExtResource("8_p5ga6")
+
+[node name="JellyCell2" type="Sprite2D" parent="Decal/JellyCells" index="1"]
+position = Vector2(258, -3287)
+rotation = -2.41728
+texture = ExtResource("8_p5ga6")
+
+[node name="JellyCell3" type="Sprite2D" parent="Decal/JellyCells" index="2"]
+position = Vector2(527, -5788)
+rotation = 2.73842
+texture = ExtResource("8_p5ga6")
+
+[node name="JellyCell4" type="Sprite2D" parent="Decal/JellyCells" index="3"]
+position = Vector2(1340, -8917)
+rotation = 1.81514
+texture = ExtResource("8_p5ga6")
+
+[node name="Pests" type="Node2D" parent="Decal" index="3"]
+
+[node name="Pest" type="Sprite2D" parent="Decal/Pests" index="0"]
+position = Vector2(959, -1090)
+texture = ExtResource("9_uqgja")
+
+[node name="Pest2" type="Sprite2D" parent="Decal/Pests" index="1"]
+position = Vector2(188, -510)
+rotation = -1.36136
+texture = ExtResource("9_uqgja")
+
+[node name="Pest3" type="Sprite2D" parent="Decal/Pests" index="2"]
+position = Vector2(1130, -142)
+rotation = 0.785398
+scale = Vector2(1, 1)
+texture = ExtResource("9_uqgja")
+
+[node name="Pest4" type="Sprite2D" parent="Decal/Pests" index="3"]
+position = Vector2(-300, -4025)
+rotation = 3.04036
+texture = ExtResource("9_uqgja")
+
+[node name="Pest5" type="Sprite2D" parent="Decal/Pests" index="4"]
+position = Vector2(68, -8253)
+texture = ExtResource("9_uqgja")
+
+[node name="MiniBacterias" type="Node2D" parent="Decal" index="4"]
+
+[node name="MiniBacteria" type="Sprite2D" parent="Decal/MiniBacterias" index="0"]
+position = Vector2(669, -1588)
+rotation = -2.57785
+texture = ExtResource("10_1xini")
+
+[node name="MiniBacteria2" type="Sprite2D" parent="Decal/MiniBacterias" index="1"]
+position = Vector2(1078, -4039)
+rotation = -0.968658
+texture = ExtResource("10_1xini")
+
+[node name="MiniBacteria3" type="Sprite2D" parent="Decal/MiniBacterias" index="2"]
+position = Vector2(1203, -6276)
+texture = ExtResource("10_1xini")
+
+[node name="MiniBacteria4" type="Sprite2D" parent="Decal/MiniBacterias" index="3"]
+position = Vector2(716, -9277)
+texture = ExtResource("10_1xini")
+
+[node name="Objects" parent="." index="3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CellCluster1" type="Node2D" parent="Objects" index="0"]
 metadata/_edit_group_ = true

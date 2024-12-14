@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://bh8tiudw33h6r"]
+[gd_scene load_steps=5 format=4 uid="uid://bh8tiudw33h6r"]
 
 [ext_resource type="Theme" uid="uid://bjgybysitftgb" path="res://assets/default_theme.tres" id="1_n33vi"]
-[ext_resource type="FontFile" uid="uid://dfhrdf7enuaer" path="res://assets/Chewy Bubble.otf" id="2_eno1k"]
 [ext_resource type="TileSet" uid="uid://d2j1asehj6qc" path="res://assets/tilesets/level_tileset.tres" id="3_cgopm"]
 [ext_resource type="Script" path="res://scripts/credits_button.gd" id="5_7yjs5"]
 [ext_resource type="Script" path="res://scripts/restart_button.gd" id="5_68xkt"]
@@ -18,11 +17,8 @@ offset_right = 284.5
 offset_bottom = 166.0
 grow_horizontal = 2
 theme = ExtResource("1_n33vi")
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_shadow_color = Color(0.917647, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_eno1k")
 theme_override_font_sizes/font_size = 121
-text = "VICTORY"
+text = "VICTORY!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -40,19 +36,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 406.0
-offset_top = 199.0
-offset_right = 749.0
-offset_bottom = 322.0
+offset_left = 472.0
+offset_top = 208.0
+offset_right = 622.0
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_pressed_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_focus_color = Color(0.796078, 0.384314, 0.929412, 1)
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_outline_color = Color(0.898039, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_eno1k")
-theme_override_font_sizes/font_size = 85
+theme = ExtResource("1_n33vi")
+theme_override_font_sizes/font_size = 28
 text = "RESTART"
 script = ExtResource("5_68xkt")
 
@@ -62,19 +53,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 386.0
-offset_top = 376.0
-offset_right = 775.0
-offset_bottom = 520.0
+offset_left = 472.0
+offset_top = 304.0
+offset_right = 619.0
+offset_bottom = 382.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_hover_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_pressed_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_focus_color = Color(0.796078, 0.384314, 0.929412, 1)
-theme_override_colors/font_color = Color(0.952941, 0.435294, 0.45098, 1)
-theme_override_colors/font_outline_color = Color(0.898039, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_eno1k")
-theme_override_font_sizes/font_size = 90
+theme = ExtResource("1_n33vi")
+theme_override_font_sizes/font_size = 28
 text = "CREDITS"
 script = ExtResource("5_7yjs5")
 
