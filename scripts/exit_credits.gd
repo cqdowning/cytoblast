@@ -1,5 +1,5 @@
 extends Button
-
+## Button to take player back to title screen
 
 func _ready():
 	#var style: StyleBoxFlat = StyleBoxFlat.new()

@@ -1,6 +1,9 @@
 class_name Inventory
 extends Node
-
+## Inventory singleton for keeping track of player's weapons
+##
+## Handles level changing and keeping track of enemy and player death
+## This class is autoloaded as current_inventory
 
 signal weapon_changed(cur_slot: int)
 signal weapon_added(weapon: Weapon, slot: int)
@@ -96,7 +99,8 @@ func _get_first_available_slot() -> int:
 		if !weapons[i]:
 			return i
 	return -1 	
-	
+
+
 # find the next slot that can has a weapon, return _cur_slot if none was found
 func _get_next_available_slot(increment:int) -> int:
 	var next_slot = _cur_slot + increment

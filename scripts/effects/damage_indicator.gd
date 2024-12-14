@@ -1,5 +1,9 @@
 class_name DamageIndicator
 extends Label
+## Damage indicator for enemies
+##
+## Meant to be created on top of enemies when they are damaged
+## Will move to a random position slightly away from where it was first spawned
 
 @export var duration: float = 1.0
 @export var movement_curve: Curve

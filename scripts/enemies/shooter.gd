@@ -1,8 +1,13 @@
 class_name Shooter
 extends Enemy
+## The bacteria enemy
+##
+## Stays a certain distance away from the player
+## Fires projectiles straight at the player
 
 var RANGE: float = 500.0
 var MARGIN: float = 10.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +31,7 @@ func _ai(delta):
 		move_and_collide(move_speed * delta * -direction_towards_player)
 		
 	_face_target(delta)
+
 
 func _attack() -> void:
 	super()

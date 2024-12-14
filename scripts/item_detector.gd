@@ -1,5 +1,9 @@
 class_name ItemDetector
 extends Area2D
+## Collision for picking up items
+##
+## Attached to the player
+## Adds weapons or health to the player
 
 
 func add_to_player(player: Player) -> void:

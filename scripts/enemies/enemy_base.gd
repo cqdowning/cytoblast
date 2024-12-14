@@ -1,5 +1,9 @@
 class_name Enemy
 extends RigidBody2D
+## Abstract base class for Enemies
+##
+## The _ai function should be implemented to handle movement.
+## The _attack function should be implemented to handle attacking.
 
 enum Type {
 	BACTERIA,
@@ -51,6 +55,7 @@ func _ready():
 	add_child(_movement_timer)
 	_movement_timer.one_shot = true
 	_movement_timer.timeout.connect(_on_movement_timeout)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -105,15 +110,15 @@ func _face_target(delta) -> void:
 	rotation += angle_diff * rotation_speed * delta
 
 
-func move_in_direction(direction: Vector2, delta: float) -> void:
+func _move_in_direction(direction: Vector2, delta: float) -> void:
 	move_and_collide(direction * move_speed * delta)
 
 
-func get_random_direction() -> Vector2:
+func _get_random_direction() -> Vector2:
 	return Vector2.from_angle(_rng.randf() * 2 * PI)
 
 
-func start_movement_timer(duration: float) -> void:
+func _start_movement_timer(duration: float) -> void:
 	_movement_timer.start(duration)
 
 

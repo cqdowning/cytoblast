@@ -1,33 +1,39 @@
 class_name Turret
 extends Enemy
+## The virus enemy
+##
+## Moves in a random direction
+## Fires a ring of projectiles after moving
 
 var PROJECTILE_COUNT: int = 16
 var MOVEMENT_DURATION: float = 0.5
 var MOVEMENT_COOLDOWN: float = 3.0
+
 var current_direction: Vector2 = Vector2.ZERO
+
 
 func _ready():
 	super()
 	type = Type.VIRUS
-	start_movement_timer(MOVEMENT_DURATION)
+	_start_movement_timer(MOVEMENT_DURATION)
 	
 
 func _ai(delta):
 	super(delta)
 	if current_direction != Vector2.ZERO:
-		move_in_direction(current_direction, delta)
+		_move_in_direction(current_direction, delta)
 
 
 func _on_movement_timeout() -> void:
 	if current_direction == Vector2.ZERO:
 		# Start moving
-		current_direction = get_random_direction()
-		start_movement_timer(MOVEMENT_DURATION)
+		current_direction = _get_random_direction()
+		_start_movement_timer(MOVEMENT_DURATION)
 	else:
 		# Stop moving and attack
 		current_direction = Vector2.ZERO
 		_attack()
-		start_movement_timer(MOVEMENT_COOLDOWN)
+		_start_movement_timer(MOVEMENT_COOLDOWN)
 
 
 func _attack() -> void:

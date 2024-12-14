@@ -1,5 +1,8 @@
 class_name Shotgun
 extends Weapon
+## Shotgun weapon type
+##
+## Fires a spread of bullets
 
 @export var projectile_amount: int = 6
 

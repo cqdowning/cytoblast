@@ -1,5 +1,9 @@
 class_name ProjectileThrownWeapon
 extends ProjectilePlayer
+## Weapon thrown by the player
+##
+## Creates an explosion projectile and effect on collision
+## Sprite gets updated to match the thrown weapon
 
 @export var rotation_rate: float = 20.0
 @export var explosion_projectile: PackedScene

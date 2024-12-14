@@ -1,5 +1,8 @@
 extends Node2D
-
+## Represents a room in a level
+##
+## Tied to a room entrance in the level
+## Actives the spawners inside its room
 
 @export var door: RoomDoor
 @export var spawners: Array[EnemySpawner]

@@ -1,6 +1,9 @@
 class_name DamageEngine
 extends Node
-
+## Damage calculator
+##
+## Contains static function for calculating the 
+## damage multiplier to be applied to an enemy
 
 static func damage_multiplier(projectile: Projectile, enemy: Enemy) -> float:
 	if projectile.type == Weapon.Type.ANTIBIOTIC:

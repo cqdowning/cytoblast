@@ -1,5 +1,9 @@
 class_name Weapon
 extends Sprite2D
+## Abstract weapon base class
+## 
+## _shoot should be implemented to define firing behavior
+## Weapons can also be in a dropped state on the ground
 
 enum Type {
 	ANTIBIOTIC,

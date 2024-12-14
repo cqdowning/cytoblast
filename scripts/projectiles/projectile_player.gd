@@ -1,6 +1,9 @@
 class_name ProjectilePlayer
 extends Projectile
-
+## Projectile base class for player projectiles
+##
+## These projectiles can collide with enemies and damage them based on damage type
+## Will not collide with the player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

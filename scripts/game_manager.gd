@@ -1,6 +1,9 @@
 class_name GameManager
 extends Node
-
+## Game Manager singleton for global level handling
+##
+## Handles level changing and keeping track of enemy and player death
+## This class is autoloaded as game_manager
 
 signal room_over(room_id: int)
 signal enemy_defeated

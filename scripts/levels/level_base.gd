@@ -1,6 +1,9 @@
 class_name Level
 extends Node2D
-
+## Handles level logic
+##
+## Keeps track of which room the player is in
+## Moves the player to the next level upon reaching the end
 
 @export var next_level: PackedScene
 

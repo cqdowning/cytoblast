@@ -1,5 +1,9 @@
 class_name EnemySpawner
 extends Node2D
+## Spawner for enemies inside of levels
+##
+## Individually spawns an array of enemies after a certain delay
+## Assigned to a room entrance
 
 @export var enemy_specs: Array[EnemySpec]
 @export var wave_delay: float
@@ -14,6 +18,7 @@ var _virus_particle: Texture2D = load("res://assets/weapons/bullets/bullet_antiv
 var _parasite_particle: Texture2D = load("res://assets/weapons/bullets/bullet_antiparasitic.png")
 
 @onready var particles: GPUParticles2D = $GPUParticles2D 
+
 
 func _ready() -> void:
 	_spec_index = 0

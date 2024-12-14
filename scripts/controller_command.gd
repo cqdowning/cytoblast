@@ -1,7 +1,11 @@
 class_name ControllerCommand
 extends Node
+## Represents the player controller
+## 
+## Takes input and calls commands on the player
 
 @export var player: CharacterBody2D
+
 
 func _ready():
 	# Verify player reference exists
