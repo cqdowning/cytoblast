@@ -52,7 +52,7 @@ As a tip, virus enemies are the least common enemy type. This means holding on t
 
 *Communication* - All communication was done through a Discord server. We had a single main chat with threads for each feature being worked on.
 
-*Task Delegation* - To delegate tasks I kept things simple and created Discord threads for each feature that needed to be implemented. This meant we could keep discussions for features contained in one place. Inside the thread, I would describe the feature that needed to be added and then ping the team member responsible for implementing it.
+*Task Delegation* - To delegate tasks I kept things simple and created Discord threads for each feature that needed to be implemented. This meant we could keep discussions for features contained in one place. Inside the thread, I would describe the feature that needed to be added and then ping the team member responsible for implementing it. We would continue any discussion inside of that thread until the feature was completed.
 
 ![List of threads](./project_doc_images/Discord_Threads.PNG "Example list of threads")
 ![Thread](./project_doc_images/Thread_Example.PNG "Example of a thread")
